@@ -1,6 +1,6 @@
-# Contributing to GitHub Copilot Instructions
+# Contributing to Awesome GitHub Copilot
 
-Thank you for your interest in contributing to the GitHub Copilot Instructions repository! We welcome contributions from the community to help expand our collection of custom instructions and prompts.
+Thank you for your interest in contributing to the Awesome GitHub Copilot repository! We welcome contributions from the community to help expand our collection of custom instructions and prompts.
 
 ## How to Contribute
 
@@ -76,9 +76,7 @@ Your goal is to...
 
 ## Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## License
 
