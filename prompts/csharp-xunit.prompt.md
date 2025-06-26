@@ -1,6 +1,6 @@
 ---
 mode: "agent"
-tools: ["codebase", "terminalCommand"]
+tools: ["changes", "codebase", "editFiles", "problems", "search"]
 description: "Get best practices for XUnit unit testing, including data-driven tests"
 ---
 
