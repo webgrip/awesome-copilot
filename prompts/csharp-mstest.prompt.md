@@ -1,6 +1,6 @@
 ---
 mode: "agent"
-tools: ["codebase", "terminalCommand"]
+tools: ["changes", "codebase", "editFiles", "problems", "search"]
 description: "Get best practices for MSTest unit testing, including data-driven tests"
 ---
 

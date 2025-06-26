@@ -1,6 +1,6 @@
 ---
 mode: "agent"
-tools: ["codebase", "terminalCommand"]
+tools: ["changes", "codebase", "editFiles", "problems"]
 description: "Create ASP.NET Minimal API endpoints with proper OpenAPI documentation"
 ---
 
