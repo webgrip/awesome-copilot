@@ -27,7 +27,7 @@ Team and project-specific instructions to enhance GitHub Copilot's behavior for 
 - [Bicep Code Best Practices](instructions/bicep-code-best-practices.md) - Infrastructure as Code with Bicep
 - [Blazor](instructions/blazor.md) - Blazor component and application patterns
 - [Cmake Vcpkg](instructions/cmake-vcpkg.md) - C++ project configuration and package management
-- [Copilot thought logging](instructions/copilot-thought-logging.instructions.md) see process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed
+- [Copilot Process tracking Instructions](instructions/copilot-thought-logging.instructions.md) - See process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed
 - [Genaiscript](instructions/genaiscript.md) - AI-powered script generation guidelines
 - [Generate Modern Terraform Code For Azure](instructions/generate-modern-terraform-code-for-azure.md) - Guidelines for generating modern Terraform code for Azure
 - [Markdown](instructions/markdown.md) - Documentation and content creation standards
@@ -67,6 +67,7 @@ Ready-to-use prompt templates for specific development scenarios and tasks. Thes
 
 Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows. These `.chatmode.md` files can be loaded by selecting "Chat with Custom Mode" from the Copilot menu.
 
+- [Database Administrator Chat Mode](chatmodes/PostgreSQL%20DBA.chatmode.md) - Work with PostgreSQL databases using the PostgreSQL extension.
 - [Planning mode instructions](chatmodes/planner.chatmode.md) - Generate an implementation plan for new features or refactoring existing code.
 
 

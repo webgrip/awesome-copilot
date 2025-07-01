@@ -177,7 +177,7 @@ function generateReadme() {
     for (const file of instructionFiles) {
       const filePath = path.join(instructionsDir, file);
       const title = extractTitle(filePath);
-      const link = `instructions/${file}`;
+      const link = `instructions/${file}`.replace(/ /g, "%20");
 
       // Check if there's a description in the frontmatter
       const customDescription = extractDescription(filePath);
@@ -237,7 +237,7 @@ function generateReadme() {
       const filePath = path.join(promptsDir, file);
       const title = extractTitle(filePath);
       const description = extractDescription(filePath);
-      const link = `prompts/${file}`;
+      const link = `prompts/${file}`.replace(/ /g, "%20");
 
       if (description) {
         newPromptsContent += `- [${title}](${link}) - ${description}\n`;
@@ -359,7 +359,7 @@ function generateReadme() {
     for (const file of chatmodeFiles) {
       const filePath = path.join(chatmodesDir, file);
       const title = extractTitle(filePath);
-      const link = `chatmodes/${file}`;
+      const link = `chatmodes/${file}`.replace(/ /g, "%20");
 
       // Check if there's a description in the frontmatter
       const customDescription = extractDescription(filePath);
