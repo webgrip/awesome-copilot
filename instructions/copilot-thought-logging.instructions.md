@@ -1,6 +1,7 @@
 ---
 applyTo: '**'
 mode: "agent"
+description: 'See process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed'
 ---
 
 # Copilot Process tracking Instructions
