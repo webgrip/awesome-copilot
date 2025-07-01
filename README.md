@@ -27,7 +27,7 @@ Team and project-specific instructions to enhance GitHub Copilot's behavior for 
 - [Bicep Code Best Practices](instructions/bicep-code-best-practices.md) - Infrastructure as Code with Bicep
 - [Blazor](instructions/blazor.md) - Blazor component and application patterns
 - [Cmake Vcpkg](instructions/cmake-vcpkg.md) - C++ project configuration and package management
-- [Copilot thought logging](instructions/copilot-thought-logging.instructions.md) see process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed
+- [Copilot Process tracking Instructions](instructions/copilot-thought-logging.instructions.md) - See process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed
 - [Genaiscript](instructions/genaiscript.md) - AI-powered script generation guidelines
 - [Generate Modern Terraform Code For Azure](instructions/generate-modern-terraform-code-for-azure.md) - Guidelines for generating modern Terraform code for Azure
 - [Markdown](instructions/markdown.md) - Documentation and content creation standards
@@ -63,12 +63,13 @@ Ready-to-use prompt templates for specific development scenarios and tasks, defi
 
 > 💡 **Usage**: Use `/prompt-name` in VS Code chat, run `Chat: Run Prompt` command, or hit the run button while you have a prompt open.
 
-## 🎭 Custom Chat Modes
+## 🧩 Custom Chat Modes
 
 Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows.
 
+- [Database Administrator Chat Mode](chatmodes/PostgreSQL%20DBA.chatmode.md) - Work with PostgreSQL databases using the PostgreSQL extension.
 - [Planning mode instructions](chatmodes/planner.chatmode.md) - Generate an implementation plan for new features or refactoring existing code.
-
+- [4.1 Beast Mode](chatmodes/4.1-Beast.chatmode.md) - A custom prompt to get GPT 4.1 to behave like a top-notch coding agent.
 
 > 💡 **Usage**: Create new chat modes using the command `Chat: Configure Chat Modes...`, then switch your chat mode in the Chat input from _Agent_ or _Ask_ to your own mode.
 
@@ -78,6 +79,7 @@ Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, e
 - [GitHub Copilot Chat Documentation](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) - Complete chat feature guide
 - [Custom Chat Modes](https://code.visualstudio.com/docs/copilot/chat/chat-modes) - Advanced chat configuration
 - [VS Code Settings](https://code.visualstudio.com/docs/getstarted/settings) - General VS Code configuration guide
+
 
 ## 📄 License
 
