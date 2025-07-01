@@ -161,9 +161,9 @@ function generateReadme() {
   // Get all chat mode files - we'll use this to update the chat modes section
   const chatmodeFiles = fs.existsSync(chatmodesDir)
     ? fs
-        .readdirSync(chatmodesDir)
-        .filter((file) => file.endsWith(".chatmode.md"))
-        .sort()
+      .readdirSync(chatmodesDir)
+      .filter((file) => file.endsWith(".chatmode.md"))
+      .sort()
     : [];
 
   // Update instructions section - rebuild the whole list
@@ -375,7 +375,7 @@ function generateReadme() {
 
     // Replace the current chat modes section with the updated one
     const newChatmodesSection =
-      '## 🎭 Custom Chat Modes\n\nCustom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows. These `.chatmode.md` files can be loaded by selecting "Chat with Custom Mode" from the Copilot menu.' +
+      "## 🎭 Custom Chat Modes\n\nCustom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows." +
       chatmodesListContent;
 
     currentReadme = currentReadme.replace(
@@ -401,9 +401,9 @@ function generateReadme() {
 
     const newChatmodesSection =
       "## 🎭 Custom Chat Modes\n\n" +
-      'Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows. These `.chatmode.md` files can be loaded by selecting "Chat with Custom Mode" from the Copilot menu.\n\n' +
+      "Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows.\n\n" +
       chatmodesListContent +
-      '\n\n> 💡 **Usage**: Create a `.chatmode.md` file in your workspace or repository, then select "Chat with Custom Mode" from the Copilot Chat menu and select your chat mode file.\n';
+      '\n\n> 💡 **Usage**: Create new chat modes using the command `Chat: Configure Chat Modes...`, then switch your chat mode in the Chat input from _Agent_ or _Ask_ to your own mode.\n';
 
     // Insert before Additional Resources section
     const additionalResourcesPos = currentReadme.indexOf(
