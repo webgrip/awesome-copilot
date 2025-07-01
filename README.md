@@ -63,15 +63,15 @@ Ready-to-use prompt templates for specific development scenarios and tasks. Thes
 
 > 💡 **Usage**: Use `/prompt-name` in VS Code chat or run `Chat: Run Prompt` command. Prompt files support variables like `${input:name}` for dynamic content.
 
-## 🎭 Custom Chat Modes
+## 🧩 Custom Chat Modes
 
-Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, enabling enhanced context-aware assistance for particular tasks or workflows. These `.chatmode.md` files can be loaded by selecting "Chat with Custom Mode" from the Copilot menu.
+You can define your own chat modes for specific scenarios, such as planning a new feature or getting the AI to behave a certain way when in a particular mode. Custom chat modes are defined in Markdown files with the `.chatmode.md` suffix and can be stored in the `.github` folder of your workspace or placed in your user profile. They should up in the "Ask/Edit/Agent" dropdown in the chat view.
 
 - [Database Administrator Chat Mode](chatmodes/PostgreSQL%20DBA.chatmode.md) - Work with PostgreSQL databases using the PostgreSQL extension.
 - [Planning mode instructions](chatmodes/planner.chatmode.md) - Generate an implementation plan for new features or refactoring existing code.
+- [4.1 Beast Mode](chatmodes/4.1-Beast.chatmode.md) - A custom prompt to get GPT 4.1 to behave like a top-notch coding agent.
 
-
-> 💡 **Usage**: Create a `.chatmode.md` file in your workspace or repository, then select "Chat with Custom Mode" from the Copilot Chat menu and select your chat mode file.
+Use `Chat > Configure Chat Modes` from the Command Palette to add/edit custom modes.
 
 ## 📚 Additional Resources
 
@@ -79,6 +79,7 @@ Custom chat modes define specific behaviors and tools for GitHub Copilot Chat, e
 - [GitHub Copilot Chat Documentation](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) - Complete chat feature guide
 - [Custom Chat Modes](https://code.visualstudio.com/docs/copilot/chat/chat-modes) - Advanced chat configuration
 - [VS Code Settings](https://code.visualstudio.com/docs/getstarted/settings) - General VS Code configuration guide
+
 
 ## 📄 License
 
