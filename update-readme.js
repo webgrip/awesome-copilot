@@ -16,7 +16,7 @@ function extractTitle(filePath) {
       if (line.trim() === "---") {
         if (!inFrontmatter) {
           inFrontmatter = true;
-        } else if (inFrontmatter && !frontmatterEnded) {
+        } else if (!frontmatterEnded) {
           frontmatterEnded = true;
         }
         continue;
