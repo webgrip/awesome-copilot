@@ -28,6 +28,8 @@ Team and project-specific instructions to enhance GitHub Copilot's behavior for 
 - [Blazor](instructions/blazor.md) - Blazor component and application patterns
 - [Cmake Vcpkg](instructions/cmake-vcpkg.md) - C++ project configuration and package management
 - [Copilot Process tracking Instructions](instructions/copilot-thought-logging.instructions.md) - See process Copilot is following where you can edit this to reshape the interaction or save when follow up may be needed
+- [C# Development](instructions/csharp.md) - Guidelines for building C# applications
+- [Dotnet Maui](instructions/dotnet-maui.md) - MAUI component and application patterns
 - [Genaiscript](instructions/genaiscript.md) - AI-powered script generation guidelines
 - [Generate Modern Terraform Code For Azure](instructions/generate-modern-terraform-code-for-azure.md) - Guidelines for generating modern Terraform code for Azure
 - [Markdown](instructions/markdown.md) - Documentation and content creation standards
