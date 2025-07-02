@@ -32,6 +32,7 @@ Team and project-specific instructions to enhance GitHub Copilot's behavior for 
 - [Dotnet Maui](instructions/dotnet-maui.md) - MAUI component and application patterns
 - [Genaiscript](instructions/genaiscript.md) - AI-powered script generation guidelines
 - [Generate Modern Terraform Code For Azure](instructions/generate-modern-terraform-code-for-azure.md) - Guidelines for generating modern Terraform code for Azure
+- [Guidance for Localization](instructions/localization.md) - Guidelines for localizing markdown documents
 - [Markdown](instructions/markdown.md) - Documentation and content creation standards
 - [Next.js + Tailwind Development Instructions](instructions/nextjs-tailwind.md) - Next.js + Tailwind development standards and instructions
 - [Python Coding Conventions](instructions/python.md) - Python coding conventions and guidelines
