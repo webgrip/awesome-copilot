@@ -21,7 +21,7 @@ This workflow analyzes Infrastructure-as-Code (IaC) files and Azure resources to
 **Process**:
 1. **Load Best Practices**:
    - Execute `azmcp-bestpractices-get` to get some of the latest Azure optimization guidelines. This may not cover all scenarios but provides a foundation.
-   - Use these practices to inform subsequent analysis and recommendations as possible
+   - Use these practices to inform subsequent analysis and recommendations as much as possible
    - Reference best practices in optimization recommendations, either from the MCP tool output or general Azure documentation
 
 ### Step 2: Discover Azure Infrastructure
@@ -50,7 +50,8 @@ This workflow analyzes Infrastructure-as-Code (IaC) files and Azure resources to
    - Parse resource definitions to understand intended configurations
    - Compare against discovered resources to identify discrepancies
    - Note presence of IaC files for implementation recommendations later on
-   - Do NOT use any other file from the repository, only IaC files. Using other files like markdown or text files is NOT allowed as it is not a source of truth.
+   - Do NOT use any other file from the repository, only IaC files. Using other files is NOT allowed as it is not a source of truth.
+   - If you do not find IaC files, then STOP and report no IaC files found to the user.
 
 3. **Configuration Analysis**:
    - Extract current SKUs, tiers, and settings for each resource

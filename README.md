@@ -59,6 +59,9 @@ Ready-to-use prompt templates for specific development scenarios and tasks, defi
 - [My Issues](prompts/my-issues.prompt.md)
 - [My Pull Requests](prompts/my-pull-requests.prompt.md)
 
+### FinOps
+- [Azure Cost Optimize](prompts/az-cost-optimize.prompt.md) - Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating GitHub issues for identified optimizations.
+
 
 
 > 💡 **Usage**: Use `/prompt-name` in VS Code chat, run `Chat: Run Prompt` command, or hit the run button while you have a prompt open.
