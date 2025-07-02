@@ -12,7 +12,7 @@ description: "Ensure that C# types are documented with XML comments and follow b
 - Use `<param>` for method parameters.
 - Use `<returns>` for method return values.
 - Use `<remarks>` for additional information, which can include implementation details, usage notes, or any other relevant context.
-- Use `<example>` for usage examples on how to use the the member.
+- Use `<example>` for usage examples on how to use the member.
 - Use `<exception>` to document exceptions thrown by methods.
 - Use `<see>` and `<seealso>` for references to other types or members.
 - Use `<inheritdoc/>` to inherit documentation from base classes or interfaces.
