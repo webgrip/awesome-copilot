@@ -60,11 +60,10 @@ Ready-to-use prompt templates for specific development scenarios and tasks, defi
 - [Generate Specs as Issues](prompts/gen-specs-as-issues.prompt.md) - Convert requirements into GitHub issues
 - [My Issues](prompts/my-issues.prompt.md)
 - [My Pull Requests](prompts/my-pull-requests.prompt.md)
+- [C# Documentation Best Practices](prompts/csharp-docs.prompt.md) - Ensure that C# types are documented with XML comments and follow best practices for documentation.
 
 ### FinOps
 - [Azure Cost Optimize](prompts/az-cost-optimize.prompt.md) - Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating GitHub issues for identified optimizations.
-
-
 
 > 💡 **Usage**: Use `/prompt-name` in VS Code chat, run `Chat: Run Prompt` command, or hit the run button while you have a prompt open.
 
