@@ -58,6 +58,7 @@ Ready-to-use prompt templates for specific development scenarios and tasks, defi
 - [Multi Stage Dockerfile](prompts/multi-stage-dockerfile.prompt.md) - Create optimized multi-stage Dockerfiles for any language or framework
 - [My Issues](prompts/my-issues.prompt.md) - List my issues in the current repository
 - [My Pull Requests](prompts/my-pull-requests.prompt.md) - List my pull requests in the current repository
+- [Next Intl Add Language](prompts/next-intl-add-language.prompt.md) - Add new language to a Next.js + next-intl application
 
 > 💡 **Usage**: Use `/prompt-name` in VS Code chat, run `Chat: Run Prompt` command, or hit the run button while you have a prompt open.
 
