@@ -26,11 +26,9 @@ jobs:
         run: npm install
 
       - name: Update contributors
-        uses: all-contributors/all-contributors-cli@v6.26.1
-        with:
-          args: 'check'
+        runs: npm run contributors:check
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRIVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Regenerate README
         run: node update-readme.js
