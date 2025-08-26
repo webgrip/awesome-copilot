@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Update contributors
-        runs: npm run contributors:check
+        run: npm run contributors:check
         env:
           PRIVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
