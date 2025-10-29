@@ -251,7 +251,7 @@ function generateInstructionsSection(instructionsDir) {
   // Generate table rows for each instruction file
   for (const entry of instructionEntries) {
     const { file, filePath, title } = entry;
-    const link = encodeURI(`instructions/${file}`);
+    const link = encodeURI(`../instructions/${file}`);
 
     // Check if there's a description in the frontmatter
     const customDescription = extractDescription(filePath);
@@ -309,7 +309,7 @@ function generatePromptsSection(promptsDir) {
   // Generate table rows for each prompt file
   for (const entry of promptEntries) {
     const { file, filePath, title } = entry;
-    const link = encodeURI(`prompts/${file}`);
+    const link = encodeURI(`../prompts/${file}`);
 
     // Check if there's a description in the frontmatter
     const customDescription = extractDescription(filePath);
@@ -482,7 +482,7 @@ function generateUnifiedModeSection(cfg) {
   let content = `${header}\n${separator}\n`;
 
   for (const { file, filePath, title } of entries) {
-    const link = encodeURI(`${linkPrefix}/${file}`);
+    const link = encodeURI(`../${linkPrefix}/${file}`);
     const description = extractDescription(filePath);
     const badges = makeBadges(link, badgeType);
     let mcpServerCell = "";
