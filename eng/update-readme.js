@@ -574,7 +574,7 @@ function generateCollectionsSection(collectionsDir) {
     const itemCount = collection.items ? collection.items.length : 0;
     const tags = collection.tags ? collection.tags.join(", ") : "";
 
-    const link = `collections/${collectionId}.md`;
+    const link = `../collections/${collectionId}.md`;
     const displayName = isFeatured ? `⭐ ${name}` : name;
 
     collectionsContent += `| [${displayName}](${link}) | ${description} | ${itemCount} items | ${tags} |\n`;
