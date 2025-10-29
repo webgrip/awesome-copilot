@@ -251,7 +251,7 @@ function generateInstructionsSection(instructionsDir) {
   // Generate table rows for each instruction file
   for (const entry of instructionEntries) {
     const { file, filePath, title } = entry;
-    const link = encodeURI(`../instructions/${file}`);
+    const link = encodeURI(`instructions/${file}`);
 
     // Check if there's a description in the frontmatter
     const customDescription = extractDescription(filePath);
@@ -261,11 +261,11 @@ function generateInstructionsSection(instructionsDir) {
 
     if (customDescription && customDescription !== "null") {
       // Use the description from frontmatter
-      instructionsContent += `| [${title}](${link})<br />${badges} | ${customDescription} |\n`;
+      instructionsContent += `| [${title}](../${link})<br />${badges} | ${customDescription} |\n`;
     } else {
       // Fallback to the default approach - use last word of title for description, removing trailing 's' if present
       const topic = title.split(" ").pop().replace(/s$/, "");
-      instructionsContent += `| [${title}](${link})<br />${badges} | ${topic} specific coding standards and best practices |\n`;
+      instructionsContent += `| [${title}](../${link})<br />${badges} | ${topic} specific coding standards and best practices |\n`;
     }
   }
 
@@ -309,7 +309,7 @@ function generatePromptsSection(promptsDir) {
   // Generate table rows for each prompt file
   for (const entry of promptEntries) {
     const { file, filePath, title } = entry;
-    const link = encodeURI(`../prompts/${file}`);
+    const link = encodeURI(`prompts/${file}`);
 
     // Check if there's a description in the frontmatter
     const customDescription = extractDescription(filePath);
@@ -318,9 +318,9 @@ function generatePromptsSection(promptsDir) {
     const badges = makeBadges(link, "prompt");
 
     if (customDescription && customDescription !== "null") {
-      promptsContent += `| [${title}](${link})<br />${badges} | ${customDescription} |\n`;
+      promptsContent += `| [${title}](../${link})<br />${badges} | ${customDescription} |\n`;
     } else {
-      promptsContent += `| [${title}](${link})<br />${badges} | | |\n`;
+      promptsContent += `| [${title}](../${link})<br />${badges} | | |\n`;
     }
   }
 
@@ -482,7 +482,7 @@ function generateUnifiedModeSection(cfg) {
   let content = `${header}\n${separator}\n`;
 
   for (const { file, filePath, title } of entries) {
-    const link = encodeURI(`../${linkPrefix}/${file}`);
+    const link = encodeURI(`${linkPrefix}/${file}`);
     const description = extractDescription(filePath);
     const badges = makeBadges(link, badgeType);
     let mcpServerCell = "";
@@ -492,11 +492,11 @@ function generateUnifiedModeSection(cfg) {
     }
 
     if (includeMcpServers) {
-      content += `| [${title}](${link})<br />${badges} | ${
+      content += `| [${title}](../${link})<br />${badges} | ${
         description && description !== "null" ? description : ""
       } | ${mcpServerCell} |\n`;
     } else {
-      content += `| [${title}](${link})<br />${badges} | ${
+      content += `| [${title}](../${link})<br />${badges} | ${
         description && description !== "null" ? description : ""
       } |\n`;
     }
