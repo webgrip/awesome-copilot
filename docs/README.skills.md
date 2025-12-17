@@ -1,6 +1,6 @@
 # 🎯 Agent Skills
 
-Agent Skills are self-contained folders with instructions and bundled resources that enhance AI capabilities for specialized tasks. Based on the [Agent Skills specification](https://github.com/agentskills/agentskills), each skill contains a `SKILL.md` file with detailed instructions that agents load on-demand.
+Agent Skills are self-contained folders with instructions and bundled resources that enhance AI capabilities for specialized tasks. Based on the [Agent Skills specification](https://github.com/anthropics/skills), each skill contains a `SKILL.md` file with detailed instructions that agents load on-demand.
 
 Skills differ from other primitives by supporting bundled assets (scripts, code samples, reference data) that agents can utilize when performing specialized tasks.
 ### How to Use Agent Skills
