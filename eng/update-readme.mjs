@@ -9,6 +9,7 @@ import {
   extractMcpServers,
   extractMcpServerConfigs,
   parseFrontmatter,
+  parseSkillMetadata,
 } from "./yaml-parser.mjs";
 import {
   TEMPLATES,
@@ -19,6 +20,7 @@ import {
   ROOT_FOLDER,
   PROMPTS_DIR,
   AGENTS_DIR,
+  SKILLS_DIR,
   COLLECTIONS_DIR,
   INSTRUCTIONS_DIR,
   DOCS_DIR,
@@ -51,34 +53,34 @@ let MCP_REGISTRY_SET = null;
  */
 async function loadMcpRegistryNames() {
   if (MCP_REGISTRY_SET) return MCP_REGISTRY_SET;
-  
+
   try {
     console.log('Fetching MCP registry from API...');
     const allServers = [];
     let cursor = null;
     const apiUrl = 'https://api.mcp.github.com/v0.1/servers/';
-    
+
     // Fetch all pages using cursor-based pagination
     do {
       const url = cursor ? `${apiUrl}?cursor=${encodeURIComponent(cursor)}` : apiUrl;
       const response = await fetch(url);
-      
+
       if (!response.ok) {
         throw new Error(`API returned status ${response.status}`);
       }
-      
+
       const json = await response.json();
       const servers = json?.servers || [];
-      
+
       // Extract server names and displayNames from the response
       for (const entry of servers) {
         const serverName = entry?.server?.name;
         if (serverName) {
           // Try to get displayName from GitHub metadata, fall back to server name
-          const displayName = 
-            entry?.server?._meta?.["io.modelcontextprotocol.registry/publisher-provided"]?.github?.displayName || 
+          const displayName =
+            entry?.server?._meta?.["io.modelcontextprotocol.registry/publisher-provided"]?.github?.displayName ||
             serverName;
-          
+
           allServers.push({
             name: serverName,
             displayName: displayName.toLowerCase(),
@@ -87,18 +89,18 @@ async function loadMcpRegistryNames() {
           });
         }
       }
-      
+
       // Get next cursor for pagination
       cursor = json?.metadata?.nextCursor || null;
     } while (cursor);
-    
+
     console.log(`Loaded ${allServers.length} servers from MCP registry`);
     MCP_REGISTRY_SET = allServers;
   } catch (e) {
     console.warn(`Failed to load MCP registry from API: ${e.message}`);
     MCP_REGISTRY_SET = [];
   }
-  
+
   return MCP_REGISTRY_SET;
 }
 
@@ -435,7 +437,7 @@ function generateMcpServerLinks(servers, registryNames) {
           if (entry.displayName === serverNameLower || entry.fullName === serverNameLower) {
             return true;
           }
-          
+
           // Check if the serverName matches a part of the full name after a slash
           // e.g., "apify" matches "com.apify/apify-mcp-server"
           const nameParts = entry.fullName.split('/');
@@ -446,7 +448,7 @@ function generateMcpServerLinks(servers, registryNames) {
               return true;
             }
           }
-          
+
           // Check if serverName matches the displayName ignoring case
           return entry.displayName === serverNameLower;
         }
@@ -475,6 +477,64 @@ function generateAgentsSection(agentsDir, registryNames = []) {
     usageTemplate: TEMPLATES.agentsUsage,
     registryNames,
   });
+}
+
+/**
+ * Generate the skills section with a table of all skills
+ */
+function generateSkillsSection(skillsDir) {
+  if (!fs.existsSync(skillsDir)) {
+    console.log(`Skills directory does not exist: ${skillsDir}`);
+    return "";
+  }
+
+  // Get all skill folders (directories)
+  const skillFolders = fs
+    .readdirSync(skillsDir)
+    .filter((file) => {
+      const filePath = path.join(skillsDir, file);
+      return fs.statSync(filePath).isDirectory();
+    });
+
+  // Parse each skill folder
+  const skillEntries = skillFolders
+    .map((folder) => {
+      const skillPath = path.join(skillsDir, folder);
+      const metadata = parseSkillMetadata(skillPath);
+      if (!metadata) return null;
+
+      return {
+        folder,
+        name: metadata.name,
+        description: metadata.description,
+        assets: metadata.assets,
+      };
+    })
+    .filter((entry) => entry !== null)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  console.log(`Found ${skillEntries.length} skill(s)`);
+
+  if (skillEntries.length === 0) {
+    return "";
+  }
+
+  // Create table header
+  let content =
+    "| Name | Description | Bundled Assets |\n| ---- | ----------- | -------------- |\n";
+
+  // Generate table rows for each skill
+  for (const skill of skillEntries) {
+    const link = `../skills/${skill.folder}/SKILL.md`;
+    const assetsList =
+      skill.assets.length > 0
+        ? skill.assets.map((a) => `\`${a}\``).join("<br />")
+        : "None";
+
+    content += `| [${skill.name}](${link}) | ${skill.description} | ${assetsList} |\n`;
+  }
+
+  return `${TEMPLATES.skillsSection}\n${TEMPLATES.skillsUsage}\n\n${content}`;
 }
 
 /**
@@ -886,6 +946,7 @@ async function main() {
     );
     const promptsHeader = TEMPLATES.promptsSection.replace(/^##\s/m, "# ");
     const agentsHeader = TEMPLATES.agentsSection.replace(/^##\s/m, "# ");
+    const skillsHeader = TEMPLATES.skillsSection.replace(/^##\s/m, "# ");
     const collectionsHeader = TEMPLATES.collectionsSection.replace(
       /^##\s/m,
       "# "
@@ -914,6 +975,15 @@ async function main() {
       registryNames
     );
 
+    // Generate skills README
+    const skillsReadme = buildCategoryReadme(
+      generateSkillsSection,
+      SKILLS_DIR,
+      skillsHeader,
+      TEMPLATES.skillsUsage,
+      registryNames
+    );
+
   // Generate collections README
   const collectionsReadme = buildCategoryReadme(
     generateCollectionsSection,
@@ -935,6 +1005,7 @@ async function main() {
   );
   writeFileIfChanged(path.join(DOCS_DIR, "README.prompts.md"), promptsReadme);
   writeFileIfChanged(path.join(DOCS_DIR, "README.agents.md"), agentsReadme);
+  writeFileIfChanged(path.join(DOCS_DIR, "README.skills.md"), skillsReadme);
   writeFileIfChanged(
     path.join(DOCS_DIR, "README.collections.md"),
     collectionsReadme
