@@ -1,30 +1,28 @@
 #!/usr/bin/env node
 
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
 import {
-  parseCollectionYaml,
-  extractMcpServers,
+  AGENTS_DIR,
+  AKA_INSTALL_URLS,
+  COLLECTIONS_DIR,
+  DOCS_DIR,
+  INSTRUCTIONS_DIR,
+  PROMPTS_DIR,
+  repoBaseUrl,
+  ROOT_FOLDER,
+  SKILLS_DIR,
+  TEMPLATES,
+  vscodeInsidersInstallImage,
+  vscodeInstallImage,
+} from "./constants.mjs";
+import {
   extractMcpServerConfigs,
+  parseCollectionYaml,
   parseFrontmatter,
   parseSkillMetadata,
 } from "./yaml-parser.mjs";
-import {
-  TEMPLATES,
-  AKA_INSTALL_URLS,
-  repoBaseUrl,
-  vscodeInstallImage,
-  vscodeInsidersInstallImage,
-  ROOT_FOLDER,
-  PROMPTS_DIR,
-  AGENTS_DIR,
-  SKILLS_DIR,
-  COLLECTIONS_DIR,
-  INSTRUCTIONS_DIR,
-  DOCS_DIR,
-} from "./constants.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -55,14 +53,16 @@ async function loadMcpRegistryNames() {
   if (MCP_REGISTRY_SET) return MCP_REGISTRY_SET;
 
   try {
-    console.log('Fetching MCP registry from API...');
+    console.log("Fetching MCP registry from API...");
     const allServers = [];
     let cursor = null;
-    const apiUrl = 'https://api.mcp.github.com/v0.1/servers/';
+    const apiUrl = "https://api.mcp.github.com/v0.1/servers/";
 
     // Fetch all pages using cursor-based pagination
     do {
-      const url = cursor ? `${apiUrl}?cursor=${encodeURIComponent(cursor)}` : apiUrl;
+      const url = cursor
+        ? `${apiUrl}?cursor=${encodeURIComponent(cursor)}`
+        : apiUrl;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -78,8 +78,9 @@ async function loadMcpRegistryNames() {
         if (serverName) {
           // Try to get displayName from GitHub metadata, fall back to server name
           const displayName =
-            entry?.server?._meta?.["io.modelcontextprotocol.registry/publisher-provided"]?.github?.displayName ||
-            serverName;
+            entry?.server?._meta?.[
+              "io.modelcontextprotocol.registry/publisher-provided"
+            ]?.github?.displayName || serverName;
 
           allServers.push({
             name: serverName,
@@ -431,28 +432,31 @@ function generateMcpServerLinks(servers, registryNames) {
 
       // Match against both displayName and full name (case-insensitive)
       const serverNameLower = serverName.toLowerCase();
-      const registryEntry = registryNames.find(
-        (entry) => {
-          // Exact match on displayName or fullName
-          if (entry.displayName === serverNameLower || entry.fullName === serverNameLower) {
+      const registryEntry = registryNames.find((entry) => {
+        // Exact match on displayName or fullName
+        if (
+          entry.displayName === serverNameLower ||
+          entry.fullName === serverNameLower
+        ) {
+          return true;
+        }
+
+        // Check if the serverName matches a part of the full name after a slash
+        // e.g., "apify" matches "com.apify/apify-mcp-server"
+        const nameParts = entry.fullName.split("/");
+        if (nameParts.length > 1 && nameParts[1]) {
+          // Check if it matches the second part (after the slash)
+          const secondPart = nameParts[1]
+            .replace("-mcp-server", "")
+            .replace("-mcp", "");
+          if (secondPart === serverNameLower) {
             return true;
           }
-
-          // Check if the serverName matches a part of the full name after a slash
-          // e.g., "apify" matches "com.apify/apify-mcp-server"
-          const nameParts = entry.fullName.split('/');
-          if (nameParts.length > 1 && nameParts[1]) {
-            // Check if it matches the second part (after the slash)
-            const secondPart = nameParts[1].replace('-mcp-server', '').replace('-mcp', '');
-            if (secondPart === serverNameLower) {
-              return true;
-            }
-          }
-
-          // Check if serverName matches the displayName ignoring case
-          return entry.displayName === serverNameLower;
         }
-      );
+
+        // Check if serverName matches the displayName ignoring case
+        return entry.displayName === serverNameLower;
+      });
       const serverLabel = registryEntry
         ? `[${serverName}](${`https://github.com/mcp/${registryEntry.name}`})`
         : serverName;
@@ -489,12 +493,10 @@ function generateSkillsSection(skillsDir) {
   }
 
   // Get all skill folders (directories)
-  const skillFolders = fs
-    .readdirSync(skillsDir)
-    .filter((file) => {
-      const filePath = path.join(skillsDir, file);
-      return fs.statSync(filePath).isDirectory();
-    });
+  const skillFolders = fs.readdirSync(skillsDir).filter((file) => {
+    const filePath = path.join(skillsDir, file);
+    return fs.statSync(filePath).isDirectory();
+  });
 
   // Parse each skill folder
   const skillEntries = skillFolders
@@ -768,7 +770,11 @@ function generateFeaturedCollectionsSection(collectionsDir) {
  * @param {string} collectionId - Collection ID
  * @param {{ name: string, displayName: string }[]} registryNames - Pre-loaded MCP registry names
  */
-function generateCollectionReadme(collection, collectionId, registryNames = []) {
+function generateCollectionReadme(
+  collection,
+  collectionId,
+  registryNames = []
+) {
   if (!collection || !collection.items) {
     return `# ${collectionId}\n\nCollection not found or invalid.`;
   }
@@ -820,20 +826,23 @@ function generateCollectionReadme(collection, collectionId, registryNames = []) 
         ? "Instruction"
         : item.kind === "agent"
         ? "Agent"
+        : item.kind === "skill"
+        ? "Skill"
         : "Prompt";
     const link = `../${item.path}`;
 
-    // Create install badges for each item
-    const badges = makeBadges(
-      item.path,
+    // Create install badges for each item (skills don't use chat install badges)
+    const badgeType =
       item.kind === "instruction"
         ? "instructions"
         : item.kind === "chat-mode"
         ? "mode"
         : item.kind === "agent"
         ? "agent"
-        : "prompt"
-    );
+        : item.kind === "skill"
+        ? null
+        : "prompt";
+    const badges = badgeType ? makeBadges(item.path, badgeType) : "";
 
     const usageDescription = item.usage
       ? `${description} [see usage](#${title
@@ -891,15 +900,21 @@ function buildCollectionRow({
   kind,
   registryNames = [],
 }) {
+  const titleCell = badges
+    ? `[${title}](${link})<br />${badges}`
+    : `[${title}](${link})`;
+
   if (hasAgents) {
     // Only agents currently have MCP servers; future migration may extend to chat modes.
     const mcpServers =
       kind === "agent" ? extractMcpServerConfigs(filePath) : [];
     const mcpServerCell =
-      mcpServers.length > 0 ? generateMcpServerLinks(mcpServers, registryNames) : "";
-    return `| [${title}](${link})<br />${badges} | ${typeDisplay} | ${usageDescription} | ${mcpServerCell} |\n`;
+      mcpServers.length > 0
+        ? generateMcpServerLinks(mcpServers, registryNames)
+        : "";
+    return `| ${titleCell} | ${typeDisplay} | ${usageDescription} | ${mcpServerCell} |\n`;
   }
-  return `| [${title}](${link})<br />${badges} | ${typeDisplay} | ${usageDescription} |\n`;
+  return `| ${titleCell} | ${typeDisplay} | ${usageDescription} |\n`;
 }
 
 // Utility: write file only if content changed
@@ -921,7 +936,13 @@ function writeFileIfChanged(filePath, content) {
 }
 
 // Build per-category README content using existing generators, upgrading headings to H1
-function buildCategoryReadme(sectionBuilder, dirPath, headerLine, usageLine, registryNames = []) {
+function buildCategoryReadme(
+  sectionBuilder,
+  dirPath,
+  headerLine,
+  usageLine,
+  registryNames = []
+) {
   const section = sectionBuilder(dirPath, registryNames);
   if (section && section.trim()) {
     // Upgrade the first markdown heading level from ## to # for standalone README files
@@ -984,104 +1005,106 @@ async function main() {
       registryNames
     );
 
-  // Generate collections README
-  const collectionsReadme = buildCategoryReadme(
-    generateCollectionsSection,
-    COLLECTIONS_DIR,
-    collectionsHeader,
-    TEMPLATES.collectionsUsage,
-    registryNames
-  );
+    // Generate collections README
+    const collectionsReadme = buildCategoryReadme(
+      generateCollectionsSection,
+      COLLECTIONS_DIR,
+      collectionsHeader,
+      TEMPLATES.collectionsUsage,
+      registryNames
+    );
 
-  // Ensure docs directory exists for category outputs
-  if (!fs.existsSync(DOCS_DIR)) {
-    fs.mkdirSync(DOCS_DIR, { recursive: true });
-  }
+    // Ensure docs directory exists for category outputs
+    if (!fs.existsSync(DOCS_DIR)) {
+      fs.mkdirSync(DOCS_DIR, { recursive: true });
+    }
 
-  // Write category outputs into docs folder
-  writeFileIfChanged(
-    path.join(DOCS_DIR, "README.instructions.md"),
-    instructionsReadme
-  );
-  writeFileIfChanged(path.join(DOCS_DIR, "README.prompts.md"), promptsReadme);
-  writeFileIfChanged(path.join(DOCS_DIR, "README.agents.md"), agentsReadme);
-  writeFileIfChanged(path.join(DOCS_DIR, "README.skills.md"), skillsReadme);
-  writeFileIfChanged(
-    path.join(DOCS_DIR, "README.collections.md"),
-    collectionsReadme
-  );
+    // Write category outputs into docs folder
+    writeFileIfChanged(
+      path.join(DOCS_DIR, "README.instructions.md"),
+      instructionsReadme
+    );
+    writeFileIfChanged(path.join(DOCS_DIR, "README.prompts.md"), promptsReadme);
+    writeFileIfChanged(path.join(DOCS_DIR, "README.agents.md"), agentsReadme);
+    writeFileIfChanged(path.join(DOCS_DIR, "README.skills.md"), skillsReadme);
+    writeFileIfChanged(
+      path.join(DOCS_DIR, "README.collections.md"),
+      collectionsReadme
+    );
 
-  // Generate individual collection README files
-  if (fs.existsSync(COLLECTIONS_DIR)) {
-    console.log("Generating individual collection README files...");
+    // Generate individual collection README files
+    if (fs.existsSync(COLLECTIONS_DIR)) {
+      console.log("Generating individual collection README files...");
 
-    const collectionFiles = fs
-      .readdirSync(COLLECTIONS_DIR)
-      .filter((file) => file.endsWith(".collection.yml"));
+      const collectionFiles = fs
+        .readdirSync(COLLECTIONS_DIR)
+        .filter((file) => file.endsWith(".collection.yml"));
 
-    for (const file of collectionFiles) {
-      const filePath = path.join(COLLECTIONS_DIR, file);
-      const collection = parseCollectionYaml(filePath);
+      for (const file of collectionFiles) {
+        const filePath = path.join(COLLECTIONS_DIR, file);
+        const collection = parseCollectionYaml(filePath);
 
-      if (collection) {
-        const collectionId =
-          collection.id || path.basename(file, ".collection.yml");
-        const readmeContent = generateCollectionReadme(
-          collection,
-          collectionId,
-          registryNames
-        );
-        const readmeFile = path.join(COLLECTIONS_DIR, `${collectionId}.md`);
-        writeFileIfChanged(readmeFile, readmeContent);
+        if (collection) {
+          const collectionId =
+            collection.id || path.basename(file, ".collection.yml");
+          const readmeContent = generateCollectionReadme(
+            collection,
+            collectionId,
+            registryNames
+          );
+          const readmeFile = path.join(COLLECTIONS_DIR, `${collectionId}.md`);
+          writeFileIfChanged(readmeFile, readmeContent);
+        }
       }
     }
-  }
 
-  // Generate featured collections section and update main README.md
-  console.log("Updating main README.md with featured collections...");
-  const featuredSection = generateFeaturedCollectionsSection(COLLECTIONS_DIR);
+    // Generate featured collections section and update main README.md
+    console.log("Updating main README.md with featured collections...");
+    const featuredSection = generateFeaturedCollectionsSection(COLLECTIONS_DIR);
 
-  if (featuredSection) {
-    const mainReadmePath = path.join(ROOT_FOLDER, "README.md");
+    if (featuredSection) {
+      const mainReadmePath = path.join(ROOT_FOLDER, "README.md");
 
-    if (fs.existsSync(mainReadmePath)) {
-      let readmeContent = fs.readFileSync(mainReadmePath, "utf8");
+      if (fs.existsSync(mainReadmePath)) {
+        let readmeContent = fs.readFileSync(mainReadmePath, "utf8");
 
-      // Define markers to identify where to insert the featured collections
-      const startMarker = "## 🌟 Featured Collections";
-      const endMarker = "## MCP Server";
+        // Define markers to identify where to insert the featured collections
+        const startMarker = "## 🌟 Featured Collections";
+        const endMarker = "## MCP Server";
 
-      // Check if the section already exists
-      const startIndex = readmeContent.indexOf(startMarker);
+        // Check if the section already exists
+        const startIndex = readmeContent.indexOf(startMarker);
 
-      if (startIndex !== -1) {
-        // Section exists, replace it
-        const endIndex = readmeContent.indexOf(endMarker, startIndex);
-        if (endIndex !== -1) {
-          // Replace the existing section
-          const beforeSection = readmeContent.substring(0, startIndex);
-          const afterSection = readmeContent.substring(endIndex);
-          readmeContent =
-            beforeSection + featuredSection + "\n\n" + afterSection;
+        if (startIndex !== -1) {
+          // Section exists, replace it
+          const endIndex = readmeContent.indexOf(endMarker, startIndex);
+          if (endIndex !== -1) {
+            // Replace the existing section
+            const beforeSection = readmeContent.substring(0, startIndex);
+            const afterSection = readmeContent.substring(endIndex);
+            readmeContent =
+              beforeSection + featuredSection + "\n\n" + afterSection;
+          }
+        } else {
+          // Section doesn't exist, insert it before "## MCP Server"
+          const mcpIndex = readmeContent.indexOf(endMarker);
+          if (mcpIndex !== -1) {
+            const beforeMcp = readmeContent.substring(0, mcpIndex);
+            const afterMcp = readmeContent.substring(mcpIndex);
+            readmeContent = beforeMcp + featuredSection + "\n\n" + afterMcp;
+          }
         }
+
+        writeFileIfChanged(mainReadmePath, readmeContent);
+        console.log("Main README.md updated with featured collections");
       } else {
-        // Section doesn't exist, insert it before "## MCP Server"
-        const mcpIndex = readmeContent.indexOf(endMarker);
-        if (mcpIndex !== -1) {
-          const beforeMcp = readmeContent.substring(0, mcpIndex);
-          const afterMcp = readmeContent.substring(mcpIndex);
-          readmeContent = beforeMcp + featuredSection + "\n\n" + afterMcp;
-        }
+        console.warn(
+          "README.md not found, skipping featured collections update"
+        );
       }
-
-      writeFileIfChanged(mainReadmePath, readmeContent);
-      console.log("Main README.md updated with featured collections");
     } else {
-      console.warn("README.md not found, skipping featured collections update");
+      console.log("No featured collections found to add to README.md");
     }
-  } else {
-    console.log("No featured collections found to add to README.md");
-  }
   } catch (error) {
     console.error(`Error generating category README files: ${error.message}`);
     console.error(error.stack);
@@ -1095,4 +1118,3 @@ main().catch((error) => {
   console.error(error.stack);
   process.exit(1);
 });
-
