@@ -78,7 +78,7 @@ All agent files (`*.agent.md`), prompt files (`*.prompt.md`), and instruction fi
 - Skills can include bundled assets (scripts, templates, data files)
 - Bundled assets should be referenced in the SKILL.md instructions
 - Asset files should be reasonably sized (under 5MB per file)
-- Skills follow the [Agent Skills specification](https://github.com/anthropics/skills/blob/main/spec/skill-client-integration.md)
+- Skills follow the [Agent Skills specification](https://agentskills.io/specification)
 
 ### Adding New Resources
 

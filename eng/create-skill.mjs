@@ -202,7 +202,7 @@ Use this skill when you need to:
 
     console.log("\n📖 Resources:");
     console.log(
-      "   - Anthropic Skills Spec: https://github.com/anthropics/skills/blob/main/spec/skill-client-integration.md"
+      "   - Anthropic Skills Spec: https://agentskills.io/specification"
     );
     console.log(
       "   - Project Documentation: AGENTS.md (section on Agent Skills)"
