@@ -429,7 +429,6 @@ export const generateMarkdownReport = (reports, missingCount = 0) => {
 
   const nowIso = new Date().toISOString();
 
-
   const computeTypesArg = (report) => {
     const typeSet = new Set();
     for (const pr of report.prs || []) {
@@ -455,7 +454,6 @@ export const generateMarkdownReport = (reports, missingCount = 0) => {
 
   for (const report of reports) {
     lines.push(`## @${report.username}`);
-    lines.push('');
 
     const prs = Array.from(report.prs || []).sort((a, b) => {
       // Prefer most recent PRs first.
@@ -465,22 +463,36 @@ export const generateMarkdownReport = (reports, missingCount = 0) => {
       return (b.prNumber ?? 0) - (a.prNumber ?? 0);
     });
 
-    for (const pr of prs) {
-      lines.push(`### PR #${pr.prNumber}: ${pr.prTitle}`);
+    if (prs.length === 0) {
       lines.push('');
-      lines.push(`Add this comment on PR: ${pr.prUrl}`);
+      lines.push('_No eligible PRs found._');
       lines.push('');
-
-      const prTypes = (pr.contributionTypes || []).filter(Boolean);
-      const prTypesArg = prTypes.length > 0 ? prTypes.join(', ') : 'code';
-
-      lines.push('```text');
-      lines.push(`@all-contributors please add @${report.username} for ${prTypesArg}`);
-      lines.push('```');
+      lines.push(`Alternate CLI: \`npx all-contributors add ${report.username} ${computeTypesArg(report)}\``);
       lines.push('');
+      lines.push('---');
+      lines.push('');
+      continue;
     }
 
-    lines.push('### CLI command (all-contributors-cli)');
+    lines.push('');
+
+    for (const pr of prs) {
+      const prTypes = (pr.contributionTypes || []).filter(Boolean);
+      const prTypesArg = prTypes.length > 0 ? prTypes.join(', ') : 'code';
+      const title = String(pr.prTitle ?? '');
+      const url = String(pr.prUrl ?? '');
+      const comment = `@all-contributors please add @${report.username} for ${prTypesArg}`;
+
+      // PR line
+      lines.push(`[#${pr.prNumber}](${url}) ${title}`);
+      // fenced single-line comment snippet for this PR (plaintext as requested)
+      lines.push('```plaintext');
+      lines.push(comment);
+      lines.push('```');
+    }
+
+    lines.push('');
+    lines.push('### Alternate CLI Command');
     lines.push('');
     lines.push('```bash');
     lines.push(`npx all-contributors add ${report.username} ${computeTypesArg(report)}`);
