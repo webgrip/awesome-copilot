@@ -423,58 +423,74 @@ export const generateContributorReport = (username, { includeAllFiles = false } 
  * @returns {string}
  */
 export const generateMarkdownReport = (reports, missingCount = 0) => {
-  // The report is intentionally minimal: a single list of affected PRs and
-  // a single copy/paste command maintainers can run locally.
-  // No timestamps, per-file breakdowns, or duplicated metadata.
-
   if (!missingCount) {
     return 'No missing contributors detected.\n';
   }
 
-  // 1) Single list of affected PRs (deduped).
-  const prEntries = new Map(); // key=prNumber or url, value={number,url,mergedAt}
-  for (const report of reports) {
-    for (const pr of report.prs) {
-      const key = pr.prUrl || String(pr.prNumber);
-      if (!prEntries.has(key)) {
-        prEntries.set(key, {
-          number: pr.prNumber,
-          url: pr.prUrl,
-          mergedAt: pr.mergedAt
-        });
-      }
-    }
-  }
+  const nowIso = new Date().toISOString();
 
-  const prList = Array.from(prEntries.values()).sort((a, b) => {
-    // Prefer chronological sort for stable “what happened” review.
-    const aTime = a.mergedAt ? Date.parse(a.mergedAt) : 0;
-    const bTime = b.mergedAt ? Date.parse(b.mergedAt) : 0;
-    if (aTime !== bTime) return aTime - bTime;
-    return (a.number ?? 0) - (b.number ?? 0);
-  });
 
-  // 2) One command (one line). If multiple users are missing, chain them.
-  const commandParts = [];
-  for (const report of reports) {
+  const computeTypesArg = (report) => {
     const typeSet = new Set();
-    for (const pr of report.prs) {
+    for (const pr of report.prs || []) {
       for (const type of pr.contributionTypes || []) {
-        typeSet.add(type);
+        if (type) {
+          typeSet.add(type);
+        }
       }
     }
 
-    const types = Array.from(typeSet).filter(Boolean).sort((a, b) => a.localeCompare(b));
-    const typesArg = types.length > 0 ? types.join(',') : 'code';
-    commandParts.push(`npx all-contributors add ${report.username} ${typesArg}`);
+    const types = Array.from(typeSet).sort((a, b) => a.localeCompare(b));
+    return types.length > 0 ? types.join(',') : 'code';
+  };
+
+  const lines = [];
+
+  lines.push('# Missing Contributors Report');
+  lines.push('');
+  lines.push(`Generated (ISO): ${nowIso}`);
+  lines.push('');
+  lines.push(`Missing contributors: ${missingCount}`);
+  lines.push('');
+
+  for (const report of reports) {
+    lines.push(`## @${report.username}`);
+    lines.push('');
+
+    const prs = Array.from(report.prs || []).sort((a, b) => {
+      // Prefer most recent PRs first.
+      const aTime = a.mergedAt ? Date.parse(a.mergedAt) : 0;
+      const bTime = b.mergedAt ? Date.parse(b.mergedAt) : 0;
+      if (aTime !== bTime) return bTime - aTime;
+      return (b.prNumber ?? 0) - (a.prNumber ?? 0);
+    });
+
+    for (const pr of prs) {
+      lines.push(`### PR #${pr.prNumber}: ${pr.prTitle}`);
+      lines.push('');
+      lines.push(`Add this comment on PR: ${pr.prUrl}`);
+      lines.push('');
+
+      const prTypes = (pr.contributionTypes || []).filter(Boolean);
+      const prTypesArg = prTypes.length > 0 ? prTypes.join(', ') : 'code';
+
+      lines.push('```text');
+      lines.push(`@all-contributors please add @${report.username} for ${prTypesArg}`);
+      lines.push('```');
+      lines.push('');
+    }
+
+    lines.push('### CLI command (all-contributors-cli)');
+    lines.push('');
+    lines.push('```bash');
+    lines.push(`npx all-contributors add ${report.username} ${computeTypesArg(report)}`);
+    lines.push('```');
+    lines.push('');
+    lines.push('---');
+    lines.push('');
   }
 
-  let markdown = '';
-  markdown += prList.map((pr) => `- #${pr.number} ${pr.url}`).join('\n');
-  markdown += '\n\n';
-  markdown += commandParts.join(' && ');
-  markdown += '\n';
-  return markdown;
+  return `${lines.join('\n')}\n`;
 };
 
 /**
@@ -552,14 +568,9 @@ export const autoAddCommentsToReports = (reports) => {
 
 const main = () => {
   try {
-    const ghToken = process.env.GITHUB_TOKEN || process.env.PRIVATE_TOKEN;
-    if (!ghToken) {
-      console.error('❌ GITHUB_TOKEN or PRIVATE_TOKEN environment variable is required for GitHub CLI operations');
-      process.exit(1);
-    }
-
-    // gh CLI only reads GITHUB_TOKEN or GH_TOKEN, so ensure it's set
-    if (process.env.PRIVATE_TOKEN && !process.env.GITHUB_TOKEN) {
+    // gh CLI can use either its own authenticated session or token env vars.
+    // In CI, we commonly receive a token via PRIVATE_TOKEN.
+    if (process.env.PRIVATE_TOKEN && !process.env.GITHUB_TOKEN && !process.env.GH_TOKEN) {
       process.env.GITHUB_TOKEN = process.env.PRIVATE_TOKEN;
     }
 
