@@ -168,7 +168,7 @@ Content management integration:
 ## Getting Started
 
 ### Prerequisites
-- Visual Studio Code
+            return results
 - Microsoft 365 Agents Toolkit extension (v6.3.x or later)
 - GitHub account (for OAuth examples)
 - Microsoft 365 Copilot license
