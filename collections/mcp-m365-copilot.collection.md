@@ -20,21 +20,21 @@ For Microsoft 365 Copilot, this means you can create agents that connect to any 
 
 ### Prompts
 
-1. **Create Declarative Agent** ([mcp-create-declarative-agent.prompt.md](prompts/mcp-create-declarative-agent.prompt.md))
+1. **Create Declarative Agent** ([mcp-create-declarative-agent.prompt.md](../prompts/mcp-create-declarative-agent.prompt.md))
    - Build declarative agents using Microsoft 365 Agents Toolkit
    - Configure MCP server integration with tool import
    - Set up OAuth 2.0 or SSO authentication
    - Configure response semantics for data extraction
    - Package and deploy agents for testing
 
-2. **Create Adaptive Cards** ([mcp-create-adaptive-cards.prompt.md](prompts/mcp-create-adaptive-cards.prompt.md))
+2. **Create Adaptive Cards** ([mcp-create-adaptive-cards.prompt.md](../prompts/mcp-create-adaptive-cards.prompt.md))
    - Design static and dynamic Adaptive Card templates
    - Configure response semantics (data_path, properties, template_selector)
    - Use template language for conditionals and data binding
    - Create responsive cards that work across Copilot surfaces
    - Implement card actions for user interactions
 
-3. **Deploy and Manage Agents** ([mcp-deploy-manage-agents.prompt.md](prompts/mcp-deploy-manage-agents.prompt.md))
+3. **Deploy and Manage Agents** ([mcp-deploy-manage-agents.prompt.md](../prompts/mcp-deploy-manage-agents.prompt.md))
    - Deploy agents via Microsoft 365 admin center
    - Configure organizational or public store distribution
    - Manage agent lifecycle (publish, deploy, block, remove)
@@ -43,7 +43,7 @@ For Microsoft 365 Copilot, this means you can create agents that connect to any 
 
 ### Instructions
 
-**MCP M365 Copilot Development Guidelines** ([mcp-m365-copilot.instructions.md](instructions/mcp-m365-copilot.instructions.md))
+**MCP M365 Copilot Development Guidelines** ([mcp-m365-copilot.instructions.md](../instructions/mcp-m365-copilot.instructions.md))
 - Best practices for MCP server design and tool selection
 - File organization and project structure
 - Response semantics configuration patterns
