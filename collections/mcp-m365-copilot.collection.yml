@@ -1,0 +1,18 @@
+id: mcp-m365-copilot
+name: MCP-based M365 Agents
+description: Comprehensive collection for building declarative agents with Model Context Protocol integration for Microsoft 365 Copilot
+tags: [mcp, m365-copilot, declarative-agents, api-plugins, model-context-protocol, adaptive-cards]
+
+display:
+  order: manual
+  show_badge: true
+
+items:
+  - kind: prompt
+    path: prompts/mcp-create-declarative-agent.prompt.md
+  - kind: prompt
+    path: prompts/mcp-create-adaptive-cards.prompt.md
+  - kind: prompt
+    path: prompts/mcp-deploy-manage-agents.prompt.md
+  - kind: instruction
+    path: instructions/mcp-m365-copilot.instructions.md
