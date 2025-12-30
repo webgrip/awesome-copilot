@@ -42,7 +42,7 @@ applyTo: 'force-app/main/default/lwc/**'
 ### 1. Use Lightning Components Over HTML Tags
 Always prefer Lightning Web Component library components over plain HTML elements for consistency, accessibility, and future-proofing.
 
-#### ✅ Recommended Approach
+#### Recommended Approach
 ```html
 <!-- Use Lightning components -->
 <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
@@ -51,7 +51,7 @@ Always prefer Lightning Web Component library components over plain HTML element
 <lightning-radio-group name="duration" label="Duration" options={durationOptions} value={duration} type="radio"></lightning-radio-group>
 ```
 
-#### ❌ Avoid Plain HTML
+#### Avoid Plain HTML
 ```html
 <!-- Avoid these -->
 <button onclick={handleSave}>Save</button>
@@ -123,7 +123,7 @@ Always use Salesforce Lightning Design System utility classes with the `slds-var
 
 ### 4. Avoid Custom CSS
 
-#### ✅ Use SLDS Classes
+#### Use SLDS Classes
 ```html
 <!-- Color and theming -->
 <div class="slds-theme_success slds-text-color_inverse slds-var-p-around_small">
@@ -139,7 +139,7 @@ Always use Salesforce Lightning Design System utility classes with the `slds-var
 </div>
 ```
 
-#### ❌ Avoid Custom CSS
+#### Avoid Custom CSS
 ```css
 /* Don't create custom styles that override SLDS */
 .custom-button {
@@ -339,11 +339,10 @@ export default class MyComponent extends LightningElement {
 ```
 
 ## Common Anti-Patterns to Avoid
-
-1. **❌ Direct DOM Manipulation**: Never use `document.querySelector()` or similar
-2. **❌ jQuery or External Libraries**: Avoid non-Lightning compatible libraries
-3. **❌ Inline Styles**: Use SLDS classes instead of `style` attributes
-4. **❌ Global CSS**: All styles should be scoped to the component
-5. **❌ Hardcoded Values**: Use custom labels, custom metadata, or constants
-6. **❌ Imperative API Calls**: Prefer `@wire` over imperative `import` calls when possible
-7. **❌ Memory Leaks**: Always clean up event listeners in `disconnectedCallback()`
+1. **Direct DOM Manipulation**: Never use `document.querySelector()` or similar
+2. **jQuery or External Libraries**: Avoid non-Lightning compatible libraries
+3. **Inline Styles**: Use SLDS classes instead of `style` attributes
+4. **Global CSS**: All styles should be scoped to the component
+5. **Hardcoded Values**: Use custom labels, custom metadata, or constants
+6. **Imperative API Calls**: Prefer `@wire` over imperative `import` calls when possible
+7. **Memory Leaks**: Always clean up event listeners in `disconnectedCallback()`
