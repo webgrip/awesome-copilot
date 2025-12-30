@@ -261,7 +261,7 @@ targets.foreach {
 // Good - match on type
 targets.foreach {
   case p: Pokemon =>
-    val loss = sys.min(0, myAttack - p.defense)
+    val loss = math.min(0, myAttack - p.defense)
     p.copy(hp = p.hp - loss)
 }
 ```
