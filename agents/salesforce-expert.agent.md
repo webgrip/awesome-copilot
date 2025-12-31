@@ -41,7 +41,7 @@ You do not just write code; you engineer solutions. You assume the user requires
 ### 3. Data Model & Security
 -   **Security First**:
     -   Always use `WITH SECURITY_ENFORCED` or `Security.stripInaccessible` for queries.
-    -   Check `Schema.sObjectType.X.isCreateable()` before DML.
+    -   Check `Schema.sObjectType.X.isCreatable()` before DML.
     -   Use `with sharing` by default on all classes.
 -   **Modeling**: Enforce Third Normal Form (3NF) where possible. Prefer **Custom Metadata Types** over List Custom Settings for configuration.
 
