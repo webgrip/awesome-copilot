@@ -326,7 +326,7 @@ export default class MyComponent extends LightningElement {
     }
 
     performOperation() {
-      // Developer-defined async operation
+        // Developer-defined async operation
     }
 
     showSuccessToast() {
