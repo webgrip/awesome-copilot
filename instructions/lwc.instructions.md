@@ -170,33 +170,33 @@ export default class MyComponent extends LightningElement {
     // @track is NOT needed for simple property reassignment
     // This will trigger reactivity automatically:
     handleUpdate() {
-      this.simpleValue = 'updated'; // Reactive without @track
-      this.count++; // Reactive without @track
+        this.simpleValue = 'updated'; // Reactive without @track
+        this.count++; // Reactive without @track
     }
 
     // @track IS needed when mutating nested properties without reassignment
     @track complexData = {
-      user: {
-        name: 'John',
-        preferences: {
-          theme: 'dark'
+        user: {
+            name: 'John',
+            preferences: {
+                theme: 'dark'
+            }
         }
-      }
     };
 
     handleDeepUpdate() {
-      // Requires @track because we're mutating a nested property
-      this.complexData.user.preferences.theme = 'light';
+        // Requires @track because we're mutating a nested property
+        this.complexData.user.preferences.theme = 'light';
     }
 
     // BETTER: Avoid @track by using immutable patterns
     regularData = {
-      user: {
-        name: 'John',
-        preferences: {
-          theme: 'dark'
+        user: {
+            name: 'John',
+            preferences: {
+                theme: 'dark'
+            }
         }
-      }
     };
 
     handleImmutableUpdate() {
