@@ -283,6 +283,8 @@ handleToggleChange(event) {
 import { getRecord } from 'lightning/uiRecordApi';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 
+const FIELDS = ['Account.Name', 'Account.Industry', 'Account.AnnualRevenue'];
+
 export default class MyComponent extends LightningElement {
     @api recordId;
 
@@ -321,6 +323,10 @@ export default class MyComponent extends LightningElement {
         } finally {
             this.isLoading = false;
         }
+    }
+
+    performOperation() {
+      // Developer-defined async operation
     }
 
     showSuccessToast() {
@@ -378,12 +384,14 @@ Prefer `lwc:if`, `lwc:elseif` and `lwc:else` for conditional rendering (API v58.
         {error.message}
     </div>
 </template>
-<template if:false={isLoading} if:false={error}>
+<template if:false={isLoading}>
+  <template if:false={error}>
     <template for:each={items} for:item="item">
         <div key={item.id} class="slds-var-m-bottom_small">
             {item.name}
         </div>
     </template>
+  </template>
 </template>
 ```
 
