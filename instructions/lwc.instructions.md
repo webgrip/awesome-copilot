@@ -1,7 +1,6 @@
 ---
-description: "Guidelines and best practices for developing Lightning Web Components (LWC) on Salesforce Platform."
-applyTo: "force-app/main/default/lwc/**"
-
+description: 'Guidelines and best practices for developing Lightning Web Components (LWC) on Salesforce Platform.'
+applyTo: 'force-app/main/default/lwc/**'
 ---
 
 # LWC Development
@@ -9,7 +8,7 @@ applyTo: "force-app/main/default/lwc/**"
 ## General Instructions
 
 - Each LWC should reside in its own folder under `force-app/main/default/lwc/`.
-- The folder name should match the component name (e.g., `myComponent` for `myComponent`).
+- The folder name should match the component name (e.g., `myComponent` folder for the `myComponent` component).
 - Each component folder should contain the following files:
     - `myComponent.html`: The HTML template file.
     - `myComponent.js`: The JavaScript controller file.
@@ -276,24 +275,24 @@ export default class MyComponent extends LightningElement {
 ### 8. Performance Optimization
 
 #### Conditional Rendering
+Prefer `lwc:if`, `lwc:elseif` and `lwc:else` for conditional rendering (API v58.0+). Legacy `if:true` / `if:false` are still supported but should be avoided in new components.
+
 ```html
 <!-- Use template directives for conditional rendering -->
-<template if:true={isLoading}>
+<template lwc:if={isLoading}>
     <lightning-spinner alternative-text="Loading..."></lightning-spinner>
 </template>
-
-<template if:false={isLoading}>
+<template lwc:elseif={error}>
+    <div class="slds-theme_error slds-text-color_inverse slds-var-p-around_small">
+        {error.message}
+    </div>
+</template>
+<template lwc:else>
     <template for:each={items} for:item="item">
         <div key={item.id} class="slds-var-m-bottom_small">
             {item.name}
         </div>
     </template>
-</template>
-
-<template if:true={error}>
-    <div class="slds-theme_error slds-text-color_inverse slds-var-p-around_small">
-        {error.message}
-    </div>
 </template>
 ```
 
