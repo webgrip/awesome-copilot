@@ -54,7 +54,7 @@ Always prefer Lightning Web Component library components over plain HTML element
 | Custom pills | `<lightning-pill>` | `label`, `name`, `onremove` |
 | Icons | `<lightning-icon>` | `icon-name`, `size`, `variant` |
 
-### 3. SLDS2 Design System Compliance
+### 3. Lightning Design System Compliance
 
 #### Use SLDS Utility Classes
 Always use Salesforce Lightning Design System utility classes with the `slds-var-` prefix for modern implementations:
@@ -157,17 +157,89 @@ export default class MyComponent extends LightningElement {
     @api recordId;
     @api title;
 
-    // Use @track sparingly - prefer reactive properties
-    @track complexObject = {};
-
-    // Simple reactive properties (no decorator needed)
-    name = '';
-    isLoading = false;
+    // Primitive properties (string, number, boolean) are automatically reactive
+    // No decorator needed - reassignment triggers re-render
+    simpleValue = 'initial';
+    count = 0;
 
     // Computed properties
     get displayName() {
         return this.name ? `Hello, ${this.name}` : 'Hello, Guest';
     }
+
+    // @track is NOT needed for simple property reassignment
+    // This will trigger reactivity automatically:
+    handleUpdate() {
+      this.simpleValue = 'updated'; // Reactive without @track
+      this.count++; // Reactive without @track
+    }
+
+    // @track IS needed when mutating nested properties without reassignment
+    @track complexData = {
+      user: {
+        name: 'John',
+        preferences: {
+          theme: 'dark'
+        }
+      }
+    };
+
+    handleDeepUpdate() {
+      // Requires @track because we're mutating a nested property
+      this.complexData.user.preferences.theme = 'light';
+    }
+
+    // BETTER: Avoid @track by using immutable patterns
+    regularData = {
+      user: {
+        name: 'John',
+        preferences: {
+          theme: 'dark'
+        }
+      }
+    };
+
+    handleImmutableUpdate() {
+      // No @track needed - we're creating a new object reference
+      this.regularData = {
+        ...this.regularData,
+        user: {
+          ...this.regularData.user,
+          preferences: {
+            ...this.regularData.user.preferences,
+            theme: 'light'
+          }
+        }
+      };
+    }
+
+    // Arrays: @track is needed only for mutating methods
+    @track items = ['a', 'b', 'c'];
+
+    handleArrayMutation() {
+      // Requires @track
+      this.items.push('d');
+      this.items[0] = 'z';
+    }
+
+    // BETTER: Use immutable array operations
+    regularItems = ['a', 'b', 'c'];
+
+    handleImmutableArray() {
+      // No @track needed
+      this.regularItems = [...this.regularItems, 'd'];
+      this.regularItems = this.regularItems.map((item, idx) =>
+        idx === 0 ? 'z' : item
+      );
+    }
+
+    // Use @track only for complex objects/arrays when you mutate nested properties.
+    // For example, updating complexObject.details.status without reassigning complexObject.
+    @track complexObject = {
+      details: {
+        status: 'new'
+      }
+    };
 }
 ```
 
@@ -288,6 +360,25 @@ Prefer `lwc:if`, `lwc:elseif` and `lwc:else` for conditional rendering (API v58.
     </div>
 </template>
 <template lwc:else>
+    <template for:each={items} for:item="item">
+        <div key={item.id} class="slds-var-m-bottom_small">
+            {item.name}
+        </div>
+    </template>
+</template>
+```
+
+```html
+<!-- Legacy approach (avoid in new components) -->
+<template if:true={isLoading}>
+    <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+</template>
+<template if:true={error}>
+    <div class="slds-theme_error slds-text-color_inverse slds-var-p-around_small">
+        {error.message}
+    </div>
+</template>
+<template if:false={isLoading} if:false={error}>
     <template for:each={items} for:item="item">
         <div key={item.id} class="slds-var-m-bottom_small">
             {item.name}
