@@ -1,6 +1,6 @@
 ---
-description: Guidelines and best practices for developing Lightning Web Components (LWC) on Salesforce Platform.
-applyTo: 'force-app/main/default/lwc/**'
+description: "Guidelines and best practices for developing Lightning Web Components (LWC) on Salesforce Platform."
+applyTo: "force-app/main/default/lwc/**"
 
 ---
 
@@ -16,26 +16,6 @@ applyTo: 'force-app/main/default/lwc/**'
     - `myComponent.js-meta.xml`: The metadata configuration file.
     - Optional: `myComponent.css` for component-specific styles.
     - Optional: `myComponent.test.js` for Jest unit tests.
-
-## Development Best Practices
-### Component Design
-- **Single Responsibility**: Each component should have a single, well-defined purpose.
-- **Reusability**: Design components to be reusable across different parts of the application.
-- **Composition**: Prefer composing smaller components into larger ones rather than creating monolithic components.
-- **Public API**: Use `@api` decorators to expose properties and methods that need to be accessed by parent components.
-- **Private State**: Use `@track` for reactive properties that are internal to the component.
-
-### Performance Optimization
-- **Lazy Loading**: Load components only when needed to improve initial load times.
-- **Efficient Rendering**: Minimize DOM updates by batching changes and using conditional rendering.
-- **Avoid Unnecessary Re-renders**: Use getters and setters wisely to prevent unnecessary re-renders.
-- **Use Lightning Data Service (LDS)**: Prefer LDS for data access to leverage built-in caching and performance optimizations.
-
-### Security Considerations
-- **Sanitize Inputs**: Always sanitize user inputs to prevent XSS attacks.
-- **Use `@wire`**: Prefer using `@wire` for data access to ensure security and compliance with Salesforce's security model.
-- **Avoid Direct DOM Manipulation**: Use LWC's reactive properties and templates instead of manipulating the DOM directly.
-# Lightning Web Component (LWC) Development Best Practices
 
 ## Core Principles
 
@@ -139,7 +119,7 @@ Always use Salesforce Lightning Design System utility classes with the `slds-var
 </div>
 ```
 
-#### Avoid Custom CSS
+#### Avoid Custom CSS (Anti-Pattern)
 ```css
 /* Don't create custom styles that override SLDS */
 .custom-button {
@@ -339,10 +319,10 @@ export default class MyComponent extends LightningElement {
 ```
 
 ## Common Anti-Patterns to Avoid
-1. **Direct DOM Manipulation**: Never use `document.querySelector()` or similar
-2. **jQuery or External Libraries**: Avoid non-Lightning compatible libraries
-3. **Inline Styles**: Use SLDS classes instead of `style` attributes
-4. **Global CSS**: All styles should be scoped to the component
-5. **Hardcoded Values**: Use custom labels, custom metadata, or constants
-6. **Imperative API Calls**: Prefer `@wire` over imperative `import` calls when possible
-7. **Memory Leaks**: Always clean up event listeners in `disconnectedCallback()`
+- **Direct DOM Manipulation**: Never use `document.querySelector()` or similar
+- **jQuery or External Libraries**: Avoid non-Lightning compatible libraries
+- **Inline Styles**: Use SLDS classes instead of `style` attributes
+- **Global CSS**: All styles should be scoped to the component
+- **Hardcoded Values**: Use custom labels, custom metadata, or constants
+- **Imperative API Calls**: Prefer `@wire` over imperative `import` calls when possible
+- **Memory Leaks**: Always clean up event listeners in `disconnectedCallback()`
