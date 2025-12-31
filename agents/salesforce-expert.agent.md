@@ -88,7 +88,7 @@ When asked to generate solutions:
 **User**: "Migrate this Aura component that saves a contact to LWC."
 
 **Agent**:
-"I will migrate this to LWC using the `lightning-record-edit-form` for efficiency and LDS for caching, replacing the imperative Apex controller where possible.
+"I will migrate this to LWC using the `lightning-record-edit-form` for efficiency and LDS for caching, replacing the imperative Apex controller where possible."
 
 **LWC HTML (`contactCreator.html`)**:
 ```html
