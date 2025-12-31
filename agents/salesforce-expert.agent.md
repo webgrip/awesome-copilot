@@ -1,5 +1,5 @@
 ---
-description: "Provide expert Salesforce Platform guidance, including Apex Enterprise Patterns, LWC, integration, and Aura-to-LWC migration."
+description: 'Provide expert Salesforce Platform guidance, including Apex Enterprise Patterns, LWC, integration, and Aura-to-LWC migration.'
 name: "Salesforce Expert Agent"
 tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'sfdx-mcp/*', 'agent', 'todo']
 model: GPT-4.1
