@@ -9,6 +9,12 @@ description: 'Manage NuGet packages in .NET projects/solutions. Use this skill w
 
 This skill ensures consistent and safe management of NuGet packages across .NET projects. It prioritizes using the `dotnet` CLI to maintain project integrity and enforces a strict verification and restoration workflow for version updates.
 
+## Prerequisites
+
+- .NET SDK installed (typically .NET 8.0 SDK or later, or a version compatible with the target solution).
+- `dotnet` CLI available on your `PATH`.
+- `jq` (JSON processor) OR PowerShell (for version verification using `dotnet package search`).
+
 ## Core Rules
 
 1.  **NEVER** directly edit `.csproj`, `.props`, or `Directory.Packages.props` files to **add** or **remove** packages. Always use `dotnet add package` and `dotnet remove package` commands.
@@ -33,8 +39,11 @@ Example: `dotnet remove src/MyProject/MyProject.csproj package Newtonsoft.Json`
 When updating a version, follow these steps:
 
 1.  **Verify Version Existence**:
-    Check if the version exists using the `dotnet package search` command with exact match and JSON formatting:
+    Check if the version exists using the `dotnet package search` command with exact match and JSON formatting. 
+    Using `jq`:
     `dotnet package search <PACKAGE_NAME> --exact-match --format json | jq -e '.searchResult[].packages[] | select(.version == "<VERSION>")'`
+    Using PowerShell:
+    `(dotnet package search <PACKAGE_NAME> --exact-match --format json | ConvertFrom-Json).searchResult.packages | Where-Object { $_.version -eq "<VERSION>" }`
     
 2.  **Determine Version Management**:
     - Search for `Directory.Packages.props` in the solution root. If present, versions should be managed there via `<PackageVersion Include="Package.Name" Version="1.2.3" />`.
@@ -53,7 +62,7 @@ When updating a version, follow these steps:
 
 ### User: "Update Newtonsoft.Json to 13.0.3 in the whole solution"
 **Action**:
-1. Verify 13.0.3 exists: `dotnet package search Newtonsoft.Json --exact-match --format json | jq -e '.searchResult[].packages[] | select(.version == "13.0.3")'`
+1. Verify 13.0.3 exists: `dotnet package search Newtonsoft.Json --exact-match --format json` (and parse output to confirm "13.0.3" is present).
 2. Find where it's defined (e.g., `Directory.Packages.props`).
 3. Edit the file to update the version.
 4. Run `dotnet restore`.
