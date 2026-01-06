@@ -34,7 +34,7 @@ When updating a version, follow these steps:
 
 1.  **Verify Version Existence**:
     Check if the version exists using the `dotnet package search` command with exact match and JSON formatting:
-    `dotnet package search <PACKAGE_NAME> --exact-match --format json | jq -e '.searchResult[].packages[] | select(.version == "<VERSION>")' > /dev/null`
+    `dotnet package search <PACKAGE_NAME> --exact-match --format json | jq -e '.searchResult[].packages[] | select(.version == "<VERSION>")'`
     
 2.  **Determine Version Management**:
     - Search for `Directory.Packages.props` in the solution root. If present, versions should be managed there via `<PackageVersion Include="Package.Name" Version="1.2.3" />`.
