@@ -3,7 +3,7 @@ name: nuget-manager
 description: Manage NuGet packages in .NET projects/solutions. Use this skill when adding, removing, or updating NuGet package versions. It enforces using `dotnet` CLI for package management and provides strict procedures for direct file edits only when updating versions.
 ---
 
-# Nuget Manager
+# NuGet Manager
 
 ## Overview
 
