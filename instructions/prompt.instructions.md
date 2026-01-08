@@ -30,7 +30,7 @@ Every prompt file should include YAML frontmatter with the following fields:
 ### Guidelines
 
 - Use consistent quoting (single quotes recommended) and keep one field per line for readability and version control clarity
-- If `tools` are specified and current agent is `ask` or `edit`, the default agent becomes `agent`
+- If `tools` are specified and the current agent is `ask` or `edit`, the default agent becomes `agent`
 - Preserve any additional metadata (`language`, `tags`, `visibility`, etc.) required by your organization
 
 ## File Naming and Placement
