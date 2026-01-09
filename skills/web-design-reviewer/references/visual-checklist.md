@@ -211,7 +211,7 @@ This document is a comprehensive checklist of items to verify during web design 
 |----------|----------|----------|
 | P0 (Critical) | Functionality breaking | Complete element overlap, content disappearance |
 | P1 (High) | Serious UX issues | Unreadable text, inoperable buttons |
-| P2 (Medium) | Moderate issues | Alignment misalignment, spacing inconsistencies |
+| P2 (Medium) | Moderate issues | Alignment issues, spacing inconsistencies |
 | P3 (Low) | Minor issues | Slight positioning differences, minor color variations |
 
 ---
