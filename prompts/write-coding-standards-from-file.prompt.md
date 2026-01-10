@@ -169,7 +169,7 @@ Depending on the programming language, for each link in list below, run `#fetch 
 - [Angular Style Guide](https://angular.dev/style-guide)
 - [Vue Style Guide](https://vuejs.org/style-guide/rules-strongly-recommended.html)
 - [Django Style Guide](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/)
-- [system Verilog Style Guide](https://github.com/lowRISC/style-guides/blob/master/VerilogCodingStyle.md)
+- [SystemVerilog Style Guide](https://github.com/lowRISC/style-guides/blob/master/VerilogCodingStyle.md)
 
 ## Coding Standards Templates
 
