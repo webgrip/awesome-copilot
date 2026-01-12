@@ -1,0 +1,40 @@
+id: cast-imaging
+name: CAST Imaging Agents
+description: A comprehensive collection of specialized agents for software analysis, impact assessment, structural quality advisories, and architectural review using CAST Imaging.
+tags: [cast imaging, software analysis, architecture, quality, impact analysis, devops]
+items:
+  - path: agents/cast-imaging-software-discovery.agent.md
+    kind: agent
+    usage: |
+      This agent is designed for comprehensive software application discovery and architectural mapping. It helps users understand code structure, dependencies, and architectural patterns, starting with listing all available applications.
+
+      Ideal for:
+      - Exploring available applications and getting overviews.
+      - Understanding system architecture and component structure.
+      - Analyzing dependencies and identifying patterns.
+
+  - path: agents/cast-imaging-impact-analysis.agent.md
+    kind: agent
+    usage: |
+      This agent specializes in comprehensive change impact assessment and risk analysis. It assists users in understanding ripple effects of code changes, developing testing strategies, and evaluating cross-application impacts.
+
+      Ideal for:
+      - Assessing potential impacts of code modifications.
+      - Evaluating quality risks and technical debt implications.
+      - Analyzing impacts spanning multiple applications.
+      - Developing targeted testing approaches.
+
+  - path: agents/cast-imaging-structural-quality-advisor.agent.md
+    kind: agent
+    usage: |
+      This agent focuses on identifying, analyzing, and providing remediation guidance for structural quality issues. It includes structural context analysis of occurrences with a focus on necessary testing and indicates source code access level.
+
+      Ideal for:
+      - Identifying and understanding code quality issues.
+      - Prioritizing quality issues based on impact.
+      - Performing root cause analysis for specific quality problems.
+      - Analyzing quality trends across the application.
+
+display:
+  ordering: alpha
+  show_badge: true
