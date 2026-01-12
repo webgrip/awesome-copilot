@@ -5,7 +5,7 @@ tools:
   - 'search/codebase'
   - 'changes'
   - 'edit/editFiles'
-  - 'web/fetch'
+  - 'fetch'
   - 'findTestFiles'
   - 'githubRepo'
   - 'runCommands'

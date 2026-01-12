@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Suggest relevant GitHub Copilot instruction files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing instructions in this repository.'
-tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'search']
+tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'search']
 ---
 # Suggest Awesome GitHub Copilot Instructions
 
@@ -9,7 +9,7 @@ Analyze current repository context and suggest relevant copilot-instruction file
 
 ## Process
 
-1. **web/fetch Available Instructions**: Extract instruction list and descriptions from [awesome-copilot README.instructions.md](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md). Must use `#web/fetch` tool.
+1. **Fetch Available Instructions**: Extract instruction list and descriptions from [awesome-copilot README.instructions.md](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md). Must use `#fetch` tool.
 2. **Scan Local Instructions**: Discover existing instruction files in `.github/instructions/` folder
 3. **Extract Descriptions**: Read front matter from local instruction files to get descriptions and `applyTo` patterns
 4. **Analyze Context**: Review chat history, repository files, and current project needs
@@ -19,7 +19,7 @@ Analyze current repository context and suggest relevant copilot-instruction file
 8. **Validate**: Ensure suggested instructions would add value not already covered by existing instructions
 9. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot instructions and similar local instructions
    **AWAIT** user request to proceed with installation of specific instructions. DO NOT INSTALL UNLESS DIRECTED TO DO SO.
-10. **Download Assets**: For requested instructions, automatically download and install individual instructions to `.github/instructions/` folder. Do NOT adjust content of the files.  Use `#todos` tool to track progress. Prioritize use of `#web/fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
+10. **Download Assets**: For requested instructions, automatically download and install individual instructions to `.github/instructions/` folder. Do NOT adjust content of the files.  Use `#todos` tool to track progress. Prioritize use of `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
 
 ## Context Analysis Criteria
 

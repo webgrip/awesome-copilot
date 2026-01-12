@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Create a tldr page from documentation URLs and command examples, requiring both URL and command name.'
-tools: ['edit/createFile', 'web/fetch']
+tools: ['edit/createFile', 'fetch']
 ---
 
 # Create TLDR Page
@@ -25,9 +25,9 @@ clear, example-driven command references.
 
 * **Command** - The name of the command or tool (e.g., `git`, `nmcli`, `distrobox-create`)
 * **URL** - Link to authoritative upstream documentation
-  - If one or more URLs are passed without a preceding `#web/fetch`, apply #tool:web/fetch to the first URL
+  - If one or more URLs are passed without a preceding `#fetch`, apply #tool:fetch to the first URL
   - If ${file} is provided in lieu of a URL, and ${file} has a relevant URL to **command**, then use
-  the data from the file as if web/fetched from the URL; use the URL extracted from the file when
+  the data from the file as if fetched from the URL; use the URL extracted from the file when
   creating the `tldr` page
     - If more than one URL is in the file, prompt for which URL should be used for the `tldr` page
 
@@ -48,7 +48,7 @@ the command.
 ### Syntax
 
 ```bash
-/create-tldr-page #web/fetch <URL> <command> [text data] [context file]
+/create-tldr-page #fetch <URL> <command> [text data] [context file]
 ```
 
 ### Error Handling
@@ -64,7 +64,7 @@ the command.
 **Agent**
 
 ```text
-I'll web/fetch the URL and analyze the documentation.
+I'll fetch the URL and analyze the documentation.
 From the data extracted, I assume the command is `some-command`. Is this correct? (yes/no)
 ```
 
@@ -123,7 +123,7 @@ Use this template structure when creating tldr pages:
 
 ### Reference Examples
 
-You MAY web/fetch these example tldr pages to understand the proper format and style:
+You MAY fetch these example tldr pages to understand the proper format and style:
 
 * [git](https://raw.githubusercontent.com/jhauga/tldr/refs/heads/main/pages/common/git.md)
 * [distrobox-create](https://raw.githubusercontent.com/jhauga/tldr/refs/heads/main/pages/linux/distrobox-create.md)
@@ -134,7 +134,7 @@ You MAY web/fetch these example tldr pages to understand the proper format and s
 **User**
 
 ```bash
-/create-tldr-page #web/fetch https://git-scm.com/docs/git git
+/create-tldr-page #fetch https://git-scm.com/docs/git git
 ```
 
 **Agent**

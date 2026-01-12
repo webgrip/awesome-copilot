@@ -1,7 +1,7 @@
 ---
 agent: "agent"
 description: "Write a coding standards document for a project using the coding styles from the file(s) and/or folder(s) passed as arguments in the prompt."
-tools: ['createFile', 'editFiles', 'web/fetch', 'githubRepo', 'search', 'testFailure']
+tools: ['createFile', 'editFiles', 'fetch', 'githubRepo', 'search', 'testFailure']
 ---
 
 # Write Coding Standards From File
@@ -10,7 +10,7 @@ Use the existing syntax of the file(s) to establish the standards and style guid
 
 ## Rules and Configuration
 
-Below is a set of quasi-configuration `boolean` and `string[]` variables. Conditions for handling `true`, or other values for each variable are under the level two heading `## Variable and Parameter Configuration Conditions`.
+Below is a set of quasi-configuration `boolean` and `string[]` variables. Conditions for handling `true`, or other values for each variable are under the level two heading `## Variable and Parameter Configuration Conditions`. 
 
 Parameters for the prompt have a text definition. There is one required parameter **`${fileName}`**, and several optional parameters **`${folderName}`**, **`${instructions}`**, and any **`[configVariableAsParameter]`**.
 
@@ -21,7 +21,7 @@ Parameters for the prompt have a text definition. There is one required paramete
 * addToREADMEInsertions = ["atBegin", "middle", "beforeEnd", "bestFitUsingContext"];
   - Default to **beforeEnd**.
 * createNewFile = true;
-* web/fetchStyleURL = true;
+* fetchStyleURL = true;
 * findInconsistencies = true;
 * fixInconsistencies = true;
 * newFileName = ["CONTRIBUTING.md", "STYLE.md", "CODE_OF_CONDUCT.md", "CODING_STANDARDS.md", "DEVELOPING.md", "CONTRIBUTION_GUIDE.md", "GUIDELINES.md", "PROJECT_STANDARDS.md", "BEST_PRACTICES.md", "HACKING.md"];
@@ -87,10 +87,10 @@ If any of the variable names are passed to prompt as-is, or as a similar but cle
 * Create a new file using the value, or one of the possible values, from `${newFileName}`.
 * If true, toggle both `${outputSpecToPrompt}` and `${addToREADME}` to false.
 
-### `${web/fetchStyleURL} == true`
+### `${fetchStyleURL} == true`
 
-* Additionally use the data web/fetched from the links nested under level three heading `### web/fetch Links` as context for creating standards, specifications, and styling data for the new file, prompt, or `README.md`.
-* For each relevant item in `### web/fetch Links`, run `#web/fetch ${item}`.
+* Additionally use the data fetched from the links nested under level three heading `### Fetch Links` as context for creating standards, specifications, and styling data for the new file, prompt, or `README.md`.
+* For each relevant item in `### Fetch Links`, run `#fetch ${item}`.
 
 ### `${findInconsistencies} == true`
 
@@ -132,11 +132,11 @@ If any of the variable names are passed to prompt as-is, or as a similar but cle
 
 * Use the custom prompt, instructions, template, or other data passed as guiding template when composing the data for coding standards.
 
-## **if** `${web/fetchStyleURL} == true`
+## **if** `${fetchStyleURL} == true`
 
-Depending on the programming language, for each link in list below, run `#web/fetch (URL)`, if programming language is `${fileName} == [<Language> Style Guide]`.
+Depending on the programming language, for each link in list below, run `#fetch (URL)`, if programming language is `${fileName} == [<Language> Style Guide]`.
 
-### web/fetch Links
+### Fetch Links
 
 - [C Style Guide](https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html)
 - [C# Style Guide](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
@@ -223,7 +223,7 @@ Depending on the programming language, for each link in list below, run `#web/fe
 
     # Style Guide
 
-    This document defines the style and conventions used in this project.
+    This document defines the style and conventions used in this project.  
     All contributions should follow these rules unless otherwise noted.
 
     ## 1. General Code Style
@@ -311,7 +311,7 @@ Depending on the programming language, for each link in list below, run `#web/fe
 
     ## 8. Changes to This Guide
 
-    Style evolves.
+    Style evolves.  
     Propose improvements by opening an issue or sending a patch updating this document.
     ```
 ```

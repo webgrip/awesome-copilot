@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Suggest relevant GitHub Copilot Custom Chat Modes files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing custom chat modes in this repository.'
-tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'search']
+tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'search']
 ---
 
 # Suggest Awesome GitHub Copilot Custom Chat Modes
@@ -10,7 +10,7 @@ Analyze current repository context and suggest relevant Custom Chat Modes files 
 
 ## Process
 
-1. **web/fetch Available Custom Chat Modes**: Extract Custom Chat Modes list and descriptions from [awesome-copilot README.chatmodes.md](https://github.com/github/awesome-copilot/blob/main/docs/README.chatmodes.md). Must use `#web/fetch` tool.
+1. **Fetch Available Custom Chat Modes**: Extract Custom Chat Modes list and descriptions from [awesome-copilot README.chatmodes.md](https://github.com/github/awesome-copilot/blob/main/docs/README.chatmodes.md). Must use `#fetch` tool.
 2. **Scan Local Custom Chat Modes**: Discover existing custom chat mode files in `.github/agents/` folder
 3. **Extract Descriptions**: Read front matter from local custom chat mode files to get descriptions
 4. **Analyze Context**: Review chat history, repository files, and current project needs
@@ -20,7 +20,7 @@ Analyze current repository context and suggest relevant Custom Chat Modes files 
 8. **Validate**: Ensure suggested chatmodes would add value not already covered by existing chatmodes
 9. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot custom chat modes and similar local custom chat modes
    **AWAIT** user request to proceed with installation of specific custom chat modes. DO NOT INSTALL UNLESS DIRECTED TO DO SO.
-10. **Download Assets**: For requested chat modes, automatically download and install individual chat modes to `.github/agents/` folder. Do NOT adjust content of the files. Use `#todos` tool to track progress. Prioritize use of `#web/fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
+10. **Download Assets**: For requested chat modes, automatically download and install individual chat modes to `.github/agents/` folder. Do NOT adjust content of the files. Use `#todos` tool to track progress. Prioritize use of `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
 
 ## Context Analysis Criteria
 

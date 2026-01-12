@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Update Azure Verified Modules (AVM) to latest versions in Bicep files.'
-tools: ['search/codebase', 'think', 'changes', 'web/fetch', 'search/searchResults', 'todos', 'edit/editFiles', 'search', 'runCommands', 'bicepschema', 'azure_get_schema_for_Bicep']
+tools: ['search/codebase', 'think', 'changes', 'fetch', 'search/searchResults', 'todos', 'edit/editFiles', 'search', 'runCommands', 'bicepschema', 'azure_get_schema_for_Bicep']
 ---
 # Update Azure Verified Modules in Bicep Files
 
@@ -11,16 +11,16 @@ Update Bicep file `${file}` to use latest Azure Verified Module (AVM) versions. 
 
 1. **Scan**: Extract AVM modules and current versions from `${file}`
 1. **Identify**: List all unique AVM modules used by matching `avm/res/{service}/{resource}` using `#search` tool
-1. **Check**: Use `#web/fetch` tool to get latest version of each AVM module from MCR: `https://mcr.microsoft.com/v2/bicep/avm/res/{service}/{resource}/tags/list`
+1. **Check**: Use `#fetch` tool to get latest version of each AVM module from MCR: `https://mcr.microsoft.com/v2/bicep/avm/res/{service}/{resource}/tags/list`
 1. **Compare**: Parse semantic versions to identify AVM modules needing update
-1. **Review**: For breaking changes, use `#web/fetch` tool to get docs from: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/{service}/{resource}`
+1. **Review**: For breaking changes, use `#fetch` tool to get docs from: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/{service}/{resource}`
 1. **Update**: Apply version updates and parameter changes using `#editFiles` tool
 1. **Validate**: Run `bicep lint` and `bicep build` using `#runCommands` tool to ensure compliance.
 1. **Output**: Summarize changes in a table format with summary of updates below.
 
 ## Tool Usage
 
-Always use tools `#search`, `#searchResults`,`#web/fetch`, `#editFiles`, `#runCommands`, `#todos` if available. Avoid writing code to perform tasks.
+Always use tools `#search`, `#searchResults`,`#fetch`, `#editFiles`, `#runCommands`, `#todos` if available. Avoid writing code to perform tasks.
 
 ## Breaking Change Policy
 

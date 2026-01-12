@@ -146,7 +146,7 @@ The MCP server must provide:
 
 ### Tool Selection
 When importing from MCP:
-1. web/fetch available tools from server
+1. Fetch available tools from server
 2. Select specific tools to include (for security/simplicity)
 3. Tool definitions are auto-generated in ai-plugin.json
 
@@ -299,7 +299,7 @@ Then generate:
 - Ensure mcp.json points to correct server
 - Verify tools were selected during import
 - Check ai-plugin.json has correct function definitions
-- Re-web/fetch actions from MCP if server changed
+- Re-fetch actions from MCP if server changed
 
 ### Agent Not Understanding Queries
 - Review instructions in declarativeAgent.json

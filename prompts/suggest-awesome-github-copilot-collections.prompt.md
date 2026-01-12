@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Suggest relevant GitHub Copilot collections from the awesome-copilot repository based on current repository context and chat history, providing automatic download and installation of collection assets.'
-tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'search']
+tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'search']
 ---
 # Suggest Awesome GitHub Copilot Collections
 
@@ -9,7 +9,7 @@ Analyze current repository context and suggest relevant collections from the [Gi
 
 ## Process
 
-1. **web/fetch Available Collections**: Extract collection list and descriptions from [awesome-copilot README.collections.md](https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md). Must use `#web/fetch` tool.
+1. **Fetch Available Collections**: Extract collection list and descriptions from [awesome-copilot README.collections.md](https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md). Must use `#fetch` tool.
 2. **Scan Local Assets**: Discover existing prompt files in `prompts/`, instruction files in `instructions/`, and chat modes in `agents/` folders
 3. **Extract Local Descriptions**: Read front matter from local asset files to understand existing capabilities
 4. **Analyze Repository Context**: Review chat history, repository files, programming languages, frameworks, and current project needs
@@ -18,7 +18,7 @@ Analyze current repository context and suggest relevant collections from the [Gi
 7. **Present Collection Options**: Display relevant collections with descriptions, item counts, and rationale for suggestion
 8. **Provide Usage Guidance**: Explain how the installed collection enhances the development workflow
    **AWAIT** user request to proceed with installation of specific collections. DO NOT INSTALL UNLESS DIRECTED TO DO SO.
-9. **Download Assets**: For requested collections, automatically download and install each individual asset (prompts, instructions, chat modes) to appropriate directories. Do NOT adjust content of the files. Prioritize use of `#web/fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
+9. **Download Assets**: For requested collections, automatically download and install each individual asset (prompts, instructions, chat modes) to appropriate directories. Do NOT adjust content of the files. Prioritize use of `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
 
 ## Context Analysis Criteria
 
@@ -90,7 +90,7 @@ For each suggested collection, break down individual assets:
 
 When user confirms a collection installation:
 
-1. **web/fetch Collection Manifest**: Get collection YAML from awesome-copilot repository
+1. **Fetch Collection Manifest**: Get collection YAML from awesome-copilot repository
 2. **Download Individual Assets**: For each item in collection:
    - Download raw file content from GitHub
    - Validate file format and front matter structure
@@ -104,7 +104,7 @@ When user confirms a collection installation:
 
 ## Requirements
 
-- Use `web/fetch` tool to get collections data from awesome-copilot repository
+- Use `fetch` tool to get collections data from awesome-copilot repository
 - Use `githubRepo` tool to get individual asset content for download
 - Scan local file system for existing assets in `prompts/`, `instructions/`, and `agents/` directories
 - Read YAML front matter from local asset files to extract descriptions and capabilities
@@ -120,7 +120,7 @@ When user confirms a collection installation:
 ## Collection Installation Workflow
 
 1. **User Confirms Collection**: User selects specific collection(s) for installation
-2. **web/fetch Collection Manifest**: Download YAML manifest from awesome-copilot repository
+2. **Fetch Collection Manifest**: Download YAML manifest from awesome-copilot repository
 3. **Asset Download Loop**: For each asset in collection:
    - Download raw content from GitHub repository
    - Validate file format and structure

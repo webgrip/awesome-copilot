@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Create tldr summaries for GitHub Copilot files (prompts, agents, instructions, collections), MCP servers, or documentation from URLs and queries.'
-tools: ['web/fetch', 'search/readFile', 'search', 'search/textSearch']
+tools: ['fetch', 'search/readFile', 'search', 'search/textSearch']
 model: 'claude-sonnet-4'
 ---
 
@@ -50,7 +50,7 @@ message specified in the Error Handling section.
   create tldr summaries for the first 5 and list the remaining files
   - Recognize file type by extension and use appropriate invocation syntax in examples
 * **URL** - Link to Copilot file, MCP server documentation, or Copilot documentation
-  - If one or more URLs are passed without `#web/fetch`, you MUST apply the web/fetch tool to all URLs
+  - If one or more URLs are passed without `#fetch`, you MUST apply the fetch tool to all URLs
   - If more than one URL (up to 5), you MUST create a `tldr` for each. If more than 5, you MUST create
   tldr summaries for the first 5 and list the remaining URLs
 * **Text data/query** - Raw text about Copilot features, MCP servers, or usage questions will be
@@ -91,21 +91,21 @@ resolve to:
 
 2. **Search strategy**:
    - For workspace files: Use search tools to find matching files in ${workspaceFolder}
-   - For GitHub awesome-copilot: web/fetch raw content from https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/
-   - For documentation: Use web/fetch tool with the most relevant URL from above
+   - For GitHub awesome-copilot: Fetch raw content from https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/
+   - For documentation: Use fetch tool with the most relevant URL from above
 
-3. **web/fetch content**:
+3. **Fetch content**:
    - Workspace files: Read using file tools
-   - GitHub awesome-copilot files: web/fetch using raw.githubusercontent.com URLs
-   - Documentation URLs: web/fetch using web/fetch tool
+   - GitHub awesome-copilot files: Fetch using raw.githubusercontent.com URLs
+   - Documentation URLs: Fetch using fetch tool
 
 4. **Evaluate and respond**:
-   - Use the web/fetched content as the reference for completing the request
+   - Use the fetched content as the reference for completing the request
    - Adapt response verbosity based on chat context
 
 ### Unambiguous Queries
 
-If the user **DOES** provide a specific URL or file, skip searching and web/fetch/read that directly.
+If the user **DOES** provide a specific URL or file, skip searching and fetch/read that directly.
 
 ### Optional
 
@@ -124,7 +124,7 @@ If the user **DOES** provide a specific URL or file, skip searching and web/fetc
 /tldr-prompt #file:{{name.collections.md}}
 
 # With URLs
-/tldr-prompt #web/fetch {{https://example.com/docs}}
+/tldr-prompt #fetch {{https://example.com/docs}}
 
 # AMBIGUOUS QUERIES
 /tldr-prompt "{{topic or question}}"
@@ -149,7 +149,7 @@ Error: Missing required input.
 
 You MUST provide one of the following:
 1. A Copilot file: /tldr-prompt #file:{{name.prompt.md | name.agent.md | name.instructions.md | name.collections.md}}
-2. A URL: /tldr-prompt #web/fetch {{https://example.com/docs}}
+2. A URL: /tldr-prompt #fetch {{https://example.com/docs}}
 3. A search query: /tldr-prompt "{{topic}}" (e.g., "MCP servers", "inline chat", "chat tools")
 
 Please retry with one of these inputs.
@@ -184,7 +184,7 @@ Found:
 - https://github.com/github/awesome-copilot/blob/main/prompts/java-docs.prompt.md
 - https://github.com/github/awesome-copilot/blob/main/prompts/java-junit.prompt.md
 
-Now let me web/fetch the raw content:
+Now let me fetch the raw content:
 - https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/java-docs.prompt.md
 - https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/java-junit.prompt.md
 
@@ -212,13 +212,13 @@ I'll read the file typescript-mcp-server-generator.prompt.md and create a tldr s
 **User**
 
 ```bash
-/tldr-prompt "How do MCP servers work?" #web/fetch https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+/tldr-prompt "How do MCP servers work?" #fetch https://code.visualstudio.com/docs/copilot/customization/mcp-servers
 ```
 
 **Agent**
 
 ```text
-I'll web/fetch the MCP server documentation from https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+I'll fetch the MCP server documentation from https://code.visualstudio.com/docs/copilot/customization/mcp-servers
 and create a tldr summary of how MCP servers work.
 ```
 
@@ -232,10 +232,10 @@ message from Error Handling section
    - Determine file type (.prompt.md, .agent.md, .instructions.md, .collections.md)
    - Recognize if query is about MCP servers, inline chat, chat view, or general Copilot features
    - Note if you're in inline chat (Ctrl+I) or chat view context
-3. **web/fetch Content**:
+3. **Fetch Content**:
    - For files: Read the file(s) using available file tools
-   - For URLs: web/fetch content using `#tool:web/fetch`
-   - For queries: Apply URL Resolver strategy to find and web/fetch relevant content
+   - For URLs: Fetch content using `#tool:fetch`
+   - For queries: Apply URL Resolver strategy to find and fetch relevant content
 4. **Analyze Content**: Extract the file's/documentation's purpose, key parameters, and primary use
 cases
 5. **Generate tldr**: Create summary using the template format below with correct invocation syntax

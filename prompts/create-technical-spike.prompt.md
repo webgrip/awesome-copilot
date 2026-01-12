@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Create time-boxed technical spike documents for researching and resolving critical development decisions before implementation.'
-tools: ['runCommands', 'runTasks', 'edit', 'search', 'extensions', 'usages', 'vscodeAPI', 'think', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'Microsoft Docs', 'search']
+tools: ['runCommands', 'runTasks', 'edit', 'search', 'extensions', 'usages', 'vscodeAPI', 'think', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'Microsoft Docs', 'search']
 ---
 
 # Create Technical Spike Document
@@ -203,7 +203,7 @@ Use descriptive, kebab-case names that indicate the category and specific unknow
 
 ### Phase 1: Information Gathering
 
-1. **Search existing documentation** using search/web/fetch tools
+1. **Search existing documentation** using search/fetch tools
 2. **Analyze codebase** for existing patterns and constraints
 3. **Research external resources** (APIs, libraries, examples)
 
@@ -222,7 +222,7 @@ Use descriptive, kebab-case names that indicate the category and specific unknow
 ## Tools Usage
 
 - **search/searchResults:** Research existing solutions and documentation
-- **web/fetch/githubRepo:** Analyze external APIs, libraries, and examples
+- **fetch/githubRepo:** Analyze external APIs, libraries, and examples
 - **codebase:** Understand existing system constraints and patterns
 - **runTasks:** Execute prototypes and validation tests
 - **editFiles:** Update research progress and findings
