@@ -382,7 +382,7 @@ VS.Events.DocumentEvents.Saved += OnDocumentSaved;
 // Read settings synchronously
 var value = General.Instance.MyOption;
 
-// Read settings asynchronously  
+// Read settings asynchronously
 var general = await General.GetLiveInstanceAsync();
 var value = general.MyOption;
 
