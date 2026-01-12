@@ -1,7 +1,7 @@
 ---
 agent: agent
 description: 'Convert a text-based document to markdown following instructions from prompt, or if a documented option is passed, follow the instructions for that option.'
-tools: ['edit', 'edit/editFiles', 'fetch', 'runCommands', 'search', 'search/readFile', 'search/textSearch']
+tools: ['edit', 'edit/editFiles', 'web/fetch', 'runCommands', 'search', 'search/readFile', 'search/textSearch']
 ---
 
 # Convert Plaintext Documentation to Markdown
@@ -35,7 +35,7 @@ converted
 
 This prompt can be used with several parameters and options. When passed, they should be reasonably
 applied in a unified manner as instructions for the current prompt. When putting together instructions
-or a script to make a current conversion, if parameters and options are unclear, use #tool:fetch to
+or a script to make a current conversion, if parameters and options are unclear, use #tool:web/fetch to
 retrieve the URLs in the **Reference** section.
 
 ```bash
@@ -355,9 +355,9 @@ and options provided
 
 ### Reference
 
-- #fetch → https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-- #fetch → https://www.markdownguide.org/extended-syntax/
-- #fetch → https://learn.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops
+- #web/fetch → https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- #web/fetch → https://www.markdownguide.org/extended-syntax/
+- #web/fetch → https://learn.microsoft.com/en-us/azure/devops/project/wiki/markdown-guidance?view=azure-devops
 
 > [!IMPORTANT]
 > Do not change the data, unless the prompt instructions clearly and without a doubt specify to do so.

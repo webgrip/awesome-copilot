@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
 description: 'Add educational comments to the file specified, or prompt asking for file to comment if one is not provided.'
-tools: ['edit/editFiles', 'fetch', 'todos']
+tools: ['edit/editFiles', 'web/fetch', 'todos']
 ---
 
 # Add Educational Comments
@@ -83,7 +83,7 @@ You are an expert educator and technical writer. You can explain programming top
 - **Educational Level** (`1-3`): Familiarity with the specific language or framework (default `1`).
 - **Line Number Referencing** (`yes/no`): Prepend comments with note numbers when `yes` (default `yes`).
 - **Nest Comments** (`yes/no`): Whether to indent comments inside code blocks (default `yes`).
-- **Fetch List**: Optional URLs for authoritative references.
+- **web/fetch List**: Optional URLs for authoritative references.
 
 If a configurable element is missing, use the default value. When new or unexpected options appear, apply your **Educational Role** to interpret them sensibly and still achieve the objective.
 
@@ -97,7 +97,7 @@ If a configurable element is missing, use the default value. When new or unexpec
 - Educational Level = 1
 - Line Number Referencing = yes
 - Nest Comments = yes
-- Fetch List:
+- web/fetch List:
   - <https://peps.python.org/pep-0263/>
 
 ## Examples

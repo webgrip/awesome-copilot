@@ -1,7 +1,7 @@
 ---
 agent: "agent"
 description: "Suggest relevant GitHub Copilot Custom Agents files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing custom agents in this repository."
-tools: ["edit", "search", "runCommands", "runTasks", "changes", "testFailure", "openSimpleBrowser", "fetch", "githubRepo", "todos"]
+tools: ["edit", "search", "runCommands", "runTasks", "changes", "testFailure", "openSimpleBrowser", "web/fetch", "githubRepo", "todos"]
 ---
 
 # Suggest Awesome GitHub Copilot Custom Agents
@@ -10,7 +10,7 @@ Analyze current repository context and suggest relevant Custom Agents files from
 
 ## Process
 
-1. **Fetch Available Custom Agents**: Extract Custom Agents list and descriptions from [awesome-copilot README.agents.md](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md). Must use `fetch` tool.
+1. **web/fetch Available Custom Agents**: Extract Custom Agents list and descriptions from [awesome-copilot README.agents.md](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md). Must use `web/fetch` tool.
 2. **Scan Local Custom Agents**: Discover existing custom agent files in `.github/agents/` folder
 3. **Extract Descriptions**: Read front matter from local custom agent files to get descriptions
 4. **Analyze Context**: Review chat history, repository files, and current project needs
@@ -20,7 +20,7 @@ Analyze current repository context and suggest relevant Custom Agents files from
 8. **Validate**: Ensure suggested agents would add value not already covered by existing agents
 9. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot custom agents and similar local custom agents
    **AWAIT** user request to proceed with installation of specific custom agents. DO NOT INSTALL UNLESS DIRECTED TO DO SO.
-10. **Download Assets**: For requested agents, automatically download and install individual agents to `.github/agents/` folder. Do NOT adjust content of the files. Use `#todos` tool to track progress. Prioritize use of `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
+10. **Download Assets**: For requested agents, automatically download and install individual agents to `.github/agents/` folder. Do NOT adjust content of the files. Use `#todos` tool to track progress. Prioritize use of `#web/fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved.
 
 ## Context Analysis Criteria
 

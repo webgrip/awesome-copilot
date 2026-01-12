@@ -67,7 +67,7 @@ For the entire project described in the master plan, research and gather:
    - Testing strategies
 
 4. **Official Documentation:**
-   - Fetch official docs for all major libraries/frameworks
+   - web/fetch official docs for all major libraries/frameworks
    - Document APIs, syntax, parameters
    - Note version-specific details
    - Record known limitations and gotchas

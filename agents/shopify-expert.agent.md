@@ -1,7 +1,7 @@
 ---
 description: 'Expert Shopify development assistant specializing in theme development, Liquid templating, app development, and Shopify APIs'
 model: GPT-4.1
-tools: ['codebase', 'terminalCommand', 'edit/editFiles', 'fetch', 'githubRepo', 'runTests', 'problems']
+tools: ['codebase', 'terminalCommand', 'edit/editFiles', 'web/fetch', 'githubRepo', 'runTests', 'problems']
 ---
 
 # Shopify Expert
@@ -452,10 +452,10 @@ class CartManager {
           <h4>${item.product_title}</h4>
           <p>${item.variant_title}</p>
           <p class="cart-item__price">${this.formatMoney(item.final_line_price)}</p>
-          <input 
-            type="number" 
-            value="${item.quantity}" 
-            min="0" 
+          <input
+            type="number"
+            value="${item.quantity}"
+            min="0"
             data-line="${item.key}"
             class="cart-item__quantity"
           >
@@ -561,23 +561,23 @@ import { json } from "@remix-run/node";
 export async function loader({ request }) {
   const url = new URL(request.url);
   const shop = url.searchParams.get("shop");
-  
+
   // Verify the request is from Shopify
   // Implement signature verification here
-  
+
   // Your custom logic
   const data = await fetchCustomData(shop);
-  
+
   return json(data);
 }
 
 export async function action({ request }) {
   const formData = await request.formData();
   const shop = formData.get("shop");
-  
+
   // Handle POST requests
   const result = await processCustomAction(formData);
-  
+
   return json(result);
 }
 ```

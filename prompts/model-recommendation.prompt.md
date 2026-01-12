@@ -3,7 +3,7 @@ description: "Analyze chatmode or prompt files and recommend optimal AI models b
 agent: "agent"
 tools:
   - "search/codebase"
-  - "fetch"
+  - "web/fetch"
   - "context7/*"
 model: Auto (copilot)
 ---
@@ -103,7 +103,7 @@ Identify the primary task category based on content analysis:
 
 Based on `tools` in frontmatter and body instructions:
 
-- **Read-only tools** (search, fetch, usages, githubRepo): Lower complexity, faster models suitable
+- **Read-only tools** (search, web/fetch, usages, githubRepo): Lower complexity, faster models suitable
 - **Write operations** (edit/editFiles, new): Moderate complexity, accuracy important
 - **Execution tools** (runCommands, runTests, runTasks): Validation needs, iterative approach
 - **Advanced tools** (context7/\*, sequential-thinking/\*): Complex reasoning, premium models beneficial
@@ -262,13 +262,13 @@ Verify model capabilities align with specified tools:
 
 - If tools include `context7/*` or `sequential-thinking/*`: Recommend advanced reasoning models (Claude Sonnet 4.5, GPT-5, Claude Opus 4.1)
 - If tools include vision-related references: Ensure model supports images (flag if GPT-5 Codex, Claude Sonnet 4, or mini models selected)
-- If tools are read-only (search, fetch): Suggest cost-effective models (GPT-5 mini, Grok Code Fast 1)
+- If tools are read-only (search, web/fetch): Suggest cost-effective models (GPT-5 mini, Grok Code Fast 1)
 
 ### 5. Context7 Integration for Up-to-Date Information
 
 **Leverage Context7 for Model Documentation**:
 
-When uncertainty exists about current model capabilities, use Context7 to fetch latest information:
+When uncertainty exists about current model capabilities, use Context7 to web/fetch latest information:
 
 ```markdown
 **Verification with Context7**:
@@ -568,7 +568,7 @@ If file specifies a deprecated model:
 ### Example 4: Free Tier User with Planning Mode
 
 **File**: `plan.agent.md`
-**Content**: "Research and planning mode with read-only tools (search, fetch, githubRepo)"
+**Content**: "Research and planning mode with read-only tools (search, web/fetch, githubRepo)"
 **Subscription**: Free (2K completions + 50 chat requests/month, 0x models only)
 **Recommendation**: GPT-4.1 (0x, balanced, included in Free tier)
 **Alternative**: GPT-5 mini (0x, faster but less context)
