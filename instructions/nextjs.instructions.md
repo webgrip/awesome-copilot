@@ -3,7 +3,7 @@ description: "Best practices for building Next.js (App Router) apps with modern 
 applyTo: "**"
 ---
 
-# Next.js Best Practices for LLMs (2025)
+# Next.js Best Practices for LLMs (2026)
 
 _Last updated: January 2026 (aligned to Next.js 16.1.1)_
 
