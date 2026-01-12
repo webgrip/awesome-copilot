@@ -310,7 +310,7 @@ The toolkit provides automatic theming for WPF UserControls:
 For dialog windows, use `DialogWindow`:
 
 ```xml
-<platform:DialogWindow 
+<platform:DialogWindow
     x:Class="MyExt.MyDialog"
     xmlns:platform="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
     xmlns:toolkit="clr-namespace:Community.VisualStudio.Toolkit;assembly=Community.VisualStudio.Toolkit"
