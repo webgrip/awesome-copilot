@@ -17,11 +17,11 @@ represent the full spectrum of their respective hue ranges (e.g., "blue" include
 - **60-30-10 Rule**
   - **Primary Color**: Use 60% of the time (*cool or light color*)
   - **Secondary Color**: Use 30% of the time (*cool or light color*)
-  - **Accent**: Use 10% of the time (*complimentary hot color*)
+  - **Accent**: Use 10% of the time (*complementary hot color*)
 
 ## Color Usage Guidelines
 
-Balance the colors used by applying the **60-30-10 rule** to graphic desing elements like backgrounds,
+Balance the colors used by applying the **60-30-10 rule** to graphic design elements like backgrounds,
 buttons, cards, etc...
 
 ### Background Colors
