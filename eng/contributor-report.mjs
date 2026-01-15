@@ -39,6 +39,9 @@ export const TYPE_PATTERNS = {
     'chatmodes/*.chatmode.md',
     'agents/*.agent.md'
   ],
+  skills: [
+    'skills/'
+  ],
   collections: [
     'collections/*.collection.yml'
   ],
@@ -263,11 +266,30 @@ export const getMissingContributors = () => {
     return filteredUsernames;
 
   } catch (error) {
-    console.error('❌ Error checking for missing contributors:', error.message);
-    if (error.message.includes('command not found') || error.message.includes('not recognized')) {
+    const stderr = String(error?.stderr ?? '');
+    const stdout = String(error?.stdout ?? '');
+    const details = [stderr, stdout, String(error?.message ?? '')].join('\n');
+
+    // Never print token values. Just print actionable guidance.
+    if (details.toLowerCase().includes('bad credentials') || details.includes('401')) {
+      console.error('❌ all-contributors authentication failed (Bad credentials / 401).');
+      console.error('💡 Set a valid token in PRIVATE_TOKEN (all-contributors-cli) and/or GH_TOKEN (gh CLI).');
+      console.error('💡 In GitHub Actions, you can usually use: secrets.GITHUB_TOKEN');
+      throw new Error('contributors:check failed due to invalid credentials');
+    }
+
+    console.error('❌ Error checking for missing contributors:', String(error?.message ?? error));
+    if (details.trim()) {
+      console.error('--- all-contributors output (truncated) ---');
+      console.error(details.slice(0, 2000));
+      console.error('--- end output ---');
+    }
+
+    if (String(error?.message ?? '').includes('command not found') || String(error?.message ?? '').includes('not recognized')) {
       console.error('💡 Make sure all-contributors-cli is installed: npm install all-contributors-cli');
     }
-    return [];
+
+    throw error;
   }
 };
 
@@ -538,6 +560,11 @@ const main = () => {
     // In CI, we commonly receive a token via PRIVATE_TOKEN.
     if (process.env.PRIVATE_TOKEN && !process.env.GITHUB_TOKEN && !process.env.GH_TOKEN) {
       process.env.GITHUB_TOKEN = process.env.PRIVATE_TOKEN;
+    }
+
+    // gh prefers GH_TOKEN; if we only have GITHUB_TOKEN, make GH_TOKEN explicit.
+    if (process.env.GITHUB_TOKEN && !process.env.GH_TOKEN) {
+      process.env.GH_TOKEN = process.env.GITHUB_TOKEN;
     }
 
     const args = new Set(process.argv.slice(2));

@@ -255,7 +255,8 @@ We welcome many kinds of contributions, including the custom categories below:
 | --- | --- | :---: |
 | **Instructions** | Custom instruction sets that guide GitHub Copilot behavior | 🧭 |
 | **Prompts** | Reusable or one-off prompts for GitHub Copilot | ⌨️ |
-| **Agents (Chat Modes)** | Defined Copilot roles or personalities | 🎭 |
+| **Agents (Chat Modes)** | Defined GitHub Copilot roles or personalities | 🎭 |
+| **Skills** | Specialized knowledge of a task for GitHub Copilot | 🧰 |
 | **Collections** | Curated bundles of related prompts, agents, or instructions | 🎁 |
 
 In addition, all standard contribution types supported by [All Contributors](https://allcontributors.org/emoji-key/) are recognized.
