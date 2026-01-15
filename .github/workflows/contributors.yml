@@ -8,7 +8,7 @@ on:
 jobs:
   contributors:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 5
     permissions:
       contents: write
       pull-requests: write
@@ -36,12 +36,12 @@ jobs:
         run: |
           CHECK_OUTPUT=$(npm run contributors:check 2>&1)
           echo "$CHECK_OUTPUT"
-          
+
           if echo "$CHECK_OUTPUT" | grep -q "Missing contributors"; then
             echo "Missing contributors detected, generating report..."
             mkdir -p reports
             npm run contributors:report
-            
+
             if [ -f reports/contributor-report.md ]; then
               cat reports/contributor-report.md >> $GITHUB_STEP_SUMMARY
             fi

@@ -8,6 +8,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   getContributionTypes,
   getMissingContributors,
@@ -282,7 +283,7 @@ const printSummaryReport = (results) => {
   console.log('\n' + '='.repeat(50));
 };
 
-if (process.argv[1] === (new URL(import.meta.url)).pathname) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   try {
     const results = await main();
     printSummaryReport(results);

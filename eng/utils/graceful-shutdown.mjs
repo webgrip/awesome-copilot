@@ -26,8 +26,9 @@ export const setupGracefulShutdown = (name, { exitCode = 1 } = {}) => {
     try {
       process.exit(exitCode);
     } catch (e) {
-      // process.exit may not be desirable in some test harnesses; swallow errors
-      console.warn(`${name}: process.exit failed:`, e?.message);
+      // If process.exit is stubbed or overridden (e.g. in tests), surface the failure.
+      console.error(`${name}: process.exit failed:`, e?.message || e);
+      throw e;
     }
   };
 
