@@ -37,8 +37,8 @@ SELECT * FROM SEMANTIC_VIEW(
     my_semview_name
     DIMENSIONS customer.customer_market_segment
     METRICS orders.order_average_value
-  )
-  ORDER BY customer_market_segment;
+)
+ORDER BY customer_market_segment;
 ```
 
 11. Clean up any temporary semantic view created during validation.
