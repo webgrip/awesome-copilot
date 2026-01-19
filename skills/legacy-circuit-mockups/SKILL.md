@@ -20,7 +20,6 @@ A skill for creating breadboard circuit mockups and visual diagrams for retro co
 
 ## Prerequisites
 
-- Familiarity with the `electronics-breadboard-simulator.html` drawing mechanisms
 - Understanding of component pinouts from bundled reference files
 - Knowledge of breadboard layout conventions (rows, columns, power rails)
 
