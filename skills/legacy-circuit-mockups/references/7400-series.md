@@ -25,8 +25,8 @@ The **7400-series** is a large family of **digital logic integrated circuits** o
 | Parameter         | TTL     | CMOS                |
 | ----------------- | ------- | ------------------- |
 | VCC               | 5 V     | 2-6 V (5 V typical) |
-| Input HIGH        | ° 2.0 V | ° 0.7xVCC           |
-| Input LOW         | ° 0.8 V | ° 0.3xVCC           |
+| Input HIGH        | ≥ 2.0 V | ≥ 0.7xVCC           |
+| Input LOW         | ≤ 0.8 V | ≤ 0.3xVCC           |
 | Fan-out           | ~10     | Very high           |
 | Power consumption | Higher  | Lower               |
 
@@ -144,7 +144,7 @@ The **7400-series** is a large family of **digital logic integrated circuits** o
 * TTL outputs reliably drive TTL inputs
 * CMOS inputs must not float
 * Use **74HCT** when interfacing CMOS with TTL signals
-* Decoupling capacitors (0.1 °F) required per IC
+* Decoupling capacitors (0.1 µF) required per IC
 
 ---
 

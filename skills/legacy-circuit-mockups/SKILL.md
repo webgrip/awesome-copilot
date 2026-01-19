@@ -259,15 +259,15 @@ const cellY = Math.floor(y / gridSize) * gridSize;
 
 Detailed component specifications are available in the bundled reference files:
 
-- [555.md](555.md) - Complete 555 timer IC specification
-- [6502.md](6502.md) - MOS 6502 microprocessor details
-- [6522.md](6522.md) - W65C22 VIA interface adapter
-- [28256-eeprom.md](28256-eeprom.md) - AT28C256 EEPROM specification
-- [6C62256.md](6C62256.md) - 62256 SRAM details
-- [7400-series.md](7400-series.md) - TTL logic gate pinouts
-- [basic-electronic-components.md](basic-electronic-components.md) - Resistors, capacitors, switches
-- [common-breadboard-components.md](common-breadboard-components.md) - Comprehensive component reference
-- [connecting-electronic-components.md](connecting-electronic-components.md) - Step-by-step build guides
-- [lcd.md](lcd.md) - LCD display interfacing
-- [minipro.md](minipro.md) - EEPROM programmer usage
-- [t48eeprom-programmer.md](t48eeprom-programmer.md) - T48 programmer reference
+- [555.md](references/555.md) - Complete 555 timer IC specification
+- [6502.md](references/6502.md) - MOS 6502 microprocessor details
+- [6522.md](references/6522.md) - W65C22 VIA interface adapter
+- [28256-eeprom.md](references/28256-eeprom.md) - AT28C256 EEPROM specification
+- [6C62256.md](references/6C62256.md) - 62256 SRAM details
+- [7400-series.md](references/7400-series.md) - TTL logic gate pinouts
+- [basic-electronic-components.md](references/basic-electronic-components.md) - Resistors, capacitors, switches
+- [common-breadboard-components.md](references/common-breadboard-components.md) - Comprehensive component reference
+- [connecting-electronic-components.md](references/connecting-electronic-components.md) - Step-by-step build guides
+- [lcd.md](references/lcd.md) - LCD display interfacing
+- [minipro.md](references/minipro.md) - EEPROM programmer usage
+- [t48eeprom-programmer.md](references/t48eeprom-programmer.md) - T48 programmer reference
