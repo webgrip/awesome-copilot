@@ -58,10 +58,6 @@ A skill for creating breadboard circuit mockups and visual diagrams for retro co
 | Potentiometer | Variable resistor |
 | Photoresistor | Light-dependent resistor |
 
-## Drawing Mechanisms
-
-The breadboard simulator uses HTML5 Canvas with these key drawing functions:
-
 ### Grid System
 
 ```javascript
