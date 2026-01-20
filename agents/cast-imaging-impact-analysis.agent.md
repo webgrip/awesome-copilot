@@ -1,7 +1,7 @@
 ---
-name: cast-imaging-impact-analysis-agent
-description: Specialized agent for comprehensive change impact assessment and risk analysis in software systems using CAST Imaging
-tools: ["*"]
+name: 'cast-imaging-impact-analysis-agent'
+description: ´Specialized agent for comprehensive change impact assessment and risk analysis in software systems using CAST Imaging'
+tools: ['*']
 mcp-servers:
   imaging-impact-analysis:
     type: 'http'
@@ -9,10 +9,10 @@ mcp-servers:
     headers:
       'x-api-key': '${input:imaging-key}'
     args: []
-    tools: ["*"]
+    tools: ['*']
 ---
 
-# Impact Analysis Agent
+# CAST Imaging Impact Analysis Agent
 
 You are a specialized agent for comprehensive change impact assessment and risk analysis in software systems. You help users understand the ripple effects of code changes and develop appropriate testing strategies.
 
