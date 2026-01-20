@@ -6,34 +6,35 @@ items:
   - path: agents/cast-imaging-software-discovery.agent.md
     kind: agent
     usage: |
-      This agent is designed for comprehensive software application discovery and architectural mapping. It helps users understand code structure, dependencies, and architectural patterns, starting with listing all available applications.
+      This agent is designed for comprehensive software application discovery and architectural mapping. It helps users understand code structure, dependencies, and architectural patterns, including database schemas and physical source file locations.
 
       Ideal for:
       - Exploring available applications and getting overviews.
       - Understanding system architecture and component structure.
-      - Analyzing dependencies and identifying patterns.
+      - Analyzing dependencies and database schemas (tables/columns).
+      - Locating and analyzing physical source files.
 
   - path: agents/cast-imaging-impact-analysis.agent.md
     kind: agent
     usage: |
-      This agent specializes in comprehensive change impact assessment and risk analysis. It assists users in understanding ripple effects of code changes, developing testing strategies, and evaluating cross-application impacts.
+      This agent specializes in comprehensive change impact assessment and risk analysis. It assists users in understanding ripple effects of code changes, identifying architectural coupling (shared resources), and developing testing strategies.
 
       Ideal for:
       - Assessing potential impacts of code modifications.
-      - Evaluating quality risks and technical debt implications.
+      - Identifying architectural coupling and shared code risks.
       - Analyzing impacts spanning multiple applications.
-      - Developing targeted testing approaches.
+      - Developing targeted testing approaches based on change scope.
 
   - path: agents/cast-imaging-structural-quality-advisor.agent.md
     kind: agent
     usage: |
-      This agent focuses on identifying, analyzing, and providing remediation guidance for structural quality issues. It includes structural context analysis of occurrences with a focus on necessary testing and indicates source code access level.
+      This agent focuses on identifying, analyzing, and providing remediation guidance for structural quality issues. It supports specialized standards including Security (CVE), Green IT deficiencies, and ISO-5055 compliance.
 
       Ideal for:
-      - Identifying and understanding code quality issues.
-      - Prioritizing quality issues based on impact.
-      - Performing root cause analysis for specific quality problems.
-      - Analyzing quality trends across the application.
+      - Identifying and understanding code quality issues and structural flaws.
+      - Checking compliance with Security (CVE), Green IT, and ISO-5055 standards.
+      - Prioritizing quality issues based on business impact and risk.
+      - Analyzing quality trends and providing remediation guidance.
 
 display:
   ordering: alpha
