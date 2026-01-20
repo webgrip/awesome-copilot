@@ -260,9 +260,17 @@ Detailed component specifications are available in the bundled reference files:
 - [28256-eeprom.md](references/28256-eeprom.md) - AT28C256 EEPROM specification
 - [6C62256.md](references/6C62256.md) - 62256 SRAM details
 - [7400-series.md](references/7400-series.md) - TTL logic gate pinouts
+- [assembly-compiler.md](references/assembly-compiler.md) - Assembly compiler specification
+- [assembly-language.md](references/assembly-language.md) - Assembly language specification
 - [basic-electronic-components.md](references/basic-electronic-components.md) - Resistors, capacitors, switches
+- [breadboard.md](references/breadboard.md) - Breadboard specifications
 - [common-breadboard-components.md](references/common-breadboard-components.md) - Comprehensive component reference
 - [connecting-electronic-components.md](references/connecting-electronic-components.md) - Step-by-step build guides
+- [emulator-28256-eeprom.md](references/emulator-28256-eeprom.md) - Emulating 28256-eeprom specification
+- [emulator-6502.md](references/emulator-6502.md) - Emulating 6502 specification
+- [emulator-6522.md](references/emulator-6522.md) - Emulating 6522 specification
+- [emulator-6C62256.md](references/emulator-6C62256.md) - Emulating 6C62256 specification
+- [emulator-lcd.md](references/emulator-lcd.md) - Emulating a LCD specification
 - [lcd.md](references/lcd.md) - LCD display interfacing
 - [minipro.md](references/minipro.md) - EEPROM programmer usage
 - [t48eeprom-programmer.md](references/t48eeprom-programmer.md) - T48 programmer reference
