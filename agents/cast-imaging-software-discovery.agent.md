@@ -1,7 +1,6 @@
 ---
 name: 'cast-imaging-software-discovery-agent'
 description: 'Specialized agent for comprehensive software application discovery and architectural mapping through static code analysis using CAST Imaging'
-tools: ['*']
 mcp-servers:
   imaging-structural-search:
     type: 'http'
@@ -9,7 +8,6 @@ mcp-servers:
     headers:
       'x-api-key': '${input:imaging-key}'
     args: []
-    tools: ['*']
 ---
 
 # CAST Imaging Software Discovery Agent

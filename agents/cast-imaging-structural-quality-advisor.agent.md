@@ -1,7 +1,6 @@
 ---
 name: 'cast-imaging-structural-quality-advisor-agent'
 description: 'Specialized agent for identifying, analyzing, and providing remediation guidance for code quality issues using CAST Imaging'
-tools: ['*']
 mcp-servers:
   imaging-structural-quality:
     type: 'http'
@@ -9,7 +8,6 @@ mcp-servers:
     headers:
       'x-api-key': '${input:imaging-key}'
     args: []
-    tools: ['*']
 ---
 
 # CAST Imaging Structural Quality Advisor Agent
@@ -69,7 +67,7 @@ You are a specialized agent for identifying, analyzing, and providing remediatio
 ### Specific Quality Standards (Security, Green, ISO)
 **When to use**: When users ask about specific standards or domains (Security/CVE, Green IT, ISO-5055)
 
-**Tool sequence**: 
+**Tool sequence**:
 - Security: `quality_insights(nature='cve')`
 - Green IT: `quality_insights(nature='green-detection-patterns')`
 - ISO Standards: `iso_5055_explorer`
