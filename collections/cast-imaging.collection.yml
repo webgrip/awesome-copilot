@@ -1,7 +1,7 @@
 id: cast-imaging
 name: CAST Imaging Agents
 description: A comprehensive collection of specialized agents for software analysis, impact assessment, structural quality advisories, and architectural review using CAST Imaging.
-tags: [cast imaging, software analysis, architecture, quality, impact analysis, devops]
+tags: [cast-imaging, software-analysis, architecture, quality, impact-analysis, devops]
 items:
   - path: agents/cast-imaging-software-discovery.agent.md
     kind: agent
@@ -37,5 +37,5 @@ items:
       - Analyzing quality trends and providing remediation guidance.
 
 display:
-  ordering: alpha
+  ordering: manual
   show_badge: true
