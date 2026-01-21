@@ -103,6 +103,15 @@ You are an expert [domain/role] with deep knowledge in [specific areas].
 - [Best practices to follow]
 ```
 
+### Adding Skills
+
+Skills are self-contained folders in the `skills/` directory that include a `SKILL.md` file (with front matter) and optional bundled assets.
+
+1. **Create a new skill folder**: Run `npm run skill:create -- --name <skill-name> --description "<skill description>"`
+2. **Edit `SKILL.md`**: Ensure the `name` matches the folder name (lowercase with hyphens) and the `description` is clear and non-empty
+3. **Add optional assets**: Keep bundled assets reasonably sized (under 5MB each) and reference them from `SKILL.md`
+4. **Validate and update docs**: Run `npm run skill:validate` and then `npm run build` to update the generated README tables
+
 ### Adding Collections
 
 Collections group related prompts, instructions, and chat modes around specific themes or workflows, making it easier for users to discover and adopt comprehensive toolkits.
@@ -191,7 +200,8 @@ For full example of usage checkout edge-ai tasks collection:
    - A brief description of what your instruction/prompt does
    - Any relevant context or usage notes
 
-**Note**: Once your contribution is merged, you'll automatically be added to our [Contributors](./README.md#contributors-) section! We use [all-contributors](https://github.com/all-contributors/all-contributors) to recognize all types of contributions to the project.
+> [!NOTE] 
+> We use [all-contributors](https://github.com/all-contributors/all-contributors) to recognize all types of contributions to the project. Jump to [Contributors Recognition](#contributor-recognition) to learn more!
 
 ## What We Accept
 
@@ -225,21 +235,34 @@ To maintain a safe, responsible, and constructive community, we will **not accep
 - **Write clearly**: Use simple, direct language
 - **Promote best practices**: Encourage secure, maintainable, and ethical development practices
 
-## Contributors Recognition
+## Contributor Recognition
 
-This project uses [all-contributors](https://github.com/all-contributors/all-contributors) to recognize contributors. When you make a contribution, you'll automatically be recognized in our contributors list!
+We use [all-contributors](https://github.com/all-contributors/all-contributors) to recognize **all types of contributions** to this project.
 
-We welcome contributions of all types, including:
+To add yourself, leave a comment on a relevant issue or pull request using your GitHub username and the appropriate contribution type(s):
 
-- 📝 Documentation improvements
-- 💻 Code contributions
-- 🐛 Bug reports and fixes
-- 🎨 Design improvements
-- 💡 Ideas and suggestions
-- 🤔 Answering questions
-- 📢 Promoting the project
+```markdown
+@all-contributors add @username for contributionType1, contributionType2
+```
 
-Your contributions help make this resource better for the entire GitHub Copilot community!
+The contributors list is updated automatically every Sunday at **3:00 AM UTC**. When the next run completes, your name will appear in the [README Contributors](./README.md#contributors-) section.
+
+### Contribution Types
+
+We welcome many kinds of contributions, including the custom categories below:
+
+| Category | Description | Emoji |
+| --- | --- | :---: |
+| **Instructions** | Custom instruction sets that guide GitHub Copilot behavior | 🧭 |
+| **Prompts** | Reusable or one-off prompts for GitHub Copilot | ⌨️ |
+| **Agents (Chat Modes)** | Defined GitHub Copilot roles or personalities | 🎭 |
+| **Skills** | Specialized knowledge of a task for GitHub Copilot | 🧰 |
+| **Collections** | Curated bundles of related prompts, agents, or instructions | 🎁 |
+
+In addition, all standard contribution types supported by [All Contributors](https://allcontributors.org/emoji-key/) are recognized.
+
+> Every contribution matters. Thanks for helping improve this resource for the GitHub Copilot community.
+
 
 ## Code of Conduct
 
