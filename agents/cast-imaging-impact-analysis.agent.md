@@ -1,6 +1,5 @@
 ---
-name: 'cast-imaging-impact-analysis-agent'
-description: 'Specialized agent for comprehensive change impact assessment and risk analysis in software systems using CAST Imaging'
+description: 'CAST Imaging Impact Analysis Agent is a specialized agent for comprehensive change impact assessment and risk analysis in software systems using CAST Imaging'
 mcp-servers:
   imaging-impact-analysis:
     type: 'http'

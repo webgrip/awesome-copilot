@@ -1,6 +1,5 @@
 ---
-name: 'cast-imaging-structural-quality-advisor-agent'
-description: 'Specialized agent for identifying, analyzing, and providing remediation guidance for code quality issues using CAST Imaging'
+description: 'CAST Imaging Structural Quality Advisor Agent is a specialized agent for identifying, analyzing, and providing remediation guidance for code quality issues using CAST Imaging'
 mcp-servers:
   imaging-structural-quality:
     type: 'http'

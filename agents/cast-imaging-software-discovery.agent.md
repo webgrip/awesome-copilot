@@ -1,6 +1,5 @@
 ---
-name: 'cast-imaging-software-discovery-agent'
-description: 'Specialized agent for comprehensive software application discovery and architectural mapping through static code analysis using CAST Imaging'
+description: 'CAST Imaging Software Discovery Agent is a specialized agent for comprehensive software application discovery and architectural mapping through static code analysis using CAST Imaging'
 mcp-servers:
   imaging-structural-search:
     type: 'http'
