@@ -1,6 +1,6 @@
 ---
 name: prd
-description: 'Generate high-quality Product Requirements Documents (PRDs) for AI agents and software systems. Includes executive summaries, user stories, technical specifications, AI-specific requirements (models, data, prompts), and risk analysis.'
+description: 'Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries, user stories, technical specifications, and risk analysis.'
 license: MIT
 ---
 
@@ -8,7 +8,7 @@ license: MIT
 
 ## Overview
 
-Design comprehensive, production-grade Product Requirements Documents (PRDs) that bridge the gap between business vision and technical execution. This skill is optimized for AI agent development and modern software systems, ensuring that both deterministic and non-deterministic requirements are clearly defined.
+Design comprehensive, production-grade Product Requirements Documents (PRDs) that bridge the gap between business vision and technical execution. This skill works for modern software systems, ensuring that requirements are clearly defined.
 
 ## When to Use
 
@@ -16,7 +16,7 @@ Use this skill when:
 
 - Starting a new product or feature development cycle
 - Translating a vague idea into a concrete technical specification
-- Defining requirements for an AI agent (LLM, ML, etc.)
+- Defining requirements for AI-powered features
 - Stakeholders need a unified "source of truth" for project scope
 - User asks to "write a PRD", "document requirements", or "plan a feature"
 
@@ -33,7 +33,6 @@ Before writing a single line of the PRD, you **MUST** interrogate the user to fi
 - **The Core Problem**: Why are we building this now?
 - **Success Metrics**: How do we know it worked?
 - **Constraints**: Budget, tech stack, or deadline?
-- **Agent Roles**: If this is for an AI system, what are the subagent responsibilities?
 
 ### Phase 2: Analysis & Scoping
 
@@ -41,7 +40,6 @@ Synthesize the user's input. Identify dependencies and hidden complexities.
 
 - Map out the **User Flow**.
 - Define **Non-Goals** to protect the timeline.
-- Identify **Orchestration Needs** (which tools or agents are required?).
 
 ### Phase 3: Technical Drafting
 
@@ -85,12 +83,10 @@ You **MUST** follow this exact structure for the output:
 - **Acceptance Criteria**: Bulleted list of "Done" definitions for each story.
 - **Non-Goals**: What are we NOT building?
 
-### 3. AI & Agent Orchestration (If Applicable)
+### 3. AI System Requirements (If Applicable)
 
-- **Model Selection**: e.g., `Claude 3.5 Sonnet` for reasoning, `Haiku` for speed.
-- **Agent Definitions**: Specific roles for subagents (e.g., `librarian` for research).
-- **Tool Whitelist**: Explicit list of tools each agent is allowed to use.
-- **Evaluation Strategy**: How to measure AI output quality (Evals, Golden Sets).
+- **Tool Requirements**: What tools and APIs are needed?
+- **Evaluation Strategy**: How to measure output quality and accuracy.
 
 ### 4. Technical Specifications
 
@@ -109,8 +105,7 @@ You **MUST** follow this exact structure for the output:
 
 ### DO (Always)
 
-- **Delegate Visuals**: If the PRD involves UI/UX, explicitly instruct the use of the `frontend-ui-ux-engineer` agent.
-- **Define Evals**: For AI systems, specify the **Evaluation Protocol** (how to detect hallucinations or failures).
+- **Define Testing**: For AI systems, specify how to test and validate output quality.
 - **Iterate**: Present a draft and ask for feedback on specific sections.
 
 ### DON'T (Avoid)
@@ -120,12 +115,12 @@ You **MUST** follow this exact structure for the output:
 
 ---
 
-## Example: AI-Powered Search Agent
+## Example: Intelligent Search System
 
 ### 1. Executive Summary
 
 **Problem**: Users struggle to find specific documentation snippets in massive repositories.
-**Solution**: A RAG-based search agent that provides direct answers with source citations.
+**Solution**: An intelligent search system that provides direct answers with source citations.
 **Success**:
 
 - Reduce search time by 50%.
@@ -138,13 +133,11 @@ You **MUST** follow this exact structure for the output:
   - Supports multi-turn clarification.
   - Returns code blocks with "Copy" button.
 
-### 3. Agent Orchestration
+### 3. AI System Architecture
 
-- **Primary Agent**: `Oracle` for reasoning and answer synthesis.
-- **Subagent**: `Librarian` for searching docs and indexing code.
-- **Tool Whitelist**: `codesearch`, `grep`, `webfetch`.
+- **Tools Required**: `codesearch`, `grep`, `webfetch`.
 
 ### 4. Evaluation
 
-- **Benchmark**: Use a 'Golden Set' of 50 common dev questions.
-- **Pass Rate**: 90% must match ground truth citations.
+- **Benchmark**: Test with 50 common developer questions.
+- **Pass Rate**: 90% must match expected citations.
