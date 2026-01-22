@@ -22,13 +22,7 @@ Skills differ from other primitives by supporting bundled assets (scripts, code 
 
 | Name | Description | Bundled Assets |
 | ---- | ----------- | -------------- |
-| [agentic-eval](../skills/agentic-eval/SKILL.md) | Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:
-- Implementing self-critique and reflection loops
-- Building evaluator-optimizer pipelines for quality-critical generation
-- Creating test-driven code refinement workflows
-- Designing rubric-based or LLM-as-judge evaluation systems
-- Adding iterative improvement to agent outputs (code, reports, analysis)
-- Measuring and improving agent response quality | None |
+| [agentic-eval](../skills/agentic-eval/SKILL.md) | Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:<br />- Implementing self-critique and reflection loops<br />- Building evaluator-optimizer pipelines for quality-critical generation<br />- Creating test-driven code refinement workflows<br />- Designing rubric-based or LLM-as-judge evaluation systems<br />- Adding iterative improvement to agent outputs (code, reports, analysis)<br />- Measuring and improving agent response quality | None |
 | [appinsights-instrumentation](../skills/appinsights-instrumentation/SKILL.md) | Instrument a webapp to send useful telemetry data to Azure App Insights | `LICENSE.txt`<br />`examples/appinsights.bicep`<br />`references/ASPNETCORE.md`<br />`references/AUTO.md`<br />`references/NODEJS.md`<br />`references/PYTHON.md`<br />`scripts/appinsights.ps1` |
 | [azure-resource-visualizer](../skills/azure-resource-visualizer/SKILL.md) | Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other. | `LICENSE.txt`<br />`assets/template-architecture.md` |
 | [azure-role-selector](../skills/azure-role-selector/SKILL.md) | When user is asking for guidance for which role to assign to an identity given desired permissions, this agent helps them understand the role that will meet the requirements with least privilege access and how to apply that role. | `LICENSE.txt` |
