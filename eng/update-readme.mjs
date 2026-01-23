@@ -579,7 +579,7 @@ function generateSkillsSection(skillsDir) {
 }
 
 /**
- * Unified generator for chat modes & agents (future consolidation)
+ * Unified generator for agents (future consolidation)
  * @param {Object} cfg
  * @param {string} cfg.dir - Directory path
  * @param {string} cfg.extension - File extension to match (e.g. .agent.md, .agent.md)
@@ -861,9 +861,7 @@ function generateCollectionReadme(
     const description = extractDescription(filePath) || "No description";
 
     const typeDisplay =
-      item.kind === "chat-mode"
-        ? "Chat Mode"
-        : item.kind === "instruction"
+      item.kind === "instruction"
         ? "Instruction"
         : item.kind === "agent"
         ? "Agent"
@@ -876,8 +874,6 @@ function generateCollectionReadme(
     const badgeType =
       item.kind === "instruction"
         ? "instructions"
-        : item.kind === "chat-mode"
-        ? "mode"
         : item.kind === "agent"
         ? "agent"
         : item.kind === "skill"
@@ -949,7 +945,7 @@ function buildCollectionRow({
   const safeUsage = formatTableCell(usageDescription);
 
   if (hasAgents) {
-    // Only agents currently have MCP servers; future migration may extend to chat modes.
+    // Only agents currently have MCP servers;
     const mcpServers =
       kind === "agent" ? extractMcpServerConfigs(filePath) : [];
     const mcpServerCell =
