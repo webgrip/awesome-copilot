@@ -1,6 +1,6 @@
 ---
 name: workiq-copilot
-description: Guides the Copilot CLI on how to use the WorkIQ CLI/MCP server to query Microsoft 365 Copilot data (emails, meetings, docs, Teams, people) for live context, summaries, and recommendations.
+description: 'Guides the Copilot CLI on how to use the WorkIQ CLI/MCP server to query Microsoft 365 Copilot data (emails, meetings, docs, Teams, people) for live context, summaries, and recommendations.'
 ---
 
 # WorkIQ Copilot Skill
@@ -41,8 +41,8 @@ WorkIQ (Public Preview) lets Copilot query Microsoft 365 data with natural langu
 
 1. **Clarify intent** – agenda, action items, document lookup, people search, risk summary, etc.
 2. **Craft precise prompt** – include timeframe, source, or topic (e.g., “Summarize Teams posts in #eng for today”).
-3. **Run command** – `workiq ask --question "<prompt>"` (or `-q`).
-4. **Monitor execution** – long answers may stream; poll with `read_powershell` if needed.
+3. **Run command** – `workiq ask --question "<prompt>"` (use `-q` for shorthand if desired).
+4. **Monitor execution** – long answers may stream; wait for the response to finish before issuing additional requests.
 5. **Summarize & redact** – highlight insights, note conflicts/tasks, avoid pasting raw links unless required.
 6. **Offer follow-ups** – blocking time, drafting notes, deeper queries, etc.
 
@@ -54,7 +54,7 @@ WorkIQ (Public Preview) lets Copilot query Microsoft 365 data with natural langu
 | `workiq version`                  | Display installed version.                                    |
 | `workiq accept-eula`              | Accept license (first use).                                   |
 | `workiq ask`                      | Interactive mode.                                             |
-| `workiq ask -q "..."`             | Ask a specific question.                                      |
+| `workiq ask --question "..."`     | Ask a specific question (use `-q` shorthand if preferred).    |
 | `workiq ask -t <tenant> -q "..."` | Target a specific tenant.                                     |
 | `workiq mcp`                      | Start MCP stdio server (expose WorkIQ tools to other agents). |
 
@@ -87,7 +87,7 @@ WorkIQ (Public Preview) lets Copilot query Microsoft 365 data with natural langu
 - **Missing CLI** – install via npm or ensure PATH is set; notify user if unavailable.
 - **Consent/auth errors** – re-run command after admin grants permissions or after completing device login.
 - **Long/incomplete output** – rerun with refined scope or ask for specific data slices (per day/project/person).
-- **Command hanging** – use `stop_powershell` to end session, then retry; ensure browser login completed.
+- **Command hanging** – cancel the running command in your terminal (for example, with Ctrl+C) or restart the Copilot CLI session, then retry; ensure browser login completed.
 
 ## Follow-up Actions to Offer
 
