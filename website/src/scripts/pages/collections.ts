@@ -2,13 +2,14 @@
  * Collections page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch, type SearchItem } from '../search';
+import { FuzzySearch } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
 interface Collection {
   id: string;
   name: string;
+  title: string;
   description?: string;
   path: string;
   tags?: string[];
@@ -25,7 +26,7 @@ interface CollectionsData {
 
 const resourceType = 'collection';
 let allItems: Collection[] = [];
-let search = new FuzzySearch();
+let search = new FuzzySearch<Collection>();
 let tagSelect: Choices;
 let currentFilters = {
   tags: [] as string[],

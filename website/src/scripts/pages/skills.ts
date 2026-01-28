@@ -33,7 +33,7 @@ interface SkillsData {
 
 const resourceType = 'skill';
 let allItems: Skill[] = [];
-let search = new FuzzySearch();
+let search = new FuzzySearch<Skill>();
 let categorySelect: Choices;
 let currentFilters = {
   categories: [] as string[],

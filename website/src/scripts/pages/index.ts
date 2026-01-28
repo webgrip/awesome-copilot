@@ -48,7 +48,7 @@ export async function initHomepage(): Promise<void> {
   // Load search index
   const searchIndex = await fetchData<SearchItem[]>('search-index.json');
   if (searchIndex) {
-    const search = new FuzzySearch();
+    const search = new FuzzySearch<SearchItem>();
     search.setItems(searchIndex);
     
     const searchInput = document.getElementById('global-search') as HTMLInputElement;

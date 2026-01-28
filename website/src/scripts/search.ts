@@ -14,30 +14,36 @@ export interface SearchItem {
   [key: string]: unknown;
 }
 
+export interface SearchableItem {
+  title: string;
+  description?: string;
+  [key: string]: unknown;
+}
+
 export interface SearchOptions {
   fields?: string[];
   limit?: number;
   minScore?: number;
 }
 
-export class FuzzySearch {
-  private items: SearchItem[] = [];
+export class FuzzySearch<T extends SearchableItem = SearchItem> {
+  private items: T[] = [];
 
-  constructor(items: SearchItem[] = []) {
+  constructor(items: T[] = []) {
     this.items = items;
   }
 
   /**
    * Update the items to search
    */
-  setItems(items: SearchItem[]): void {
+  setItems(items: T[]): void {
     this.items = items;
   }
 
   /**
    * Search items with fuzzy matching
    */
-  search(query: string, options: SearchOptions = {}): SearchItem[] {
+  search(query: string, options: SearchOptions = {}): T[] {
     const {
       fields = ['title', 'description', 'searchText'],
       limit = 50,
@@ -50,7 +56,7 @@ export class FuzzySearch {
 
     const normalizedQuery = query.toLowerCase().trim();
     const queryWords = normalizedQuery.split(/\s+/);
-    const results: Array<{ item: SearchItem; score: number }> = [];
+    const results: Array<{ item: T; score: number }> = [];
 
     for (const item of this.items) {
       const score = this.calculateScore(item, queryWords, fields);
@@ -68,14 +74,14 @@ export class FuzzySearch {
   /**
    * Calculate match score for an item
    */
-  private calculateScore(item: SearchItem, queryWords: string[], fields: string[]): number {
+  private calculateScore(item: T, queryWords: string[], fields: string[]): number {
     let totalScore = 0;
 
     for (const word of queryWords) {
       let wordScore = 0;
 
       for (const field of fields) {
-        const value = item[field];
+        const value = (item as Record<string, unknown>)[field];
         if (!value) continue;
 
         const normalizedValue = String(value).toLowerCase();
@@ -108,7 +114,7 @@ export class FuzzySearch {
     // Bonus for matching all words
     const matchesAllWords = queryWords.every(word =>
       fields.some(field => {
-        const value = item[field];
+        const value = (item as Record<string, unknown>)[field];
         return value && String(value).toLowerCase().includes(word);
       })
     );
@@ -140,13 +146,13 @@ export class FuzzySearch {
   }
 }
 
-// Global search instance
-export const globalSearch = new FuzzySearch();
+// Global search instance (uses SearchItem for the global search index)
+export const globalSearch = new FuzzySearch<SearchItem>();
 
 /**
  * Initialize global search with search index
  */
-export async function initGlobalSearch(): Promise<FuzzySearch> {
+export async function initGlobalSearch(): Promise<FuzzySearch<SearchItem>> {
   const searchIndex = await fetchData<SearchItem[]>('search-index.json');
   if (searchIndex) {
     globalSearch.setItems(searchIndex);

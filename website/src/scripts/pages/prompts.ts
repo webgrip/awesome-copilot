@@ -22,7 +22,7 @@ interface PromptsData {
 
 const resourceType = 'prompt';
 let allItems: Prompt[] = [];
-let search = new FuzzySearch();
+let search = new FuzzySearch<Prompt>();
 let toolSelect: Choices;
 let currentFilters = { tools: [] as string[] };
 

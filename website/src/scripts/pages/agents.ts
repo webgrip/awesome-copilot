@@ -25,7 +25,7 @@ interface AgentsData {
 
 const resourceType = 'agent';
 let allItems: Agent[] = [];
-let search = new FuzzySearch();
+let search = new FuzzySearch<Agent>();
 let modelSelect: Choices;
 let toolSelect: Choices;
 

@@ -23,7 +23,7 @@ interface InstructionsData {
 
 const resourceType = 'instruction';
 let allItems: Instruction[] = [];
-let search = new FuzzySearch();
+let search = new FuzzySearch<Instruction>();
 let extensionSelect: Choices;
 let currentFilters = { extensions: [] as string[] };
 
