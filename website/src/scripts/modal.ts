@@ -2,7 +2,7 @@
  * Modal functionality for file viewing
  */
 
-import { fetchFileContent, getVSCodeInstallUrl, copyToClipboard, showToast, downloadFile, shareFile } from './utils';
+import { fetchFileContent, getVSCodeInstallUrl, copyToClipboard, showToast, downloadFile, shareFile, getResourceType } from './utils';
 
 // Modal state
 let currentFilePath: string | null = null;
@@ -56,6 +56,48 @@ export function setupModal(): void {
 
   // Setup install dropdown toggle
   setupInstallDropdown('install-dropdown');
+
+  // Handle browser back/forward navigation
+  window.addEventListener('hashchange', handleHashChange);
+
+  // Check for deep link on initial load
+  handleHashChange();
+}
+
+/**
+ * Handle hash changes for deep linking
+ */
+function handleHashChange(): void {
+  const hash = window.location.hash;
+  
+  if (hash && hash.startsWith('#file=')) {
+    const filePath = decodeURIComponent(hash.slice(6));
+    if (filePath && filePath !== currentFilePath) {
+      const type = getResourceType(filePath);
+      openFileModal(filePath, type, false); // Don't update hash since we're responding to it
+    }
+  } else if (!hash || hash === '#') {
+    // No hash or empty hash - close modal if open
+    if (currentFilePath) {
+      closeModal(false); // Don't update hash since we're responding to it
+    }
+  }
+}
+
+/**
+ * Update URL hash for deep linking
+ */
+function updateHash(filePath: string | null): void {
+  if (filePath) {
+    const newHash = `#file=${encodeURIComponent(filePath)}`;
+    if (window.location.hash !== newHash) {
+      history.pushState(null, '', newHash);
+    }
+  } else {
+    if (window.location.hash) {
+      history.pushState(null, '', window.location.pathname + window.location.search);
+    }
+  }
 }
 
 /**
@@ -90,8 +132,11 @@ export function setupInstallDropdown(containerId: string): void {
 
 /**
  * Open file viewer modal
+ * @param filePath - Path to the file
+ * @param type - Resource type (agent, prompt, instruction, etc.)
+ * @param updateUrl - Whether to update the URL hash (default: true)
  */
-export async function openFileModal(filePath: string, type: string): Promise<void> {
+export async function openFileModal(filePath: string, type: string, updateUrl = true): Promise<void> {
   const modal = document.getElementById('file-modal');
   const title = document.getElementById('modal-title');
   const contentEl = document.getElementById('modal-content')?.querySelector('code');
@@ -104,6 +149,11 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
 
   currentFilePath = filePath;
   currentFileType = type;
+  
+  // Update URL for deep linking
+  if (updateUrl) {
+    updateHash(filePath);
+  }
   
   // Show modal with loading state
   title.textContent = filePath.split('/').pop() || filePath;
@@ -137,8 +187,9 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
 
 /**
  * Close modal
+ * @param updateUrl - Whether to update the URL hash (default: true)
  */
-export function closeModal(): void {
+export function closeModal(updateUrl = true): void {
   const modal = document.getElementById('file-modal');
   const installDropdown = document.getElementById('install-dropdown');
   
@@ -147,6 +198,11 @@ export function closeModal(): void {
   }
   if (installDropdown) {
     installDropdown.classList.remove('open');
+  }
+  
+  // Update URL for deep linking
+  if (updateUrl) {
+    updateHash(null);
   }
   
   currentFilePath = null;

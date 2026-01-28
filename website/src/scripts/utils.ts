@@ -144,11 +144,11 @@ export async function downloadFile(filePath: string): Promise<boolean> {
 }
 
 /**
- * Share/copy link to clipboard
+ * Share/copy link to clipboard (deep link to current page with file hash)
  */
 export async function shareFile(filePath: string): Promise<boolean> {
-  const url = getGitHubUrl(filePath);
-  return copyToClipboard(url);
+  const deepLinkUrl = `${window.location.origin}${window.location.pathname}#file=${encodeURIComponent(filePath)}`;
+  return copyToClipboard(deepLinkUrl);
 }
 
 /**
