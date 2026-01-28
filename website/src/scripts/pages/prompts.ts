@@ -2,13 +2,11 @@
  * Prompts page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch } from '../search';
+import { FuzzySearch, SearchItem } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl, getInstallDropdownHtml, setupDropdownCloseHandlers, getActionButtonsHtml, setupActionHandlers } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
-interface Prompt {
-  title: string;
-  description?: string;
+interface Prompt extends SearchItem {
   path: string;
   tools?: string[];
 }

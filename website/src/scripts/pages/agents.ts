@@ -2,13 +2,11 @@
  * Agents page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch } from '../search';
+import { FuzzySearch, SearchItem } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl, getInstallDropdownHtml, setupDropdownCloseHandlers, getActionButtonsHtml, setupActionHandlers } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
-interface Agent {
-  title: string;
-  description?: string;
+interface Agent extends SearchItem {
   path: string;
   model?: string;
   tools?: string[];

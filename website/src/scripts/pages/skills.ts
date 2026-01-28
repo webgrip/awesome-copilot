@@ -2,7 +2,7 @@
  * Skills page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch } from '../search';
+import { FuzzySearch, SearchItem } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl, getRawGitHubUrl } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 import JSZip from '../jszip';
@@ -12,10 +12,8 @@ interface SkillFile {
   path: string;
 }
 
-interface Skill {
+interface Skill extends SearchItem {
   id: string;
-  title: string;
-  description?: string;
   path: string;
   skillFile: string;
   category: string;

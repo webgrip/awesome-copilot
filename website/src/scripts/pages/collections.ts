@@ -2,15 +2,13 @@
  * Collections page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch } from '../search';
+import { FuzzySearch, SearchItem } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
-interface Collection {
+interface Collection extends SearchItem {
   id: string;
   name: string;
-  title: string;
-  description?: string;
   path: string;
   tags?: string[];
   featured?: boolean;
@@ -108,7 +106,7 @@ export async function initCollectionsPage(): Promise<void> {
   allItems = data.items;
 
   // Map collection items to search items
-  const searchItems: SearchItem[] = allItems.map(item => ({
+  const searchItems = allItems.map(item => ({
     ...item,
     title: item.name,
     searchText: `${item.name} ${item.description} ${item.tags?.join(' ') || ''}`.toLowerCase()

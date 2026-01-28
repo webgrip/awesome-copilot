@@ -2,13 +2,11 @@
  * Instructions page functionality
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
-import { FuzzySearch } from '../search';
+import { FuzzySearch, SearchItem } from '../search';
 import { fetchData, debounce, escapeHtml, getGitHubUrl, getInstallDropdownHtml, setupDropdownCloseHandlers, getActionButtonsHtml, setupActionHandlers } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
-interface Instruction {
-  title: string;
-  description?: string;
+interface Instruction extends SearchItem {
   path: string;
   applyTo?: string;
   extensions?: string[];
