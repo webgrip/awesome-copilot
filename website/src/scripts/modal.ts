@@ -2,12 +2,34 @@
  * Modal functionality for file viewing
  */
 
-import { fetchFileContent, getVSCodeInstallUrl, copyToClipboard, showToast, downloadFile, shareFile, getResourceType } from './utils';
+import { fetchFileContent, fetchData, getVSCodeInstallUrl, copyToClipboard, showToast, downloadFile, shareFile, getResourceType, escapeHtml, getResourceIcon } from './utils';
 
 // Modal state
 let currentFilePath: string | null = null;
 let currentFileContent: string | null = null;
 let currentFileType: string | null = null;
+
+// Collection data cache
+interface CollectionItem {
+  path: string;
+  kind: string;
+  usage?: string | null;
+}
+
+interface Collection {
+  id: string;
+  name: string;
+  description?: string;
+  path: string;
+  items: CollectionItem[];
+  tags?: string[];
+}
+
+interface CollectionsData {
+  items: Collection[];
+}
+
+let collectionsCache: CollectionsData | null = null;
 
 /**
  * Setup modal functionality
@@ -139,13 +161,16 @@ export function setupInstallDropdown(containerId: string): void {
 export async function openFileModal(filePath: string, type: string, updateUrl = true): Promise<void> {
   const modal = document.getElementById('file-modal');
   const title = document.getElementById('modal-title');
-  const contentEl = document.getElementById('modal-content')?.querySelector('code');
+  const modalContent = document.getElementById('modal-content');
+  const contentEl = modalContent?.querySelector('code');
   const installDropdown = document.getElementById('install-dropdown');
   const installBtnMain = document.getElementById('install-btn-main') as HTMLAnchorElement | null;
   const installVscode = document.getElementById('install-vscode') as HTMLAnchorElement | null;
   const installInsiders = document.getElementById('install-insiders') as HTMLAnchorElement | null;
+  const copyBtn = document.getElementById('copy-btn');
+  const downloadBtn = document.getElementById('download-btn');
 
-  if (!modal || !title || !contentEl) return;
+  if (!modal || !title || !modalContent) return;
 
   currentFilePath = filePath;
   currentFileType = type;
@@ -157,8 +182,28 @@ export async function openFileModal(filePath: string, type: string, updateUrl = 
   
   // Show modal with loading state
   title.textContent = filePath.split('/').pop() || filePath;
-  contentEl.textContent = 'Loading...';
   modal.classList.remove('hidden');
+
+  // Handle collections differently - show as item list
+  if (type === 'collection') {
+    await openCollectionModal(filePath, title, modalContent, installDropdown, copyBtn, downloadBtn);
+    return;
+  }
+
+  // Regular file modal
+  if (contentEl) {
+    contentEl.textContent = 'Loading...';
+  }
+  
+  // Show copy/download buttons for regular files
+  if (copyBtn) copyBtn.style.display = 'inline-flex';
+  if (downloadBtn) downloadBtn.style.display = 'inline-flex';
+  
+  // Restore pre/code structure if it was replaced by collection view
+  if (!modalContent.querySelector('pre')) {
+    modalContent.innerHTML = '<pre id="modal-content"><code></code></pre>';
+  }
+  const codeEl = modalContent.querySelector('code');
 
   // Setup install dropdown
   const vscodeUrl = getVSCodeInstallUrl(type, filePath, false);
@@ -178,11 +223,89 @@ export async function openFileModal(filePath: string, type: string, updateUrl = 
   const fileContent = await fetchFileContent(filePath);
   currentFileContent = fileContent;
   
-  if (fileContent) {
-    contentEl.textContent = fileContent;
-  } else {
-    contentEl.textContent = 'Failed to load file content. Click the button below to view on GitHub.';
+  if (fileContent && codeEl) {
+    codeEl.textContent = fileContent;
+  } else if (codeEl) {
+    codeEl.textContent = 'Failed to load file content. Click the button below to view on GitHub.';
   }
+}
+
+/**
+ * Open collection modal with item list
+ */
+async function openCollectionModal(
+  filePath: string,
+  title: HTMLElement,
+  modalContent: HTMLElement,
+  installDropdown: HTMLElement | null,
+  copyBtn: HTMLElement | null,
+  downloadBtn: HTMLElement | null
+): Promise<void> {
+  // Hide install dropdown and copy/download for collections
+  if (installDropdown) installDropdown.style.display = 'none';
+  if (copyBtn) copyBtn.style.display = 'none';
+  if (downloadBtn) downloadBtn.style.display = 'none';
+
+  // Show loading
+  modalContent.innerHTML = '<div class="collection-loading">Loading collection...</div>';
+
+  // Load collections data if not cached
+  if (!collectionsCache) {
+    collectionsCache = await fetchData<CollectionsData>('collections.json');
+  }
+
+  if (!collectionsCache) {
+    modalContent.innerHTML = '<div class="collection-error">Failed to load collection data.</div>';
+    return;
+  }
+
+  // Find the collection
+  const collection = collectionsCache.items.find(c => c.path === filePath);
+  if (!collection) {
+    modalContent.innerHTML = '<div class="collection-error">Collection not found.</div>';
+    return;
+  }
+
+  // Update title
+  title.textContent = collection.name;
+
+  // Render collection view
+  modalContent.innerHTML = `
+    <div class="collection-view">
+      <div class="collection-description">${escapeHtml(collection.description || '')}</div>
+      ${collection.tags && collection.tags.length > 0 ? `
+        <div class="collection-tags">
+          ${collection.tags.map(t => `<span class="resource-tag">${escapeHtml(t)}</span>`).join('')}
+        </div>
+      ` : ''}
+      <div class="collection-items-header">
+        <strong>${collection.items.length} items in this collection</strong>
+      </div>
+      <div class="collection-items-list">
+        ${collection.items.map(item => `
+          <div class="collection-item" data-path="${escapeHtml(item.path)}" data-type="${escapeHtml(item.kind)}">
+            <span class="collection-item-icon">${getResourceIcon(item.kind)}</span>
+            <div class="collection-item-info">
+              <div class="collection-item-name">${escapeHtml(item.path.split('/').pop() || item.path)}</div>
+              ${item.usage ? `<div class="collection-item-usage">${escapeHtml(item.usage)}</div>` : ''}
+            </div>
+            <span class="collection-item-type">${escapeHtml(item.kind)}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Add click handlers to collection items
+  modalContent.querySelectorAll('.collection-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const path = (el as HTMLElement).dataset.path;
+      const itemType = (el as HTMLElement).dataset.type;
+      if (path && itemType) {
+        openFileModal(path, itemType);
+      }
+    });
+  });
 }
 
 /**

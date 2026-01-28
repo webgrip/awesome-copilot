@@ -837,6 +837,104 @@ a:hover {
   min-height: 200px;
 }
 
+/* Collection Modal View */
+.collection-view {
+  padding: 24px;
+}
+
+.collection-description {
+  font-size: 15px;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.collection-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.collection-items-header {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 12px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.collection-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.collection-item:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-accent);
+}
+
+.collection-item-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.collection-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.collection-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collection-item-usage {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collection-item-type {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  background: var(--color-bg-tertiary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.collection-loading,
+.collection-error {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.collection-error {
+  color: var(--color-error);
+}
+
 /* Page Layouts */
 .page-header {
   padding: 56px 0 40px;
