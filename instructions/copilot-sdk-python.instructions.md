@@ -60,6 +60,9 @@ When creating a CopilotClient, use a dict with these keys:
 For explicit control:
 
 ```python
+from copilot import CopilotClient
+import asyncio
+
 async def main():
     client = CopilotClient({"auto_start": False})
     await client.start()
