@@ -3,7 +3,7 @@
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
 import { FuzzySearch } from '../search';
-import { fetchData, debounce, escapeHtml, getGitHubUrl, getInstallDropdownHtml, setupDropdownCloseHandlers } from '../utils';
+import { fetchData, debounce, escapeHtml, getGitHubUrl, getInstallDropdownHtml, setupDropdownCloseHandlers, getActionButtonsHtml, setupActionHandlers } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
 interface Prompt {
@@ -68,6 +68,7 @@ function renderItems(items: Prompt[], query = ''): void {
       </div>
       <div class="resource-actions">
         ${getInstallDropdownHtml(resourceType, item.path, true)}
+        ${getActionButtonsHtml(item.path, true)}
         <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()">
           GitHub
         </a>
@@ -117,6 +118,7 @@ export async function initPromptsPage(): Promise<void> {
   
   setupModal();
   setupDropdownCloseHandlers();
+  setupActionHandlers();
 }
 
 // Auto-initialize when DOM is ready

@@ -115,6 +115,43 @@ export function getRawGitHubUrl(filePath: string): string {
 }
 
 /**
+ * Download a file from its path
+ */
+export async function downloadFile(filePath: string): Promise<boolean> {
+  try {
+    const response = await fetch(`${REPO_BASE_URL}/${filePath}`);
+    if (!response.ok) throw new Error('Failed to fetch file');
+    
+    const content = await response.text();
+    const filename = filePath.split('/').pop() || 'file.md';
+    
+    const blob = new Blob([content], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    return true;
+  } catch (error) {
+    console.error('Download failed:', error);
+    return false;
+  }
+}
+
+/**
+ * Share/copy link to clipboard
+ */
+export async function shareFile(filePath: string): Promise<boolean> {
+  const url = getGitHubUrl(filePath);
+  return copyToClipboard(url);
+}
+
+/**
  * Show a toast notification
  */
 export function showToast(message: string, type: 'success' | 'error' = 'success'): void {
@@ -253,4 +290,42 @@ export function setupDropdownCloseHandlers(): void {
       });
     }
   });
+}
+
+/**
+ * Generate HTML for action buttons (download, share) in list view
+ */
+export function getActionButtonsHtml(filePath: string, small = false): string {
+  const btnClass = small ? 'btn-small' : '';
+  const iconSize = small ? 14 : 16;
+  const escapedPath = filePath.replace(/'/g, "\\'");
+  
+  return `
+    <button class="btn btn-secondary ${btnClass} action-download" data-path="${escapeHtml(filePath)}" onclick="event.stopPropagation(); window.__downloadFile && window.__downloadFile('${escapedPath}')" title="Download file">
+      <svg viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor">
+        <path d="M7.47 10.78a.75.75 0 0 0 1.06 0l3.75-3.75a.75.75 0 0 0-1.06-1.06L8.75 8.44V1.75a.75.75 0 0 0-1.5 0v6.69L4.78 5.97a.75.75 0 0 0-1.06 1.06l3.75 3.75ZM3.75 13a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z"/>
+      </svg>
+    </button>
+    <button class="btn btn-secondary ${btnClass} action-share" data-path="${escapeHtml(filePath)}" onclick="event.stopPropagation(); window.__shareFile && window.__shareFile('${escapedPath}')" title="Copy link">
+      <svg viewBox="0 0 16 16" width="${iconSize}" height="${iconSize}" fill="currentColor">
+        <path d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25zm-.025 5.45a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 1 1-2.83-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25z"/>
+      </svg>
+    </button>
+  `;
+}
+
+/**
+ * Setup global action handlers for download and share buttons
+ */
+export function setupActionHandlers(): void {
+  // Expose functions globally for inline onclick handlers
+  (window as Window & { __downloadFile?: (path: string) => void; __shareFile?: (path: string) => void }).__downloadFile = async (path: string) => {
+    const success = await downloadFile(path);
+    showToast(success ? 'Download started!' : 'Download failed', success ? 'success' : 'error');
+  };
+  
+  (window as Window & { __downloadFile?: (path: string) => void; __shareFile?: (path: string) => void }).__shareFile = async (path: string) => {
+    const success = await shareFile(path);
+    showToast(success ? 'Link copied!' : 'Failed to copy link', success ? 'success' : 'error');
+  };
 }

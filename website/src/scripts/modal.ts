@@ -2,7 +2,7 @@
  * Modal functionality for file viewing
  */
 
-import { fetchFileContent, getVSCodeInstallUrl, copyToClipboard, showToast } from './utils';
+import { fetchFileContent, getVSCodeInstallUrl, copyToClipboard, showToast, downloadFile, shareFile } from './utils';
 
 // Modal state
 let currentFilePath: string | null = null;
@@ -16,6 +16,8 @@ export function setupModal(): void {
   const modal = document.getElementById('file-modal');
   const closeBtn = document.getElementById('close-modal');
   const copyBtn = document.getElementById('copy-btn');
+  const downloadBtn = document.getElementById('download-btn');
+  const shareBtn = document.getElementById('share-btn');
 
   if (!modal) return;
 
@@ -35,6 +37,20 @@ export function setupModal(): void {
     if (currentFileContent) {
       const success = await copyToClipboard(currentFileContent);
       showToast(success ? 'Copied to clipboard!' : 'Failed to copy', success ? 'success' : 'error');
+    }
+  });
+
+  downloadBtn?.addEventListener('click', async () => {
+    if (currentFilePath) {
+      const success = await downloadFile(currentFilePath);
+      showToast(success ? 'Download started!' : 'Download failed', success ? 'success' : 'error');
+    }
+  });
+
+  shareBtn?.addEventListener('click', async () => {
+    if (currentFilePath) {
+      const success = await shareFile(currentFilePath);
+      showToast(success ? 'Link copied to clipboard!' : 'Failed to copy link', success ? 'success' : 'error');
     }
   });
 
