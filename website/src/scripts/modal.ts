@@ -46,7 +46,8 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
   const modal = document.getElementById('file-modal');
   const title = document.getElementById('modal-title');
   const contentEl = document.getElementById('modal-content')?.querySelector('code');
-  const installBtn = document.getElementById('install-vscode-btn') as HTMLAnchorElement | null;
+  const installBtn = document.getElementById('install-btn') as HTMLAnchorElement | null;
+  const installInsidersBtn = document.getElementById('install-insiders-btn') as HTMLAnchorElement | null;
 
   if (!modal || !title || !contentEl) return;
 
@@ -58,13 +59,22 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
   contentEl.textContent = 'Loading...';
   modal.classList.remove('hidden');
 
-  // Setup install button
-  const installUrl = getVSCodeInstallUrl(type, filePath);
+  // Setup install buttons (VS Code and VS Code Insiders)
+  const installUrl = getVSCodeInstallUrl(type, filePath, false);
+  const installInsidersUrl = getVSCodeInstallUrl(type, filePath, true);
+  
   if (installUrl && installBtn) {
     installBtn.href = installUrl;
     installBtn.style.display = 'inline-flex';
   } else if (installBtn) {
     installBtn.style.display = 'none';
+  }
+  
+  if (installInsidersUrl && installInsidersBtn) {
+    installInsidersBtn.href = installInsidersUrl;
+    installInsidersBtn.style.display = 'inline-flex';
+  } else if (installInsidersBtn) {
+    installInsidersBtn.style.display = 'none';
   }
 
   // Fetch and display content

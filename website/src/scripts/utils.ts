@@ -5,11 +5,20 @@
 const REPO_BASE_URL = 'https://raw.githubusercontent.com/github/awesome-copilot/main';
 const REPO_GITHUB_URL = 'https://github.com/github/awesome-copilot/blob/main';
 
-// VS Code install URL template
-const VSCODE_INSTALL_URLS: Record<string, string> = {
-  instructions: 'https://aka.ms/awesome-copilot/install/instructions',
-  prompt: 'https://aka.ms/awesome-copilot/install/prompt',
-  agent: 'https://aka.ms/awesome-copilot/install/agent',
+// VS Code install URL configurations
+const VSCODE_INSTALL_CONFIG: Record<string, { baseUrl: string; scheme: string }> = {
+  instructions: { 
+    baseUrl: 'https://aka.ms/awesome-copilot/install/instructions',
+    scheme: 'chat-instructions'
+  },
+  prompt: { 
+    baseUrl: 'https://aka.ms/awesome-copilot/install/prompt',
+    scheme: 'chat-prompt'
+  },
+  agent: { 
+    baseUrl: 'https://aka.ms/awesome-copilot/install/agent',
+    scheme: 'chat-agent'
+  },
 };
 
 /**
@@ -76,11 +85,19 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 
 /**
  * Generate VS Code install URL
+ * @param type - Resource type (agent, prompt, instructions)
+ * @param filePath - Path to the file
+ * @param insiders - Whether to use VS Code Insiders
  */
-export function getVSCodeInstallUrl(type: string, filePath: string): string | null {
-  const baseUrl = VSCODE_INSTALL_URLS[type];
-  if (!baseUrl) return null;
-  return `${baseUrl}?url=${encodeURIComponent(`${REPO_BASE_URL}/${filePath}`)}`;
+export function getVSCodeInstallUrl(type: string, filePath: string, insiders = false): string | null {
+  const config = VSCODE_INSTALL_CONFIG[type];
+  if (!config) return null;
+  
+  const rawUrl = `${REPO_BASE_URL}/${filePath}`;
+  const vscodeScheme = insiders ? 'vscode-insiders' : 'vscode';
+  const innerUrl = `${vscodeScheme}:${config.scheme}/install?url=${encodeURIComponent(rawUrl)}`;
+  
+  return `${config.baseUrl}?url=${encodeURIComponent(innerUrl)}`;
 }
 
 /**
