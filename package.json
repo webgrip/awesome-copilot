@@ -14,7 +14,10 @@
     "collection:validate": "node ./eng/validate-collections.mjs",
     "collection:create": "node ./eng/create-collection.mjs",
     "skill:validate": "node ./eng/validate-skills.mjs",
-    "skill:create": "node ./eng/create-skill.mjs"
+    "skill:create": "node ./eng/create-skill.mjs",
+    "website:build-data": "node ./eng/generate-website-data.mjs",
+    "website:build": "npm run build && npm run website:build-data",
+    "website:serve": "npx serve website -l 3000"
   },
   "repository": {
     "type": "git",
