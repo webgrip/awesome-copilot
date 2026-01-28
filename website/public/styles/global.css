@@ -161,7 +161,37 @@ a:hover {
 }
 
 .logo-icon {
-  font-size: 28px;
+  width: 32px;
+  height: 32px;
+}
+
+/* Show white logo by default (dark theme) */
+.logo-icon-light {
+  display: none;
+}
+
+.logo-icon-dark {
+  display: block;
+}
+
+/* Light theme: show black logo */
+[data-theme="light"] .logo-icon-light {
+  display: block;
+}
+
+[data-theme="light"] .logo-icon-dark {
+  display: none;
+}
+
+/* Auto theme based on system preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .logo-icon-light {
+    display: block;
+  }
+  
+  :root:not([data-theme="dark"]) .logo-icon-dark {
+    display: none;
+  }
 }
 
 .main-nav {

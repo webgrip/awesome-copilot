@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
   <title>{title} - Awesome GitHub Copilot</title>
   <meta name="description" content={description}>
   <link rel="stylesheet" href={`${base}styles/global.css`}>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="icon" href={`${base}images/Copilot_Icon_Black.svg`} type="image/svg+xml">
   <script>
     // Theme toggle - inline for immediate effect (prevent flash)
     (function() {
@@ -32,7 +32,8 @@ const base = import.meta.env.BASE_URL;
     <div class="container">
       <div class="header-content">
         <a href={base} class="logo">
-          <span class="logo-icon">🤖</span>
+          <img src={`${base}images/Copilot_Icon_White.svg`} alt="GitHub Copilot" class="logo-icon logo-icon-dark" width="32" height="32" />
+          <img src={`${base}images/Copilot_Icon_Black.svg`} alt="GitHub Copilot" class="logo-icon logo-icon-light" width="32" height="32" />
           <span class="logo-text">Awesome Copilot</span>
         </a>
         <nav class="main-nav">
