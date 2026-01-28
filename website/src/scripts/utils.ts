@@ -221,9 +221,6 @@ export function getInstallDropdownHtml(type: string, filePath: string, small = f
   return `
     <div class="install-dropdown ${sizeClass}" id="${uniqueId}" onclick="event.stopPropagation()">
       <a href="${vscodeUrl}" class="btn btn-primary ${small ? 'btn-small' : ''} install-btn-main" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" width="${small ? 14 : 16}" height="${small ? 14 : 16}" fill="currentColor">
-          <path d="M7.47 10.78a.75.75 0 0 0 1.06 0l3.75-3.75a.75.75 0 0 0-1.06-1.06L8.75 8.44V1.75a.75.75 0 0 0-1.5 0v6.69L4.78 5.97a.75.75 0 0 0-1.06 1.06l3.75 3.75ZM3.75 13a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z"/>
-        </svg>
         Install
       </a>
       <button type="button" class="btn btn-primary ${small ? 'btn-small' : ''} install-btn-toggle" aria-label="Install options" onclick="event.preventDefault(); this.parentElement.classList.toggle('open');">
