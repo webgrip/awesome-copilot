@@ -27,9 +27,9 @@ const resourceType = 'collection';
 let allItems: Collection[] = [];
 let search = new FuzzySearch();
 let tagSelect: Choices;
-let currentFilters = { 
-  tags: [] as string[], 
-  featured: false 
+let currentFilters = {
+  tags: [] as string[],
+  featured: false
 };
 
 function applyFiltersAndRender(): void {
@@ -78,7 +78,7 @@ function renderItems(items: Collection[], query = ''): void {
         </div>
       </div>
       <div class="resource-actions">
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation()">View on GitHub</a>
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation()" title="View on GitHub">GitHub</a>
       </div>
     </div>
   `).join('');
@@ -105,7 +105,7 @@ export async function initCollectionsPage(): Promise<void> {
   }
 
   allItems = data.items;
-  
+
   // Map collection items to search items
   const searchItems: SearchItem[] = allItems.map(item => ({
     ...item,
@@ -123,7 +123,7 @@ export async function initCollectionsPage(): Promise<void> {
 
   applyFiltersAndRender();
   searchInput?.addEventListener('input', debounce(() => applyFiltersAndRender(), 200));
-  
+
   featuredCheckbox?.addEventListener('change', () => {
     currentFilters.featured = featuredCheckbox.checked;
     applyFiltersAndRender();
@@ -136,7 +136,7 @@ export async function initCollectionsPage(): Promise<void> {
     if (searchInput) searchInput.value = '';
     applyFiltersAndRender();
   });
-  
+
   setupModal();
 }
 

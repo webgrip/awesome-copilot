@@ -34,7 +34,7 @@ function applyFiltersAndRender(): void {
   let results = query ? search.search(query) : [...allItems];
 
   if (currentFilters.tools.length > 0) {
-    results = results.filter(item => 
+    results = results.filter(item =>
       item.tools?.some(tool => currentFilters.tools.includes(tool))
     );
   }
@@ -69,7 +69,7 @@ function renderItems(items: Prompt[], query = ''): void {
       <div class="resource-actions">
         ${getInstallDropdownHtml(resourceType, item.path, true)}
         ${getActionButtonsHtml(item.path, true)}
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()">
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()" title="View on GitHub">
           GitHub
         </a>
       </div>
@@ -108,14 +108,14 @@ export async function initPromptsPage(): Promise<void> {
 
   applyFiltersAndRender();
   searchInput?.addEventListener('input', debounce(() => applyFiltersAndRender(), 200));
-  
+
   clearFiltersBtn?.addEventListener('click', () => {
     currentFilters = { tools: [] };
     toolSelect.removeActiveItems();
     if (searchInput) searchInput.value = '';
     applyFiltersAndRender();
   });
-  
+
   setupModal();
   setupDropdownCloseHandlers();
   setupActionHandlers();

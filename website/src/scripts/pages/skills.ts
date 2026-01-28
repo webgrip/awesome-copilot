@@ -35,9 +35,9 @@ const resourceType = 'skill';
 let allItems: Skill[] = [];
 let search = new FuzzySearch();
 let categorySelect: Choices;
-let currentFilters = { 
-  categories: [] as string[], 
-  hasAssets: false 
+let currentFilters = {
+  categories: [] as string[],
+  hasAssets: false
 };
 
 function applyFiltersAndRender(): void {
@@ -93,7 +93,7 @@ function renderItems(items: Skill[], query = ''): void {
           </svg>
           Download
         </button>
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation()">View Folder</a>
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation()" title="View on GitHub">GitHub</a>
       </div>
     </div>
   `).join('');
@@ -132,7 +132,7 @@ async function downloadSkill(skillId: string, btn: HTMLButtonElement): Promise<v
   try {
     const zip = new JSZip();
     const folder = zip.folder(skill.id);
-    
+
     const fetchPromises = skill.files.map(async (file) => {
       const url = getRawGitHubUrl(file.path);
       try {
@@ -198,7 +198,7 @@ export async function initSkillsPage(): Promise<void> {
 
   applyFiltersAndRender();
   searchInput?.addEventListener('input', debounce(() => applyFiltersAndRender(), 200));
-  
+
   hasAssetsCheckbox?.addEventListener('change', () => {
     currentFilters.hasAssets = hasAssetsCheckbox.checked;
     applyFiltersAndRender();
@@ -211,7 +211,7 @@ export async function initSkillsPage(): Promise<void> {
     if (searchInput) searchInput.value = '';
     applyFiltersAndRender();
   });
-  
+
   setupModal();
 }
 

@@ -52,7 +52,7 @@ function applyFiltersAndRender(): void {
   }
 
   if (currentFilters.tools.length > 0) {
-    results = results.filter(item => 
+    results = results.filter(item =>
       item.tools?.some(tool => currentFilters.tools.includes(tool))
     );
   }
@@ -62,12 +62,12 @@ function applyFiltersAndRender(): void {
   }
 
   renderItems(results, query);
-  
+
   const activeFilters: string[] = [];
   if (currentFilters.models.length > 0) activeFilters.push(`models: ${currentFilters.models.length}`);
   if (currentFilters.tools.length > 0) activeFilters.push(`tools: ${currentFilters.tools.length}`);
   if (currentFilters.hasHandoffs) activeFilters.push('has handoffs');
-  
+
   let countText = `${results.length} of ${allItems.length} agents`;
   if (activeFilters.length > 0) {
     countText += ` (filtered by ${activeFilters.join(', ')})`;
@@ -78,7 +78,7 @@ function applyFiltersAndRender(): void {
 function renderItems(items: Agent[], query = ''): void {
   const list = document.getElementById('resource-list');
   if (!list) return;
-  
+
   if (items.length === 0) {
     list.innerHTML = `
       <div class="empty-state">
@@ -104,7 +104,7 @@ function renderItems(items: Agent[], query = ''): void {
       <div class="resource-actions">
         ${getInstallDropdownHtml(resourceType, item.path, true)}
         ${getActionButtonsHtml(item.path, true)}
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()">
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()" title="View on GitHub">
           GitHub
         </a>
       </div>

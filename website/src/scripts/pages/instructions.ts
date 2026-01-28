@@ -74,7 +74,7 @@ function renderItems(items: Instruction[], query = ''): void {
       <div class="resource-actions">
         ${getInstallDropdownHtml('instructions', item.path, true)}
         ${getActionButtonsHtml(item.path, true)}
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()">
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()" title="View on GitHub">
           GitHub
         </a>
       </div>
@@ -113,14 +113,14 @@ export async function initInstructionsPage(): Promise<void> {
 
   applyFiltersAndRender();
   searchInput?.addEventListener('input', debounce(() => applyFiltersAndRender(), 200));
-  
+
   clearFiltersBtn?.addEventListener('click', () => {
     currentFilters = { extensions: [] };
     extensionSelect.removeActiveItems();
     if (searchInput) searchInput.value = '';
     applyFiltersAndRender();
   });
-  
+
   setupModal();
   setupDropdownCloseHandlers();
   setupActionHandlers();
