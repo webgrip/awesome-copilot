@@ -419,11 +419,7 @@ a:hover {
 .search-result-description {
   font-size: 13px;
   color: var(--color-text-muted);
-  line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 400px;
+  line-height: 1.5;
 }
 
 .search-result-empty {
