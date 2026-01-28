@@ -230,11 +230,9 @@ export function getInstallDropdownHtml(type: string, filePath: string, small = f
       </button>
       <div class="install-dropdown-menu">
         <a href="${vscodeUrl}" target="_blank" rel="noopener" onclick="this.closest('.install-dropdown').classList.remove('open')">
-          <svg viewBox="0 0 100 100" fill="currentColor"><path d="M95.436 26.986L75.282 15.768a6.04 6.04 0 0 0-6.895.876L28.78 51.927 11.912 39.151a4.03 4.03 0 0 0-5.154.387l-5.36 4.878a4.03 4.03 0 0 0-.003 5.947l14.646 13.396-14.646 13.396a4.03 4.03 0 0 0 .003 5.947l5.36 4.878a4.03 4.03 0 0 0 5.154.387L28.78 74.59l39.607 35.283a6.04 6.04 0 0 0 6.895.876l20.154-11.218a6.04 6.04 0 0 0 3.127-5.288V32.274a6.04 6.04 0 0 0-3.127-5.288zM75.015 73.428L46.339 51.927l28.676-21.5z" transform="scale(0.16)"/></svg>
           VS Code
         </a>
         <a href="${insidersUrl}" target="_blank" rel="noopener" onclick="this.closest('.install-dropdown').classList.remove('open')">
-          <svg viewBox="0 0 100 100" fill="currentColor"><path d="M95.436 26.986L75.282 15.768a6.04 6.04 0 0 0-6.895.876L28.78 51.927 11.912 39.151a4.03 4.03 0 0 0-5.154.387l-5.36 4.878a4.03 4.03 0 0 0-.003 5.947l14.646 13.396-14.646 13.396a4.03 4.03 0 0 0 .003 5.947l5.36 4.878a4.03 4.03 0 0 0 5.154.387L28.78 74.59l39.607 35.283a6.04 6.04 0 0 0 6.895.876l20.154-11.218a6.04 6.04 0 0 0 3.127-5.288V32.274a6.04 6.04 0 0 0-3.127-5.288zM75.015 73.428L46.339 51.927l28.676-21.5z" transform="scale(0.16)"/></svg>
           VS Code Insiders
         </a>
       </div>
