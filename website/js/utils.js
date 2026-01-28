@@ -79,6 +79,13 @@ function getGitHubUrl(filePath) {
 }
 
 /**
+ * Get raw GitHub URL for a file (for fetching content)
+ */
+function getRawGitHubUrl(filePath) {
+  return `${REPO_BASE_URL}/${filePath}`;
+}
+
+/**
  * Show a toast notification
  */
 function showToast(message, type = 'success') {

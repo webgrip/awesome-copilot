@@ -7,6 +7,7 @@
   <meta name="description" content="Ready-to-use prompt templates for development tasks with GitHub Copilot">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <script src="../js/theme.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -25,11 +26,21 @@
           <a href="tools.html">Tools</a>
           <a href="samples.html">Samples</a>
         </nav>
-        <a href="https://github.com/github/awesome-copilot" class="github-link" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-          </svg>
-        </a>
+        <div class="header-actions">
+          <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V.75A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 13zM2.343 2.343a.75.75 0 0 1 1.061 0l1.06 1.061a.75.75 0 0 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06zm9.193 9.193a.75.75 0 0 1 1.06 0l1.061 1.06a.75.75 0 0 1-1.06 1.061l-1.061-1.06a.75.75 0 0 1 0-1.061zM0 8a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H.75A.75.75 0 0 1 0 8zm13 0a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5h-1.5A.75.75 0 0 1 13 8zM2.343 13.657a.75.75 0 0 1 0-1.061l1.06-1.06a.75.75 0 0 1 1.061 1.06l-1.06 1.06a.75.75 0 0 1-1.061 0zm9.193-9.193a.75.75 0 0 1 0-1.06l1.061-1.061a.75.75 0 0 1 1.06 1.06l-1.06 1.061a.75.75 0 0 1-1.061 0z"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M9.598 1.591a.75.75 0 0 1 .785-.175 7 7 0 1 1-8.967 8.967.75.75 0 0 1 .961-.96 5.5 5.5 0 0 0 7.046-7.046.75.75 0 0 1 .175-.786zm1.616 1.945a7 7 0 0 1-7.678 7.678 5.5 5.5 0 1 0 7.678-7.678z"/>
+            </svg>
+          </button>
+          <a href="https://github.com/github/awesome-copilot" class="github-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -47,6 +58,16 @@
         <div class="search-bar">
           <input type="text" id="search-input" placeholder="Search prompts..." autocomplete="off">
         </div>
+        
+        <!-- Filters -->
+        <div class="filters-bar" id="filters-bar">
+          <div class="filter-group">
+            <label>Tool:</label>
+            <div id="filter-tool" class="multi-select-container"></div>
+          </div>
+          <button id="clear-filters" class="btn btn-secondary btn-small">Clear Filters</button>
+        </div>
+        
         <div class="results-count" id="results-count"></div>
         <div class="resource-list" id="resource-list">
           <div class="loading">Loading prompts...</div>
@@ -100,37 +121,86 @@
 
   <script src="../js/utils.js"></script>
   <script src="../js/search.js"></script>
+  <script src="../js/multi-select.js"></script>
   <script src="../js/app.js"></script>
   <script>
     const resourceType = 'prompt';
     const dataFile = 'prompts.json';
     let allItems = [];
+    let filters = { tools: [] };
     let search = new FuzzySearch();
+    let toolSelect;
+    
+    // Current filter state
+    let currentFilters = {
+      tools: [],
+    };
 
     async function initPage() {
       const list = document.getElementById('resource-list');
       const countEl = document.getElementById('results-count');
       const searchInput = document.getElementById('search-input');
+      const clearFiltersBtn = document.getElementById('clear-filters');
 
       const data = await fetchData(dataFile);
-      if (!data) {
+      if (!data || !data.items) {
         list.innerHTML = '<div class="empty-state"><h3>Failed to load data</h3></div>';
         return;
       }
 
-      allItems = data;
+      allItems = data.items;
+      filters = data.filters;
       search.setItems(allItems);
-      renderItems(allItems);
-      countEl.textContent = `${allItems.length} prompts`;
 
-      searchInput.addEventListener('input', debounce((e) => {
-        const query = e.target.value;
-        const results = query ? search.search(query) : allItems;
-        renderItems(results, query);
-        countEl.textContent = `${results.length} of ${allItems.length} prompts`;
-      }, 200));
+      // Initialize multi-select filter
+      toolSelect = new MultiSelect('#filter-tool', {
+        placeholder: 'All Tools',
+        onChange: (selected) => {
+          currentFilters.tools = selected;
+          applyFiltersAndRender();
+        }
+      });
+      toolSelect.setItems(filters.tools);
+
+      // Render all items
+      applyFiltersAndRender();
+
+      // Setup search
+      searchInput.addEventListener('input', debounce(() => applyFiltersAndRender(), 200));
+
+      clearFiltersBtn.addEventListener('click', () => {
+        currentFilters = { tools: [] };
+        toolSelect.clearSelection();
+        searchInput.value = '';
+        applyFiltersAndRender();
+      });
 
       setupModal();
+    }
+
+    function applyFiltersAndRender() {
+      const searchInput = document.getElementById('search-input');
+      const countEl = document.getElementById('results-count');
+      const query = searchInput.value;
+
+      // Start with all items or search results
+      let results = query ? search.search(query) : [...allItems];
+
+      // Apply tool filter (OR logic)
+      if (currentFilters.tools.length > 0) {
+        results = results.filter(item => 
+          item.tools?.some(tool => currentFilters.tools.includes(tool))
+        );
+      }
+
+      renderItems(results, query);
+      
+      // Update count with filter info
+      let countText = `${results.length} of ${allItems.length} prompts`;
+      if (currentFilters.tools.length > 0) {
+        countText += ` (filtered by ${currentFilters.tools.length} tool${currentFilters.tools.length > 1 ? 's' : ''})`;
+      }
+      countEl.textContent = countText;
     }
 
     function renderItems(items, query = '') {
@@ -140,7 +210,7 @@
         list.innerHTML = `
           <div class="empty-state">
             <h3>No prompts found</h3>
-            <p>Try a different search term</p>
+            <p>Try a different search term or adjust filters</p>
           </div>
         `;
         return;
@@ -152,8 +222,8 @@
             <div class="resource-title">${query ? search.highlight(item.title, query) : escapeHtml(item.title)}</div>
             <div class="resource-description">${escapeHtml(item.description || 'No description')}</div>
             <div class="resource-meta">
-              ${item.model ? `<span class="resource-tag">Model: ${escapeHtml(item.model)}</span>` : ''}
-              ${item.agent ? `<span class="resource-tag">Agent: ${escapeHtml(item.agent)}</span>` : ''}
+              ${item.model ? `<span class="resource-tag tag-model">${escapeHtml(item.model)}</span>` : ''}
+              ${item.tools?.length ? `<span class="resource-tag">${item.tools.length} tools</span>` : ''}
             </div>
           </div>
           <div class="resource-actions">

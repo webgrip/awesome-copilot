@@ -1,299 +1,782 @@
-[
-  {
-    "id": "agentic-eval",
-    "name": "agentic-eval",
-    "title": "Agentic Eval",
-    "description": "Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:\n- Implementing self-critique and reflection loops\n- Building evaluator-optimizer pipelines for quality-critical generation\n- Creating test-driven code refinement workflows\n- Designing rubric-based or LLM-as-judge evaluation systems\n- Adding iterative improvement to agent outputs (code, reports, analysis)\n- Measuring and improving agent response quality",
-    "assets": [],
-    "path": "skills/agentic-eval",
-    "skillFile": "skills/agentic-eval/SKILL.md"
-  },
-  {
-    "id": "appinsights-instrumentation",
-    "name": "appinsights-instrumentation",
-    "title": "Appinsights Instrumentation",
-    "description": "Instrument a webapp to send useful telemetry data to Azure App Insights",
-    "assets": [
-      "LICENSE.txt",
-      "examples/appinsights.bicep",
-      "references/ASPNETCORE.md",
-      "references/AUTO.md",
-      "references/NODEJS.md",
-      "references/PYTHON.md",
-      "scripts/appinsights.ps1"
+{
+  "items": [
+    {
+      "id": "agentic-eval",
+      "name": "agentic-eval",
+      "title": "Agentic Eval",
+      "description": "Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:\n- Implementing self-critique and reflection loops\n- Building evaluator-optimizer pipelines for quality-critical generation\n- Creating test-driven code refinement workflows\n- Designing rubric-based or LLM-as-judge evaluation systems\n- Adding iterative improvement to agent outputs (code, reports, analysis)\n- Measuring and improving agent response quality",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Testing",
+      "path": "skills/agentic-eval",
+      "skillFile": "skills/agentic-eval/SKILL.md",
+      "files": [
+        {
+          "path": "skills/agentic-eval/SKILL.md",
+          "name": "SKILL.md",
+          "size": 5940
+        }
+      ]
+    },
+    {
+      "id": "appinsights-instrumentation",
+      "name": "appinsights-instrumentation",
+      "title": "Appinsights Instrumentation",
+      "description": "Instrument a webapp to send useful telemetry data to Azure App Insights",
+      "assets": [
+        "LICENSE.txt",
+        "examples/appinsights.bicep",
+        "references/ASPNETCORE.md",
+        "references/AUTO.md",
+        "references/NODEJS.md",
+        "references/PYTHON.md",
+        "scripts/appinsights.ps1"
+      ],
+      "hasAssets": true,
+      "assetCount": 7,
+      "category": "Azure",
+      "path": "skills/appinsights-instrumentation",
+      "skillFile": "skills/appinsights-instrumentation/SKILL.md",
+      "files": [
+        {
+          "path": "skills/appinsights-instrumentation/LICENSE.txt",
+          "name": "LICENSE.txt",
+          "size": 1078
+        },
+        {
+          "path": "skills/appinsights-instrumentation/SKILL.md",
+          "name": "SKILL.md",
+          "size": 2462
+        },
+        {
+          "path": "skills/appinsights-instrumentation/examples/appinsights.bicep",
+          "name": "examples/appinsights.bicep",
+          "size": 759
+        },
+        {
+          "path": "skills/appinsights-instrumentation/references/ASPNETCORE.md",
+          "name": "references/ASPNETCORE.md",
+          "size": 1711
+        },
+        {
+          "path": "skills/appinsights-instrumentation/references/AUTO.md",
+          "name": "references/AUTO.md",
+          "size": 891
+        },
+        {
+          "path": "skills/appinsights-instrumentation/references/NODEJS.md",
+          "name": "references/NODEJS.md",
+          "size": 1815
+        },
+        {
+          "path": "skills/appinsights-instrumentation/references/PYTHON.md",
+          "name": "references/PYTHON.md",
+          "size": 1812
+        },
+        {
+          "path": "skills/appinsights-instrumentation/scripts/appinsights.ps1",
+          "name": "scripts/appinsights.ps1",
+          "size": 1221
+        }
+      ]
+    },
+    {
+      "id": "azure-deployment-preflight",
+      "name": "azure-deployment-preflight",
+      "title": "Azure Deployment Preflight",
+      "description": "Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate when users mention deploying to Azure, validating Bicep files, checking deployment permissions, previewing infrastructure changes, running what-if, or preparing for azd provision.",
+      "assets": [
+        "references/ERROR-HANDLING.md",
+        "references/REPORT-TEMPLATE.md",
+        "references/VALIDATION-COMMANDS.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 3,
+      "category": "Azure",
+      "path": "skills/azure-deployment-preflight",
+      "skillFile": "skills/azure-deployment-preflight/SKILL.md",
+      "files": [
+        {
+          "path": "skills/azure-deployment-preflight/SKILL.md",
+          "name": "SKILL.md",
+          "size": 7490
+        },
+        {
+          "path": "skills/azure-deployment-preflight/references/ERROR-HANDLING.md",
+          "name": "references/ERROR-HANDLING.md",
+          "size": 8896
+        },
+        {
+          "path": "skills/azure-deployment-preflight/references/REPORT-TEMPLATE.md",
+          "name": "references/REPORT-TEMPLATE.md",
+          "size": 7458
+        },
+        {
+          "path": "skills/azure-deployment-preflight/references/VALIDATION-COMMANDS.md",
+          "name": "references/VALIDATION-COMMANDS.md",
+          "size": 8379
+        }
+      ]
+    },
+    {
+      "id": "azure-devops-cli",
+      "name": "azure-devops-cli",
+      "title": "Azure Devops Cli",
+      "description": "Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Azure",
+      "path": "skills/azure-devops-cli",
+      "skillFile": "skills/azure-devops-cli/SKILL.md",
+      "files": [
+        {
+          "path": "skills/azure-devops-cli/SKILL.md",
+          "name": "SKILL.md",
+          "size": 55003
+        }
+      ]
+    },
+    {
+      "id": "azure-resource-visualizer",
+      "name": "azure-resource-visualizer",
+      "title": "Azure Resource Visualizer",
+      "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other.",
+      "assets": [
+        "LICENSE.txt",
+        "assets/template-architecture.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 2,
+      "category": "Azure",
+      "path": "skills/azure-resource-visualizer",
+      "skillFile": "skills/azure-resource-visualizer/SKILL.md",
+      "files": [
+        {
+          "path": "skills/azure-resource-visualizer/LICENSE.txt",
+          "name": "LICENSE.txt",
+          "size": 1078
+        },
+        {
+          "path": "skills/azure-resource-visualizer/SKILL.md",
+          "name": "SKILL.md",
+          "size": 9772
+        },
+        {
+          "path": "skills/azure-resource-visualizer/assets/template-architecture.md",
+          "name": "assets/template-architecture.md",
+          "size": 970
+        }
+      ]
+    },
+    {
+      "id": "azure-role-selector",
+      "name": "azure-role-selector",
+      "title": "Azure Role Selector",
+      "description": "When user is asking for guidance for which role to assign to an identity given desired permissions, this agent helps them understand the role that will meet the requirements with least privilege access and how to apply that role.",
+      "assets": [
+        "LICENSE.txt"
+      ],
+      "hasAssets": true,
+      "assetCount": 1,
+      "category": "Azure",
+      "path": "skills/azure-role-selector",
+      "skillFile": "skills/azure-role-selector/SKILL.md",
+      "files": [
+        {
+          "path": "skills/azure-role-selector/LICENSE.txt",
+          "name": "LICENSE.txt",
+          "size": 1078
+        },
+        {
+          "path": "skills/azure-role-selector/SKILL.md",
+          "name": "SKILL.md",
+          "size": 983
+        }
+      ]
+    },
+    {
+      "id": "azure-static-web-apps",
+      "name": "azure-static-web-apps",
+      "title": "Azure Static Web Apps",
+      "description": "Helps create, configure, and deploy Azure Static Web Apps using the SWA CLI. Use when deploying static sites to Azure, setting up SWA local development, configuring staticwebapp.config.json, adding Azure Functions APIs to SWA, or setting up GitHub Actions CI/CD for Static Web Apps.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Azure",
+      "path": "skills/azure-static-web-apps",
+      "skillFile": "skills/azure-static-web-apps/SKILL.md",
+      "files": [
+        {
+          "path": "skills/azure-static-web-apps/SKILL.md",
+          "name": "SKILL.md",
+          "size": 9499
+        }
+      ]
+    },
+    {
+      "id": "chrome-devtools",
+      "name": "chrome-devtools",
+      "title": "Chrome Devtools",
+      "description": "Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP. Use for interacting with web pages, capturing screenshots, analyzing network traffic, and profiling performance.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Other",
+      "path": "skills/chrome-devtools",
+      "skillFile": "skills/chrome-devtools/SKILL.md",
+      "files": [
+        {
+          "path": "skills/chrome-devtools/SKILL.md",
+          "name": "SKILL.md",
+          "size": 4145
+        }
+      ]
+    },
+    {
+      "id": "gh-cli",
+      "name": "gh-cli",
+      "title": "Gh Cli",
+      "description": "GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Git & GitHub",
+      "path": "skills/gh-cli",
+      "skillFile": "skills/gh-cli/SKILL.md",
+      "files": [
+        {
+          "path": "skills/gh-cli/SKILL.md",
+          "name": "SKILL.md",
+          "size": 40503
+        }
+      ]
+    },
+    {
+      "id": "git-commit",
+      "name": "git-commit",
+      "title": "Git Commit",
+      "description": "Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions \"/commit\". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Git & GitHub",
+      "path": "skills/git-commit",
+      "skillFile": "skills/git-commit/SKILL.md",
+      "files": [
+        {
+          "path": "skills/git-commit/SKILL.md",
+          "name": "SKILL.md",
+          "size": 3198
+        }
+      ]
+    },
+    {
+      "id": "github-issues",
+      "name": "github-issues",
+      "title": "Github Issues",
+      "description": "Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, or manage issue workflows. Triggers on requests like \"create an issue\", \"file a bug\", \"request a feature\", \"update issue X\", or any GitHub issue management task.",
+      "assets": [
+        "references/templates.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 1,
+      "category": "Git & GitHub",
+      "path": "skills/github-issues",
+      "skillFile": "skills/github-issues/SKILL.md",
+      "files": [
+        {
+          "path": "skills/github-issues/SKILL.md",
+          "name": "SKILL.md",
+          "size": 4783
+        },
+        {
+          "path": "skills/github-issues/references/templates.md",
+          "name": "references/templates.md",
+          "size": 1384
+        }
+      ]
+    },
+    {
+      "id": "image-manipulation-image-magick",
+      "name": "image-manipulation-image-magick",
+      "title": "Image Manipulation Image Magick",
+      "description": "Process and manipulate images using ImageMagick. Supports resizing, format conversion, batch processing, and retrieving image metadata. Use when working with images, creating thumbnails, resizing wallpapers, or performing batch image operations.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Other",
+      "path": "skills/image-manipulation-image-magick",
+      "skillFile": "skills/image-manipulation-image-magick/SKILL.md",
+      "files": [
+        {
+          "path": "skills/image-manipulation-image-magick/SKILL.md",
+          "name": "SKILL.md",
+          "size": 6963
+        }
+      ]
+    },
+    {
+      "id": "legacy-circuit-mockups",
+      "name": "legacy-circuit-mockups",
+      "title": "Legacy Circuit Mockups",
+      "description": "Generate breadboard circuit mockups and visual diagrams using HTML5 Canvas drawing techniques. Use when asked to create circuit layouts, visualize electronic component placements, draw breadboard diagrams, mockup 6502 builds, generate retro computer schematics, or design vintage electronics projects. Supports 555 timers, W65C02S microprocessors, 28C256 EEPROMs, W65C22 VIA chips, 7400-series logic gates, LEDs, resistors, capacitors, switches, buttons, crystals, and wires.",
+      "assets": [
+        "references/28256-eeprom.md",
+        "references/555.md",
+        "references/6502.md",
+        "references/6522.md",
+        "references/6C62256.md",
+        "references/7400-series.md",
+        "references/assembly-compiler.md",
+        "references/assembly-language.md",
+        "references/basic-electronic-components.md",
+        "references/breadboard.md",
+        "references/common-breadboard-components.md",
+        "references/connecting-electronic-components.md",
+        "references/emulator-28256-eeprom.md",
+        "references/emulator-6502.md",
+        "references/emulator-6522.md",
+        "references/emulator-6C62256.md",
+        "references/emulator-lcd.md",
+        "references/lcd.md",
+        "references/minipro.md",
+        "references/t48eeprom-programmer.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 20,
+      "category": "Diagrams",
+      "path": "skills/legacy-circuit-mockups",
+      "skillFile": "skills/legacy-circuit-mockups/SKILL.md",
+      "files": [
+        {
+          "path": "skills/legacy-circuit-mockups/SKILL.md",
+          "name": "SKILL.md",
+          "size": 9249
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/28256-eeprom.md",
+          "name": "references/28256-eeprom.md",
+          "size": 4667
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/555.md",
+          "name": "references/555.md",
+          "size": 33114
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/6502.md",
+          "name": "references/6502.md",
+          "size": 5807
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/6522.md",
+          "name": "references/6522.md",
+          "size": 5881
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/6C62256.md",
+          "name": "references/6C62256.md",
+          "size": 4214
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/7400-series.md",
+          "name": "references/7400-series.md",
+          "size": 4759
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/assembly-compiler.md",
+          "name": "references/assembly-compiler.md",
+          "size": 4860
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/assembly-language.md",
+          "name": "references/assembly-language.md",
+          "size": 5359
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/basic-electronic-components.md",
+          "name": "references/basic-electronic-components.md",
+          "size": 2784
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/breadboard.md",
+          "name": "references/breadboard.md",
+          "size": 5025
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/common-breadboard-components.md",
+          "name": "references/common-breadboard-components.md",
+          "size": 6565
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/connecting-electronic-components.md",
+          "name": "references/connecting-electronic-components.md",
+          "size": 15302
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/emulator-28256-eeprom.md",
+          "name": "references/emulator-28256-eeprom.md",
+          "size": 5198
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/emulator-6502.md",
+          "name": "references/emulator-6502.md",
+          "size": 5853
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/emulator-6522.md",
+          "name": "references/emulator-6522.md",
+          "size": 6698
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/emulator-6C62256.md",
+          "name": "references/emulator-6C62256.md",
+          "size": 4869
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/emulator-lcd.md",
+          "name": "references/emulator-lcd.md",
+          "size": 5118
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/lcd.md",
+          "name": "references/lcd.md",
+          "size": 5291
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/minipro.md",
+          "name": "references/minipro.md",
+          "size": 4130
+        },
+        {
+          "path": "skills/legacy-circuit-mockups/references/t48eeprom-programmer.md",
+          "name": "references/t48eeprom-programmer.md",
+          "size": 4398
+        }
+      ]
+    },
+    {
+      "id": "make-skill-template",
+      "name": "make-skill-template",
+      "title": "Make Skill Template",
+      "description": "Create new Agent Skills for GitHub Copilot from prompts or by duplicating this template. Use when asked to \"create a skill\", \"make a new skill\", \"scaffold a skill\", or when building specialized AI capabilities with bundled resources. Generates SKILL.md files with proper frontmatter, directory structure, and optional scripts/references/assets folders.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Git & GitHub",
+      "path": "skills/make-skill-template",
+      "skillFile": "skills/make-skill-template/SKILL.md",
+      "files": [
+        {
+          "path": "skills/make-skill-template/SKILL.md",
+          "name": "SKILL.md",
+          "size": 5368
+        }
+      ]
+    },
+    {
+      "id": "mcp-cli",
+      "name": "mcp-cli",
+      "title": "Mcp Cli",
+      "description": "Interface for MCP (Model Context Protocol) servers via CLI. Use when you need to interact with external tools, APIs, or data sources through MCP servers, list available MCP servers/tools, or call MCP tools from command line.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "CLI Tools",
+      "path": "skills/mcp-cli",
+      "skillFile": "skills/mcp-cli/SKILL.md",
+      "files": [
+        {
+          "path": "skills/mcp-cli/SKILL.md",
+          "name": "SKILL.md",
+          "size": 2539
+        }
+      ]
+    },
+    {
+      "id": "microsoft-code-reference",
+      "name": "microsoft-code-reference",
+      "title": "Microsoft Code Reference",
+      "description": "Look up Microsoft API references, find working code samples, and verify SDK code is correct. Use when working with Azure SDKs, .NET libraries, or Microsoft APIs—to find the right method, check parameters, get working examples, or troubleshoot errors. Catches hallucinated methods, wrong signatures, and deprecated patterns by querying official docs.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Azure",
+      "path": "skills/microsoft-code-reference",
+      "skillFile": "skills/microsoft-code-reference/SKILL.md",
+      "files": [
+        {
+          "path": "skills/microsoft-code-reference/SKILL.md",
+          "name": "SKILL.md",
+          "size": 3353
+        }
+      ]
+    },
+    {
+      "id": "microsoft-docs",
+      "name": "microsoft-docs",
+      "title": "Microsoft Docs",
+      "description": "Query official Microsoft documentation to understand concepts, find tutorials, and learn how services work. Use for Azure, .NET, Microsoft 365, Windows, Power Platform, and all Microsoft technologies. Get accurate, current information from learn.microsoft.com and other official Microsoft websites—architecture overviews, quickstarts, configuration guides, limits, and best practices.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Azure",
+      "path": "skills/microsoft-docs",
+      "skillFile": "skills/microsoft-docs/SKILL.md",
+      "files": [
+        {
+          "path": "skills/microsoft-docs/SKILL.md",
+          "name": "SKILL.md",
+          "size": 2142
+        }
+      ]
+    },
+    {
+      "id": "nuget-manager",
+      "name": "nuget-manager",
+      "title": "Nuget Manager",
+      "description": "Manage NuGet packages in .NET projects/solutions. Use this skill when adding, removing, or updating NuGet package versions. It enforces using `dotnet` CLI for package management and provides strict procedures for direct file edits only when updating versions.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "CLI Tools",
+      "path": "skills/nuget-manager",
+      "skillFile": "skills/nuget-manager/SKILL.md",
+      "files": [
+        {
+          "path": "skills/nuget-manager/SKILL.md",
+          "name": "SKILL.md",
+          "size": 3418
+        }
+      ]
+    },
+    {
+      "id": "plantuml-ascii",
+      "name": "plantuml-ascii",
+      "title": "Plantuml Ascii",
+      "description": "Generate ASCII art diagrams using PlantUML text mode. Use when user asks to create ASCII diagrams, text-based diagrams, terminal-friendly diagrams, or mentions plantuml ascii, text diagram, ascii art diagram. Supports: Converting PlantUML diagrams to ASCII art, Creating sequence diagrams, class diagrams, flowcharts in ASCII format, Generating Unicode-enhanced ASCII art with -utxt flag",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Diagrams",
+      "path": "skills/plantuml-ascii",
+      "skillFile": "skills/plantuml-ascii/SKILL.md",
+      "files": [
+        {
+          "path": "skills/plantuml-ascii/SKILL.md",
+          "name": "SKILL.md",
+          "size": 6096
+        }
+      ]
+    },
+    {
+      "id": "prd",
+      "name": "prd",
+      "title": "Prd",
+      "description": "Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries, user stories, technical specifications, and risk analysis.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Other",
+      "path": "skills/prd",
+      "skillFile": "skills/prd/SKILL.md",
+      "files": [
+        {
+          "path": "skills/prd/SKILL.md",
+          "name": "SKILL.md",
+          "size": 4307
+        }
+      ]
+    },
+    {
+      "id": "refactor",
+      "name": "refactor",
+      "title": "Refactor",
+      "description": "Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safety, eliminating code smells, and applying design patterns. Less drastic than repo-rebuilder; use for gradual improvements.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Other",
+      "path": "skills/refactor",
+      "skillFile": "skills/refactor/SKILL.md",
+      "files": [
+        {
+          "path": "skills/refactor/SKILL.md",
+          "name": "SKILL.md",
+          "size": 16842
+        }
+      ]
+    },
+    {
+      "id": "scoutqa-test",
+      "name": "scoutqa-test",
+      "title": "Scoutqa Test",
+      "description": "This skill should be used when the user asks to \"test this website\", \"run exploratory testing\", \"check for accessibility issues\", \"verify the login flow works\", \"find bugs on this page\", or requests automated QA testing. Triggers on web application testing scenarios including smoke tests, accessibility audits, e-commerce flows, and user flow validation using ScoutQA CLI. IMPORTANT: Use this skill proactively after implementing web application features to verify they work correctly - don't wait for the user to ask for testing.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Testing",
+      "path": "skills/scoutqa-test",
+      "skillFile": "skills/scoutqa-test/SKILL.md",
+      "files": [
+        {
+          "path": "skills/scoutqa-test/SKILL.md",
+          "name": "SKILL.md",
+          "size": 12001
+        }
+      ]
+    },
+    {
+      "id": "snowflake-semanticview",
+      "name": "snowflake-semanticview",
+      "title": "Snowflake Semanticview",
+      "description": "Create, alter, and validate Snowflake semantic views using Snowflake CLI (snow). Use when asked to build or troubleshoot semantic views/semantic layer definitions with CREATE/ALTER SEMANTIC VIEW, to validate semantic-view DDL against Snowflake via CLI, or to guide Snowflake CLI installation and connection setup.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "CLI Tools",
+      "path": "skills/snowflake-semanticview",
+      "skillFile": "skills/snowflake-semanticview/SKILL.md",
+      "files": [
+        {
+          "path": "skills/snowflake-semanticview/SKILL.md",
+          "name": "SKILL.md",
+          "size": 4411
+        }
+      ]
+    },
+    {
+      "id": "vscode-ext-commands",
+      "name": "vscode-ext-commands",
+      "title": "Vscode Ext Commands",
+      "description": "Guidelines for contributing commands in VS Code extensions. Indicates naming convention, visibility, localization and other relevant attributes, following VS Code extension development guidelines, libraries and good practices",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "VS Code",
+      "path": "skills/vscode-ext-commands",
+      "skillFile": "skills/vscode-ext-commands/SKILL.md",
+      "files": [
+        {
+          "path": "skills/vscode-ext-commands/SKILL.md",
+          "name": "SKILL.md",
+          "size": 1545
+        }
+      ]
+    },
+    {
+      "id": "vscode-ext-localization",
+      "name": "vscode-ext-localization",
+      "title": "Vscode Ext Localization",
+      "description": "Guidelines for proper localization of VS Code extensions, following VS Code extension development guidelines, libraries and good practices",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "VS Code",
+      "path": "skills/vscode-ext-localization",
+      "skillFile": "skills/vscode-ext-localization/SKILL.md",
+      "files": [
+        {
+          "path": "skills/vscode-ext-localization/SKILL.md",
+          "name": "SKILL.md",
+          "size": 1473
+        }
+      ]
+    },
+    {
+      "id": "web-design-reviewer",
+      "name": "web-design-reviewer",
+      "title": "Web Design Reviewer",
+      "description": "This skill enables visual inspection of websites running locally or remotely to identify and fix design issues. Triggers on requests like \"review website design\", \"check the UI\", \"fix the layout\", \"find design problems\". Detects issues with responsive design, accessibility, visual consistency, and layout breakage, then performs fixes at the source code level.",
+      "assets": [
+        "references/framework-fixes.md",
+        "references/visual-checklist.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 2,
+      "category": "Diagrams",
+      "path": "skills/web-design-reviewer",
+      "skillFile": "skills/web-design-reviewer/SKILL.md",
+      "files": [
+        {
+          "path": "skills/web-design-reviewer/SKILL.md",
+          "name": "SKILL.md",
+          "size": 10520
+        },
+        {
+          "path": "skills/web-design-reviewer/references/framework-fixes.md",
+          "name": "references/framework-fixes.md",
+          "size": 7437
+        },
+        {
+          "path": "skills/web-design-reviewer/references/visual-checklist.md",
+          "name": "references/visual-checklist.md",
+          "size": 5989
+        }
+      ]
+    },
+    {
+      "id": "webapp-testing",
+      "name": "webapp-testing",
+      "title": "Webapp Testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "assets": [
+        "test-helper.js"
+      ],
+      "hasAssets": true,
+      "assetCount": 1,
+      "category": "Testing",
+      "path": "skills/webapp-testing",
+      "skillFile": "skills/webapp-testing/SKILL.md",
+      "files": [
+        {
+          "path": "skills/webapp-testing/SKILL.md",
+          "name": "SKILL.md",
+          "size": 3311
+        },
+        {
+          "path": "skills/webapp-testing/test-helper.js",
+          "name": "test-helper.js",
+          "size": 1521
+        }
+      ]
+    },
+    {
+      "id": "workiq-copilot",
+      "name": "workiq-copilot",
+      "title": "Workiq Copilot",
+      "description": "Guides the Copilot CLI on how to use the WorkIQ CLI/MCP server to query Microsoft 365 Copilot data (emails, meetings, docs, Teams, people) for live context, summaries, and recommendations.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Microsoft",
+      "path": "skills/workiq-copilot",
+      "skillFile": "skills/workiq-copilot/SKILL.md",
+      "files": [
+        {
+          "path": "skills/workiq-copilot/SKILL.md",
+          "name": "SKILL.md",
+          "size": 5539
+        }
+      ]
+    }
+  ],
+  "filters": {
+    "categories": [
+      "Azure",
+      "CLI Tools",
+      "Diagrams",
+      "Git & GitHub",
+      "Microsoft",
+      "Other",
+      "Testing",
+      "VS Code"
     ],
-    "path": "skills/appinsights-instrumentation",
-    "skillFile": "skills/appinsights-instrumentation/SKILL.md"
-  },
-  {
-    "id": "azure-deployment-preflight",
-    "name": "azure-deployment-preflight",
-    "title": "Azure Deployment Preflight",
-    "description": "Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate when users mention deploying to Azure, validating Bicep files, checking deployment permissions, previewing infrastructure changes, running what-if, or preparing for azd provision.",
-    "assets": [
-      "references/ERROR-HANDLING.md",
-      "references/REPORT-TEMPLATE.md",
-      "references/VALIDATION-COMMANDS.md"
-    ],
-    "path": "skills/azure-deployment-preflight",
-    "skillFile": "skills/azure-deployment-preflight/SKILL.md"
-  },
-  {
-    "id": "azure-devops-cli",
-    "name": "azure-devops-cli",
-    "title": "Azure Devops Cli",
-    "description": "Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.",
-    "assets": [],
-    "path": "skills/azure-devops-cli",
-    "skillFile": "skills/azure-devops-cli/SKILL.md"
-  },
-  {
-    "id": "azure-resource-visualizer",
-    "name": "azure-resource-visualizer",
-    "title": "Azure Resource Visualizer",
-    "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other.",
-    "assets": [
-      "LICENSE.txt",
-      "assets/template-architecture.md"
-    ],
-    "path": "skills/azure-resource-visualizer",
-    "skillFile": "skills/azure-resource-visualizer/SKILL.md"
-  },
-  {
-    "id": "azure-role-selector",
-    "name": "azure-role-selector",
-    "title": "Azure Role Selector",
-    "description": "When user is asking for guidance for which role to assign to an identity given desired permissions, this agent helps them understand the role that will meet the requirements with least privilege access and how to apply that role.",
-    "assets": [
-      "LICENSE.txt"
-    ],
-    "path": "skills/azure-role-selector",
-    "skillFile": "skills/azure-role-selector/SKILL.md"
-  },
-  {
-    "id": "azure-static-web-apps",
-    "name": "azure-static-web-apps",
-    "title": "Azure Static Web Apps",
-    "description": "Helps create, configure, and deploy Azure Static Web Apps using the SWA CLI. Use when deploying static sites to Azure, setting up SWA local development, configuring staticwebapp.config.json, adding Azure Functions APIs to SWA, or setting up GitHub Actions CI/CD for Static Web Apps.",
-    "assets": [],
-    "path": "skills/azure-static-web-apps",
-    "skillFile": "skills/azure-static-web-apps/SKILL.md"
-  },
-  {
-    "id": "chrome-devtools",
-    "name": "chrome-devtools",
-    "title": "Chrome Devtools",
-    "description": "Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP. Use for interacting with web pages, capturing screenshots, analyzing network traffic, and profiling performance.",
-    "assets": [],
-    "path": "skills/chrome-devtools",
-    "skillFile": "skills/chrome-devtools/SKILL.md"
-  },
-  {
-    "id": "gh-cli",
-    "name": "gh-cli",
-    "title": "Gh Cli",
-    "description": "GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line.",
-    "assets": [],
-    "path": "skills/gh-cli",
-    "skillFile": "skills/gh-cli/SKILL.md"
-  },
-  {
-    "id": "git-commit",
-    "name": "git-commit",
-    "title": "Git Commit",
-    "description": "Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions \"/commit\". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping",
-    "assets": [],
-    "path": "skills/git-commit",
-    "skillFile": "skills/git-commit/SKILL.md"
-  },
-  {
-    "id": "github-issues",
-    "name": "github-issues",
-    "title": "Github Issues",
-    "description": "Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, or manage issue workflows. Triggers on requests like \"create an issue\", \"file a bug\", \"request a feature\", \"update issue X\", or any GitHub issue management task.",
-    "assets": [
-      "references/templates.md"
-    ],
-    "path": "skills/github-issues",
-    "skillFile": "skills/github-issues/SKILL.md"
-  },
-  {
-    "id": "image-manipulation-image-magick",
-    "name": "image-manipulation-image-magick",
-    "title": "Image Manipulation Image Magick",
-    "description": "Process and manipulate images using ImageMagick. Supports resizing, format conversion, batch processing, and retrieving image metadata. Use when working with images, creating thumbnails, resizing wallpapers, or performing batch image operations.",
-    "assets": [],
-    "path": "skills/image-manipulation-image-magick",
-    "skillFile": "skills/image-manipulation-image-magick/SKILL.md"
-  },
-  {
-    "id": "legacy-circuit-mockups",
-    "name": "legacy-circuit-mockups",
-    "title": "Legacy Circuit Mockups",
-    "description": "Generate breadboard circuit mockups and visual diagrams using HTML5 Canvas drawing techniques. Use when asked to create circuit layouts, visualize electronic component placements, draw breadboard diagrams, mockup 6502 builds, generate retro computer schematics, or design vintage electronics projects. Supports 555 timers, W65C02S microprocessors, 28C256 EEPROMs, W65C22 VIA chips, 7400-series logic gates, LEDs, resistors, capacitors, switches, buttons, crystals, and wires.",
-    "assets": [
-      "references/28256-eeprom.md",
-      "references/555.md",
-      "references/6502.md",
-      "references/6522.md",
-      "references/6C62256.md",
-      "references/7400-series.md",
-      "references/assembly-compiler.md",
-      "references/assembly-language.md",
-      "references/basic-electronic-components.md",
-      "references/breadboard.md",
-      "references/common-breadboard-components.md",
-      "references/connecting-electronic-components.md",
-      "references/emulator-28256-eeprom.md",
-      "references/emulator-6502.md",
-      "references/emulator-6522.md",
-      "references/emulator-6C62256.md",
-      "references/emulator-lcd.md",
-      "references/lcd.md",
-      "references/minipro.md",
-      "references/t48eeprom-programmer.md"
-    ],
-    "path": "skills/legacy-circuit-mockups",
-    "skillFile": "skills/legacy-circuit-mockups/SKILL.md"
-  },
-  {
-    "id": "make-skill-template",
-    "name": "make-skill-template",
-    "title": "Make Skill Template",
-    "description": "Create new Agent Skills for GitHub Copilot from prompts or by duplicating this template. Use when asked to \"create a skill\", \"make a new skill\", \"scaffold a skill\", or when building specialized AI capabilities with bundled resources. Generates SKILL.md files with proper frontmatter, directory structure, and optional scripts/references/assets folders.",
-    "assets": [],
-    "path": "skills/make-skill-template",
-    "skillFile": "skills/make-skill-template/SKILL.md"
-  },
-  {
-    "id": "mcp-cli",
-    "name": "mcp-cli",
-    "title": "Mcp Cli",
-    "description": "Interface for MCP (Model Context Protocol) servers via CLI. Use when you need to interact with external tools, APIs, or data sources through MCP servers, list available MCP servers/tools, or call MCP tools from command line.",
-    "assets": [],
-    "path": "skills/mcp-cli",
-    "skillFile": "skills/mcp-cli/SKILL.md"
-  },
-  {
-    "id": "microsoft-code-reference",
-    "name": "microsoft-code-reference",
-    "title": "Microsoft Code Reference",
-    "description": "Look up Microsoft API references, find working code samples, and verify SDK code is correct. Use when working with Azure SDKs, .NET libraries, or Microsoft APIs—to find the right method, check parameters, get working examples, or troubleshoot errors. Catches hallucinated methods, wrong signatures, and deprecated patterns by querying official docs.",
-    "assets": [],
-    "path": "skills/microsoft-code-reference",
-    "skillFile": "skills/microsoft-code-reference/SKILL.md"
-  },
-  {
-    "id": "microsoft-docs",
-    "name": "microsoft-docs",
-    "title": "Microsoft Docs",
-    "description": "Query official Microsoft documentation to understand concepts, find tutorials, and learn how services work. Use for Azure, .NET, Microsoft 365, Windows, Power Platform, and all Microsoft technologies. Get accurate, current information from learn.microsoft.com and other official Microsoft websites—architecture overviews, quickstarts, configuration guides, limits, and best practices.",
-    "assets": [],
-    "path": "skills/microsoft-docs",
-    "skillFile": "skills/microsoft-docs/SKILL.md"
-  },
-  {
-    "id": "nuget-manager",
-    "name": "nuget-manager",
-    "title": "Nuget Manager",
-    "description": "Manage NuGet packages in .NET projects/solutions. Use this skill when adding, removing, or updating NuGet package versions. It enforces using `dotnet` CLI for package management and provides strict procedures for direct file edits only when updating versions.",
-    "assets": [],
-    "path": "skills/nuget-manager",
-    "skillFile": "skills/nuget-manager/SKILL.md"
-  },
-  {
-    "id": "plantuml-ascii",
-    "name": "plantuml-ascii",
-    "title": "Plantuml Ascii",
-    "description": "Generate ASCII art diagrams using PlantUML text mode. Use when user asks to create ASCII diagrams, text-based diagrams, terminal-friendly diagrams, or mentions plantuml ascii, text diagram, ascii art diagram. Supports: Converting PlantUML diagrams to ASCII art, Creating sequence diagrams, class diagrams, flowcharts in ASCII format, Generating Unicode-enhanced ASCII art with -utxt flag",
-    "assets": [],
-    "path": "skills/plantuml-ascii",
-    "skillFile": "skills/plantuml-ascii/SKILL.md"
-  },
-  {
-    "id": "prd",
-    "name": "prd",
-    "title": "Prd",
-    "description": "Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries, user stories, technical specifications, and risk analysis.",
-    "assets": [],
-    "path": "skills/prd",
-    "skillFile": "skills/prd/SKILL.md"
-  },
-  {
-    "id": "refactor",
-    "name": "refactor",
-    "title": "Refactor",
-    "description": "Surgical code refactoring to improve maintainability without changing behavior. Covers extracting functions, renaming variables, breaking down god functions, improving type safety, eliminating code smells, and applying design patterns. Less drastic than repo-rebuilder; use for gradual improvements.",
-    "assets": [],
-    "path": "skills/refactor",
-    "skillFile": "skills/refactor/SKILL.md"
-  },
-  {
-    "id": "scoutqa-test",
-    "name": "scoutqa-test",
-    "title": "Scoutqa Test",
-    "description": "This skill should be used when the user asks to \"test this website\", \"run exploratory testing\", \"check for accessibility issues\", \"verify the login flow works\", \"find bugs on this page\", or requests automated QA testing. Triggers on web application testing scenarios including smoke tests, accessibility audits, e-commerce flows, and user flow validation using ScoutQA CLI. IMPORTANT: Use this skill proactively after implementing web application features to verify they work correctly - don't wait for the user to ask for testing.",
-    "assets": [],
-    "path": "skills/scoutqa-test",
-    "skillFile": "skills/scoutqa-test/SKILL.md"
-  },
-  {
-    "id": "snowflake-semanticview",
-    "name": "snowflake-semanticview",
-    "title": "Snowflake Semanticview",
-    "description": "Create, alter, and validate Snowflake semantic views using Snowflake CLI (snow). Use when asked to build or troubleshoot semantic views/semantic layer definitions with CREATE/ALTER SEMANTIC VIEW, to validate semantic-view DDL against Snowflake via CLI, or to guide Snowflake CLI installation and connection setup.",
-    "assets": [],
-    "path": "skills/snowflake-semanticview",
-    "skillFile": "skills/snowflake-semanticview/SKILL.md"
-  },
-  {
-    "id": "vscode-ext-commands",
-    "name": "vscode-ext-commands",
-    "title": "Vscode Ext Commands",
-    "description": "Guidelines for contributing commands in VS Code extensions. Indicates naming convention, visibility, localization and other relevant attributes, following VS Code extension development guidelines, libraries and good practices",
-    "assets": [],
-    "path": "skills/vscode-ext-commands",
-    "skillFile": "skills/vscode-ext-commands/SKILL.md"
-  },
-  {
-    "id": "vscode-ext-localization",
-    "name": "vscode-ext-localization",
-    "title": "Vscode Ext Localization",
-    "description": "Guidelines for proper localization of VS Code extensions, following VS Code extension development guidelines, libraries and good practices",
-    "assets": [],
-    "path": "skills/vscode-ext-localization",
-    "skillFile": "skills/vscode-ext-localization/SKILL.md"
-  },
-  {
-    "id": "web-design-reviewer",
-    "name": "web-design-reviewer",
-    "title": "Web Design Reviewer",
-    "description": "This skill enables visual inspection of websites running locally or remotely to identify and fix design issues. Triggers on requests like \"review website design\", \"check the UI\", \"fix the layout\", \"find design problems\". Detects issues with responsive design, accessibility, visual consistency, and layout breakage, then performs fixes at the source code level.",
-    "assets": [
-      "references/framework-fixes.md",
-      "references/visual-checklist.md"
-    ],
-    "path": "skills/web-design-reviewer",
-    "skillFile": "skills/web-design-reviewer/SKILL.md"
-  },
-  {
-    "id": "webapp-testing",
-    "name": "webapp-testing",
-    "title": "Webapp Testing",
-    "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
-    "assets": [
-      "test-helper.js"
-    ],
-    "path": "skills/webapp-testing",
-    "skillFile": "skills/webapp-testing/SKILL.md"
-  },
-  {
-    "id": "workiq-copilot",
-    "name": "workiq-copilot",
-    "title": "Workiq Copilot",
-    "description": "Guides the Copilot CLI on how to use the WorkIQ CLI/MCP server to query Microsoft 365 Copilot data (emails, meetings, docs, Teams, people) for live context, summaries, and recommendations.",
-    "assets": [],
-    "path": "skills/workiq-copilot",
-    "skillFile": "skills/workiq-copilot/SKILL.md"
+    "hasAssets": [
+      "Yes",
+      "No"
+    ]
   }
-]
+}
