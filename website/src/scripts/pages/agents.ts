@@ -3,7 +3,7 @@
  */
 import { createChoices, getChoicesValues, type Choices } from '../choices';
 import { FuzzySearch } from '../search';
-import { fetchData, debounce, escapeHtml, getGitHubUrl } from '../utils';
+import { fetchData, debounce, escapeHtml, getGitHubUrl, getVSCodeInstallUrl } from '../utils';
 import { setupModal, openFileModal } from '../modal';
 
 interface Agent {
@@ -102,8 +102,15 @@ function renderItems(items: Agent[], query = ''): void {
         </div>
       </div>
       <div class="resource-actions">
-        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary" target="_blank" onclick="event.stopPropagation()">
-          View on GitHub
+        <a href="${getVSCodeInstallUrl(resourceType, item.path, false)}" class="btn btn-primary btn-small" target="_blank" onclick="event.stopPropagation()" title="Install to VS Code">
+          <svg viewBox="0 0 100 100" width="14" height="14" fill="currentColor"><path d="M95.436 26.986L75.282 15.768a6.04 6.04 0 0 0-6.895.876L28.78 51.927 11.912 39.151a4.03 4.03 0 0 0-5.154.387l-5.36 4.878a4.03 4.03 0 0 0-.003 5.947l14.646 13.396-14.646 13.396a4.03 4.03 0 0 0 .003 5.947l5.36 4.878a4.03 4.03 0 0 0 5.154.387L28.78 74.59l39.607 35.283a6.04 6.04 0 0 0 6.895.876l20.154-11.218a6.04 6.04 0 0 0 3.127-5.288V32.274a6.04 6.04 0 0 0-3.127-5.288zM75.015 73.428L46.339 51.927l28.676-21.5z" transform="scale(0.16)"/></svg>
+          VS Code
+        </a>
+        <a href="${getVSCodeInstallUrl(resourceType, item.path, true)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()" title="Install to VS Code Insiders">
+          Insiders
+        </a>
+        <a href="${getGitHubUrl(item.path)}" class="btn btn-secondary btn-small" target="_blank" onclick="event.stopPropagation()">
+          GitHub
         </a>
       </div>
     </div>
