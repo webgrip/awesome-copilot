@@ -11,7 +11,7 @@
         "prompt-engineering",
         "agents"
       ],
-      "featured": false,
+      "featured": true,
       "items": [
         {
           "path": "prompts/suggest-awesome-github-copilot-collections.prompt.md",
@@ -41,6 +41,169 @@
       ],
       "path": "collections/awesome-copilot.collection.yml",
       "filename": "awesome-copilot.collection.yml"
+    },
+    {
+      "id": "copilot-sdk",
+      "name": "Copilot SDK",
+      "description": "Build applications with the GitHub Copilot SDK across multiple programming languages. Includes comprehensive instructions for C#, Go, Node.js/TypeScript, and Python to help you create AI-powered applications.",
+      "tags": [
+        "copilot-sdk",
+        "sdk",
+        "csharp",
+        "go",
+        "nodejs",
+        "typescript",
+        "python",
+        "ai",
+        "github-copilot"
+      ],
+      "featured": true,
+      "items": [
+        {
+          "path": "instructions/copilot-sdk-csharp.instructions.md",
+          "kind": "instruction",
+          "usage": null
+        },
+        {
+          "path": "instructions/copilot-sdk-go.instructions.md",
+          "kind": "instruction",
+          "usage": null
+        },
+        {
+          "path": "instructions/copilot-sdk-nodejs.instructions.md",
+          "kind": "instruction",
+          "usage": null
+        },
+        {
+          "path": "instructions/copilot-sdk-python.instructions.md",
+          "kind": "instruction",
+          "usage": null
+        }
+      ],
+      "path": "collections/copilot-sdk.collection.yml",
+      "filename": "copilot-sdk.collection.yml"
+    },
+    {
+      "id": "partners",
+      "name": "Partners",
+      "description": "Custom agents that have been created by GitHub partners",
+      "tags": [
+        "devops",
+        "security",
+        "database",
+        "cloud",
+        "infrastructure",
+        "observability",
+        "feature-flags",
+        "cicd",
+        "migration",
+        "performance"
+      ],
+      "featured": true,
+      "items": [
+        {
+          "path": "agents/amplitude-experiment-implementation.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/apify-integration-expert.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/arm-migration.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/diffblue-cover.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/droid.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/dynatrace-expert.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/elasticsearch-observability.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/jfrog-sec.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/launchdarkly-flag-cleanup.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/lingodotdev-i18n.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/monday-bug-fixer.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/mongodb-performance-advisor.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/neo4j-docker-client-generator.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/neon-migration-specialist.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/neon-optimization-analyzer.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/octopus-deploy-release-notes-mcp.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/stackhawk-security-onboarding.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/terraform.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/pagerduty-incident-responder.agent.md",
+          "kind": "agent",
+          "usage": null
+        },
+        {
+          "path": "agents/comet-opik.agent.md",
+          "kind": "agent",
+          "usage": null
+        }
+      ],
+      "path": "collections/partners.collection.yml",
+      "filename": "partners.collection.yml"
     },
     {
       "id": "azure-cloud-development",
@@ -302,47 +465,6 @@
       ],
       "path": "collections/clojure-interactive-programming.collection.yml",
       "filename": "clojure-interactive-programming.collection.yml"
-    },
-    {
-      "id": "copilot-sdk",
-      "name": "Copilot SDK",
-      "description": "Build applications with the GitHub Copilot SDK across multiple programming languages. Includes comprehensive instructions for C#, Go, Node.js/TypeScript, and Python to help you create AI-powered applications.",
-      "tags": [
-        "copilot-sdk",
-        "sdk",
-        "csharp",
-        "go",
-        "nodejs",
-        "typescript",
-        "python",
-        "ai",
-        "github-copilot"
-      ],
-      "featured": false,
-      "items": [
-        {
-          "path": "instructions/copilot-sdk-csharp.instructions.md",
-          "kind": "instruction",
-          "usage": null
-        },
-        {
-          "path": "instructions/copilot-sdk-go.instructions.md",
-          "kind": "instruction",
-          "usage": null
-        },
-        {
-          "path": "instructions/copilot-sdk-nodejs.instructions.md",
-          "kind": "instruction",
-          "usage": null
-        },
-        {
-          "path": "instructions/copilot-sdk-python.instructions.md",
-          "kind": "instruction",
-          "usage": null
-        }
-      ],
-      "path": "collections/copilot-sdk.collection.yml",
-      "filename": "copilot-sdk.collection.yml"
     },
     {
       "id": "database-data-management",
@@ -1005,128 +1127,6 @@
       ],
       "path": "collections/openapi-to-application-python-fastapi.collection.yml",
       "filename": "openapi-to-application-python-fastapi.collection.yml"
-    },
-    {
-      "id": "partners",
-      "name": "Partners",
-      "description": "Custom agents that have been created by GitHub partners",
-      "tags": [
-        "devops",
-        "security",
-        "database",
-        "cloud",
-        "infrastructure",
-        "observability",
-        "feature-flags",
-        "cicd",
-        "migration",
-        "performance"
-      ],
-      "featured": false,
-      "items": [
-        {
-          "path": "agents/amplitude-experiment-implementation.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/apify-integration-expert.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/arm-migration.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/diffblue-cover.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/droid.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/dynatrace-expert.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/elasticsearch-observability.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/jfrog-sec.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/launchdarkly-flag-cleanup.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/lingodotdev-i18n.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/monday-bug-fixer.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/mongodb-performance-advisor.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/neo4j-docker-client-generator.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/neon-migration-specialist.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/neon-optimization-analyzer.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/octopus-deploy-release-notes-mcp.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/stackhawk-security-onboarding.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/terraform.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/pagerduty-incident-responder.agent.md",
-          "kind": "agent",
-          "usage": null
-        },
-        {
-          "path": "agents/comet-opik.agent.md",
-          "kind": "agent",
-          "usage": null
-        }
-      ],
-      "path": "collections/partners.collection.yml",
-      "filename": "partners.collection.yml"
     },
     {
       "id": "php-mcp-development",

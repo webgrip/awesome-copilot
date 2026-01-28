@@ -3736,6 +3736,45 @@
   },
   {
     "type": "collection",
+    "id": "copilot-sdk",
+    "title": "Copilot SDK",
+    "description": "Build applications with the GitHub Copilot SDK across multiple programming languages. Includes comprehensive instructions for C#, Go, Node.js/TypeScript, and Python to help you create AI-powered applications.",
+    "path": "collections/copilot-sdk.collection.yml",
+    "tags": [
+      "copilot-sdk",
+      "sdk",
+      "csharp",
+      "go",
+      "nodejs",
+      "typescript",
+      "python",
+      "ai",
+      "github-copilot"
+    ],
+    "searchText": "copilot sdk build applications with the github copilot sdk across multiple programming languages. includes comprehensive instructions for c#, go, node.js/typescript, and python to help you create ai-powered applications. copilot-sdk sdk csharp go nodejs typescript python ai github-copilot"
+  },
+  {
+    "type": "collection",
+    "id": "partners",
+    "title": "Partners",
+    "description": "Custom agents that have been created by GitHub partners",
+    "path": "collections/partners.collection.yml",
+    "tags": [
+      "devops",
+      "security",
+      "database",
+      "cloud",
+      "infrastructure",
+      "observability",
+      "feature-flags",
+      "cicd",
+      "migration",
+      "performance"
+    ],
+    "searchText": "partners custom agents that have been created by github partners devops security database cloud infrastructure observability feature-flags cicd migration performance"
+  },
+  {
+    "type": "collection",
     "id": "azure-cloud-development",
     "title": "Azure & Cloud Development",
     "description": "Comprehensive Azure cloud development tools including Infrastructure as Code, serverless functions, architecture patterns, and cost optimization for building scalable cloud applications.",
@@ -3809,25 +3848,6 @@
       "interactive-programming"
     ],
     "searchText": "clojure interactive programming tools for repl-first clojure workflows featuring clojure instructions, the interactive programming chat mode and supporting guidance. clojure repl interactive-programming"
-  },
-  {
-    "type": "collection",
-    "id": "copilot-sdk",
-    "title": "Copilot SDK",
-    "description": "Build applications with the GitHub Copilot SDK across multiple programming languages. Includes comprehensive instructions for C#, Go, Node.js/TypeScript, and Python to help you create AI-powered applications.",
-    "path": "collections/copilot-sdk.collection.yml",
-    "tags": [
-      "copilot-sdk",
-      "sdk",
-      "csharp",
-      "go",
-      "nodejs",
-      "typescript",
-      "python",
-      "ai",
-      "github-copilot"
-    ],
-    "searchText": "copilot sdk build applications with the github copilot sdk across multiple programming languages. includes comprehensive instructions for c#, go, node.js/typescript, and python to help you create ai-powered applications. copilot-sdk sdk csharp go nodejs typescript python ai github-copilot"
   },
   {
     "type": "collection",
@@ -4052,26 +4072,6 @@
       "fastapi"
     ],
     "searchText": "openapi to application - python fastapi generate production-ready fastapi applications from openapi specifications. includes project scaffolding, route generation, dependency injection, and python best practices for async apis. openapi code-generation api python fastapi"
-  },
-  {
-    "type": "collection",
-    "id": "partners",
-    "title": "Partners",
-    "description": "Custom agents that have been created by GitHub partners",
-    "path": "collections/partners.collection.yml",
-    "tags": [
-      "devops",
-      "security",
-      "database",
-      "cloud",
-      "infrastructure",
-      "observability",
-      "feature-flags",
-      "cicd",
-      "migration",
-      "performance"
-    ],
-    "searchText": "partners custom agents that have been created by github partners devops security database cloud infrastructure observability feature-flags cicd migration performance"
   },
   {
     "type": "collection",

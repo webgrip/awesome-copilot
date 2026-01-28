@@ -400,12 +400,15 @@ function generateCollectionsData() {
       const tags = data.tags || [];
       tags.forEach((t) => allTags.add(t));
 
+      // featured can be at top level or nested under display
+      const featured = data.featured || data.display?.featured || false;
+
       collections.push({
         id: file.replace(".collection.yml", ""),
         name: data.name || file.replace(".collection.yml", ""),
         description: data.description || "",
         tags: tags,
-        featured: data.featured || false,
+        featured: featured,
         items: (data.items || []).map((item) => ({
           path: item.path,
           kind: item.kind,
