@@ -1,0 +1,190 @@
+/**
+ * Utility functions for the Awesome Copilot website
+ */
+
+const REPO_BASE_URL = 'https://raw.githubusercontent.com/github/awesome-copilot/main';
+const REPO_GITHUB_URL = 'https://github.com/github/awesome-copilot/blob/main';
+
+// VS Code install URL template
+const VSCODE_INSTALL_URLS: Record<string, string> = {
+  instructions: 'https://aka.ms/awesome-copilot/install/instructions',
+  prompt: 'https://aka.ms/awesome-copilot/install/prompt',
+  agent: 'https://aka.ms/awesome-copilot/install/agent',
+};
+
+/**
+ * Get the base path for the site
+ */
+export function getBasePath(): string {
+  // In Astro, import.meta.env.BASE_URL is available at build time
+  // At runtime, we use a data attribute on the body
+  if (typeof document !== 'undefined') {
+    return document.body.dataset.basePath || '/';
+  }
+  return '/';
+}
+
+/**
+ * Fetch JSON data from the data directory
+ */
+export async function fetchData<T = unknown>(filename: string): Promise<T | null> {
+  try {
+    const basePath = getBasePath();
+    const response = await fetch(`${basePath}data/${filename}`);
+    if (!response.ok) throw new Error(`Failed to fetch ${filename}`);
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching ${filename}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Fetch raw file content from GitHub
+ */
+export async function fetchFileContent(filePath: string): Promise<string | null> {
+  try {
+    const response = await fetch(`${REPO_BASE_URL}/${filePath}`);
+    if (!response.ok) throw new Error(`Failed to fetch ${filePath}`);
+    return await response.text();
+  } catch (error) {
+    console.error(`Error fetching file content:`, error);
+    return null;
+  }
+}
+
+/**
+ * Copy text to clipboard
+ */
+export async function copyToClipboard(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // Fallback for older browsers
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const success = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return success;
+  }
+}
+
+/**
+ * Generate VS Code install URL
+ */
+export function getVSCodeInstallUrl(type: string, filePath: string): string | null {
+  const baseUrl = VSCODE_INSTALL_URLS[type];
+  if (!baseUrl) return null;
+  return `${baseUrl}?url=${encodeURIComponent(`${REPO_BASE_URL}/${filePath}`)}`;
+}
+
+/**
+ * Get GitHub URL for a file
+ */
+export function getGitHubUrl(filePath: string): string {
+  return `${REPO_GITHUB_URL}/${filePath}`;
+}
+
+/**
+ * Get raw GitHub URL for a file (for fetching content)
+ */
+export function getRawGitHubUrl(filePath: string): string {
+  return `${REPO_BASE_URL}/${filePath}`;
+}
+
+/**
+ * Show a toast notification
+ */
+export function showToast(message: string, type: 'success' | 'error' = 'success'): void {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+/**
+ * Debounce function for search input
+ */
+export function debounce<T extends (...args: unknown[]) => void>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout>;
+  return function executedFunction(...args: Parameters<T>) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Escape HTML to prevent XSS
+ */
+export function escapeHtml(text: string): string {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+/**
+ * Truncate text with ellipsis
+ */
+export function truncate(text: string | undefined, maxLength: number): string {
+  if (!text || text.length <= maxLength) return text || '';
+  return text.slice(0, maxLength).trim() + '...';
+}
+
+/**
+ * Get resource type from file path
+ */
+export function getResourceType(filePath: string): string {
+  if (filePath.endsWith('.agent.md')) return 'agent';
+  if (filePath.endsWith('.prompt.md')) return 'prompt';
+  if (filePath.endsWith('.instructions.md')) return 'instruction';
+  if (filePath.includes('/skills/') && filePath.endsWith('SKILL.md')) return 'skill';
+  if (filePath.endsWith('.collection.yml')) return 'collection';
+  return 'unknown';
+}
+
+/**
+ * Format a resource type for display
+ */
+export function formatResourceType(type: string): string {
+  const labels: Record<string, string> = {
+    agent: '🤖 Agent',
+    prompt: '🎯 Prompt',
+    instruction: '📋 Instruction',
+    skill: '⚡ Skill',
+    collection: '📦 Collection',
+  };
+  return labels[type] || type;
+}
+
+/**
+ * Get icon for resource type
+ */
+export function getResourceIcon(type: string): string {
+  const icons: Record<string, string> = {
+    agent: '🤖',
+    prompt: '🎯',
+    instruction: '📋',
+    skill: '⚡',
+    collection: '📦',
+  };
+  return icons[type] || '📄';
+}

@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Tools" description="MCP servers and developer tools for GitHub Copilot" activeNav="tools">
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>🔧 Tools</h1>
+        <p>MCP servers and developer tools for GitHub Copilot</p>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="container">
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2>🖥️ Awesome Copilot MCP Server</h2>
+            <span class="badge">Official</span>
+          </div>
+          <p>A Model Context Protocol (MCP) server that provides prompts for searching and installing resources directly from this repository.</p>
+          
+          <h3>Features</h3>
+          <ul>
+            <li>Search across all agents, prompts, instructions, skills, and collections</li>
+            <li>Install resources directly to your project</li>
+            <li>Browse featured and curated collections</li>
+          </ul>
+
+          <h3>Requirements</h3>
+          <ul>
+            <li>Docker (required to run the server)</li>
+          </ul>
+
+          <h3>Installation</h3>
+          <p>See the <a href="https://github.com/github/awesome-copilot#mcp-server" target="_blank" rel="noopener">README</a> for installation instructions.</p>
+
+          <div class="tool-actions">
+            <a href="https://github.com/github/awesome-copilot#mcp-server" class="btn btn-primary" target="_blank" rel="noopener">
+              View Documentation
+            </a>
+          </div>
+        </div>
+
+        <div class="coming-soon">
+          <h2>More Tools Coming Soon</h2>
+          <p>We're working on additional tools to enhance your GitHub Copilot experience. Check back soon!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .tool-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tool-header h2 {
+      margin: 0;
+      font-size: 24px;
+      color: var(--color-text-emphasis);
+    }
+
+    .badge {
+      background-color: var(--color-accent);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .tool-card h3 {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      color: var(--color-text-emphasis);
+    }
+
+    .tool-card ul {
+      margin: 0;
+      padding-left: 24px;
+      color: var(--color-text-muted);
+    }
+
+    .tool-card li {
+      margin-bottom: 8px;
+    }
+
+    .tool-actions {
+      margin-top: 24px;
+    }
+
+    .coming-soon {
+      text-align: center;
+      padding: 48px;
+      background-color: var(--color-bg-secondary);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--border-radius-lg);
+    }
+
+    .coming-soon h2 {
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .coming-soon p {
+      color: var(--color-text-muted);
+    }
+  </style>
+</BaseLayout>

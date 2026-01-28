@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Samples" description="Code samples and examples for building with GitHub Copilot" activeNav="samples">
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>📚 Samples</h1>
+        <p>Code samples and examples for building with GitHub Copilot</p>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="container">
+        <div class="coming-soon">
+          <div class="coming-soon-icon">🚧</div>
+          <h2>Coming Soon</h2>
+          <p>We're migrating code samples from the <a href="https://github.com/github/copilot-sdk/tree/main/cookbook" target="_blank" rel="noopener">Copilot SDK Cookbook</a> to this repository.</p>
+          <p>Check back soon for examples including:</p>
+          <ul class="sample-list">
+            <li>Building custom agents</li>
+            <li>Integrating with MCP servers</li>
+            <li>Creating prompt templates</li>
+            <li>Working with Copilot APIs</li>
+          </ul>
+          <div class="coming-soon-actions">
+            <a href="https://github.com/github/copilot-sdk/tree/main/cookbook" class="btn btn-primary" target="_blank" rel="noopener">
+              View Current Cookbook
+            </a>
+            <a href="https://github.com/github/awesome-copilot" class="btn btn-secondary" target="_blank" rel="noopener">
+              Watch Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .coming-soon {
+      text-align: center;
+      padding: 64px 32px;
+      background-color: var(--color-bg-secondary);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--border-radius-lg);
+    }
+
+    .coming-soon-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    .coming-soon h2 {
+      color: var(--color-text-emphasis);
+      margin-bottom: 16px;
+      font-size: 28px;
+    }
+
+    .coming-soon p {
+      color: var(--color-text-muted);
+      max-width: 500px;
+      margin: 0 auto 16px;
+    }
+
+    .sample-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px auto;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .sample-list li {
+      padding: 8px 0;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .sample-list li::before {
+      content: '→ ';
+      color: var(--color-link);
+    }
+
+    .coming-soon-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</BaseLayout>

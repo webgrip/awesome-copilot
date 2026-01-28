@@ -16,8 +16,11 @@
     "skill:validate": "node ./eng/validate-skills.mjs",
     "skill:create": "node ./eng/create-skill.mjs",
     "website:build-data": "node ./eng/generate-website-data.mjs",
-    "website:build": "npm run build && npm run website:build-data",
-    "website:serve": "npx serve website -l 3000"
+    "website:build-old": "npm run build && npm run website:build-data",
+    "website:serve-old": "npx serve website -l 3000",
+    "website:dev": "npm run website:build-data && cp website/data/*.json website-astro/public/data/ && npm run --prefix website-astro dev",
+    "website:build": "npm run build && npm run website:build-data && cp website/data/*.json website-astro/public/data/ && npm run --prefix website-astro build",
+    "website:preview": "npm run --prefix website-astro preview"
   },
   "repository": {
     "type": "git",
