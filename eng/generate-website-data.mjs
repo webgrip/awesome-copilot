@@ -27,7 +27,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const WEBSITE_DATA_DIR = path.join(ROOT_FOLDER, "website", "data");
+const WEBSITE_DATA_DIR = path.join(ROOT_FOLDER, "website", "public", "data");
 
 /**
  * Ensure the output directory exists
@@ -118,7 +118,7 @@ function generateAgentsData() {
 
   // Sort and return with filter metadata
   const sortedAgents = agents.sort((a, b) => a.title.localeCompare(b.title));
-  
+
   return {
     items: sortedAgents,
     filters: {
@@ -175,17 +175,17 @@ function generatePromptsData() {
  */
 function parseApplyToPatterns(applyTo) {
   if (!applyTo) return [];
-  
+
   // Handle array format
   if (Array.isArray(applyTo)) {
     return applyTo.map(p => p.trim()).filter(p => p.length > 0);
   }
-  
+
   // Handle string format (comma-separated)
   if (typeof applyTo === 'string') {
     return applyTo.split(',').map(p => p.trim()).filter(p => p.length > 0);
   }
-  
+
   return [];
 }
 
@@ -196,13 +196,13 @@ function extractExtensionFromPattern(pattern) {
   // Match patterns like **.ts, **/*.js, *.py, etc.
   const match = pattern.match(/\*\.(\w+)$/);
   if (match) return `.${match[1]}`;
-  
+
   // Match patterns like **/*.{ts,tsx}
   const braceMatch = pattern.match(/\*\.\{([^}]+)\}$/);
   if (braceMatch) {
     return braceMatch[1].split(',').map(ext => `.${ext.trim()}`);
   }
-  
+
   return null;
 }
 
@@ -226,7 +226,7 @@ function generateInstructionsData() {
 
     const applyToRaw = frontmatter?.applyTo || null;
     const applyToPatterns = parseApplyToPatterns(applyToRaw);
-    
+
     // Extract extensions from patterns
     const extensions = [];
     for (const pattern of applyToPatterns) {
@@ -273,7 +273,7 @@ function generateInstructionsData() {
  */
 function categorizeSkill(name, description) {
   const text = `${name} ${description}`.toLowerCase();
-  
+
   if (text.includes('azure') || text.includes('appinsights')) return 'Azure';
   if (text.includes('github') || text.includes('gh-cli') || text.includes('git-commit') || text.includes('git ')) return 'Git & GitHub';
   if (text.includes('vscode') || text.includes('vs code')) return 'VS Code';
@@ -282,7 +282,7 @@ function categorizeSkill(name, description) {
   if (text.includes('cli') || text.includes('command')) return 'CLI Tools';
   if (text.includes('diagram') || text.includes('plantuml') || text.includes('visual')) return 'Diagrams';
   if (text.includes('nuget') || text.includes('dotnet') || text.includes('.net')) return '.NET';
-  
+
   return 'Other';
 }
 
@@ -349,13 +349,13 @@ function generateSkillsData() {
  */
 function getSkillFiles(skillPath, relativePath) {
   const files = [];
-  
+
   function walkDir(dir, relDir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
       const relPath = relDir ? `${relDir}/${entry.name}` : entry.name;
-      
+
       if (entry.isDirectory()) {
         walkDir(fullPath, relPath);
       } else {
@@ -369,7 +369,7 @@ function getSkillFiles(skillPath, relativePath) {
       }
     }
   }
-  
+
   walkDir(skillPath, '');
   return files;
 }
