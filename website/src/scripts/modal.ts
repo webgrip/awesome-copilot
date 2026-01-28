@@ -37,6 +37,39 @@ export function setupModal(): void {
       showToast(success ? 'Copied to clipboard!' : 'Failed to copy', success ? 'success' : 'error');
     }
   });
+
+  // Setup install dropdown toggle
+  setupInstallDropdown('install-dropdown');
+}
+
+/**
+ * Setup install dropdown toggle functionality
+ */
+export function setupInstallDropdown(containerId: string): void {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const toggle = container.querySelector('.install-btn-toggle');
+  
+  toggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    container.classList.toggle('open');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!container.contains(e.target as Node)) {
+      container.classList.remove('open');
+    }
+  });
+
+  // Close dropdown when clicking a menu item
+  container.querySelectorAll('.install-dropdown-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      container.classList.remove('open');
+    });
+  });
 }
 
 /**
@@ -46,8 +79,10 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
   const modal = document.getElementById('file-modal');
   const title = document.getElementById('modal-title');
   const contentEl = document.getElementById('modal-content')?.querySelector('code');
-  const installBtn = document.getElementById('install-btn') as HTMLAnchorElement | null;
-  const installInsidersBtn = document.getElementById('install-insiders-btn') as HTMLAnchorElement | null;
+  const installDropdown = document.getElementById('install-dropdown');
+  const installBtnMain = document.getElementById('install-btn-main') as HTMLAnchorElement | null;
+  const installVscode = document.getElementById('install-vscode') as HTMLAnchorElement | null;
+  const installInsiders = document.getElementById('install-insiders') as HTMLAnchorElement | null;
 
   if (!modal || !title || !contentEl) return;
 
@@ -59,22 +94,18 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
   contentEl.textContent = 'Loading...';
   modal.classList.remove('hidden');
 
-  // Setup install buttons (VS Code and VS Code Insiders)
-  const installUrl = getVSCodeInstallUrl(type, filePath, false);
-  const installInsidersUrl = getVSCodeInstallUrl(type, filePath, true);
+  // Setup install dropdown
+  const vscodeUrl = getVSCodeInstallUrl(type, filePath, false);
+  const insidersUrl = getVSCodeInstallUrl(type, filePath, true);
   
-  if (installUrl && installBtn) {
-    installBtn.href = installUrl;
-    installBtn.style.display = 'inline-flex';
-  } else if (installBtn) {
-    installBtn.style.display = 'none';
-  }
-  
-  if (installInsidersUrl && installInsidersBtn) {
-    installInsidersBtn.href = installInsidersUrl;
-    installInsidersBtn.style.display = 'inline-flex';
-  } else if (installInsidersBtn) {
-    installInsidersBtn.style.display = 'none';
+  if (vscodeUrl && installDropdown) {
+    installDropdown.style.display = 'inline-flex';
+    installDropdown.classList.remove('open');
+    if (installBtnMain) installBtnMain.href = vscodeUrl;
+    if (installVscode) installVscode.href = vscodeUrl;
+    if (installInsiders) installInsiders.href = insidersUrl || '#';
+  } else if (installDropdown) {
+    installDropdown.style.display = 'none';
   }
 
   // Fetch and display content
@@ -93,9 +124,15 @@ export async function openFileModal(filePath: string, type: string): Promise<voi
  */
 export function closeModal(): void {
   const modal = document.getElementById('file-modal');
+  const installDropdown = document.getElementById('install-dropdown');
+  
   if (modal) {
     modal.classList.add('hidden');
   }
+  if (installDropdown) {
+    installDropdown.classList.remove('open');
+  }
+  
   currentFilePath = null;
   currentFileContent = null;
   currentFileType = null;

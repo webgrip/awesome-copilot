@@ -205,3 +205,57 @@ export function getResourceIcon(type: string): string {
   };
   return icons[type] || '📄';
 }
+
+/**
+ * Generate HTML for install dropdown button
+ */
+export function getInstallDropdownHtml(type: string, filePath: string, small = false): string {
+  const vscodeUrl = getVSCodeInstallUrl(type, filePath, false);
+  const insidersUrl = getVSCodeInstallUrl(type, filePath, true);
+  
+  if (!vscodeUrl) return '';
+  
+  const sizeClass = small ? 'install-dropdown-small' : '';
+  const uniqueId = `install-${filePath.replace(/[^a-zA-Z0-9]/g, '-')}`;
+  
+  return `
+    <div class="install-dropdown ${sizeClass}" id="${uniqueId}" onclick="event.stopPropagation()">
+      <a href="${vscodeUrl}" class="btn btn-primary ${small ? 'btn-small' : ''} install-btn-main" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="${small ? 14 : 16}" height="${small ? 14 : 16}" fill="currentColor">
+          <path d="M7.47 10.78a.75.75 0 0 0 1.06 0l3.75-3.75a.75.75 0 0 0-1.06-1.06L8.75 8.44V1.75a.75.75 0 0 0-1.5 0v6.69L4.78 5.97a.75.75 0 0 0-1.06 1.06l3.75 3.75ZM3.75 13a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z"/>
+        </svg>
+        Install
+      </a>
+      <button type="button" class="btn btn-primary ${small ? 'btn-small' : ''} install-btn-toggle" aria-label="Install options" onclick="event.preventDefault(); this.parentElement.classList.toggle('open');">
+        <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor">
+          <path d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z"/>
+        </svg>
+      </button>
+      <div class="install-dropdown-menu">
+        <a href="${vscodeUrl}" target="_blank" rel="noopener" onclick="this.closest('.install-dropdown').classList.remove('open')">
+          <svg viewBox="0 0 100 100" fill="currentColor"><path d="M95.436 26.986L75.282 15.768a6.04 6.04 0 0 0-6.895.876L28.78 51.927 11.912 39.151a4.03 4.03 0 0 0-5.154.387l-5.36 4.878a4.03 4.03 0 0 0-.003 5.947l14.646 13.396-14.646 13.396a4.03 4.03 0 0 0 .003 5.947l5.36 4.878a4.03 4.03 0 0 0 5.154.387L28.78 74.59l39.607 35.283a6.04 6.04 0 0 0 6.895.876l20.154-11.218a6.04 6.04 0 0 0 3.127-5.288V32.274a6.04 6.04 0 0 0-3.127-5.288zM75.015 73.428L46.339 51.927l28.676-21.5z" transform="scale(0.16)"/></svg>
+          VS Code
+        </a>
+        <a href="${insidersUrl}" target="_blank" rel="noopener" onclick="this.closest('.install-dropdown').classList.remove('open')">
+          <svg viewBox="0 0 100 100" fill="currentColor"><path d="M95.436 26.986L75.282 15.768a6.04 6.04 0 0 0-6.895.876L28.78 51.927 11.912 39.151a4.03 4.03 0 0 0-5.154.387l-5.36 4.878a4.03 4.03 0 0 0-.003 5.947l14.646 13.396-14.646 13.396a4.03 4.03 0 0 0 .003 5.947l5.36 4.878a4.03 4.03 0 0 0 5.154.387L28.78 74.59l39.607 35.283a6.04 6.04 0 0 0 6.895.876l20.154-11.218a6.04 6.04 0 0 0 3.127-5.288V32.274a6.04 6.04 0 0 0-3.127-5.288zM75.015 73.428L46.339 51.927l28.676-21.5z" transform="scale(0.16)"/></svg>
+          VS Code Insiders
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Setup dropdown close handlers for dynamically created dropdowns
+ */
+export function setupDropdownCloseHandlers(): void {
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    // Close all open dropdowns if clicking outside
+    if (!target.closest('.install-dropdown')) {
+      document.querySelectorAll('.install-dropdown.open').forEach(dropdown => {
+        dropdown.classList.remove('open');
+      });
+    }
+  });
+}
