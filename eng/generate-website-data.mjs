@@ -22,12 +22,14 @@ import {
   parseFrontmatter,
   parseCollectionYaml,
   parseSkillMetadata,
+  parseYamlFile,
 } from "./yaml-parser.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const WEBSITE_DATA_DIR = path.join(ROOT_FOLDER, "website", "public", "data");
+const WEBSITE_SOURCE_DATA_DIR = path.join(ROOT_FOLDER, "website", "data");
 
 /**
  * Ensure the output directory exists
@@ -436,6 +438,63 @@ function generateCollectionsData() {
 }
 
 /**
+ * Generate tools metadata from website/data/tools.yml
+ */
+function generateToolsData() {
+  const toolsFile = path.join(WEBSITE_SOURCE_DATA_DIR, "tools.yml");
+  
+  if (!fs.existsSync(toolsFile)) {
+    console.warn("No tools.yml file found at", toolsFile);
+    return { items: [], filters: { categories: [], tags: [] } };
+  }
+
+  const data = parseYamlFile(toolsFile);
+  
+  if (!data || !data.tools) {
+    return { items: [], filters: { categories: [], tags: [] } };
+  }
+
+  const allCategories = new Set();
+  const allTags = new Set();
+
+  const tools = data.tools.map((tool) => {
+    const category = tool.category || "Other";
+    allCategories.add(category);
+    
+    const tags = tool.tags || [];
+    tags.forEach((t) => allTags.add(t));
+
+    return {
+      id: tool.id,
+      name: tool.name,
+      description: tool.description || "",
+      category: category,
+      featured: tool.featured || false,
+      requirements: tool.requirements || [],
+      features: tool.features || [],
+      links: tool.links || {},
+      configuration: tool.configuration || null,
+      tags: tags,
+    };
+  });
+
+  // Sort with featured first, then alphabetically
+  const sortedTools = tools.sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.name.localeCompare(b.name);
+  });
+
+  return {
+    items: sortedTools,
+    filters: {
+      categories: Array.from(allCategories).sort(),
+      tags: Array.from(allTags).sort(),
+    },
+  };
+}
+
+/**
  * Generate a combined index for search
  */
 function generateSearchIndex(agents, prompts, instructions, skills, collections) {
@@ -529,6 +588,10 @@ async function main() {
   const collections = collectionsData.items;
   console.log(`✓ Generated ${collections.length} collections (${collectionsData.filters.tags.length} tags)`);
 
+  const toolsData = generateToolsData();
+  const tools = toolsData.items;
+  console.log(`✓ Generated ${tools.length} tools (${toolsData.filters.categories.length} categories)`);
+
   const searchIndex = generateSearchIndex(agents, prompts, instructions, skills, collections);
   console.log(`✓ Generated search index with ${searchIndex.length} items`);
 
@@ -559,6 +622,11 @@ async function main() {
   );
 
   fs.writeFileSync(
+    path.join(WEBSITE_DATA_DIR, "tools.json"),
+    JSON.stringify(toolsData, null, 2)
+  );
+
+  fs.writeFileSync(
     path.join(WEBSITE_DATA_DIR, "search-index.json"),
     JSON.stringify(searchIndex, null, 2)
   );
@@ -572,6 +640,7 @@ async function main() {
       instructions: instructions.length,
       skills: skills.length,
       collections: collections.length,
+      tools: tools.length,
       total: searchIndex.length,
     },
   };
@@ -581,7 +650,7 @@ async function main() {
     JSON.stringify(manifest, null, 2)
   );
 
-  console.log(`\n✓ All data written to website/data/`);
+  console.log(`\n✓ All data written to website/public/data/`);
 }
 
 main().catch((err) => {

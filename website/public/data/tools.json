@@ -1,0 +1,223 @@
+{
+  "items": [
+    {
+      "id": "apm",
+      "name": "APM - Agent Package Manager",
+      "description": "npm for AI coding agents. The package manager for AGENTS.md, Agent Skills, and MCP servers. One package installs to every AI agent (Copilot, Cursor, Claude, Codex, Gemini) in their native format.",
+      "category": "CLI Tools",
+      "featured": true,
+      "requirements": [
+        "Python 3.8 or higher (for pip install)",
+        "Or use the shell installer"
+      ],
+      "features": [
+        "📦 Universal packages: One install works for Copilot, Cursor, Claude, and more",
+        "🔧 Skills & Instructions: Install guardrails and capabilities",
+        "🔌 MCP Server management: Configure and manage MCP servers",
+        "🏗️ Create packages: Share your standards and workflows",
+        "🌐 Multi-source: GitHub, GitHub Enterprise, Azure DevOps"
+      ],
+      "links": {
+        "github": "https://github.com/danielmeppiel/apm",
+        "pypi": "https://pypi.org/project/apm-cli/"
+      },
+      "configuration": {
+        "type": "bash",
+        "content": "# Install via shell script\ncurl -sSL https://raw.githubusercontent.com/danielmeppiel/apm/main/install.sh | sh\n\n# Or install via pip\npip install apm-cli\n\n# Install a skill\napm install danielmeppiel/form-builder\n\n# Compile for your AI tools\napm compile\n"
+      },
+      "tags": [
+        "cli",
+        "python",
+        "package-manager",
+        "skills",
+        "agents",
+        "mcp"
+      ]
+    },
+    {
+      "id": "mcp-server",
+      "name": "Awesome Copilot MCP Server",
+      "description": "A Model Context Protocol (MCP) Server that provides prompts for searching and installing prompts, instructions, agents, and skills directly from this repository. Makes it easy to discover and add customizations to your editor.",
+      "category": "MCP Servers",
+      "featured": true,
+      "requirements": [
+        "Docker installed and running"
+      ],
+      "features": [],
+      "links": {
+        "blog": "https://developer.microsoft.com/blog/announcing-awesome-copilot-mcp-server",
+        "vscode": "https://aka.ms/awesome-copilot/mcp/vscode",
+        "vscode-insiders": "https://aka.ms/awesome-copilot/mcp/vscode-insiders",
+        "visual-studio": "https://aka.ms/awesome-copilot/mcp/vs"
+      },
+      "configuration": {
+        "type": "json",
+        "content": "{\n  \"servers\": {\n    \"awesome-copilot\": {\n      \"type\": \"stdio\",\n      \"command\": \"docker\",\n      \"args\": [\n        \"run\",\n        \"-i\",\n        \"--rm\",\n        \"ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:latest\"\n      ]\n    }\n  }\n}\n"
+      },
+      "tags": [
+        "mcp",
+        "docker",
+        "search",
+        "install"
+      ]
+    },
+    {
+      "id": "vscode-extension",
+      "name": "Awesome GitHub Copilot Browser",
+      "description": "A VS Code extension that allows you to browse, preview, and download GitHub Copilot customizations from the awesome-copilot repository. Features a tree view for exploring agents, prompts, instructions, and skills with smart caching for better performance.",
+      "category": "VS Code Extensions",
+      "featured": true,
+      "requirements": [
+        "VS Code version 1.103.0 or higher",
+        "Internet connection to fetch repository data",
+        "A workspace folder open in VS Code (for downloads)"
+      ],
+      "features": [
+        "🔍 Browse: Explore chat modes, instructions, prompts, agents, and skills in a tree view",
+        "📖 Preview: View file content before downloading",
+        "⬇️ Download: Save files to appropriate .github/ folders in your workspace",
+        "🔃 Refresh: Update repository data with manual refresh",
+        "💾 Caching: Smart caching for better performance"
+      ],
+      "links": {
+        "github": "https://github.com/timheuer/vscode-awesome-copilot",
+        "vscode": "vscode:extension/TimHeuer.awesome-copilot",
+        "vscode-insiders": "vscode-insiders:extension/TimHeuer.awesome-copilot",
+        "marketplace": "https://marketplace.visualstudio.com/items?itemName=TimHeuer.awesome-copilot"
+      },
+      "configuration": null,
+      "tags": [
+        "vscode",
+        "extension",
+        "browse",
+        "preview",
+        "download"
+      ]
+    },
+    {
+      "id": "github-node-vs",
+      "name": "GitHub Node for Visual Studio",
+      "description": "Adds GitHub and MCP Servers nodes to Solution Explorer in Visual Studio. Quickly access and manage GitHub-specific files like workflows, Copilot instructions, and agents, plus MCP server configurations - all without leaving Visual Studio.",
+      "category": "Visual Studio Extensions",
+      "featured": false,
+      "requirements": [
+        "Visual Studio 2022 or higher"
+      ],
+      "features": [
+        "📁 GitHub Node: Easy access to .github folder contents in Solution Explorer",
+        "➕ Quick Create: Add Copilot instructions, agents, prompts, skills, and workflows",
+        "🔌 MCP Servers Node: Centralized access to MCP configurations",
+        "🔄 Git Status Icons: See file status directly in the tree view",
+        "🌐 Open on GitHub: Quick link to view files on GitHub.com"
+      ],
+      "links": {
+        "github": "https://github.com/madskristensen/GitHubNode",
+        "marketplace": "https://marketplace.visualstudio.com/items?itemName=MadsKristensen.GitHubNode"
+      },
+      "configuration": null,
+      "tags": [
+        "visual-studio",
+        "extension",
+        "solution-explorer",
+        "github",
+        "mcp"
+      ]
+    },
+    {
+      "id": "prompt-registry",
+      "name": "Prompt Registry",
+      "description": "A visual marketplace for discovering, installing, and managing GitHub Copilot prompt libraries from multiple sources. Browse bundles in a tile-based interface with search, filters, and one-click install. Supports GitHub, local directories, and APM repositories.",
+      "category": "VS Code Extensions",
+      "featured": false,
+      "requirements": [
+        "VS Code"
+      ],
+      "features": [
+        "🎨 Visual Marketplace: Browse bundles with search, filters, and one-click install",
+        "🔌 Multi-Source: Connect to GitHub, local directories, APM, or Awesome Copilot",
+        "📦 Version Management: Track versions and enable automatic updates",
+        "👥 Profiles & Hubs: Organize bundles by project/team",
+        "🌍 Cross-Platform: Works on macOS, Linux, and Windows"
+      ],
+      "links": {
+        "github": "https://github.com/AmadeusITGroup/prompt-registry",
+        "vscode": "vscode:extension/AmadeusITGroup.prompt-registry",
+        "vscode-insiders": "vscode-insiders:extension/AmadeusITGroup.prompt-registry",
+        "marketplace": "https://marketplace.visualstudio.com/items?itemName=AmadeusITGroup.prompt-registry"
+      },
+      "configuration": null,
+      "tags": [
+        "vscode",
+        "extension",
+        "marketplace",
+        "prompts",
+        "bundles"
+      ]
+    },
+    {
+      "id": "workspace-architect",
+      "name": "Workspace Architect",
+      "description": "A comprehensive library of specialized AI personas and chat modes for GitHub Copilot. Includes architectural planning, tech stack guidance, and advanced cognitive reasoning models. Install via npm and use the CLI to download personas and prompts.",
+      "category": "CLI Tools",
+      "featured": false,
+      "requirements": [
+        "Node.js 20 or higher",
+        "npm"
+      ],
+      "features": [
+        "📦 CLI tool: List and download personas, prompts, and chat modes",
+        "🎭 Rich persona library: Architecture, React, Azure, and more",
+        "🧠 Cognitive modes: Advanced reasoning and planning personas",
+        "⚡ Easy install: npm install -g workspace-architect"
+      ],
+      "links": {
+        "github": "https://github.com/archubbuck/workspace-architect",
+        "npm": "https://www.npmjs.com/package/workspace-architect"
+      },
+      "configuration": {
+        "type": "bash",
+        "content": "# Install globally\nnpm install -g workspace-architect\n\n# List available items\nworkspace-architect list\n\n# Download a specific item\nworkspace-architect download instructions:basic-setup\n"
+      },
+      "tags": [
+        "cli",
+        "npm",
+        "personas",
+        "chat-modes",
+        "prompts"
+      ]
+    }
+  ],
+  "filters": {
+    "categories": [
+      "CLI Tools",
+      "MCP Servers",
+      "VS Code Extensions",
+      "Visual Studio Extensions"
+    ],
+    "tags": [
+      "agents",
+      "browse",
+      "bundles",
+      "chat-modes",
+      "cli",
+      "docker",
+      "download",
+      "extension",
+      "github",
+      "install",
+      "marketplace",
+      "mcp",
+      "npm",
+      "package-manager",
+      "personas",
+      "preview",
+      "prompts",
+      "python",
+      "search",
+      "skills",
+      "solution-explorer",
+      "visual-studio",
+      "vscode"
+    ]
+  }
+}

@@ -1,11 +1,12 @@
 {
-  "generated": "2026-01-28T23:49:25.944Z",
+  "generated": "2026-01-29T02:32:57.492Z",
   "counts": {
     "agents": 140,
     "prompts": 134,
     "instructions": 163,
     "skills": 28,
     "collections": 39,
+    "tools": 6,
     "total": 504
   }
 }
