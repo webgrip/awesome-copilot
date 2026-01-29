@@ -12,7 +12,7 @@ Mathematical expressions rendering is available in GitHub Issues, GitHub Discuss
 
 ## Writing inline expressions
 
-There are two options for delimiting a math expression inline with your text. You can either surround the expression with dollar symbols (`$`), or start the expression with <code>$\`</code> and end it with <code>\`$</code>. The latter syntax is useful when the expression you are writing contains characters that overlap with markdown syntax. For more information, see [Basic writing and formatting syntax](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+There are two options for delimiting a math expression inline with your text. You can either surround the expression with dollar symbols (`$`), or start the expression with <code>$\`</code> and end it with <code>\`$</code>. The latter syntax is useful when the expression you are writing contains characters that overlap with markdown syntax. For more information, see [Basic writing and formatting syntax](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ```text
 This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
@@ -30,7 +30,7 @@ This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+
 
 To add a math expression as a block, start a new line and delimit the expression with two dollar symbols `$$`.
 
->  [!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see [Basic writing and formatting syntax](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks).
+>  [!TIP] If you're writing in an .md file, you will need to use specific formatting to create a line break, such as ending the line with a backslash as shown in the example below. For more information on line breaks in Markdown, see [Basic writing and formatting syntax](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#line-breaks).
 
 ```text
 **The Cauchy-Schwarz Inequality**\
@@ -72,5 +72,5 @@ To display a dollar sign as a character in the same line as a mathematical expre
 ## Further reading
 
 * [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+* [Getting started with writing and formatting on GitHub](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)

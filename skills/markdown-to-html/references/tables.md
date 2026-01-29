@@ -29,11 +29,11 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 
 ![Screenshot of a GitHub Markdown table with two columns of differing width. Rows list the commands "git status" and "git diff" and their descriptions.](https://docs.github.com/assets/images/help/writing/table-varied-columns-rendered.png)
 
-If you are frequently editing code snippets and tables, you may benefit from enabling a fixed-width font in all comment fields on GitHub. For more information, see [About writing and formatting on GitHub](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor).
+If you are frequently editing code snippets and tables, you may benefit from enabling a fixed-width font in all comment fields on GitHub. For more information, see [About writing and formatting on GitHub](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor).
 
 ## Formatting content within your table
 
-You can use [formatting](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
+You can use [formatting](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
 
 ```markdown
 | Command | Description |
@@ -69,4 +69,4 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 ## Further reading
 
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-* [Basic writing and formatting syntax](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [Basic writing and formatting syntax](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

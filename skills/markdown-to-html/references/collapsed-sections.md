@@ -45,4 +45,4 @@ Optionally, to make the section display as open by default, add the `open` attri
 ## Further reading
 
 * [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-* [Basic writing and formatting syntax](https://docs.github.comn/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [Basic writing and formatting syntax](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

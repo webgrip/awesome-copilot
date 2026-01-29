@@ -7,7 +7,7 @@ description: 'Convert Markdown files to HTML similar to `marked.js`, `pandoc`, `
 
 Expert skill for converting Markdown documents to HTML using the marked.js library, or writing data conversion scripts; in this case scripts similar to [markedJS/marked](https://github.com/markedjs/marked) repository. For custom scripts knowledge is not confined to `marked.js`, but data conversion methods are utilized from tools like [pandoc](https://github.com/jgm/pandoc) and [gomarkdown/markdown](https://github.com/gomarkdown/markdown) for data conversion; [jekyll/jekyll](https://github.com/jekyll/jekyll) and [gohugoio/hugo](https://github.com/gohugoio/hugo) for templating systems.
 
-The conversion script or tool should handles single files, batch conversions, and advanced configurations.
+The conversion script or tool should handle single files, batch conversions, and advanced configurations.
 
 ## When to Use This Skill
 
