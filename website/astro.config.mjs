@@ -1,14 +1,14 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://github.github.io',
-  base: '/awesome-copilot/',
-  output: 'static',
+  site: "https://github.github.io",
+  base: "/",
+  output: "static",
   integrations: [sitemap()],
   build: {
-    assets: 'assets',
+    assets: "assets",
   },
-  trailingSlash: 'always',
+  trailingSlash: "always",
 });
