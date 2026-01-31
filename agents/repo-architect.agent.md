@@ -39,14 +39,14 @@ PROJECT ROOT
 │
 ├── [LAYER 2: SPECIALISTS - Agents/Personas]
 │   "The Roles & Expertise"
-│   ├── .github/agents/*.md              ← VS Code agent modes
-│   └── .opencode/agents/*.md            ← CLI bot personas
+│   ├── .github/agents/*.agent.md        ← VS Code agent modes
+│   └── .opencode/agents/*.agent.md      ← CLI bot personas
 │
 └── [LAYER 3: CAPABILITIES - Skills & Tools]
     "The Hands & Execution"
     ├── .github/skills/*.md              ← Complex workflows
-    ├── .github/prompts/*.md             ← Quick reusable snippets
-    └── .github/instructions/*.md        ← Language/file-specific rules
+    ├── .github/prompts/*.prompt.md      ← Quick reusable snippets
+    └── .github/instructions/*.instructions.md  ← Language/file-specific rules
 ```
 
 ## Commands
