@@ -56,7 +56,7 @@ PROJECT ROOT
 Execute complete scaffolding based on detected or specified environment:
 
 1. **Detect Environment**
-   - Check for existing `.github/`, `.opencode/`, `package.json`, etc.
+   - Check for existing `.github/`, `.opencode/`, etc.
    - Identify project language/framework stack
    - Determine if VS Code, OpenCode, or hybrid setup is needed
 
@@ -95,23 +95,19 @@ Execute complete scaffolding based on detected or specified environment:
 
 ### `/validate` - Structure Validation
 
-Validate existing agentic project structure:
+Validate existing agentic project structure (focus on structure, not deep file inspection):
 
-1. **Check Required Files**
+1. **Check Required Files & Directories**
    - [ ] `.github/copilot-instructions.md` exists and is not empty
    - [ ] `AGENTS.md` exists (if OpenCode CLI used)
-   - [ ] Required directories exist
+   - [ ] Required directories exist (`.github/agents/`, `.github/prompts/`, etc.)
 
-2. **Validate File Formats**
-   - [ ] All `.agent.md` files have proper frontmatter
-   - [ ] All `.prompt.md` files have `mode` and `description`
-   - [ ] All `.instructions.md` files have `applyTo` field
-   - [ ] All `SKILL.md` files have `name` and `description`
+2. **Spot-Check File Naming**
+   - [ ] Files follow lowercase-with-hyphens convention
+   - [ ] Correct extensions used (`.agent.md`, `.prompt.md`, `.instructions.md`)
 
-3. **Check Consistency**
-   - [ ] No conflicting instructions between layers
-   - [ ] Symlinks are valid (if used)
-   - [ ] No orphaned references
+3. **Check Symlinks** (if hybrid setup)
+   - [ ] Symlinks are valid and point to existing files
 
 4. **Generate Report**
    ```
@@ -283,9 +279,8 @@ applyTo: '{FILE_PATTERNS}'
 
 ```markdown
 ---
-mode: 'agent'
+agent: 'agent'
 description: '{DESCRIPTION}'
-model: GPT-4.1
 ---
 
 {PROMPT_CONTENT}
@@ -342,14 +337,21 @@ When bootstrapping, offer presets based on detected stack:
 
 ## Validation Rules
 
-### Frontmatter Requirements
+### Frontmatter Requirements (Reference Only)
+
+These are the official requirements from awesome-copilot. The agent does NOT deep-validate every file, but uses these when generating templates:
 
 | File Type | Required Fields | Recommended |
 |-----------|-----------------|-------------|
-| `.agent.md` | `description` | `model`, `tools` |
-| `.prompt.md` | `mode`, `description` | `model`, `tools` |
+| `.agent.md` | `description` | `model`, `tools`, `name` |
+| `.prompt.md` | `agent`, `description` | `model`, `tools`, `name` |
 | `.instructions.md` | `description`, `applyTo` | - |
-| `SKILL.md` | `name`, `description` | bundled assets list |
+| `SKILL.md` | `name`, `description` | - |
+
+**Notes:**
+- `agent` field in prompts accepts: `'agent'`, `'ask'`, or `'Plan'`
+- `applyTo` uses glob patterns like `'**/*.ts'` or `'**/*.js, **/*.ts'`
+- `name` in SKILL.md must match folder name, lowercase with hyphens
 
 ### Naming Conventions
 
