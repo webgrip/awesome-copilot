@@ -331,6 +331,7 @@ a:hover {
   max-width: 560px;
   margin: 0 auto;
   position: relative;
+  z-index: 100;
 }
 
 .hero-search input {
