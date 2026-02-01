@@ -11,4 +11,12 @@ export default defineConfig({
     assets: "assets",
   },
   trailingSlash: "always",
+  vite: {
+    build: {
+      sourcemap: true,
+    },
+    css: {
+      devSourcemap: true,
+    },
+  },
 });
