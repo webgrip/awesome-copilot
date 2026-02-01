@@ -12,6 +12,7 @@ interface Manifest {
     instructions: number;
     skills: number;
     collections: number;
+    tools: number;
   };
 }
 
@@ -33,16 +34,14 @@ export async function initHomepage(): Promise<void> {
   // Load manifest for stats
   const manifest = await fetchData<Manifest>('manifest.json');
   if (manifest && manifest.counts) {
-    const statsEl = document.getElementById('stats');
-    if (statsEl) {
-      statsEl.innerHTML = `
-        <div class="stat"><span class="stat-value">${manifest.counts.agents}</span><span class="stat-label">Agents</span></div>
-        <div class="stat"><span class="stat-value">${manifest.counts.prompts}</span><span class="stat-label">Prompts</span></div>
-        <div class="stat"><span class="stat-value">${manifest.counts.instructions}</span><span class="stat-label">Instructions</span></div>
-        <div class="stat"><span class="stat-value">${manifest.counts.skills}</span><span class="stat-label">Skills</span></div>
-        <div class="stat"><span class="stat-value">${manifest.counts.collections}</span><span class="stat-label">Collections</span></div>
-      `;
-    }
+    // Populate counts in cards
+    const countKeys = ['agents', 'prompts', 'instructions', 'skills', 'collections', 'tools'] as const;
+    countKeys.forEach(key => {
+      const countEl = document.querySelector(`.card-count[data-count="${key}"]`);
+      if (countEl && manifest.counts[key] !== undefined) {
+        countEl.textContent = manifest.counts[key].toString();
+      }
+    });
   }
 
   // Load search index

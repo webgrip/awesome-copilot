@@ -16,9 +16,6 @@ const base = import.meta.env.BASE_URL;
           <input type="text" id="global-search" placeholder="Search all resources..." autocomplete="off">
           <div id="search-results" class="search-results hidden"></div>
         </div>
-        <div class="hero-stats" id="stats">
-          <!-- Populated by JS -->
-        </div>
       </div>
     </section>
 
@@ -26,35 +23,53 @@ const base = import.meta.env.BASE_URL;
     <section class="quick-links">
       <div class="container">
         <div class="cards-grid">
-          <a href={`${base}agents/`} class="card">
+          <a href={`${base}agents/`} class="card card-with-count" id="card-agents">
             <div class="card-icon">🤖</div>
-            <h3>Agents</h3>
-            <p>Custom agents for specialized Copilot experiences</p>
+            <div class="card-content">
+              <h3>Agents</h3>
+              <p>Custom agents for specialized Copilot experiences</p>
+            </div>
+            <div class="card-count" data-count="agents">-</div>
           </a>
-          <a href={`${base}prompts/`} class="card">
+          <a href={`${base}prompts/`} class="card card-with-count" id="card-prompts">
             <div class="card-icon">🎯</div>
-            <h3>Prompts</h3>
-            <p>Ready-to-use prompt templates for development tasks</p>
+            <div class="card-content">
+              <h3>Prompts</h3>
+              <p>Ready-to-use prompt templates for development tasks</p>
+            </div>
+            <div class="card-count" data-count="prompts">-</div>
           </a>
-          <a href={`${base}instructions/`} class="card">
+          <a href={`${base}instructions/`} class="card card-with-count" id="card-instructions">
             <div class="card-icon">📋</div>
-            <h3>Instructions</h3>
-            <p>Coding standards and best practices for Copilot</p>
+            <div class="card-content">
+              <h3>Instructions</h3>
+              <p>Coding standards and best practices for Copilot</p>
+            </div>
+            <div class="card-count" data-count="instructions">-</div>
           </a>
-          <a href={`${base}skills/`} class="card">
+          <a href={`${base}skills/`} class="card card-with-count" id="card-skills">
             <div class="card-icon">⚡</div>
-            <h3>Skills</h3>
-            <p>Self-contained folders with instructions and resources</p>
+            <div class="card-content">
+              <h3>Skills</h3>
+              <p>Self-contained folders with instructions and resources</p>
+            </div>
+            <div class="card-count" data-count="skills">-</div>
           </a>
-          <a href={`${base}collections/`} class="card">
+          <a href={`${base}collections/`} class="card card-with-count" id="card-collections">
             <div class="card-icon">📦</div>
-            <h3>Collections</h3>
-            <p>Curated collections organized by themes</p>
+            <div class="card-content">
+              <h3>Collections</h3>
+              <p>Curated collections organized by themes</p>
+            </div>
+            <div class="card-count" data-count="collections">-</div>
           </a>
-          <a href={`${base}tools/`} class="card">
+          <a href={`${base}tools/`} class="card card-with-count" id="card-tools">
             <div class="card-icon">🔧</div>
-            <h3>Tools</h3>
-            <p>MCP servers and developer tools</p>
+            <div class="card-content">
+              <h3>Tools</h3>
+              <p>MCP servers and developer tools</p>
+            </div>
+            <div class="card-count" data-count="tools">-</div>
           </a>
         </div>
       </div>
