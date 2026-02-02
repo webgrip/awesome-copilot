@@ -17,13 +17,5 @@
   "yaml.schemas": {
     "./.schemas/collection.schema.json": "*.collection.yml",
     "./.schemas/tools.schema.json": "website/data/tools.yml",
-  },
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true
-  },
-  "hide-files.files": []
+  }
 }
