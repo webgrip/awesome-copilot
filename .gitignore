@@ -10,3 +10,4 @@ reports/
 # Website build artifacts
 website/dist/
 website/.astro/
+website/public/data/*
