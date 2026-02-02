@@ -298,7 +298,8 @@ export function setupDropdownCloseHandlers(): void {
 export function getActionButtonsHtml(filePath: string, small = false): string {
   const btnClass = small ? 'btn-small' : '';
   const iconSize = small ? 14 : 16;
-  const escapedPath = filePath.replace(/'/g, "\\'");
+  // Escape backslashes first, then single quotes to prevent breaking out of the JavaScript string literal in the onclick attribute
+  const escapedPath = filePath.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   
   return `
     <button class="btn btn-secondary ${btnClass} action-download" data-path="${escapeHtml(filePath)}" onclick="event.stopPropagation(); window.__downloadFile && window.__downloadFile('${escapedPath}')" title="Download file">
