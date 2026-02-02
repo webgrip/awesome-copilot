@@ -3,7 +3,8 @@
  */
 
 import { FuzzySearch, type SearchableItem } from '../search';
-import { fetchData, fetchFileContent, escapeHtml } from '../utils';
+import { fetchData, escapeHtml } from '../utils';
+import { createChoices, getChoicesValues, type Choices } from '../choices';
 
 // Types
 interface Language {
@@ -52,6 +53,7 @@ let search: FuzzySearch<Recipe & { title: string; cookbookId: string }> | null =
 let selectedLanguage: string | null = null;
 let selectedTags: string[] = [];
 let expandedRecipes: Set<string> = new Set();
+let tagChoices: Choices | null = null;
 
 /**
  * Initialize the samples page
@@ -135,41 +137,23 @@ function setupFilters(): void {
     });
   }
 
-  // Tag filter (multi-select with Choices.js if available)
+  // Tag filter (multi-select with Choices.js)
   const tagSelect = document.getElementById('filter-tag') as HTMLSelectElement;
   if (tagSelect && samplesData.filters.tags.length > 0) {
-    tagSelect.innerHTML = '';
-    samplesData.filters.tags.forEach(tag => {
-      const option = document.createElement('option');
-      option.value = tag;
-      option.textContent = tag;
-      tagSelect.appendChild(option);
+    // Initialize Choices.js
+    tagChoices = createChoices('#filter-tag', { placeholderValue: 'All Tags' });
+    tagChoices.setChoices(
+      samplesData.filters.tags.map(tag => ({ value: tag, label: tag })),
+      'value',
+      'label',
+      true
+    );
+
+    tagSelect.addEventListener('change', () => {
+      selectedTags = getChoicesValues(tagChoices!);
+      renderCookbooks();
+      updateResultsCount();
     });
-
-    // Initialize Choices.js if available
-    if (typeof window !== 'undefined' && (window as any).Choices) {
-      const choices = new (window as any).Choices(tagSelect, {
-        removeItemButton: true,
-        placeholder: true,
-        placeholderValue: 'Filter by tags...',
-        searchPlaceholderValue: 'Search tags...',
-        noResultsText: 'No tags found',
-        noChoicesText: 'No tags available',
-      });
-
-      tagSelect.addEventListener('change', () => {
-        selectedTags = choices.getValue(true) as string[];
-        renderCookbooks();
-        updateResultsCount();
-      });
-    } else {
-      tagSelect.multiple = true;
-      tagSelect.addEventListener('change', () => {
-        selectedTags = Array.from(tagSelect.selectedOptions).map(o => o.value);
-        renderCookbooks();
-        updateResultsCount();
-      });
-    }
   }
 
   // Clear filters button
@@ -204,16 +188,9 @@ function clearFilters(): void {
   const languageSelect = document.getElementById('filter-language') as HTMLSelectElement;
   if (languageSelect) languageSelect.value = '';
 
-  const tagSelect = document.getElementById('filter-tag') as HTMLSelectElement;
-  if (tagSelect && (window as any).Choices) {
-    // Clear Choices.js selection
-    const choicesInstance = tagSelect.closest('.choices');
-    if (choicesInstance) {
-      const choices = (tagSelect as any).choices;
-      if (choices) choices.removeActiveItems();
-    }
-  } else if (tagSelect) {
-    Array.from(tagSelect.options).forEach(o => o.selected = false);
+  // Clear Choices.js selection
+  if (tagChoices) {
+    tagChoices.removeActiveItems();
   }
 
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
