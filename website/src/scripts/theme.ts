@@ -27,6 +27,9 @@ function applyTheme(theme: 'light' | 'dark'): void {
   document.documentElement.setAttribute('data-theme', theme);
 }
 
+const initialTheme = getThemePreference();
+applyTheme(initialTheme);
+
 /**
  * Toggle between light and dark theme
  */

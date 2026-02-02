@@ -8,14 +8,15 @@ on:
   push:
     branches: ["main"]
     paths:
-      - 'website/**'
-      - 'agents/**'
-      - 'prompts/**'
-      - 'instructions/**'
-      - 'skills/**'
-      - 'collections/**'
-      - 'eng/generate-website-data.mjs'
-      - '.github/workflows/deploy-website.yml'
+      - "website/**"
+      - "agents/**"
+      - "prompts/**"
+      - "instructions/**"
+      - "skills/**"
+      - "collections/**"
+      - "cookbook/**"
+      - "eng/generate-website-data.mjs"
+      - ".github/workflows/deploy-website.yml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -43,8 +44,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install root dependencies
         run: npm ci
@@ -66,7 +67,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './website/dist'
+          path: "./website/dist"
 
   # Deployment job
   deploy:

@@ -3,7 +3,7 @@
  * Simple substring matching on title and description with scoring
  */
 
-import { escapeHtml, fetchData } from './utils';
+import { escapeHtml, fetchData } from "./utils";
 
 export interface SearchItem {
   title: string;
@@ -45,7 +45,7 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
    */
   search(query: string, options: SearchOptions = {}): T[] {
     const {
-      fields = ['title', 'description', 'searchText'],
+      fields = ["title", "description", "searchText"],
       limit = 50,
       minScore = 0,
     } = options;
@@ -68,13 +68,17 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
     // Sort by score descending
     results.sort((a, b) => b.score - a.score);
 
-    return results.slice(0, limit).map(r => r.item);
+    return results.slice(0, limit).map((r) => r.item);
   }
 
   /**
    * Calculate match score for an item
    */
-  private calculateScore(item: T, queryWords: string[], fields: string[]): number {
+  private calculateScore(
+    item: T,
+    queryWords: string[],
+    fields: string[]
+  ): number {
     let totalScore = 0;
 
     for (const word of queryWords) {
@@ -87,23 +91,23 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
         const normalizedValue = String(value).toLowerCase();
 
         // Exact match in title gets highest score
-        if (field === 'title' && normalizedValue === word) {
+        if (field === "title" && normalizedValue === word) {
           wordScore = Math.max(wordScore, 100);
         }
         // Title starts with word
-        else if (field === 'title' && normalizedValue.startsWith(word)) {
+        else if (field === "title" && normalizedValue.startsWith(word)) {
           wordScore = Math.max(wordScore, 80);
         }
         // Title contains word
-        else if (field === 'title' && normalizedValue.includes(word)) {
+        else if (field === "title" && normalizedValue.includes(word)) {
           wordScore = Math.max(wordScore, 60);
         }
         // Description contains word
-        else if (field === 'description' && normalizedValue.includes(word)) {
+        else if (field === "description" && normalizedValue.includes(word)) {
           wordScore = Math.max(wordScore, 30);
         }
         // searchText (includes tags, tools, etc) contains word
-        else if (field === 'searchText' && normalizedValue.includes(word)) {
+        else if (field === "searchText" && normalizedValue.includes(word)) {
           wordScore = Math.max(wordScore, 20);
         }
       }
@@ -112,8 +116,8 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
     }
 
     // Bonus for matching all words
-    const matchesAllWords = queryWords.every(word =>
-      fields.some(field => {
+    const matchesAllWords = queryWords.every((word) =>
+      fields.some((field) => {
         const value = (item as Record<string, unknown>)[field];
         return value && String(value).toLowerCase().includes(word);
       })
@@ -130,7 +134,7 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
    * Highlight matching text in a string
    */
   highlight(text: string, query: string): string {
-    if (!query || !text) return escapeHtml(text || '');
+    if (!query || !text) return escapeHtml(text || "");
 
     const normalizedQuery = query.toLowerCase().trim();
     const words = normalizedQuery.split(/\s+/);
@@ -138,8 +142,27 @@ export class FuzzySearch<T extends SearchableItem = SearchItem> {
 
     for (const word of words) {
       if (word.length < 2) continue;
-      const regex = new RegExp(`(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-      result = result.replace(regex, '<mark>$1</mark>');
+      const regex = new RegExp(
+        `(${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+        "gi"
+      );
+      const parts = result.split(/(<[^>]+>)/g);
+      let inMark = false;
+      result = parts
+        .map((part) => {
+          if (part.startsWith("<")) {
+            if (part.toLowerCase() === "<mark>") inMark = true;
+            if (part.toLowerCase() === "</mark>") inMark = false;
+            return part;
+          }
+
+          if (inMark) {
+            return part;
+          }
+
+          return part.replace(regex, "<mark>$1</mark>");
+        })
+        .join("");
     }
 
     return result;
@@ -153,7 +176,7 @@ export const globalSearch = new FuzzySearch<SearchItem>();
  * Initialize global search with search index
  */
 export async function initGlobalSearch(): Promise<FuzzySearch<SearchItem>> {
-  const searchIndex = await fetchData<SearchItem[]>('search-index.json');
+  const searchIndex = await fetchData<SearchItem[]>("search-index.json");
   if (searchIndex) {
     globalSearch.setItems(searchIndex);
   }

@@ -7,21 +7,20 @@
  */
 
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
 import {
   AGENTS_DIR,
-  INSTRUCTIONS_DIR,
-  PROMPTS_DIR,
-  SKILLS_DIR,
   COLLECTIONS_DIR,
   COOKBOOK_DIR,
+  INSTRUCTIONS_DIR,
+  PROMPTS_DIR,
   ROOT_FOLDER,
+  SKILLS_DIR,
 } from "./constants.mjs";
 import {
-  parseFrontmatter,
   parseCollectionYaml,
+  parseFrontmatter,
   parseSkillMetadata,
   parseYamlFile,
 } from "./yaml-parser.mjs";
@@ -64,17 +63,6 @@ function extractTitle(filePath, frontmatter) {
 }
 
 /**
- * Get file content (for preview/full content)
- */
-function getFileContent(filePath) {
-  try {
-    return fs.readFileSync(filePath, "utf8");
-  } catch (e) {
-    return null;
-  }
-}
-
-/**
  * Generate agents metadata
  */
 function generateAgentsData() {
@@ -90,7 +78,9 @@ function generateAgentsData() {
   for (const file of files) {
     const filePath = path.join(AGENTS_DIR, file);
     const frontmatter = parseFrontmatter(filePath);
-    const relativePath = path.relative(ROOT_FOLDER, filePath).replace(/\\/g, "/");
+    const relativePath = path
+      .relative(ROOT_FOLDER, filePath)
+      .replace(/\\/g, "/");
 
     const model = frontmatter?.model || null;
     const tools = frontmatter?.tools || [];
@@ -146,7 +136,9 @@ function generatePromptsData() {
   for (const file of files) {
     const filePath = path.join(PROMPTS_DIR, file);
     const frontmatter = parseFrontmatter(filePath);
-    const relativePath = path.relative(ROOT_FOLDER, filePath).replace(/\\/g, "/");
+    const relativePath = path
+      .relative(ROOT_FOLDER, filePath)
+      .replace(/\\/g, "/");
 
     const tools = frontmatter?.tools || [];
     tools.forEach((t) => allTools.add(t));
@@ -181,12 +173,15 @@ function parseApplyToPatterns(applyTo) {
 
   // Handle array format
   if (Array.isArray(applyTo)) {
-    return applyTo.map(p => p.trim()).filter(p => p.length > 0);
+    return applyTo.map((p) => p.trim()).filter((p) => p.length > 0);
   }
 
   // Handle string format (comma-separated)
-  if (typeof applyTo === 'string') {
-    return applyTo.split(',').map(p => p.trim()).filter(p => p.length > 0);
+  if (typeof applyTo === "string") {
+    return applyTo
+      .split(",")
+      .map((p) => p.trim())
+      .filter((p) => p.length > 0);
   }
 
   return [];
@@ -203,7 +198,7 @@ function extractExtensionFromPattern(pattern) {
   // Match patterns like **/*.{ts,tsx}
   const braceMatch = pattern.match(/\*\.\{([^}]+)\}$/);
   if (braceMatch) {
-    return braceMatch[1].split(',').map(ext => `.${ext.trim()}`);
+    return braceMatch[1].split(",").map((ext) => `.${ext.trim()}`);
   }
 
   return null;
@@ -225,7 +220,9 @@ function generateInstructionsData() {
   for (const file of files) {
     const filePath = path.join(INSTRUCTIONS_DIR, file);
     const frontmatter = parseFrontmatter(filePath);
-    const relativePath = path.relative(ROOT_FOLDER, filePath).replace(/\\/g, "/");
+    const relativePath = path
+      .relative(ROOT_FOLDER, filePath)
+      .replace(/\\/g, "/");
 
     const applyToRaw = frontmatter?.applyTo || null;
     const applyToPatterns = parseApplyToPatterns(applyToRaw);
@@ -237,7 +234,7 @@ function generateInstructionsData() {
       const ext = extractExtensionFromPattern(pattern);
       if (ext) {
         if (Array.isArray(ext)) {
-          ext.forEach(e => {
+          ext.forEach((e) => {
             extensions.push(e);
             allExtensions.add(e);
           });
@@ -260,7 +257,9 @@ function generateInstructionsData() {
     });
   }
 
-  const sortedInstructions = instructions.sort((a, b) => a.title.localeCompare(b.title));
+  const sortedInstructions = instructions.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
 
   return {
     items: sortedInstructions,
@@ -277,16 +276,42 @@ function generateInstructionsData() {
 function categorizeSkill(name, description) {
   const text = `${name} ${description}`.toLowerCase();
 
-  if (text.includes('azure') || text.includes('appinsights')) return 'Azure';
-  if (text.includes('github') || text.includes('gh-cli') || text.includes('git-commit') || text.includes('git ')) return 'Git & GitHub';
-  if (text.includes('vscode') || text.includes('vs code')) return 'VS Code';
-  if (text.includes('test') || text.includes('qa') || text.includes('playwright')) return 'Testing';
-  if (text.includes('microsoft') || text.includes('m365') || text.includes('workiq')) return 'Microsoft';
-  if (text.includes('cli') || text.includes('command')) return 'CLI Tools';
-  if (text.includes('diagram') || text.includes('plantuml') || text.includes('visual')) return 'Diagrams';
-  if (text.includes('nuget') || text.includes('dotnet') || text.includes('.net')) return '.NET';
+  if (text.includes("azure") || text.includes("appinsights")) return "Azure";
+  if (
+    text.includes("github") ||
+    text.includes("gh-cli") ||
+    text.includes("git-commit") ||
+    text.includes("git ")
+  )
+    return "Git & GitHub";
+  if (text.includes("vscode") || text.includes("vs code")) return "VS Code";
+  if (
+    text.includes("test") ||
+    text.includes("qa") ||
+    text.includes("playwright")
+  )
+    return "Testing";
+  if (
+    text.includes("microsoft") ||
+    text.includes("m365") ||
+    text.includes("workiq")
+  )
+    return "Microsoft";
+  if (text.includes("cli") || text.includes("command")) return "CLI Tools";
+  if (
+    text.includes("diagram") ||
+    text.includes("plantuml") ||
+    text.includes("visual")
+  )
+    return "Diagrams";
+  if (
+    text.includes("nuget") ||
+    text.includes("dotnet") ||
+    text.includes(".net")
+  )
+    return ".NET";
 
-  return 'Other';
+  return "Other";
 }
 
 /**
@@ -296,7 +321,7 @@ function generateSkillsData() {
   const skills = [];
 
   if (!fs.existsSync(SKILLS_DIR)) {
-    return { items: [], filters: { categories: [], hasAssets: ['Yes', 'No'] } };
+    return { items: [], filters: { categories: [], hasAssets: ["Yes", "No"] } };
   }
 
   const folders = fs
@@ -310,7 +335,9 @@ function generateSkillsData() {
     const metadata = parseSkillMetadata(skillPath);
 
     if (metadata) {
-      const relativePath = path.relative(ROOT_FOLDER, skillPath).replace(/\\/g, "/");
+      const relativePath = path
+        .relative(ROOT_FOLDER, skillPath)
+        .replace(/\\/g, "/");
       const category = categorizeSkill(metadata.name, metadata.description);
       allCategories.add(category);
 
@@ -342,7 +369,7 @@ function generateSkillsData() {
     items: sortedSkills,
     filters: {
       categories: Array.from(allCategories).sort(),
-      hasAssets: ['Yes', 'No'],
+      hasAssets: ["Yes", "No"],
     },
   };
 }
@@ -373,7 +400,7 @@ function getSkillFiles(skillPath, relativePath) {
     }
   }
 
-  walkDir(skillPath, '');
+  walkDir(skillPath, "");
   return files;
 }
 
@@ -397,7 +424,9 @@ function generateCollectionsData() {
   for (const file of files) {
     const filePath = path.join(COLLECTIONS_DIR, file);
     const data = parseCollectionYaml(filePath);
-    const relativePath = path.relative(ROOT_FOLDER, filePath).replace(/\\/g, "/");
+    const relativePath = path
+      .relative(ROOT_FOLDER, filePath)
+      .replace(/\\/g, "/");
 
     if (data) {
       const tags = data.tags || [];
@@ -443,14 +472,14 @@ function generateCollectionsData() {
  */
 function generateToolsData() {
   const toolsFile = path.join(WEBSITE_SOURCE_DATA_DIR, "tools.yml");
-  
+
   if (!fs.existsSync(toolsFile)) {
     console.warn("No tools.yml file found at", toolsFile);
     return { items: [], filters: { categories: [], tags: [] } };
   }
 
   const data = parseYamlFile(toolsFile);
-  
+
   if (!data || !data.tools) {
     return { items: [], filters: { categories: [], tags: [] } };
   }
@@ -461,7 +490,7 @@ function generateToolsData() {
   const tools = data.tools.map((tool) => {
     const category = tool.category || "Other";
     allCategories.add(category);
-    
+
     const tags = tool.tags || [];
     tags.forEach((t) => allTags.add(t));
 
@@ -498,7 +527,13 @@ function generateToolsData() {
 /**
  * Generate a combined index for search
  */
-function generateSearchIndex(agents, prompts, instructions, skills, collections) {
+function generateSearchIndex(
+  agents,
+  prompts,
+  instructions,
+  skills,
+  collections
+) {
   const index = [];
 
   for (const agent of agents) {
@@ -508,7 +543,9 @@ function generateSearchIndex(agents, prompts, instructions, skills, collections)
       title: agent.title,
       description: agent.description,
       path: agent.path,
-      searchText: `${agent.title} ${agent.description} ${agent.tools.join(" ")}`.toLowerCase(),
+      searchText: `${agent.title} ${agent.description} ${agent.tools.join(
+        " "
+      )}`.toLowerCase(),
     });
   }
 
@@ -530,7 +567,9 @@ function generateSearchIndex(agents, prompts, instructions, skills, collections)
       title: instruction.title,
       description: instruction.description,
       path: instruction.path,
-      searchText: `${instruction.title} ${instruction.description} ${instruction.applyTo || ""}`.toLowerCase(),
+      searchText: `${instruction.title} ${instruction.description} ${
+        instruction.applyTo || ""
+      }`.toLowerCase(),
     });
   }
 
@@ -553,7 +592,9 @@ function generateSearchIndex(agents, prompts, instructions, skills, collections)
       description: collection.description,
       path: collection.path,
       tags: collection.tags,
-      searchText: `${collection.name} ${collection.description} ${collection.tags.join(" ")}`.toLowerCase(),
+      searchText: `${collection.name} ${
+        collection.description
+      } ${collection.tags.join(" ")}`.toLowerCase(),
     });
   }
 
@@ -565,47 +606,59 @@ function generateSearchIndex(agents, prompts, instructions, skills, collections)
  */
 function generateSamplesData() {
   const cookbookYamlPath = path.join(COOKBOOK_DIR, "cookbook.yml");
-  
+
   if (!fs.existsSync(cookbookYamlPath)) {
-    console.warn("Warning: cookbook/cookbook.yml not found, skipping samples generation");
-    return { cookbooks: [], totalRecipes: 0, totalCookbooks: 0, filters: { languages: [], tags: [] } };
+    console.warn(
+      "Warning: cookbook/cookbook.yml not found, skipping samples generation"
+    );
+    return {
+      cookbooks: [],
+      totalRecipes: 0,
+      totalCookbooks: 0,
+      filters: { languages: [], tags: [] },
+    };
   }
 
   const cookbookManifest = parseYamlFile(cookbookYamlPath);
   if (!cookbookManifest || !cookbookManifest.cookbooks) {
     console.warn("Warning: Invalid cookbook.yml format");
-    return { cookbooks: [], totalRecipes: 0, totalCookbooks: 0, filters: { languages: [], tags: [] } };
+    return {
+      cookbooks: [],
+      totalRecipes: 0,
+      totalCookbooks: 0,
+      filters: { languages: [], tags: [] },
+    };
   }
 
   const allLanguages = new Set();
   const allTags = new Set();
   let totalRecipes = 0;
 
-  const cookbooks = cookbookManifest.cookbooks.map(cookbook => {
+  const cookbooks = cookbookManifest.cookbooks.map((cookbook) => {
     // Collect languages
-    cookbook.languages.forEach(lang => allLanguages.add(lang.id));
+    cookbook.languages.forEach((lang) => allLanguages.add(lang.id));
 
     // Process recipes and add file paths
-    const recipes = cookbook.recipes.map(recipe => {
+    const recipes = cookbook.recipes.map((recipe) => {
       // Collect tags
       if (recipe.tags) {
-        recipe.tags.forEach(tag => allTags.add(tag));
+        recipe.tags.forEach((tag) => allTags.add(tag));
       }
 
       // Build variants with file paths for each language
       const variants = {};
-      cookbook.languages.forEach(lang => {
+      cookbook.languages.forEach((lang) => {
         const docPath = `${cookbook.path}/${lang.id}/${recipe.id}.md`;
         const examplePath = `${cookbook.path}/${lang.id}/recipe/${recipe.id}${lang.extension}`;
-        
+
         // Check if files exist
         const docFullPath = path.join(ROOT_FOLDER, docPath);
         const exampleFullPath = path.join(ROOT_FOLDER, examplePath);
-        
+
         if (fs.existsSync(docFullPath)) {
           variants[lang.id] = {
             doc: docPath,
-            example: fs.existsSync(exampleFullPath) ? examplePath : null
+            example: fs.existsSync(exampleFullPath) ? examplePath : null,
           };
         }
       });
@@ -617,7 +670,7 @@ function generateSamplesData() {
         name: recipe.name,
         description: recipe.description,
         tags: recipe.tags || [],
-        variants
+        variants,
       };
     });
 
@@ -628,7 +681,7 @@ function generateSamplesData() {
       path: cookbook.path,
       featured: cookbook.featured || false,
       languages: cookbook.languages,
-      recipes
+      recipes,
     };
   });
 
@@ -638,8 +691,8 @@ function generateSamplesData() {
     totalCookbooks: cookbooks.length,
     filters: {
       languages: Array.from(allLanguages).sort(),
-      tags: Array.from(allTags).sort()
-    }
+      tags: Array.from(allTags).sort(),
+    },
   };
 }
 
@@ -654,32 +707,52 @@ async function main() {
   // Generate all data
   const agentsData = generateAgentsData();
   const agents = agentsData.items;
-  console.log(`✓ Generated ${agents.length} agents (${agentsData.filters.models.length} models, ${agentsData.filters.tools.length} tools)`);
+  console.log(
+    `✓ Generated ${agents.length} agents (${agentsData.filters.models.length} models, ${agentsData.filters.tools.length} tools)`
+  );
 
   const promptsData = generatePromptsData();
   const prompts = promptsData.items;
-  console.log(`✓ Generated ${prompts.length} prompts (${promptsData.filters.tools.length} tools)`);
+  console.log(
+    `✓ Generated ${prompts.length} prompts (${promptsData.filters.tools.length} tools)`
+  );
 
   const instructionsData = generateInstructionsData();
   const instructions = instructionsData.items;
-  console.log(`✓ Generated ${instructions.length} instructions (${instructionsData.filters.extensions.length} extensions)`);
+  console.log(
+    `✓ Generated ${instructions.length} instructions (${instructionsData.filters.extensions.length} extensions)`
+  );
 
   const skillsData = generateSkillsData();
   const skills = skillsData.items;
-  console.log(`✓ Generated ${skills.length} skills (${skillsData.filters.categories.length} categories)`);
+  console.log(
+    `✓ Generated ${skills.length} skills (${skillsData.filters.categories.length} categories)`
+  );
 
   const collectionsData = generateCollectionsData();
   const collections = collectionsData.items;
-  console.log(`✓ Generated ${collections.length} collections (${collectionsData.filters.tags.length} tags)`);
+  console.log(
+    `✓ Generated ${collections.length} collections (${collectionsData.filters.tags.length} tags)`
+  );
 
   const toolsData = generateToolsData();
   const tools = toolsData.items;
-  console.log(`✓ Generated ${tools.length} tools (${toolsData.filters.categories.length} categories)`);
+  console.log(
+    `✓ Generated ${tools.length} tools (${toolsData.filters.categories.length} categories)`
+  );
 
   const samplesData = generateSamplesData();
-  console.log(`✓ Generated ${samplesData.totalRecipes} recipes in ${samplesData.totalCookbooks} cookbooks (${samplesData.filters.languages.length} languages, ${samplesData.filters.tags.length} tags)`);
+  console.log(
+    `✓ Generated ${samplesData.totalRecipes} recipes in ${samplesData.totalCookbooks} cookbooks (${samplesData.filters.languages.length} languages, ${samplesData.filters.tags.length} tags)`
+  );
 
-  const searchIndex = generateSearchIndex(agents, prompts, instructions, skills, collections);
+  const searchIndex = generateSearchIndex(
+    agents,
+    prompts,
+    instructions,
+    skills,
+    collections
+  );
   console.log(`✓ Generated search index with ${searchIndex.length} items`);
 
   // Write JSON files
