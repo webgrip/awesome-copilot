@@ -27,7 +27,7 @@
   --color-card-hover: rgba(28, 28, 40, 0.9);
   --color-glass: rgba(255, 255, 255, 0.05);
   --color-glass-border: rgba(255, 255, 255, 0.1);
-  --gradient-primary: linear-gradient(135deg, #8534F3 0%, #B870FF 50%, #FE4C25 100%);
+  --gradient-primary: linear-gradient(180deg, #8534F3 0%, #B870FF 50%, #FE4C25 100%);
   --gradient-accent: linear-gradient(135deg, #43179E 0%, #8534F3 100%);
   --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(133, 52, 243, 0.25), transparent),
                    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(254, 76, 37, 0.12), transparent),
@@ -700,14 +700,14 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
+  background: var(--color-accent);
   color: white;
   border-color: transparent;
   font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: var(--gradient-primary);
+  background: var(--color-accent-hover);
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow);
   color: white;
@@ -1090,6 +1090,8 @@ a:hover {
   backdrop-filter: blur(10px);
   border: 1px solid var(--color-glass-border);
   border-radius: var(--border-radius-lg);
+  position: relative;
+  z-index: 10;
 }
 
 .filter-group {
