@@ -1,0 +1,68 @@
+# PR Preview deployment workflow
+# Deploys a preview of pull requests to GitHub Pages subdirectory
+
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    paths:
+      - 'website/**'
+      - 'agents/**'
+      - 'prompts/**'
+      - 'instructions/**'
+      - 'skills/**'
+      - 'collections/**'
+      - 'cookbook/**'
+      - 'eng/generate-website-data.mjs'
+
+concurrency:
+  group: pr-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        if: github.event.action != 'closed'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install root dependencies
+        if: github.event.action != 'closed'
+        run: npm ci
+
+      - name: Install website dependencies
+        if: github.event.action != 'closed'
+        run: npm ci
+        working-directory: ./website
+
+      - name: Generate website data
+        if: github.event.action != 'closed'
+        run: npm run website:data
+
+      - name: Build Astro site
+        if: github.event.action != 'closed'
+        run: npm run build
+        working-directory: ./website
+        env:
+          # Set base path for PR preview subdirectory
+          ASTRO_BASE: /awesome-copilot/pr-preview/pr-${{ github.event.number }}
+
+      - name: Deploy PR preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./website/dist/
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
