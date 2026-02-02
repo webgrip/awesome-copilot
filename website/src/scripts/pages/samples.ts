@@ -19,7 +19,7 @@ interface RecipeVariant {
   example: string | null;
 }
 
-interface Recipe extends SearchableItem {
+interface Recipe {
   id: string;
   name: string;
   description: string;
@@ -49,7 +49,7 @@ interface SamplesData {
 
 // State
 let samplesData: SamplesData | null = null;
-let search: FuzzySearch<Recipe & { title: string; cookbookId: string }> | null = null;
+let search: FuzzySearch<SearchableItem> | null = null;
 let selectedLanguage: string | null = null;
 let selectedTags: string[] = [];
 let expandedRecipes: Set<string> = new Set();
@@ -73,7 +73,7 @@ export async function initSamplesPage(): Promise<void> {
       ...recipe,
       title: recipe.name,
       cookbookId: cookbook.id
-    }))
+    } as SearchableItem & { cookbookId: string }))
   );
   search = new FuzzySearch(allRecipes);
 
@@ -212,14 +212,15 @@ function getFilteredRecipes(): { cookbook: Cookbook; recipe: Recipe; highlighted
   let results: { cookbook: Cookbook; recipe: Recipe; highlighted?: string }[] = [];
 
   if (query) {
-    // Use fuzzy search
+    // Use fuzzy search - returns SearchableItem[] directly
     const searchResults = search.search(query);
-    results = searchResults.map(result => {
-      const cookbook = samplesData!.cookbooks.find(c => c.id === result.item.cookbookId)!;
+    results = searchResults.map(item => {
+      const recipe = item as SearchableItem & { cookbookId: string };
+      const cookbook = samplesData!.cookbooks.find(c => c.id === recipe.cookbookId)!;
       return {
         cookbook,
-        recipe: result.item,
-        highlighted: search!.highlight(result.item.title, query)
+        recipe: recipe as unknown as Recipe,
+        highlighted: search!.highlight(recipe.title, query)
       };
     });
   } else {
