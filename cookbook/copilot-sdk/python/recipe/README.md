@@ -5,7 +5,7 @@ This folder contains standalone, executable Python examples for each cookbook re
 ## Prerequisites
 
 - Python 3.8 or later
-- Install dependencies (this installs the local SDK in editable mode):
+- Install dependencies (this installs the SDK from PyPI):
 
 ```bash
 pip install -r requirements.txt
