@@ -12,8 +12,8 @@ This folder hosts short, practical recipes for using the GitHub Copilot SDK with
 
 ## Contributing
 
-Add a new recipe by creating a markdown file in this folder and linking it above. Follow repository guidance in [CONTRIBUTING.md](../../CONTRIBUTING.md).
+Add a new recipe by creating a markdown file in this folder and linking it above. Follow repository guidance in [CONTRIBUTING.md](../../../CONTRIBUTING.md).
 
 ## Status
 
-This README is a scaffold; recipe files are placeholders until populated.
+These recipes are complete, practical examples and can be used directly or adapted for your own projects.

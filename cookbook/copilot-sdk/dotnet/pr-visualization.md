@@ -32,7 +32,7 @@ dotnet run
 dotnet run -- --repo github/copilot-sdk
 ```
 
-## Full example: Program.cs
+## Full example: pr-visualization.cs
 
 ```csharp
 using System.Diagnostics;

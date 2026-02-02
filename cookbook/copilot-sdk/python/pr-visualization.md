@@ -27,13 +27,13 @@ pip install copilot-sdk
 
 ```bash
 # Auto-detect from current git repo
-python pr_breakdown.py
+python pr_visualization.py
 
 # Specify a repo explicitly
-python pr_breakdown.py --repo github/copilot-sdk
+python pr_visualization.py --repo github/copilot-sdk
 ```
 
-## Full example: pr_breakdown.py
+## Full example: pr_visualization.py
 
 ```python
 #!/usr/bin/env python3
@@ -192,6 +192,7 @@ The current working directory is: {os.getcwd()}
             session.send(prompt=user_input)
             session.wait_for_idle()
 
+    session.destroy()
     client.stop()
 
 if __name__ == "__main__":

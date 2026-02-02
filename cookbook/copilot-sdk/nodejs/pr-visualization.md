@@ -29,13 +29,13 @@ npm install -D typescript tsx @types/node
 
 ```bash
 # Auto-detect from current git repo
-npx tsx pr-breakdown.ts
+npx tsx pr-visualization.ts
 
 # Specify a repo explicitly
-npx tsx pr-breakdown.ts --repo github/copilot-sdk
+npx tsx pr-visualization.ts --repo github/copilot-sdk
 ```
 
-## Full example: pr-breakdown.ts
+## Full example: pr-visualization.ts
 
 ```typescript
 #!/usr/bin/env npx tsx

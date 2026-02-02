@@ -54,7 +54,7 @@ npx tsx managing-local-files.ts
 
 ## Local SDK Development
 
-The `package.json` references the local Copilot SDK using `"file:../../.."`. This means:
+The `package.json` references the local Copilot SDK using `"*"`, which resolves to the local SDK source. This means:
 
 - Changes to the SDK source are immediately available
 - No need to publish or install from npm
@@ -63,7 +63,7 @@ The `package.json` references the local Copilot SDK using `"file:../../.."`. Thi
 If you modify the SDK source, you may need to rebuild:
 
 ```bash
-cd ../../..
+cd ../../src
 npm run build
 ```
 

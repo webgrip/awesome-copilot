@@ -48,13 +48,13 @@ python managing_local_files.py
 
 ## Local SDK Development
 
-The `requirements.txt` installs the local Copilot SDK using `-e ../..` (editable install). This means:
+The `requirements.txt` installs the Copilot SDK package from PyPI. This means:
 
-- Changes to the SDK source are immediately available
-- No need to publish or install from PyPI
-- Perfect for testing and development
+- You get the latest stable release of the SDK
+- No need to build from source
+- Perfect for using the SDK in your projects
 
-If you modify the SDK source, Python will automatically use the updated code (no rebuild needed).
+If you want to use a local development version, edit requirements.txt to use `-e ../..` for editable mode development.
 
 ## Python Best Practices
 

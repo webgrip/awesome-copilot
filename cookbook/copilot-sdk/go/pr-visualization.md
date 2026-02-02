@@ -26,13 +26,13 @@ go get github.com/github/copilot-sdk/go
 
 ```bash
 # Auto-detect from current git repo
-go run main.go
+go run pr-visualization.go
 
 # Specify a repo explicitly
-go run main.go --repo github/copilot-sdk
+go run pr-visualization.go -repo github/copilot-sdk
 ```
 
-## Full example: main.go
+## Full example: pr-visualization.go
 
 ```go
 package main

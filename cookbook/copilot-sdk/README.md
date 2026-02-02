@@ -79,7 +79,7 @@ go run <filename>.go
 ## Contributing
 
 - Propose or add a new recipe by creating a markdown file in your language's `cookbook/` folder and a runnable example in `recipe/`
-- Follow repository guidance in [CONTRIBUTING.md](../CONTRIBUTING.md)
+- Follow repository guidance in [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 ## Status
 
