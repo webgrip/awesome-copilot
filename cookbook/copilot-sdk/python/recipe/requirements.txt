@@ -1,2 +1,2 @@
-# Install the local Copilot SDK package in editable mode
+# Install the Copilot SDK package from PyPI
 github-copilot-sdk
