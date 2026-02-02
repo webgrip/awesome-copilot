@@ -4,7 +4,7 @@ import Modal from '../components/Modal.astro';
 ---
 
 <BaseLayout title="Collections" description="Curated collections of prompts, instructions, and agents for specific workflows" activeNav="collections">
-  <main>
+  <main id="main-content">
     <div class="page-header">
       <div class="container">
         <h1>📦 Collections</h1>
@@ -15,13 +15,14 @@ import Modal from '../components/Modal.astro';
     <div class="page-content">
       <div class="container">
         <div class="search-bar">
+          <label for="search-input" class="sr-only">Search collections</label>
           <input type="text" id="search-input" placeholder="Search collections..." autocomplete="off">
         </div>
         
         <div class="filters-bar" id="filters-bar">
           <div class="filter-group">
             <label for="filter-tag">Tag:</label>
-            <select id="filter-tag" multiple></select>
+            <select id="filter-tag" multiple aria-label="Filter by tag"></select>
           </div>
           <div class="filter-group">
             <label class="checkbox-label">
@@ -32,9 +33,9 @@ import Modal from '../components/Modal.astro';
           <button id="clear-filters" class="btn btn-secondary btn-small">Clear Filters</button>
         </div>
         
-        <div class="results-count" id="results-count"></div>
-        <div class="resource-list" id="resource-list">
-          <div class="loading">Loading collections...</div>
+        <div class="results-count" id="results-count" aria-live="polite"></div>
+        <div class="resource-list" id="resource-list" role="list">
+          <div class="loading" aria-live="polite">Loading collections...</div>
         </div>
       </div>
     </div>

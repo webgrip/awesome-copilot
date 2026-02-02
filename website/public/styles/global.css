@@ -110,6 +110,39 @@ body {
   min-height: 100vh;
 }
 
+/* Accessibility Utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-text-emphasis);
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  z-index: 10000;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--color-text-emphasis);
+  outline-offset: 2px;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -348,7 +381,8 @@ a:hover {
 }
 
 .hero-search input:focus {
-  outline: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
   border-color: var(--color-accent);
   box-shadow: var(--shadow-glow);
 }
@@ -649,6 +683,20 @@ a:hover {
   cursor: pointer;
   transition: all var(--transition);
   text-decoration: none;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .btn-primary {
@@ -1024,7 +1072,8 @@ a:hover {
 }
 
 .search-bar input:focus {
-  outline: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
   border-color: var(--color-accent);
   box-shadow: var(--shadow-glow);
 }
@@ -1068,7 +1117,8 @@ a:hover {
 }
 
 .filter-group select:focus {
-  outline: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
   border-color: var(--color-accent);
 }
 

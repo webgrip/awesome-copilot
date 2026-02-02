@@ -7,7 +7,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="MCP servers and developer tools for GitHub Copilot"
   activeNav="tools"
 >
-  <main>
+  <main id="main-content">
     <div class="page-header">
       <div class="container">
         <h1>🔧 Tools</h1>
@@ -19,6 +19,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="container">
         <div class="search-section">
           <div class="search-bar">
+            <label for="search-input" class="sr-only">Search tools</label>
             <input
               type="text"
               id="search-input"
@@ -27,17 +28,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             />
           </div>
           <div class="filters">
-            <select id="filter-category" class="filter-select">
+            <label for="filter-category" class="sr-only">Filter by category</label>
+            <select id="filter-category" class="filter-select" aria-label="Filter by category">
               <option value="">All Categories</option>
             </select>
             <button id="clear-filters" class="btn btn-secondary btn-small"
               >Clear</button
             >
           </div>
-          <div id="results-count" class="results-count"></div>
+          <div id="results-count" class="results-count" aria-live="polite"></div>
         </div>
 
-        <div id="tools-list"></div>
+        <div id="tools-list" role="list"></div>
 
         <div class="coming-soon">
           <h2>More Tools Coming Soon</h2>

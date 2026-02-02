@@ -8,6 +8,7 @@ import { fetchFileContent, fetchData, getVSCodeInstallUrl, copyToClipboard, show
 let currentFilePath: string | null = null;
 let currentFileContent: string | null = null;
 let currentFileType: string | null = null;
+let triggerElement: HTMLElement | null = null;
 
 // Collection data cache
 interface CollectionItem {
@@ -32,6 +33,50 @@ interface CollectionsData {
 let collectionsCache: CollectionsData | null = null;
 
 /**
+ * Get all focusable elements within a container
+ */
+function getFocusableElements(container: HTMLElement): HTMLElement[] {
+  const focusableSelectors = [
+    'button:not([disabled])',
+    'a[href]',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(', ');
+  
+  return Array.from(container.querySelectorAll<HTMLElement>(focusableSelectors))
+    .filter(el => el.offsetParent !== null); // Filter out hidden elements
+}
+
+/**
+ * Handle keyboard navigation within modal (focus trap)
+ */
+function handleModalKeydown(e: KeyboardEvent, modal: HTMLElement): void {
+  if (e.key === 'Tab') {
+    const focusableElements = getFocusableElements(modal);
+    if (focusableElements.length === 0) return;
+    
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    if (e.shiftKey) {
+      // Shift+Tab: if on first element, wrap to last
+      if (document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      // Tab: if on last element, wrap to first
+      if (document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  }
+}
+
+/**
  * Setup modal functionality
  */
 export function setupModal(): void {
@@ -50,8 +95,12 @@ export function setupModal(): void {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal();
+    if (!modal.classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        closeModal();
+      } else {
+        handleModalKeydown(e, modal);
+      }
     }
   });
 
@@ -129,18 +178,72 @@ export function setupInstallDropdown(containerId: string): void {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const toggle = container.querySelector('.install-btn-toggle');
+  const toggle = container.querySelector<HTMLButtonElement>('.install-btn-toggle');
+  const menu = container.querySelector('.install-dropdown-menu');
+  const menuItems = container.querySelectorAll<HTMLAnchorElement>('.install-dropdown-menu a');
   
   toggle?.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    container.classList.toggle('open');
+    const isOpen = container.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    
+    // Focus first menu item when opening
+    if (isOpen && menuItems.length > 0) {
+      menuItems[0].focus();
+    }
+  });
+
+  // Keyboard navigation for dropdown
+  toggle?.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      container.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      if (menuItems.length > 0) {
+        menuItems[0].focus();
+      }
+    }
+  });
+
+  // Keyboard navigation within menu
+  menuItems.forEach((item, index) => {
+    item.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          if (index < menuItems.length - 1) {
+            menuItems[index + 1].focus();
+          }
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          if (index > 0) {
+            menuItems[index - 1].focus();
+          } else {
+            toggle?.focus();
+          }
+          break;
+        case 'Escape':
+          e.preventDefault();
+          container.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+          toggle?.focus();
+          break;
+        case 'Tab':
+          // Close menu on tab out
+          container.classList.remove('open');
+          toggle?.setAttribute('aria-expanded', 'false');
+          break;
+      }
+    });
   });
 
   // Close dropdown when clicking outside
   document.addEventListener('click', (e) => {
     if (!container.contains(e.target as Node)) {
       container.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -148,6 +251,7 @@ export function setupInstallDropdown(containerId: string): void {
   container.querySelectorAll('.install-dropdown-menu a').forEach(link => {
     link.addEventListener('click', () => {
       container.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
     });
   });
 }
@@ -157,8 +261,9 @@ export function setupInstallDropdown(containerId: string): void {
  * @param filePath - Path to the file
  * @param type - Resource type (agent, prompt, instruction, etc.)
  * @param updateUrl - Whether to update the URL hash (default: true)
+ * @param trigger - The element that triggered the modal (for focus return)
  */
-export async function openFileModal(filePath: string, type: string, updateUrl = true): Promise<void> {
+export async function openFileModal(filePath: string, type: string, updateUrl = true, trigger?: HTMLElement): Promise<void> {
   const modal = document.getElementById('file-modal');
   const title = document.getElementById('modal-title');
   const modalContent = document.getElementById('modal-content');
@@ -169,11 +274,15 @@ export async function openFileModal(filePath: string, type: string, updateUrl = 
   const installInsiders = document.getElementById('install-insiders') as HTMLAnchorElement | null;
   const copyBtn = document.getElementById('copy-btn');
   const downloadBtn = document.getElementById('download-btn');
+  const closeBtn = document.getElementById('close-modal');
 
   if (!modal || !title || !modalContent) return;
 
   currentFilePath = filePath;
   currentFileType = type;
+  
+  // Track trigger element for focus return
+  triggerElement = trigger || document.activeElement as HTMLElement;
   
   // Update URL for deep linking
   if (updateUrl) {
@@ -183,6 +292,11 @@ export async function openFileModal(filePath: string, type: string, updateUrl = 
   // Show modal with loading state
   title.textContent = filePath.split('/').pop() || filePath;
   modal.classList.remove('hidden');
+  
+  // Set focus to close button for accessibility
+  setTimeout(() => {
+    closeBtn?.focus();
+  }, 0);
 
   // Handle collections differently - show as item list
   if (type === 'collection') {
@@ -328,9 +442,15 @@ export function closeModal(updateUrl = true): void {
     updateHash(null);
   }
   
+  // Return focus to trigger element
+  if (triggerElement && typeof triggerElement.focus === 'function') {
+    triggerElement.focus();
+  }
+  
   currentFilePath = null;
   currentFileContent = null;
   currentFileType = null;
+  triggerElement = null;
 }
 
 /**
