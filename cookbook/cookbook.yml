@@ -19,7 +19,7 @@ cookbooks:
         extension: .py
       - id: dotnet
         name: .NET (C#)
-        icon: "\uF81A"
+        icon: "\uE648"
         extension: .cs
       - id: go
         name: Go
