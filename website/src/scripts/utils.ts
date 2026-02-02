@@ -298,7 +298,7 @@ export function setupDropdownCloseHandlers(): void {
 export function getActionButtonsHtml(filePath: string, small = false): string {
   const btnClass = small ? 'btn-small' : '';
   const iconSize = small ? 14 : 16;
-  // Escape backslashes first, then single quotes to prevent breaking out of string context
+  // Escape backslashes first, then single quotes to prevent breaking out of the JavaScript string literal in the onclick attribute
   const escapedPath = filePath.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
   
   return `
