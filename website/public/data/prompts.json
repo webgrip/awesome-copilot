@@ -54,6 +54,21 @@
       "filename": "apple-appstore-reviewer.prompt.md"
     },
     {
+      "id": "arch-linux-triage",
+      "title": "Arch Linux Triage",
+      "description": "Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.",
+      "agent": "agent",
+      "model": "gpt-4.1",
+      "tools": [
+        "search",
+        "runCommands",
+        "terminalCommand",
+        "edit/editFiles"
+      ],
+      "path": "prompts/arch-linux-triage.prompt.md",
+      "filename": "arch-linux-triage.prompt.md"
+    },
+    {
       "id": "architecture-blueprint-generator",
       "title": "Architecture Blueprint Generator",
       "description": "Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.",
@@ -167,6 +182,21 @@
       "tools": [],
       "path": "prompts/breakdown-test.prompt.md",
       "filename": "breakdown-test.prompt.md"
+    },
+    {
+      "id": "centos-linux-triage",
+      "title": "Centos Linux Triage",
+      "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
+      "agent": "agent",
+      "model": "gpt-4.1",
+      "tools": [
+        "search",
+        "runCommands",
+        "terminalCommand",
+        "edit/editFiles"
+      ],
+      "path": "prompts/centos-linux-triage.prompt.md",
+      "filename": "centos-linux-triage.prompt.md"
     },
     {
       "id": "code-exemplars-blueprint-generator",
@@ -732,6 +762,21 @@
       "filename": "dataverse-python-quickstart.prompt.md"
     },
     {
+      "id": "debian-linux-triage",
+      "title": "Debian Linux Triage",
+      "description": "Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance.",
+      "agent": "agent",
+      "model": "gpt-4.1",
+      "tools": [
+        "search",
+        "runCommands",
+        "terminalCommand",
+        "edit/editFiles"
+      ],
+      "path": "prompts/debian-linux-triage.prompt.md",
+      "filename": "debian-linux-triage.prompt.md"
+    },
+    {
       "id": "declarative-agents",
       "title": "Declarative Agents",
       "description": "Complete development kit for Microsoft 365 Copilot declarative agents with three comprehensive workflows (basic, advanced, validation), TypeSpec support, and Microsoft 365 Agents Toolkit integration",
@@ -815,6 +860,21 @@
       ],
       "path": "prompts/ef-core.prompt.md",
       "filename": "ef-core.prompt.md"
+    },
+    {
+      "id": "fedora-linux-triage",
+      "title": "Fedora Linux Triage",
+      "description": "Triage and resolve Fedora issues with dnf, systemd, and SELinux-aware guidance.",
+      "agent": "agent",
+      "model": "gpt-4.1",
+      "tools": [
+        "search",
+        "runCommands",
+        "terminalCommand",
+        "edit/editFiles"
+      ],
+      "path": "prompts/fedora-linux-triage.prompt.md",
+      "filename": "fedora-linux-triage.prompt.md"
     },
     {
       "id": "finalize-agent-prompt",

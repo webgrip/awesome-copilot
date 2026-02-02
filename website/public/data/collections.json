@@ -78,6 +78,11 @@
           "path": "instructions/copilot-sdk-python.instructions.md",
           "kind": "instruction",
           "usage": null
+        },
+        {
+          "path": "skills/copilot-sdk/SKILL.md",
+          "kind": "skill",
+          "usage": null
         }
       ],
       "path": "collections/copilot-sdk.collection.yml",

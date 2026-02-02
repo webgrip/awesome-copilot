@@ -16,6 +16,7 @@ import {
   PROMPTS_DIR,
   SKILLS_DIR,
   COLLECTIONS_DIR,
+  COOKBOOK_DIR,
   ROOT_FOLDER,
 } from "./constants.mjs";
 import {
@@ -560,6 +561,89 @@ function generateSearchIndex(agents, prompts, instructions, skills, collections)
 }
 
 /**
+ * Generate samples/cookbook data from cookbook.yml
+ */
+function generateSamplesData() {
+  const cookbookYamlPath = path.join(COOKBOOK_DIR, "cookbook.yml");
+  
+  if (!fs.existsSync(cookbookYamlPath)) {
+    console.warn("Warning: cookbook/cookbook.yml not found, skipping samples generation");
+    return { cookbooks: [], totalRecipes: 0, totalCookbooks: 0, filters: { languages: [], tags: [] } };
+  }
+
+  const cookbookManifest = parseYamlFile(cookbookYamlPath);
+  if (!cookbookManifest || !cookbookManifest.cookbooks) {
+    console.warn("Warning: Invalid cookbook.yml format");
+    return { cookbooks: [], totalRecipes: 0, totalCookbooks: 0, filters: { languages: [], tags: [] } };
+  }
+
+  const allLanguages = new Set();
+  const allTags = new Set();
+  let totalRecipes = 0;
+
+  const cookbooks = cookbookManifest.cookbooks.map(cookbook => {
+    // Collect languages
+    cookbook.languages.forEach(lang => allLanguages.add(lang.id));
+
+    // Process recipes and add file paths
+    const recipes = cookbook.recipes.map(recipe => {
+      // Collect tags
+      if (recipe.tags) {
+        recipe.tags.forEach(tag => allTags.add(tag));
+      }
+
+      // Build variants with file paths for each language
+      const variants = {};
+      cookbook.languages.forEach(lang => {
+        const docPath = `${cookbook.path}/${lang.id}/${recipe.id}.md`;
+        const examplePath = `${cookbook.path}/${lang.id}/recipe/${recipe.id}${lang.extension}`;
+        
+        // Check if files exist
+        const docFullPath = path.join(ROOT_FOLDER, docPath);
+        const exampleFullPath = path.join(ROOT_FOLDER, examplePath);
+        
+        if (fs.existsSync(docFullPath)) {
+          variants[lang.id] = {
+            doc: docPath,
+            example: fs.existsSync(exampleFullPath) ? examplePath : null
+          };
+        }
+      });
+
+      totalRecipes++;
+
+      return {
+        id: recipe.id,
+        name: recipe.name,
+        description: recipe.description,
+        tags: recipe.tags || [],
+        variants
+      };
+    });
+
+    return {
+      id: cookbook.id,
+      name: cookbook.name,
+      description: cookbook.description,
+      path: cookbook.path,
+      featured: cookbook.featured || false,
+      languages: cookbook.languages,
+      recipes
+    };
+  });
+
+  return {
+    cookbooks,
+    totalRecipes,
+    totalCookbooks: cookbooks.length,
+    filters: {
+      languages: Array.from(allLanguages).sort(),
+      tags: Array.from(allTags).sort()
+    }
+  };
+}
+
+/**
  * Main function
  */
 async function main() {
@@ -591,6 +675,9 @@ async function main() {
   const toolsData = generateToolsData();
   const tools = toolsData.items;
   console.log(`✓ Generated ${tools.length} tools (${toolsData.filters.categories.length} categories)`);
+
+  const samplesData = generateSamplesData();
+  console.log(`✓ Generated ${samplesData.totalRecipes} recipes in ${samplesData.totalCookbooks} cookbooks (${samplesData.filters.languages.length} languages, ${samplesData.filters.tags.length} tags)`);
 
   const searchIndex = generateSearchIndex(agents, prompts, instructions, skills, collections);
   console.log(`✓ Generated search index with ${searchIndex.length} items`);
@@ -627,6 +714,11 @@ async function main() {
   );
 
   fs.writeFileSync(
+    path.join(WEBSITE_DATA_DIR, "samples.json"),
+    JSON.stringify(samplesData, null, 2)
+  );
+
+  fs.writeFileSync(
     path.join(WEBSITE_DATA_DIR, "search-index.json"),
     JSON.stringify(searchIndex, null, 2)
   );
@@ -641,6 +733,7 @@ async function main() {
       skills: skills.length,
       collections: collections.length,
       tools: tools.length,
+      samples: samplesData.totalRecipes,
       total: searchIndex.length,
     },
   };

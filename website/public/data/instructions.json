@@ -114,6 +114,18 @@
       "filename": "apex.instructions.md"
     },
     {
+      "id": "arch-linux",
+      "title": "Arch Linux",
+      "description": "Guidance for Arch Linux administration, pacman workflows, and rolling-release best practices.",
+      "applyTo": "**",
+      "applyToPatterns": [
+        "**"
+      ],
+      "extensions": [],
+      "path": "instructions/arch-linux.instructions.md",
+      "filename": "arch-linux.instructions.md"
+    },
+    {
       "id": "aspnet-rest-apis",
       "title": "Aspnet Rest Apis",
       "description": "Guidelines for building REST APIs with ASP.NET",
@@ -271,6 +283,18 @@
       ],
       "path": "instructions/blazor.instructions.md",
       "filename": "blazor.instructions.md"
+    },
+    {
+      "id": "centos-linux",
+      "title": "Centos Linux",
+      "description": "Guidance for CentOS administration, RHEL-compatible tooling, and SELinux-aware operations.",
+      "applyTo": "**",
+      "applyToPatterns": [
+        "**"
+      ],
+      "extensions": [],
+      "path": "instructions/centos-linux.instructions.md",
+      "filename": "centos-linux.instructions.md"
     },
     {
       "id": "clojure",
@@ -676,6 +700,18 @@
       "filename": "dataverse-python-testing-debugging.instructions.md"
     },
     {
+      "id": "debian-linux",
+      "title": "Debian Linux",
+      "description": "Guidance for Debian-based Linux administration, apt workflows, and Debian policy conventions.",
+      "applyTo": "**",
+      "applyToPatterns": [
+        "**"
+      ],
+      "extensions": [],
+      "path": "instructions/debian-linux.instructions.md",
+      "filename": "debian-linux.instructions.md"
+    },
+    {
       "id": "declarative-agents-microsoft365",
       "title": "Declarative Agents Microsoft365",
       "description": "Comprehensive development guidelines for Microsoft 365 Copilot declarative agents with schema v1.5, TypeSpec integration, and Microsoft 365 Agents Toolkit workflows",
@@ -806,6 +842,18 @@
       ],
       "path": "instructions/dotnet-wpf.instructions.md",
       "filename": "dotnet-wpf.instructions.md"
+    },
+    {
+      "id": "fedora-linux",
+      "title": "Fedora Linux",
+      "description": "Guidance for Fedora (Red Hat family) systems, dnf workflows, SELinux, and modern systemd practices.",
+      "applyTo": "**",
+      "applyToPatterns": [
+        "**"
+      ],
+      "extensions": [],
+      "path": "instructions/fedora-linux.instructions.md",
+      "filename": "fedora-linux.instructions.md"
     },
     {
       "id": "genaiscript",

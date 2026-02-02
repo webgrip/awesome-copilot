@@ -235,6 +235,25 @@
       ]
     },
     {
+      "id": "copilot-sdk",
+      "name": "copilot-sdk",
+      "title": "Copilot Sdk",
+      "description": "Build agentic applications with GitHub Copilot SDK. Use when embedding AI agents in apps, creating custom tools, implementing streaming responses, managing sessions, connecting to MCP servers, or creating custom agents. Triggers on Copilot SDK, GitHub SDK, agentic app, embed Copilot, programmable agent, MCP server, custom agent.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "Git & GitHub",
+      "path": "skills/copilot-sdk",
+      "skillFile": "skills/copilot-sdk/SKILL.md",
+      "files": [
+        {
+          "path": "skills/copilot-sdk/SKILL.md",
+          "name": "SKILL.md",
+          "size": 22409
+        }
+      ]
+    },
+    {
       "id": "gh-cli",
       "name": "gh-cli",
       "title": "Gh Cli",
@@ -477,6 +496,116 @@
       ]
     },
     {
+      "id": "markdown-to-html",
+      "name": "markdown-to-html",
+      "title": "Markdown To Html",
+      "description": "Convert Markdown files to HTML similar to `marked.js`, `pandoc`, `gomarkdown/markdown`, or similar tools; or writing custom script to convert markdown to html and/or working on web template systems like `jekyll/jekyll`, `gohugoio/hugo`, or similar web templating systems that utilize markdown documents, converting them to html. Use when asked to \"convert markdown to html\", \"transform md to html\", \"render markdown\", \"generate html from markdown\", or when working with .md files and/or web a templating system that converts markdown to HTML output. Supports CLI and Node.js workflows with GFM, CommonMark, and standard Markdown flavors.",
+      "assets": [
+        "references/basic-markdown-to-html.md",
+        "references/basic-markdown.md",
+        "references/code-blocks-to-html.md",
+        "references/code-blocks.md",
+        "references/collapsed-sections-to-html.md",
+        "references/collapsed-sections.md",
+        "references/gomarkdown.md",
+        "references/hugo.md",
+        "references/jekyll.md",
+        "references/marked.md",
+        "references/pandoc.md",
+        "references/tables-to-html.md",
+        "references/tables.md",
+        "references/writing-mathematical-expressions-to-html.md",
+        "references/writing-mathematical-expressions.md"
+      ],
+      "hasAssets": true,
+      "assetCount": 15,
+      "category": "CLI Tools",
+      "path": "skills/markdown-to-html",
+      "skillFile": "skills/markdown-to-html/SKILL.md",
+      "files": [
+        {
+          "path": "skills/markdown-to-html/SKILL.md",
+          "name": "SKILL.md",
+          "size": 24632
+        },
+        {
+          "path": "skills/markdown-to-html/references/basic-markdown-to-html.md",
+          "name": "references/basic-markdown-to-html.md",
+          "size": 4291
+        },
+        {
+          "path": "skills/markdown-to-html/references/basic-markdown.md",
+          "name": "references/basic-markdown.md",
+          "size": 31397
+        },
+        {
+          "path": "skills/markdown-to-html/references/code-blocks-to-html.md",
+          "name": "references/code-blocks-to-html.md",
+          "size": 2704
+        },
+        {
+          "path": "skills/markdown-to-html/references/code-blocks.md",
+          "name": "references/code-blocks.md",
+          "size": 3810
+        },
+        {
+          "path": "skills/markdown-to-html/references/collapsed-sections-to-html.md",
+          "name": "references/collapsed-sections-to-html.md",
+          "size": 2608
+        },
+        {
+          "path": "skills/markdown-to-html/references/collapsed-sections.md",
+          "name": "references/collapsed-sections.md",
+          "size": 2787
+        },
+        {
+          "path": "skills/markdown-to-html/references/gomarkdown.md",
+          "name": "references/gomarkdown.md",
+          "size": 6253
+        },
+        {
+          "path": "skills/markdown-to-html/references/hugo.md",
+          "name": "references/hugo.md",
+          "size": 7029
+        },
+        {
+          "path": "skills/markdown-to-html/references/jekyll.md",
+          "name": "references/jekyll.md",
+          "size": 5760
+        },
+        {
+          "path": "skills/markdown-to-html/references/marked.md",
+          "name": "references/marked.md",
+          "size": 2984
+        },
+        {
+          "path": "skills/markdown-to-html/references/pandoc.md",
+          "name": "references/pandoc.md",
+          "size": 4123
+        },
+        {
+          "path": "skills/markdown-to-html/references/tables-to-html.md",
+          "name": "references/tables-to-html.md",
+          "size": 2665
+        },
+        {
+          "path": "skills/markdown-to-html/references/tables.md",
+          "name": "references/tables.md",
+          "size": 3767
+        },
+        {
+          "path": "skills/markdown-to-html/references/writing-mathematical-expressions-to-html.md",
+          "name": "references/writing-mathematical-expressions-to-html.md",
+          "size": 6004
+        },
+        {
+          "path": "skills/markdown-to-html/references/writing-mathematical-expressions.md",
+          "name": "references/writing-mathematical-expressions.md",
+          "size": 4886
+        }
+      ]
+    },
+    {
       "id": "mcp-cli",
       "name": "mcp-cli",
       "title": "Mcp Cli",
@@ -648,6 +777,56 @@
       ]
     },
     {
+      "id": "terraform-azurerm-set-diff-analyzer",
+      "name": "terraform-azurerm-set-diff-analyzer",
+      "title": "Terraform Azurerm Set Diff Analyzer",
+      "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door, NSG, and other resources with Set-type attributes that cause spurious diffs due to internal ordering changes.",
+      "assets": [
+        "references/azurerm_set_attributes.json",
+        "references/azurerm_set_attributes.md",
+        "scripts/.gitignore",
+        "scripts/README.md",
+        "scripts/analyze_plan.py"
+      ],
+      "hasAssets": true,
+      "assetCount": 5,
+      "category": "Azure",
+      "path": "skills/terraform-azurerm-set-diff-analyzer",
+      "skillFile": "skills/terraform-azurerm-set-diff-analyzer/SKILL.md",
+      "files": [
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/SKILL.md",
+          "name": "SKILL.md",
+          "size": 2187
+        },
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/references/azurerm_set_attributes.json",
+          "name": "references/azurerm_set_attributes.json",
+          "size": 5106
+        },
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/references/azurerm_set_attributes.md",
+          "name": "references/azurerm_set_attributes.md",
+          "size": 3966
+        },
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/scripts/.gitignore",
+          "name": "scripts/.gitignore",
+          "size": 742
+        },
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/scripts/README.md",
+          "name": "scripts/README.md",
+          "size": 5306
+        },
+        {
+          "path": "skills/terraform-azurerm-set-diff-analyzer/scripts/analyze_plan.py",
+          "name": "scripts/analyze_plan.py",
+          "size": 30996
+        }
+      ]
+    },
+    {
       "id": "vscode-ext-commands",
       "name": "vscode-ext-commands",
       "title": "Vscode Ext Commands",
@@ -740,6 +919,25 @@
           "path": "skills/webapp-testing/test-helper.js",
           "name": "test-helper.js",
           "size": 1521
+        }
+      ]
+    },
+    {
+      "id": "winapp-cli",
+      "name": "winapp-cli",
+      "title": "Winapp Cli",
+      "description": "Windows App Development CLI (winapp) for building, packaging, and deploying Windows applications. Use when asked to initialize Windows app projects, create MSIX packages, generate AppxManifest.xml, manage development certificates, add package identity for debugging, sign packages, or access Windows SDK build tools. Supports .NET, C++, Electron, Rust, Tauri, and cross-platform frameworks targeting Windows.",
+      "assets": [],
+      "hasAssets": false,
+      "assetCount": 0,
+      "category": "CLI Tools",
+      "path": "skills/winapp-cli",
+      "skillFile": "skills/winapp-cli/SKILL.md",
+      "files": [
+        {
+          "path": "skills/winapp-cli/SKILL.md",
+          "name": "SKILL.md",
+          "size": 7654
         }
       ]
     },

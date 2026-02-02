@@ -149,6 +149,24 @@
       "filename": "apify-integration-expert.agent.md"
     },
     {
+      "id": "arch-linux-expert",
+      "title": "Arch Linux Expert",
+      "description": "Arch Linux specialist focused on pacman, rolling-release maintenance, and Arch-centric system administration workflows.",
+      "model": "GPT-5",
+      "tools": [
+        "codebase",
+        "search",
+        "terminalCommand",
+        "runCommands",
+        "edit/editFiles"
+      ],
+      "hasHandoffs": false,
+      "handoffs": [],
+      "mcpServers": [],
+      "path": "agents/arch-linux-expert.agent.md",
+      "filename": "arch-linux-expert.agent.md"
+    },
+    {
       "id": "arm-migration",
       "title": "Arm Migration Agent",
       "description": "Arm Cloud Migration Assistant accelerates moving x86 workloads to Arm infrastructure. It scans the repository for architecture assumptions, portability issues, container base image and dependency incompatibilities, and recommends Arm-optimized changes. It can drive multi-arch container builds, validate performance, and guide optimization, enabling smooth cross-platform deployment directly inside GitHub.",
@@ -570,6 +588,24 @@
       "filename": "cast-imaging-structural-quality-advisor.agent.md"
     },
     {
+      "id": "centos-linux-expert",
+      "title": "CentOS Linux Expert",
+      "description": "CentOS (Stream/Legacy) Linux specialist focused on RHEL-compatible administration, yum/dnf workflows, and enterprise hardening.",
+      "model": "GPT-4.1",
+      "tools": [
+        "codebase",
+        "search",
+        "terminalCommand",
+        "runCommands",
+        "edit/editFiles"
+      ],
+      "hasHandoffs": false,
+      "handoffs": [],
+      "mcpServers": [],
+      "path": "agents/centos-linux-expert.agent.md",
+      "filename": "centos-linux-expert.agent.md"
+    },
+    {
       "id": "clojure-interactive-programming",
       "title": "Clojure Interactive Programming",
       "description": "Expert Clojure pair programmer with REPL-first methodology, architectural oversight, and interactive problem-solving. Enforces quality standards, prevents workarounds, and develops solutions incrementally through live REPL evaluation before file modifications.",
@@ -729,6 +765,24 @@
       "mcpServers": [],
       "path": "agents/custom-agent-foundry.agent.md",
       "filename": "custom-agent-foundry.agent.md"
+    },
+    {
+      "id": "debian-linux-expert",
+      "title": "Debian Linux Expert",
+      "description": "Debian Linux specialist focused on stable system administration, apt-based package management, and Debian policy-aligned practices.",
+      "model": "Claude Sonnet 4",
+      "tools": [
+        "codebase",
+        "search",
+        "terminalCommand",
+        "runCommands",
+        "edit/editFiles"
+      ],
+      "hasHandoffs": false,
+      "handoffs": [],
+      "mcpServers": [],
+      "path": "agents/debian-linux-expert.agent.md",
+      "filename": "debian-linux-expert.agent.md"
     },
     {
       "id": "debug",
@@ -1102,6 +1156,24 @@
       "mcpServers": [],
       "path": "agents/expert-react-frontend-engineer.agent.md",
       "filename": "expert-react-frontend-engineer.agent.md"
+    },
+    {
+      "id": "fedora-linux-expert",
+      "title": "Fedora Linux Expert",
+      "description": "Fedora (Red Hat family) Linux specialist focused on dnf, SELinux, and modern systemd-based workflows.",
+      "model": "GPT-5",
+      "tools": [
+        "codebase",
+        "search",
+        "terminalCommand",
+        "runCommands",
+        "edit/editFiles"
+      ],
+      "hasHandoffs": false,
+      "handoffs": [],
+      "mcpServers": [],
+      "path": "agents/fedora-linux-expert.agent.md",
+      "filename": "fedora-linux-expert.agent.md"
     },
     {
       "id": "gilfoyle",
@@ -2231,6 +2303,28 @@
       "mcpServers": [],
       "path": "agents/refine-issue.agent.md",
       "filename": "refine-issue.agent.md"
+    },
+    {
+      "id": "repo-architect",
+      "title": "Repo Architect",
+      "description": "Bootstraps and validates agentic project structures for GitHub Copilot (VS Code) and OpenCode CLI workflows. Run after `opencode /init` or VS Code Copilot initialization to scaffold proper folder hierarchies, instructions, agents, skills, and prompts.",
+      "model": "GPT-4.1",
+      "tools": [
+        "changes",
+        "codebase",
+        "editFiles",
+        "fetch",
+        "new",
+        "problems",
+        "runCommands",
+        "search",
+        "terminalLastCommand"
+      ],
+      "hasHandoffs": false,
+      "handoffs": [],
+      "mcpServers": [],
+      "path": "agents/repo-architect.agent.md",
+      "filename": "repo-architect.agent.md"
     },
     {
       "id": "ruby-mcp-expert",

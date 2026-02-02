@@ -65,6 +65,14 @@
   },
   {
     "type": "agent",
+    "id": "arch-linux-expert",
+    "title": "Arch Linux Expert",
+    "description": "Arch Linux specialist focused on pacman, rolling-release maintenance, and Arch-centric system administration workflows.",
+    "path": "agents/arch-linux-expert.agent.md",
+    "searchText": "arch linux expert arch linux specialist focused on pacman, rolling-release maintenance, and arch-centric system administration workflows. codebase search terminalcommand runcommands edit/editfiles"
+  },
+  {
+    "type": "agent",
     "id": "arm-migration",
     "title": "Arm Migration Agent",
     "description": "Arm Cloud Migration Assistant accelerates moving x86 workloads to Arm infrastructure. It scans the repository for architecture assumptions, portability issues, container base image and dependency incompatibilities, and recommends Arm-optimized changes. It can drive multi-arch container builds, validate performance, and guide optimization, enabling smooth cross-platform deployment directly inside GitHub.",
@@ -225,6 +233,14 @@
   },
   {
     "type": "agent",
+    "id": "centos-linux-expert",
+    "title": "CentOS Linux Expert",
+    "description": "CentOS (Stream/Legacy) Linux specialist focused on RHEL-compatible administration, yum/dnf workflows, and enterprise hardening.",
+    "path": "agents/centos-linux-expert.agent.md",
+    "searchText": "centos linux expert centos (stream/legacy) linux specialist focused on rhel-compatible administration, yum/dnf workflows, and enterprise hardening. codebase search terminalcommand runcommands edit/editfiles"
+  },
+  {
+    "type": "agent",
     "id": "clojure-interactive-programming",
     "title": "Clojure Interactive Programming",
     "description": "Expert Clojure pair programmer with REPL-first methodology, architectural oversight, and interactive problem-solving. Enforces quality standards, prevents workarounds, and develops solutions incrementally through live REPL evaluation before file modifications.",
@@ -278,6 +294,14 @@
     "description": "Expert at designing and creating VS Code custom agents with optimal configurations",
     "path": "agents/custom-agent-foundry.agent.md",
     "searchText": "custom agent foundry expert at designing and creating vs code custom agents with optimal configurations vscode execute read edit search web agent github/* todo"
+  },
+  {
+    "type": "agent",
+    "id": "debian-linux-expert",
+    "title": "Debian Linux Expert",
+    "description": "Debian Linux specialist focused on stable system administration, apt-based package management, and Debian policy-aligned practices.",
+    "path": "agents/debian-linux-expert.agent.md",
+    "searchText": "debian linux expert debian linux specialist focused on stable system administration, apt-based package management, and debian policy-aligned practices. codebase search terminalcommand runcommands edit/editfiles"
   },
   {
     "type": "agent",
@@ -406,6 +430,14 @@
     "description": "Expert React 19.2 frontend engineer specializing in modern hooks, Server Components, Actions, TypeScript, and performance optimization",
     "path": "agents/expert-react-frontend-engineer.agent.md",
     "searchText": "expert react frontend engineer expert react 19.2 frontend engineer specializing in modern hooks, server components, actions, typescript, and performance optimization changes codebase edit/editfiles extensions fetch findtestfiles githubrepo new opensimplebrowser problems runcommands runtasks runtests search searchresults terminallastcommand terminalselection testfailure usages vscodeapi microsoft.docs.mcp"
+  },
+  {
+    "type": "agent",
+    "id": "fedora-linux-expert",
+    "title": "Fedora Linux Expert",
+    "description": "Fedora (Red Hat family) Linux specialist focused on dnf, SELinux, and modern systemd-based workflows.",
+    "path": "agents/fedora-linux-expert.agent.md",
+    "searchText": "fedora linux expert fedora (red hat family) linux specialist focused on dnf, selinux, and modern systemd-based workflows. codebase search terminalcommand runcommands edit/editfiles"
   },
   {
     "type": "agent",
@@ -809,6 +841,14 @@
   },
   {
     "type": "agent",
+    "id": "repo-architect",
+    "title": "Repo Architect",
+    "description": "Bootstraps and validates agentic project structures for GitHub Copilot (VS Code) and OpenCode CLI workflows. Run after `opencode /init` or VS Code Copilot initialization to scaffold proper folder hierarchies, instructions, agents, skills, and prompts.",
+    "path": "agents/repo-architect.agent.md",
+    "searchText": "repo architect bootstraps and validates agentic project structures for github copilot (vs code) and opencode cli workflows. run after `opencode /init` or vs code copilot initialization to scaffold proper folder hierarchies, instructions, agents, skills, and prompts. changes codebase editfiles fetch new problems runcommands search terminallastcommand"
+  },
+  {
+    "type": "agent",
     "id": "ruby-mcp-expert",
     "title": "Ruby MCP Expert",
     "description": "Expert assistance for building Model Context Protocol servers in Ruby using the official MCP Ruby SDK gem with Rails integration.",
@@ -1153,6 +1193,14 @@
   },
   {
     "type": "prompt",
+    "id": "arch-linux-triage",
+    "title": "Arch Linux Triage",
+    "description": "Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.",
+    "path": "prompts/arch-linux-triage.prompt.md",
+    "searchText": "arch linux triage triage and resolve arch linux issues with pacman, systemd, and rolling-release best practices."
+  },
+  {
+    "type": "prompt",
     "id": "architecture-blueprint-generator",
     "title": "Architecture Blueprint Generator",
     "description": "Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.",
@@ -1238,6 +1286,14 @@
     "description": "Test Planning and Quality Assurance prompt that generates comprehensive test strategies, task breakdowns, and quality validation plans for GitHub projects.",
     "path": "prompts/breakdown-test.prompt.md",
     "searchText": "breakdown test test planning and quality assurance prompt that generates comprehensive test strategies, task breakdowns, and quality validation plans for github projects."
+  },
+  {
+    "type": "prompt",
+    "id": "centos-linux-triage",
+    "title": "Centos Linux Triage",
+    "description": "Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.",
+    "path": "prompts/centos-linux-triage.prompt.md",
+    "searchText": "centos linux triage triage and resolve centos issues using rhel-compatible tooling, selinux-aware practices, and firewalld."
   },
   {
     "type": "prompt",
@@ -1521,6 +1577,14 @@
   },
   {
     "type": "prompt",
+    "id": "debian-linux-triage",
+    "title": "Debian Linux Triage",
+    "description": "Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance.",
+    "path": "prompts/debian-linux-triage.prompt.md",
+    "searchText": "debian linux triage triage and resolve debian linux issues with apt, systemd, and apparmor-aware guidance."
+  },
+  {
+    "type": "prompt",
     "id": "declarative-agents",
     "title": "Declarative Agents",
     "description": "Complete development kit for Microsoft 365 Copilot declarative agents with three comprehensive workflows (basic, advanced, validation), TypeSpec support, and Microsoft 365 Agents Toolkit integration",
@@ -1574,6 +1638,14 @@
     "description": "Get best practices for Entity Framework Core",
     "path": "prompts/ef-core.prompt.md",
     "searchText": "ef core get best practices for entity framework core"
+  },
+  {
+    "type": "prompt",
+    "id": "fedora-linux-triage",
+    "title": "Fedora Linux Triage",
+    "description": "Triage and resolve Fedora issues with dnf, systemd, and SELinux-aware guidance.",
+    "path": "prompts/fedora-linux-triage.prompt.md",
+    "searchText": "fedora linux triage triage and resolve fedora issues with dnf, systemd, and selinux-aware guidance."
   },
   {
     "type": "prompt",
@@ -2257,6 +2329,14 @@
   },
   {
     "type": "instruction",
+    "id": "arch-linux",
+    "title": "Arch Linux",
+    "description": "Guidance for Arch Linux administration, pacman workflows, and rolling-release best practices.",
+    "path": "instructions/arch-linux.instructions.md",
+    "searchText": "arch linux guidance for arch linux administration, pacman workflows, and rolling-release best practices. **"
+  },
+  {
+    "type": "instruction",
     "id": "aspnet-rest-apis",
     "title": "Aspnet Rest Apis",
     "description": "Guidelines for building REST APIs with ASP.NET",
@@ -2326,6 +2406,14 @@
     "description": "Blazor component and application patterns",
     "path": "instructions/blazor.instructions.md",
     "searchText": "blazor blazor component and application patterns **/*.razor, **/*.razor.cs, **/*.razor.css"
+  },
+  {
+    "type": "instruction",
+    "id": "centos-linux",
+    "title": "Centos Linux",
+    "description": "Guidance for CentOS administration, RHEL-compatible tooling, and SELinux-aware operations.",
+    "path": "instructions/centos-linux.instructions.md",
+    "searchText": "centos linux guidance for centos administration, rhel-compatible tooling, and selinux-aware operations. **"
   },
   {
     "type": "instruction",
@@ -2569,6 +2657,14 @@
   },
   {
     "type": "instruction",
+    "id": "debian-linux",
+    "title": "Debian Linux",
+    "description": "Guidance for Debian-based Linux administration, apt workflows, and Debian policy conventions.",
+    "path": "instructions/debian-linux.instructions.md",
+    "searchText": "debian linux guidance for debian-based linux administration, apt workflows, and debian policy conventions. **"
+  },
+  {
+    "type": "instruction",
     "id": "declarative-agents-microsoft365",
     "title": "Declarative Agents Microsoft365",
     "description": "Comprehensive development guidelines for Microsoft 365 Copilot declarative agents with schema v1.5, TypeSpec integration, and Microsoft 365 Agents Toolkit workflows",
@@ -2630,6 +2726,14 @@
     "description": ".NET WPF component and application patterns",
     "path": "instructions/dotnet-wpf.instructions.md",
     "searchText": "dotnet wpf .net wpf component and application patterns **/*.xaml, **/*.cs"
+  },
+  {
+    "type": "instruction",
+    "id": "fedora-linux",
+    "title": "Fedora Linux",
+    "description": "Guidance for Fedora (Red Hat family) systems, dnf workflows, SELinux, and modern systemd practices.",
+    "path": "instructions/fedora-linux.instructions.md",
+    "searchText": "fedora linux guidance for fedora (red hat family) systems, dnf workflows, selinux, and modern systemd practices. **"
   },
   {
     "type": "instruction",
@@ -3561,6 +3665,14 @@
   },
   {
     "type": "skill",
+    "id": "copilot-sdk",
+    "title": "Copilot Sdk",
+    "description": "Build agentic applications with GitHub Copilot SDK. Use when embedding AI agents in apps, creating custom tools, implementing streaming responses, managing sessions, connecting to MCP servers, or creating custom agents. Triggers on Copilot SDK, GitHub SDK, agentic app, embed Copilot, programmable agent, MCP server, custom agent.",
+    "path": "skills/copilot-sdk",
+    "searchText": "copilot sdk build agentic applications with github copilot sdk. use when embedding ai agents in apps, creating custom tools, implementing streaming responses, managing sessions, connecting to mcp servers, or creating custom agents. triggers on copilot sdk, github sdk, agentic app, embed copilot, programmable agent, mcp server, custom agent."
+  },
+  {
+    "type": "skill",
     "id": "gh-cli",
     "title": "Gh Cli",
     "description": "GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line.",
@@ -3606,6 +3718,14 @@
     "description": "Create new Agent Skills for GitHub Copilot from prompts or by duplicating this template. Use when asked to \"create a skill\", \"make a new skill\", \"scaffold a skill\", or when building specialized AI capabilities with bundled resources. Generates SKILL.md files with proper frontmatter, directory structure, and optional scripts/references/assets folders.",
     "path": "skills/make-skill-template",
     "searchText": "make skill template create new agent skills for github copilot from prompts or by duplicating this template. use when asked to \"create a skill\", \"make a new skill\", \"scaffold a skill\", or when building specialized ai capabilities with bundled resources. generates skill.md files with proper frontmatter, directory structure, and optional scripts/references/assets folders."
+  },
+  {
+    "type": "skill",
+    "id": "markdown-to-html",
+    "title": "Markdown To Html",
+    "description": "Convert Markdown files to HTML similar to `marked.js`, `pandoc`, `gomarkdown/markdown`, or similar tools; or writing custom script to convert markdown to html and/or working on web template systems like `jekyll/jekyll`, `gohugoio/hugo`, or similar web templating systems that utilize markdown documents, converting them to html. Use when asked to \"convert markdown to html\", \"transform md to html\", \"render markdown\", \"generate html from markdown\", or when working with .md files and/or web a templating system that converts markdown to HTML output. Supports CLI and Node.js workflows with GFM, CommonMark, and standard Markdown flavors.",
+    "path": "skills/markdown-to-html",
+    "searchText": "markdown to html convert markdown files to html similar to `marked.js`, `pandoc`, `gomarkdown/markdown`, or similar tools; or writing custom script to convert markdown to html and/or working on web template systems like `jekyll/jekyll`, `gohugoio/hugo`, or similar web templating systems that utilize markdown documents, converting them to html. use when asked to \"convert markdown to html\", \"transform md to html\", \"render markdown\", \"generate html from markdown\", or when working with .md files and/or web a templating system that converts markdown to html output. supports cli and node.js workflows with gfm, commonmark, and standard markdown flavors."
   },
   {
     "type": "skill",
@@ -3681,6 +3801,14 @@
   },
   {
     "type": "skill",
+    "id": "terraform-azurerm-set-diff-analyzer",
+    "title": "Terraform Azurerm Set Diff Analyzer",
+    "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door, NSG, and other resources with Set-type attributes that cause spurious diffs due to internal ordering changes.",
+    "path": "skills/terraform-azurerm-set-diff-analyzer",
+    "searchText": "terraform azurerm set diff analyzer analyze terraform plan json output for azurerm provider to distinguish between false-positive diffs (order-only changes in set-type attributes) and actual resource changes. use when reviewing terraform plan output for azure resources like application gateway, load balancer, firewall, front door, nsg, and other resources with set-type attributes that cause spurious diffs due to internal ordering changes."
+  },
+  {
+    "type": "skill",
     "id": "vscode-ext-commands",
     "title": "Vscode Ext Commands",
     "description": "Guidelines for contributing commands in VS Code extensions. Indicates naming convention, visibility, localization and other relevant attributes, following VS Code extension development guidelines, libraries and good practices",
@@ -3710,6 +3838,14 @@
     "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
     "path": "skills/webapp-testing",
     "searchText": "webapp testing toolkit for interacting with and testing local web applications using playwright. supports verifying frontend functionality, debugging ui behavior, capturing browser screenshots, and viewing browser logs."
+  },
+  {
+    "type": "skill",
+    "id": "winapp-cli",
+    "title": "Winapp Cli",
+    "description": "Windows App Development CLI (winapp) for building, packaging, and deploying Windows applications. Use when asked to initialize Windows app projects, create MSIX packages, generate AppxManifest.xml, manage development certificates, add package identity for debugging, sign packages, or access Windows SDK build tools. Supports .NET, C++, Electron, Rust, Tauri, and cross-platform frameworks targeting Windows.",
+    "path": "skills/winapp-cli",
+    "searchText": "winapp cli windows app development cli (winapp) for building, packaging, and deploying windows applications. use when asked to initialize windows app projects, create msix packages, generate appxmanifest.xml, manage development certificates, add package identity for debugging, sign packages, or access windows sdk build tools. supports .net, c++, electron, rust, tauri, and cross-platform frameworks targeting windows."
   },
   {
     "type": "skill",
