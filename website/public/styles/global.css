@@ -5,6 +5,16 @@
    Orange 1: #F4A876  Orange 2: #F08A3A  Orange 3: #FE4C25
    Orange 4: #C53211  Orange 5: #801E0F  Orange 6: #500A00
 */
+
+/* Nerd Fonts for programming language icons */
+@font-face {
+  font-family: 'Monaspace Argon NF';
+  src: url('/fonts/MonaspaceArgonNF-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Dark theme (default) */
   --color-bg: #0d0d12;

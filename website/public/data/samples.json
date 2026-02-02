@@ -10,25 +10,25 @@
         {
           "id": "nodejs",
           "name": "Node.js / TypeScript",
-          "icon": "🟢",
+          "icon": "",
           "extension": ".ts"
         },
         {
           "id": "python",
           "name": "Python",
-          "icon": "🐍",
+          "icon": "",
           "extension": ".py"
         },
         {
           "id": "dotnet",
           "name": ".NET (C#)",
-          "icon": "🟣",
+          "icon": "",
           "extension": ".cs"
         },
         {
           "id": "go",
           "name": "Go",
-          "icon": "🔵",
+          "icon": "",
           "extension": ".go"
         }
       ],

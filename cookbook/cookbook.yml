@@ -11,19 +11,19 @@ cookbooks:
     languages:
       - id: nodejs
         name: Node.js / TypeScript
-        icon: 🟢
+        icon: "\uE628"
         extension: .ts
       - id: python
         name: Python
-        icon: 🐍
+        icon: "\uE73C"
         extension: .py
       - id: dotnet
         name: .NET (C#)
-        icon: 🟣
+        icon: "\uF81A"
         extension: .cs
       - id: go
         name: Go
-        icon: 🔵
+        icon: "\uE626"
         extension: .go
     recipes:
       - id: error-handling
