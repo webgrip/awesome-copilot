@@ -166,8 +166,12 @@ Assert.IsNegative(number);
 ### Type Assertions
 
 ```csharp
-// Returns typed result for further assertions
+// MSTest 3.x - uses out parameter
 Assert.IsInstanceOfType<MyClass>(obj, out var typed);
+typed.DoSomething();
+
+// MSTest 4.x - returns typed result directly
+var typed = Assert.IsInstanceOfType<MyClass>(obj);
 typed.DoSomething();
 
 Assert.IsNotInstanceOfType<WrongType>(obj);
