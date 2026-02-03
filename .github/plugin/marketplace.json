@@ -2,7 +2,8 @@
   "name": "awesome-copilot",
   "metadata": {
     "description": "Community-driven collection of GitHub Copilot plugins, agents, prompts, and skills",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
   },
   "owner": {
     "name": "GitHub",
@@ -11,28 +12,25 @@
   "plugins": [
     {
       "name": "project-planning",
-      "source": "plugins/project-planning",
+      "source": "project-planning",
       "description": "Tools and guidance for software project planning, feature breakdown, epic management, implementation planning, and task organization.",
-      "version": "1.0.0",
-      "skills": [
-        "./skills/planning-guidelines"
-      ]
+      "version": "1.0.0"
     },
     {
       "name": "software-engineering-team",
-      "source": "plugins/software-engineering-team",
+      "source": "software-engineering-team",
       "description": "7 specialized agents covering the full software development lifecycle from UX design and architecture to security and DevOps.",
       "version": "1.0.0"
     },
     {
       "name": "testing-automation",
-      "source": "plugins/testing-automation",
+      "source": "testing-automation",
       "description": "Comprehensive collection for writing tests, test automation, and TDD including unit tests, integration tests, and end-to-end testing.",
       "version": "1.0.0"
     },
     {
       "name": "azure-cloud-development",
-      "source": "plugins/azure-cloud-development",
+      "source": "azure-cloud-development",
       "description": "Azure cloud development tools including Infrastructure as Code, architecture patterns, and cost optimization.",
       "version": "1.0.0"
     }
