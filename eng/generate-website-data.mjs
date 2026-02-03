@@ -898,7 +898,11 @@ async function main() {
 
   // Generate llms.txt
   const llmsTxtContent = generateLlmsTxt(agents, prompts, instructions, skills);
-  fs.writeFileSync(path.join(WEBSITE_DATA_DIR, "llms.txt"), llmsTxtContent, "utf8");
+  fs.writeFileSync(
+    path.join(ROOT_FOLDER, "website", "public", "llms.txt"),
+    llmsTxtContent,
+    "utf8"
+  );
   console.log(`✓ llms.txt generated with ${agents.length} agents, ${prompts.length} prompts, ${instructions.length} instructions, ${skills.length} skills`);
 }
 
