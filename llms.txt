@@ -22,7 +22,7 @@ This repository provides resources to customize and enhance GitHub Copilot:
 - [Address Comments](agents/address-comments.agent.md): Address PR comments
 - [ADR Generator](agents/adr-generator.agent.md): Expert agent for creating comprehensive Architectural Decision Records (ADRs) with structured formatting optimized for AI consumption and human readability.
 - [Aem Frontend Specialist](agents/aem-frontend-specialist.agent.md): Expert assistant for developing AEM components using HTL, Tailwind CSS, and Figma-to-code workflows with design system integration
-- [Amplitude Experiment Implementation](agents/amplitude-experiment-implementation.agent.md): This custom agent uses Amplitude's MCP tools to deploy new experiments inside of Amplitude, enabling seamless variant testing capabilities and rollout of product features.
+- [Amplitude Experiment Implementation](agents/amplitude-experiment-implementation.agent.md): This custom agent uses Amplitude's MCP tools to deploy new experiments inside of Amplitude, enabling seamless variant testing capabilities and rollout of product features.
 - [Api Architect](agents/api-architect.agent.md): Your role is that of an API architect. Help mentor the engineer by providing guidance, support, and working code.
 - [apify-integration-expert](agents/apify-integration-expert.agent.md): Expert agent for integrating Apify Actors into codebases. Handles Actor selection, workflow design, implementation across JavaScript/TypeScript and Python, testing, and production-ready deployment.
 - [Arch Linux Expert](agents/arch-linux-expert.agent.md): Arch Linux specialist focused on pacman, rolling-release maintenance, and Arch-centric system administration workflows.
@@ -316,7 +316,7 @@ This repository provides resources to customize and enhance GitHub Copilot:
 - [Azure Functions Typescript](instructions/azure-functions-typescript.instructions.md): TypeScript patterns for Azure Functions
 - [Azure Logic Apps Power Automate](instructions/azure-logic-apps-power-automate.instructions.md): Guidelines for developing Azure Logic Apps and Power Automate workflows with best practices for Workflow Definition Language (WDL), integration patterns, and enterprise automation
 - [Azure Verified Modules Bicep](instructions/azure-verified-modules-bicep.instructions.md): Azure Verified Modules (AVM) and Bicep
-- [Azure Verified Modules Terraform](instructions/azure-verified-modules-terraform.instructions.md):  Azure Verified Modules (AVM) and Terraform
+- [Azure Verified Modules Terraform](instructions/azure-verified-modules-terraform.instructions.md): Azure Verified Modules (AVM) and Terraform
 - [Bicep Code Best Practices](instructions/bicep-code-best-practices.instructions.md): Infrastructure as Code with Bicep
 - [Blazor](instructions/blazor.instructions.md): Blazor component and application patterns
 - [Centos Linux](instructions/centos-linux.instructions.md): Guidance for CentOS administration, RHEL-compatible tooling, and SELinux-aware operations.
@@ -473,13 +473,7 @@ This repository provides resources to customize and enhance GitHub Copilot:
 
 ## Skills
 
-- [agentic-eval](skills/agentic-eval): Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:
-- Implementing self-critique and reflection loops
-- Building evaluator-optimizer pipelines for quality-critical generation
-- Creating test-driven code refinement workflows
-- Designing rubric-based or LLM-as-judge evaluation systems
-- Adding iterative improvement to agent outputs (code, reports, analysis)
-- Measuring and improving agent response quality
+- [agentic-eval](skills/agentic-eval): Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when: - Implementing self-critique and reflection loops - Building evaluator-optimizer pipelines for quality-critical generation - Creating test-driven code refinement workflows - Designing rubric-based or LLM-as-judge evaluation systems - Adding iterative improvement to agent outputs (code, reports, analysis) - Measuring and improving agent response quality
 - [appinsights-instrumentation](skills/appinsights-instrumentation): Instrument a webapp to send useful telemetry data to Azure App Insights
 - [azure-deployment-preflight](skills/azure-deployment-preflight): Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate when users mention deploying to Azure, validating Bicep files, checking deployment permissions, previewing infrastructure changes, running what-if, or preparing for azd provision.
 - [azure-devops-cli](skills/azure-devops-cli): Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.

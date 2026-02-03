@@ -47,18 +47,22 @@ function extractName(filePath, fileType) {
  * Extracts the description from a file's frontmatter
  * @param {string} filePath - Path to the file (or directory for skills)
  * @param {string} fileType - Type of file (agent, prompt, instruction, skill)
- * @returns {string} - The description of the resource
+ * @returns {string} - The description of the resource (single line)
  */
 function extractDescription(filePath, fileType) {
   try {
     if (fileType === "skill") {
       // For skills, filePath is the skill directory
       const skillMetadata = parseSkillMetadata(filePath);
-      return skillMetadata?.description || "No description available";
+      const description = skillMetadata?.description || "No description available";
+      // Convert multiline descriptions to single line
+      return description.replace(/\s+/g, " ").trim();
     }
 
     const frontmatter = parseFrontmatter(filePath);
-    return frontmatter?.description || "No description available";
+    const description = frontmatter?.description || "No description available";
+    // Convert multiline descriptions to single line
+    return description.replace(/\s+/g, " ").trim();
   } catch (error) {
     console.error(
       `Error extracting description from ${filePath}: ${error.message}`
