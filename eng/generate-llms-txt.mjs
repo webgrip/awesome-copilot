@@ -78,7 +78,8 @@ function extractDescription(filePath, fileType) {
  * @returns {string} - Relative URL path
  */
 function getRelativeUrl(filePath, baseDir) {
-  const relativePath = path.relative(ROOT_FOLDER, filePath);
+  const basePath = baseDir || ROOT_FOLDER;
+  const relativePath = path.relative(basePath, filePath);
   return relativePath.replace(/\\/g, "/");
 }
 
