@@ -579,7 +579,7 @@ function generateSearchIndex(
       id: skill.id,
       title: skill.title,
       description: skill.description,
-      path: skill.path,
+      path: skill.skillFile,
       searchText: `${skill.title} ${skill.description}`.toLowerCase(),
     });
   }
