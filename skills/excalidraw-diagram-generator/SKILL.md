@@ -594,6 +594,7 @@ See bundled references for:
 - `templates/mindmap-template.json` - Mind map starter
 - `scripts/split-excalidraw-library.py` - Tool to split `.excalidrawlib` files
 - `scripts/README.md` - Documentation for library tools
+- `scripts/.gitignore` - Prevents local Python artifacts from being committed
 
 ## Limitations
 
