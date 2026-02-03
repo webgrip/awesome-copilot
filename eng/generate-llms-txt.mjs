@@ -181,7 +181,7 @@ function generateLlmsTxt() {
     if (fs.existsSync(skillPath)) {
       const name = extractName(skillDirPath, "skill");
       const description = extractDescription(skillDirPath, "skill");
-      const url = getRelativeUrl(skillDirPath, ROOT_FOLDER);
+      const url = getRelativeUrl(skillPath, ROOT_FOLDER);
 
       content += `- [${name}](${url}): ${description}\n`;
     } else {
