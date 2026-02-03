@@ -44,7 +44,6 @@ function ensureDataDir() {
  * Extract title from filename or frontmatter
  */
 function extractTitle(filePath, frontmatter) {
-  if (frontmatter?.title) return frontmatter.title;
   if (frontmatter?.name) {
     return frontmatter.name
       .split("-")
