@@ -214,13 +214,19 @@ function generateLlmsTxt() {
 
 /**
  * Main function to generate and write the llms.txt file
+ * @param {string} [outputDir] - Optional output directory. Defaults to repository root.
  */
-function main() {
+function main(outputDir = ROOT_FOLDER) {
   console.log("Generating llms.txt file...");
 
   try {
     const content = generateLlmsTxt();
-    const outputPath = path.join(ROOT_FOLDER, "llms.txt");
+    const outputPath = path.join(outputDir, "llms.txt");
+
+    // Ensure output directory exists
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
 
     fs.writeFileSync(outputPath, content, "utf8");
 
@@ -242,4 +248,6 @@ function main() {
   }
 }
 
-main();
+// Support command-line argument for output directory
+const outputDir = process.argv[2];
+main(outputDir);
