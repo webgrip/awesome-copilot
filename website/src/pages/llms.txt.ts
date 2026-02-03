@@ -4,11 +4,16 @@ import promptsData from "../../public/data/prompts.json";
 import instructionsData from "../../public/data/instructions.json";
 import skillsData from "../../public/data/skills.json";
 
+// Base URL for absolute links (to raw GitHub content)
+const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/github/awesome-copilot/main";
+
 export const GET: APIRoute = () => {
   const agents = agentsData.items;
   const prompts = promptsData.items;
   const instructions = instructionsData.items;
   const skills = skillsData.items;
+  
+  const url = (path: string) => `${GITHUB_RAW_BASE}/${path}`;
 
   let content = "";
 
@@ -38,7 +43,7 @@ export const GET: APIRoute = () => {
     const description = (agent.description || "No description available")
       .replace(/\s+/g, " ")
       .trim();
-    content += `- [${agent.title}](${agent.path}): ${description}\n`;
+    content += `- [${agent.title}](${url(agent.path)}): ${description}\n`;
   }
   content += "\n";
 
@@ -48,7 +53,7 @@ export const GET: APIRoute = () => {
     const description = (prompt.description || "No description available")
       .replace(/\s+/g, " ")
       .trim();
-    content += `- [${prompt.title}](${prompt.path}): ${description}\n`;
+    content += `- [${prompt.title}](${url(prompt.path)}): ${description}\n`;
   }
   content += "\n";
 
@@ -58,7 +63,7 @@ export const GET: APIRoute = () => {
     const description = (instruction.description || "No description available")
       .replace(/\s+/g, " ")
       .trim();
-    content += `- [${instruction.title}](${instruction.path}): ${description}\n`;
+    content += `- [${instruction.title}](${url(instruction.path)}): ${description}\n`;
   }
   content += "\n";
 
@@ -68,21 +73,21 @@ export const GET: APIRoute = () => {
     const description = (skill.description || "No description available")
       .replace(/\s+/g, " ")
       .trim();
-    content += `- [${skill.title}](${skill.skillFile}): ${description}\n`;
+    content += `- [${skill.title}](${url(skill.skillFile)}): ${description}\n`;
   }
   content += "\n";
 
   // Add documentation links
   content += "## Documentation\n\n";
   content +=
-    "- [README.md](README.md): Main documentation and getting started guide\n";
+    `- [README.md](${url("README.md")}): Main documentation and getting started guide\n`;
   content +=
-    "- [CONTRIBUTING.md](CONTRIBUTING.md): Guidelines for contributing to this repository\n";
+    `- [CONTRIBUTING.md](${url("CONTRIBUTING.md")}): Guidelines for contributing to this repository\n`;
   content +=
-    "- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md): Community standards and expectations\n";
-  content += "- [SECURITY.md](SECURITY.md): Security policies and reporting\n";
+    `- [CODE_OF_CONDUCT.md](${url("CODE_OF_CONDUCT.md")}): Community standards and expectations\n`;
+  content += `- [SECURITY.md](${url("SECURITY.md")}): Security policies and reporting\n`;
   content +=
-    "- [AGENTS.md](AGENTS.md): Project overview and setup commands\n\n";
+    `- [AGENTS.md](${url("AGENTS.md")}): Project overview and setup commands\n\n`;
 
   // Add repository information
   content += "## Repository\n\n";
