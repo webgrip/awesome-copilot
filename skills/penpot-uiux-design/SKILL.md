@@ -16,10 +16,69 @@ Create professional, user-centered designs in Penpot using the `penpot/penpot-mc
 | `mcp__penpot__import_image` | Import images (icons, photos, logos) into designs |
 | `mcp__penpot__penpot_api_info` | Retrieve Penpot API documentation |
 
+## MCP Server Setup
+
+The Penpot MCP tools require the `penpot/penpot-mcp` server running locally. For detailed installation and troubleshooting, see [setup-troubleshooting.md](references/setup-troubleshooting.md).
+
+### Before Setup: Check If Already Running
+
+**Always check if the MCP server is already available before attempting setup:**
+
+1. **Try calling a tool first**: Attempt `mcp__penpot__penpot_api_info` - if it succeeds, the server is running and connected. No setup needed.
+
+2. **If the tool fails**, ask the user:
+   > "The Penpot MCP server doesn't appear to be connected. Is the server already installed and running? If so, I can help troubleshoot. If not, I can guide you through the setup."
+
+3. **Only proceed with setup instructions if the user confirms the server is not installed.**
+
+### Quick Start (Only If Not Installed)
+
+```bash
+# Clone and install
+git clone https://github.com/penpot/penpot-mcp.git
+cd penpot-mcp
+npm install
+
+# Build and start servers
+npm run bootstrap
+```
+
+Then in Penpot:
+1. Open a design file
+2. Go to **Plugins** → **Load plugin from URL**
+3. Enter: `http://localhost:4400/manifest.json`
+4. Click **"Connect to MCP server"** in the plugin UI
+
+### VS Code Configuration
+
+Add to `settings.json`:
+```json
+{
+  "mcp": {
+    "servers": {
+      "penpot": {
+        "url": "http://localhost:4401/sse"
+      }
+    }
+  }
+}
+```
+
+### Troubleshooting (If Server Is Installed But Not Working)
+
+| Issue | Solution |
+| ----- | -------- |
+| Plugin won't connect | Check servers are running (`npm run start:all` in penpot-mcp dir) |
+| Browser blocks localhost | Allow local network access prompt, or disable Brave Shield, or try Firefox |
+| Tools not appearing in client | Restart VS Code/Claude completely after config changes |
+| Tool execution fails/times out | Ensure Penpot plugin UI is open and shows "Connected" |
+| "WebSocket connection failed" | Check firewall allows ports 4400, 4401, 4402 |
+
 ## Quick Reference
 
 | Task | Reference File |
 | ---- | -------------- |
+| MCP server installation & troubleshooting | [setup-troubleshooting.md](references/setup-troubleshooting.md) |
 | Component specs (buttons, forms, nav) | [component-patterns.md](references/component-patterns.md) |
 | Accessibility (contrast, touch targets) | [accessibility.md](references/accessibility.md) |
 | Screen sizes & platform specs | [platform-guidelines.md](references/platform-guidelines.md) |
