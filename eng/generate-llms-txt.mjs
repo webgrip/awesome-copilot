@@ -183,6 +183,8 @@ function generateLlmsTxt() {
       const url = getRelativeUrl(skillDirPath, ROOT_FOLDER);
 
       content += `- [${name}](${url}): ${description}\n`;
+    } else {
+      console.warn(`Warning: Skill directory '${dir}' found without SKILL.md file`);
     }
   });
 
@@ -224,25 +226,16 @@ function main() {
 
     console.log(`✓ llms.txt generated successfully at ${outputPath}`);
 
-    // Count resources
-    const lines = content.split("\n");
-    const agentCount = lines.filter((l) =>
-      l.startsWith("- [") && l.includes("agents/")
-    ).length;
-    const promptCount = lines.filter((l) =>
-      l.startsWith("- [") && l.includes("prompts/")
-    ).length;
-    const instructionCount = lines.filter((l) =>
-      l.startsWith("- [") && l.includes("instructions/")
-    ).length;
-    const skillCount = lines.filter((l) =>
-      l.startsWith("- [") && l.includes("skills/")
-    ).length;
+    // Count resources using a helper function
+    const countResources = (dirName) => {
+      const lines = content.split("\n");
+      return lines.filter((l) => l.startsWith("- [") && l.includes(`${dirName}/`)).length;
+    };
 
-    console.log(`  - ${agentCount} agents`);
-    console.log(`  - ${promptCount} prompts`);
-    console.log(`  - ${instructionCount} instructions`);
-    console.log(`  - ${skillCount} skills`);
+    console.log(`  - ${countResources("agents")} agents`);
+    console.log(`  - ${countResources("prompts")} prompts`);
+    console.log(`  - ${countResources("instructions")} instructions`);
+    console.log(`  - ${countResources("skills")} skills`);
   } catch (error) {
     console.error(`Error generating llms.txt: ${error.message}`);
     process.exit(1);
