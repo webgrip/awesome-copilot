@@ -217,7 +217,7 @@ tools:
       - Internet connection to access Context7 platform
       - GitHub repository with Copilot customizations (prompts, instructions, agents, or skills)
     links:
-      blog: https://context7.com/github/awesome-copilot
+      documentation: https://context7.com/github/awesome-copilot
     features:
       - "🔍 Semantic Search: Intelligently find relevant prompts, instructions, and agents across your repository"
       - "📊 Automatic Indexing: AI-powered analysis and categorization of your customizations"
