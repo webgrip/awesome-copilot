@@ -6,7 +6,7 @@ Generate production-ready Go applications from OpenAPI specifications. Includes 
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/openapi-to-application-go
+copilot plugin install openapi-to-application-go@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/openapi-to-application-go
 
 | Command | Description |
 |---------|-------------|
-| `/openapi-to-application-go:openapi-to-application-code` | Openapi To Application Code |
+| `/openapi-to-application-go:openapi-to-application-code` | Generate a complete, production-ready application from an OpenAPI specification |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `openapi-to-application` | Openapi To Application |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `go` | Go |
+| `openapi-to-application` | Expert assistant for generating working applications from OpenAPI specifications |
 
 ## Source
 

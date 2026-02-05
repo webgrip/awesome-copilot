@@ -6,7 +6,7 @@ Generate production-ready FastAPI applications from OpenAPI specifications. Incl
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/openapi-to-application-python-fastapi
+copilot plugin install openapi-to-application-python-fastapi@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/openapi-to-application-pyt
 
 | Command | Description |
 |---------|-------------|
-| `/openapi-to-application-python-fastapi:openapi-to-application-code` | Openapi To Application Code |
+| `/openapi-to-application-python-fastapi:openapi-to-application-code` | Generate a complete, production-ready application from an OpenAPI specification |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `openapi-to-application` | Openapi To Application |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `python` | Python |
+| `openapi-to-application` | Expert assistant for generating working applications from OpenAPI specifications |
 
 ## Source
 

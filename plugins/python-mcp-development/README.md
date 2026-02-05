@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in Python usi
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/python-mcp-development
+copilot plugin install python-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/python-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/python-mcp-development:python-mcp-server-generator` | Python Mcp Server Generator |
+| `/python-mcp-development:python-mcp-server-generator` | Generate a complete MCP server project in Python with tools, resources, and proper configuration |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `python-mcp-expert` | Python Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `python-mcp-server` | Python Mcp Server |
+| `python-mcp-expert` | Expert assistant for developing Model Context Protocol (MCP) servers in Python |
 
 ## Source
 

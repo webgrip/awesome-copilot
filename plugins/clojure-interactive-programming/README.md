@@ -6,7 +6,7 @@ Tools for REPL-first Clojure workflows featuring Clojure instructions, the inter
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/clojure-interactive-programming
+copilot plugin install clojure-interactive-programming@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/clojure-interactive-progra
 
 | Command | Description |
 |---------|-------------|
-| `/clojure-interactive-programming:remember-interactive-programming` | Remember Interactive Programming |
+| `/clojure-interactive-programming:remember-interactive-programming` | A micro-prompt that reminds the agent that it is an interactive programmer. Works great in Clojure when Copilot has access to the REPL (probably via Backseat Driver). Will work with any system that has a live REPL that the agent can use. Adapt the prompt with any specific reminders in your workflow and/or workspace. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `clojure-interactive-programming` | Clojure Interactive Programming |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `clojure` | Clojure |
+| `clojure-interactive-programming` | Expert Clojure pair programmer with REPL-first methodology, architectural oversight, and interactive problem-solving. Enforces quality standards, prevents workarounds, and develops solutions incrementally through live REPL evaluation before file modifications. |
 
 ## Source
 

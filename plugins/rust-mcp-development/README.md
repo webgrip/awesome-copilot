@@ -6,7 +6,7 @@ Build high-performance Model Context Protocol servers in Rust using the official
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/rust-mcp-development
+copilot plugin install rust-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/rust-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/rust-mcp-development:rust-mcp-server-generator` | Rust Mcp Server Generator |
+| `/rust-mcp-development:rust-mcp-server-generator` | Generate a complete Rust Model Context Protocol server project with tools, prompts, resources, and tests using the official rmcp SDK |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `rust-mcp-expert` | Rust Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `rust-mcp-server` | Rust Mcp Server |
+| `rust-mcp-expert` | Expert assistant for Rust MCP server development using the rmcp SDK with tokio async runtime |
 
 ## Source
 

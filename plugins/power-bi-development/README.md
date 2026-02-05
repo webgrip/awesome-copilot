@@ -6,7 +6,7 @@ Comprehensive Power BI development resources including data modeling, DAX optimi
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/power-bi-development
+copilot plugin install power-bi-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,30 +15,19 @@ copilot plugin install github/awesome-copilot/plugins/power-bi-development
 
 | Command | Description |
 |---------|-------------|
-| `/power-bi-development:power-bi-dax-optimization` | Power Bi Dax Optimization |
-| `/power-bi-development:power-bi-model-design-review` | Power Bi Model Design Review |
-| `/power-bi-development:power-bi-performance-troubleshooting` | Power Bi Performance Troubleshooting |
-| `/power-bi-development:power-bi-report-design-consultation` | Power Bi Report Design Consultation |
+| `/power-bi-development:power-bi-dax-optimization` | Comprehensive Power BI DAX formula optimization prompt for improving performance, readability, and maintainability of DAX calculations. |
+| `/power-bi-development:power-bi-model-design-review` | Comprehensive Power BI data model design review prompt for evaluating model architecture, relationships, and optimization opportunities. |
+| `/power-bi-development:power-bi-performance-troubleshooting` | Systematic Power BI performance troubleshooting prompt for identifying, diagnosing, and resolving performance issues in Power BI models, reports, and queries. |
+| `/power-bi-development:power-bi-report-design-consultation` | Power BI report visualization design prompt for creating effective, user-friendly, and accessible reports with optimal chart selection and layout design. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `power-bi-data-modeling-expert` | Power Bi Data Modeling Expert |
-| `power-bi-dax-expert` | Power Bi Dax Expert |
-| `power-bi-performance-expert` | Power Bi Performance Expert |
-| `power-bi-visualization-expert` | Power Bi Visualization Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `power-bi-custom-visuals-development` | Power Bi Custom Visuals Development |
-| `power-bi-data-modeling-best-practices` | Power Bi Data Modeling Best Practices |
-| `power-bi-dax-best-practices` | Power Bi Dax Best Practices |
-| `power-bi-devops-alm-best-practices` | Power Bi Devops Alm Best Practices |
-| `power-bi-report-design-best-practices` | Power Bi Report Design Best Practices |
-| `power-bi-security-rls-best-practices` | Power Bi Security Rls Best Practices |
+| `power-bi-data-modeling-expert` | Expert Power BI data modeling guidance using star schema principles, relationship design, and Microsoft best practices for optimal model performance and usability. |
+| `power-bi-dax-expert` | Expert Power BI DAX guidance using Microsoft best practices for performance, readability, and maintainability of DAX formulas and calculations. |
+| `power-bi-performance-expert` | Expert Power BI performance optimization guidance for troubleshooting, monitoring, and improving the performance of Power BI models, reports, and queries. |
+| `power-bi-visualization-expert` | Expert Power BI report design and visualization guidance using Microsoft best practices for creating effective, performant, and user-friendly reports and dashboards. |
 
 ## Source
 

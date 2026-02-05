@@ -6,7 +6,7 @@ Security frameworks, accessibility guidelines, performance optimization, and cod
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/security-best-practices
+copilot plugin install security-best-practices@awesome-copilot
 ```
 
 ## What's Included
@@ -15,17 +15,7 @@ copilot plugin install github/awesome-copilot/plugins/security-best-practices
 
 | Command | Description |
 |---------|-------------|
-| `/security-best-practices:ai-prompt-engineering-safety-review` | Ai Prompt Engineering Safety Review |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `security-and-owasp` | Security And Owasp |
-| `a11y` | A11Y |
-| `performance-optimization` | Performance Optimization |
-| `object-calisthenics` | Object Calisthenics |
-| `self-explanatory-code-commenting` | Self Explanatory Code Commenting |
+| `/security-best-practices:ai-prompt-engineering-safety-review` | Comprehensive AI prompt engineering safety review and improvement prompt. Analyzes prompts for safety, bias, security vulnerabilities, and effectiveness while providing detailed improvement recommendations with extensive frameworks, testing methodologies, and educational content. |
 
 ## Source
 

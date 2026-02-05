@@ -6,7 +6,7 @@ Comprehensive collection for building declarative agents with Model Context Prot
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/mcp-m365-copilot
+copilot plugin install mcp-m365-copilot@awesome-copilot
 ```
 
 ## What's Included
@@ -15,21 +15,15 @@ copilot plugin install github/awesome-copilot/plugins/mcp-m365-copilot
 
 | Command | Description |
 |---------|-------------|
-| `/mcp-m365-copilot:mcp-create-declarative-agent` | Mcp Create Declarative Agent |
-| `/mcp-m365-copilot:mcp-create-adaptive-cards` | Mcp Create Adaptive Cards |
-| `/mcp-m365-copilot:mcp-deploy-manage-agents` | Mcp Deploy Manage Agents |
+| `/mcp-m365-copilot:mcp-create-declarative-agent` | mcp-create-declarative-agent |
+| `/mcp-m365-copilot:mcp-create-adaptive-cards` | mcp-create-adaptive-cards |
+| `/mcp-m365-copilot:mcp-deploy-manage-agents` | mcp-deploy-manage-agents |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `mcp-m365-agent-expert` | Mcp M365 Agent Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `mcp-m365-copilot` | Mcp M365 Copilot |
+| `mcp-m365-agent-expert` | Expert assistant for building MCP-based declarative agents for Microsoft 365 Copilot with Model Context Protocol integration |
 
 ## Source
 

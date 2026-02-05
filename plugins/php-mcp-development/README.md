@@ -6,7 +6,7 @@ Comprehensive resources for building Model Context Protocol servers using the of
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/php-mcp-development
+copilot plugin install php-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/php-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/php-mcp-development:php-mcp-server-generator` | Php Mcp Server Generator |
+| `/php-mcp-development:php-mcp-server-generator` | Generate a complete PHP Model Context Protocol server project with tools, resources, prompts, and tests using the official PHP SDK |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `php-mcp-expert` | Php Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `php-mcp-server` | Php Mcp Server |
+| `php-mcp-expert` | Expert assistant for PHP MCP server development using the official PHP SDK with attribute-based discovery |
 
 ## Source
 

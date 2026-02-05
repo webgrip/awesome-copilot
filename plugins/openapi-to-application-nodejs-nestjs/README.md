@@ -6,7 +6,7 @@ Generate production-ready NestJS applications from OpenAPI specifications. Inclu
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/openapi-to-application-nodejs-nestjs
+copilot plugin install openapi-to-application-nodejs-nestjs@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/openapi-to-application-nod
 
 | Command | Description |
 |---------|-------------|
-| `/openapi-to-application-nodejs-nestjs:openapi-to-application-code` | Openapi To Application Code |
+| `/openapi-to-application-nodejs-nestjs:openapi-to-application-code` | Generate a complete, production-ready application from an OpenAPI specification |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `openapi-to-application` | Openapi To Application |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `nestjs` | Nestjs |
+| `openapi-to-application` | Expert assistant for generating working applications from OpenAPI specifications |
 
 ## Source
 

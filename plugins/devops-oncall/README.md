@@ -6,7 +6,7 @@ A focused set of prompts, instructions, and a chat mode to help triage incidents
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/devops-oncall
+copilot plugin install devops-oncall@awesome-copilot
 ```
 
 ## What's Included
@@ -15,21 +15,14 @@ copilot plugin install github/awesome-copilot/plugins/devops-oncall
 
 | Command | Description |
 |---------|-------------|
-| `/devops-oncall:azure-resource-health-diagnose` | Azure Resource Health Diagnose |
-| `/devops-oncall:multi-stage-dockerfile` | Multi Stage Dockerfile |
+| `/devops-oncall:azure-resource-health-diagnose` | Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified problems. |
+| `/devops-oncall:multi-stage-dockerfile` | Create optimized multi-stage Dockerfiles for any language or framework |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `azure-principal-architect` | Azure Principal Architect |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `devops-core-principles` | Devops Core Principles |
-| `containerization-docker-best-practices` | Containerization Docker Best Practices |
+| `azure-principal-architect` | Provide expert Azure Principal Architect guidance using Azure Well-Architected Framework principles and Microsoft best practices. |
 
 ## Source
 

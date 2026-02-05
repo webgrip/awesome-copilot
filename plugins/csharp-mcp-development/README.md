@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in C# using t
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/csharp-mcp-development
+copilot plugin install csharp-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/csharp-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/csharp-mcp-development:csharp-mcp-server-generator` | Csharp Mcp Server Generator |
+| `/csharp-mcp-development:csharp-mcp-server-generator` | Generate a complete MCP server project in C# with tools, prompts, and proper configuration |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `csharp-mcp-expert` | Csharp Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `csharp-mcp-server` | Csharp Mcp Server |
+| `csharp-mcp-expert` | Expert assistant for developing Model Context Protocol (MCP) servers in C# |
 
 ## Source
 

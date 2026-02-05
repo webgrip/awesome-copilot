@@ -6,7 +6,7 @@ Essential prompts, instructions, and chat modes for C# and .NET development incl
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/csharp-dotnet-development
+copilot plugin install csharp-dotnet-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,24 +15,17 @@ copilot plugin install github/awesome-copilot/plugins/csharp-dotnet-development
 
 | Command | Description |
 |---------|-------------|
-| `/csharp-dotnet-development:csharp-async` | Csharp Async |
-| `/csharp-dotnet-development:aspnet-minimal-api-openapi` | Aspnet Minimal Api Openapi |
-| `/csharp-dotnet-development:csharp-xunit` | Csharp Xunit |
-| `/csharp-dotnet-development:dotnet-best-practices` | Dotnet Best Practices |
-| `/csharp-dotnet-development:dotnet-upgrade` | Dotnet Upgrade |
+| `/csharp-dotnet-development:csharp-async` | Get best practices for C# async programming |
+| `/csharp-dotnet-development:aspnet-minimal-api-openapi` | Create ASP.NET Minimal API endpoints with proper OpenAPI documentation |
+| `/csharp-dotnet-development:csharp-xunit` | Get best practices for XUnit unit testing, including data-driven tests |
+| `/csharp-dotnet-development:dotnet-best-practices` | Ensure .NET/C# code meets best practices for the solution/project. |
+| `/csharp-dotnet-development:dotnet-upgrade` | Ready-to-use prompts for comprehensive .NET framework upgrade analysis and execution |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `expert-dotnet-software-engineer` | Expert Dotnet Software Engineer |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `csharp` | Csharp |
-| `dotnet-architecture-good-practices` | Dotnet Architecture Good Practices |
+| `expert-dotnet-software-engineer` | Provide expert .NET software engineering guidance using modern software design patterns. |
 
 ## Source
 

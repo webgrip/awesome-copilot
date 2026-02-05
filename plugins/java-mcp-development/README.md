@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol servers in Java using the o
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/java-mcp-development
+copilot plugin install java-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/java-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/java-mcp-development:java-mcp-server-generator` | Java Mcp Server Generator |
+| `/java-mcp-development:java-mcp-server-generator` | Generate a complete Model Context Protocol server project in Java using the official MCP Java SDK with reactive streams and optional Spring Boot integration. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `java-mcp-expert` | Java Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `java-mcp-server` | Java Mcp Server |
+| `java-mcp-expert` | Expert assistance for building Model Context Protocol servers in Java using reactive streams, the official MCP Java SDK, and Spring Boot integration. |
 
 ## Source
 

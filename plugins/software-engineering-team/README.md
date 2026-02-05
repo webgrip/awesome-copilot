@@ -2,45 +2,30 @@
 
 7 specialized agents covering the full software development lifecycle from UX design and architecture to security and DevOps.
 
-Based on learnings from [The AI-Native Engineering Flow](https://medium.com/data-science-at-microsoft/the-ai-native-engineering-flow-5de5ffd7d877) experiments at Microsoft.
-
 ## Installation
 
 ```bash
-copilot plugin install github/awesome-copilot/plugins/software-engineering-team
+# Using Copilot CLI
+copilot plugin install software-engineering-team@awesome-copilot
 ```
 
-## Agents
+## What's Included
+
+### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `se-ux-ui-designer` | Jobs-to-be-Done analysis and user journey mapping |
-| `se-technical-writer` | Technical documentation, blogs, ADRs, and user guides |
-| `se-gitops-ci-specialist` | CI/CD debugging and deployment troubleshooting |
-| `se-product-manager-advisor` | GitHub issues with business context and acceptance criteria |
-| `se-responsible-ai-code` | Bias testing, accessibility (WCAG), and ethical development |
-| `se-system-architecture-reviewer` | Architecture reviews with Well-Architected frameworks |
-| `se-security-reviewer` | OWASP Top 10, LLM/ML security, and Zero Trust |
-
-## Key Design Principles
-
-- **Standalone**: Each agent works independently without cross-dependencies
-- **Enterprise-ready**: Incorporates OWASP, Zero Trust, WCAG, and Well-Architected frameworks
-- **Lifecycle coverage**: From UX research → Architecture → Development → Security → DevOps
-
-## Usage
-
-```
-@se-security-reviewer Review this authentication implementation for security issues
-```
-
-```
-@se-system-architecture-reviewer Evaluate this microservices design against Azure Well-Architected
-```
+| `se-ux-ui-designer` | Jobs-to-be-Done analysis, user journey mapping, and UX research artifacts for Figma and design workflows |
+| `se-technical-writer` | Technical writing specialist for creating developer documentation, technical blogs, tutorials, and educational content |
+| `se-gitops-ci-specialist` | DevOps specialist for CI/CD pipelines, deployment debugging, and GitOps workflows focused on making deployments boring and reliable |
+| `se-product-manager-advisor` | Product management guidance for creating GitHub issues, aligning business value with user needs, and making data-driven product decisions |
+| `se-responsible-ai-code` | Responsible AI specialist ensuring AI works for everyone through bias prevention, accessibility compliance, ethical development, and inclusive design |
+| `se-system-architecture-reviewer` | System architecture review specialist with Well-Architected frameworks, design validation, and scalability analysis for AI and distributed systems |
+| `se-security-reviewer` | Security-focused code review specialist with OWASP Top 10, Zero Trust, LLM security, and enterprise security standards |
 
 ## Source
 
-Part of [Awesome Copilot](https://github.com/github/awesome-copilot).
+This plugin is part of [Awesome Copilot](https://github.com/github/awesome-copilot), a community-driven collection of GitHub Copilot extensions.
 
 ## License
 

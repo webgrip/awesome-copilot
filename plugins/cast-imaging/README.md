@@ -6,7 +6,7 @@ A comprehensive collection of specialized agents for software analysis, impact a
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/cast-imaging
+copilot plugin install cast-imaging@awesome-copilot
 ```
 
 ## What's Included
@@ -15,9 +15,9 @@ copilot plugin install github/awesome-copilot/plugins/cast-imaging
 
 | Agent | Description |
 |-------|-------------|
-| `cast-imaging-software-discovery` | Cast Imaging Software Discovery |
-| `cast-imaging-impact-analysis` | Cast Imaging Impact Analysis |
-| `cast-imaging-structural-quality-advisor` | Cast Imaging Structural Quality Advisor |
+| `cast-imaging-software-discovery` | Specialized agent for comprehensive software application discovery and architectural mapping through static code analysis using CAST Imaging |
+| `cast-imaging-impact-analysis` | Specialized agent for comprehensive change impact assessment and risk analysis in software systems using CAST Imaging |
+| `cast-imaging-structural-quality-advisor` | Specialized agent for identifying, analyzing, and providing remediation guidance for code quality issues using CAST Imaging |
 
 ## Source
 

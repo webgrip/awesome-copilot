@@ -6,7 +6,7 @@ Complete toolkit for developing Power Platform custom connectors with Model Cont
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/power-platform-mcp-connector-development
+copilot plugin install power-platform-mcp-connector-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,20 +15,14 @@ copilot plugin install github/awesome-copilot/plugins/power-platform-mcp-connect
 
 | Command | Description |
 |---------|-------------|
-| `/power-platform-mcp-connector-development:power-platform-mcp-connector-suite` | Power Platform Mcp Connector Suite |
-| `/power-platform-mcp-connector-development:mcp-copilot-studio-server-generator` | Mcp Copilot Studio Server Generator |
+| `/power-platform-mcp-connector-development:power-platform-mcp-connector-suite` | Generate complete Power Platform custom connector with MCP integration for Copilot Studio - includes schema generation, troubleshooting, and validation |
+| `/power-platform-mcp-connector-development:mcp-copilot-studio-server-generator` | Generate a complete MCP server implementation optimized for Copilot Studio integration with proper schema constraints and streamable HTTP support |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `power-platform-mcp-integration-expert` | Power Platform Mcp Integration Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `power-platform-mcp-development` | Power Platform Mcp Development |
+| `power-platform-mcp-integration-expert` | Expert in Power Platform custom connector development with MCP integration for Copilot Studio - comprehensive knowledge of schemas, protocols, and integration patterns |
 
 ## Source
 

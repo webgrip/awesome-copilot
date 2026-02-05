@@ -6,7 +6,7 @@ Essential prompts, instructions, and chat modes for modern frontend web developm
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/frontend-web-dev
+copilot plugin install frontend-web-dev@awesome-copilot
 ```
 
 ## What's Included
@@ -15,27 +15,15 @@ copilot plugin install github/awesome-copilot/plugins/frontend-web-dev
 
 | Command | Description |
 |---------|-------------|
-| `/frontend-web-dev:playwright-explore-website` | Playwright Explore Website |
-| `/frontend-web-dev:playwright-generate-test` | Playwright Generate Test |
+| `/frontend-web-dev:playwright-explore-website` | Website exploration for testing using Playwright MCP |
+| `/frontend-web-dev:playwright-generate-test` | Generate a Playwright test based on a scenario using Playwright MCP |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `expert-react-frontend-engineer` | Expert React Frontend Engineer |
-| `electron-angular-native` | Electron Angular Native |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `reactjs` | Reactjs |
-| `angular` | Angular |
-| `vuejs3` | Vuejs3 |
-| `nextjs` | Nextjs |
-| `nextjs-tailwind` | Nextjs Tailwind |
-| `tanstack-start-shadcn-tailwind` | Tanstack Start Shadcn Tailwind |
-| `nodejs-javascript-vitest` | Nodejs Javascript Vitest |
+| `expert-react-frontend-engineer` | Expert React 19.2 frontend engineer specializing in modern hooks, Server Components, Actions, TypeScript, and performance optimization |
+| `electron-angular-native` | Code Review Mode tailored for Electron app with Node.js backend (main), Angular frontend (render), and native integration layer (e.g., AppleScript, shell, or native tooling). Services in other repos are not reviewed here. |
 
 ## Source
 

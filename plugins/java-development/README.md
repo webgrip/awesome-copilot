@@ -6,7 +6,7 @@ Comprehensive collection of prompts and instructions for Java development includ
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/java-development
+copilot plugin install java-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,23 +15,10 @@ copilot plugin install github/awesome-copilot/plugins/java-development
 
 | Command | Description |
 |---------|-------------|
-| `/java-development:java-docs` | Java Docs |
-| `/java-development:java-junit` | Java Junit |
-| `/java-development:java-springboot` | Java Springboot |
-| `/java-development:create-spring-boot-java-project` | Create Spring Boot Java Project |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `java` | Java |
-| `springboot` | Springboot |
-| `quarkus` | Quarkus |
-| `quarkus-mcp-server-sse` | Quarkus Mcp Server Sse |
-| `convert-jpa-to-spring-data-cosmos` | Convert Jpa To Spring Data Cosmos |
-| `java-11-to-java-17-upgrade` | Java 11 To Java 17 Upgrade |
-| `java-17-to-java-21-upgrade` | Java 17 To Java 21 Upgrade |
-| `java-21-to-java-25-upgrade` | Java 21 To Java 25 Upgrade |
+| `/java-development:java-docs` | Ensure that Java types are documented with Javadoc comments and follow best practices for documentation. |
+| `/java-development:java-junit` | Get best practices for JUnit 5 unit testing, including data-driven tests |
+| `/java-development:java-springboot` | Get best practices for developing applications with Spring Boot. |
+| `/java-development:create-spring-boot-java-project` | Create Spring Boot Java Project Skeleton |
 
 ## Source
 

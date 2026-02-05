@@ -6,7 +6,7 @@ Generate production-ready .NET applications from OpenAPI specifications. Include
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/openapi-to-application-csharp-dotnet
+copilot plugin install openapi-to-application-csharp-dotnet@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/openapi-to-application-csh
 
 | Command | Description |
 |---------|-------------|
-| `/openapi-to-application-csharp-dotnet:openapi-to-application-code` | Openapi To Application Code |
+| `/openapi-to-application-csharp-dotnet:openapi-to-application-code` | Generate a complete, production-ready application from an OpenAPI specification |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `openapi-to-application` | Openapi To Application |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `csharp` | Csharp |
+| `openapi-to-application` | Expert assistant for generating working applications from OpenAPI specifications |
 
 ## Source
 

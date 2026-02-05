@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in Kotlin usi
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/kotlin-mcp-development
+copilot plugin install kotlin-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/kotlin-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/kotlin-mcp-development:kotlin-mcp-server-generator` | Kotlin Mcp Server Generator |
+| `/kotlin-mcp-development:kotlin-mcp-server-generator` | Generate a complete Kotlin MCP server project with proper structure, dependencies, and implementation using the official io.modelcontextprotocol:kotlin-sdk library. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `kotlin-mcp-expert` | Kotlin Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `kotlin-mcp-server` | Kotlin Mcp Server |
+| `kotlin-mcp-expert` | Expert assistant for building Model Context Protocol (MCP) servers in Kotlin using the official SDK. |
 
 ## Source
 

@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol servers in Ruby using the o
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/ruby-mcp-development
+copilot plugin install ruby-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/ruby-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/ruby-mcp-development:ruby-mcp-server-generator` | Ruby Mcp Server Generator |
+| `/ruby-mcp-development:ruby-mcp-server-generator` | Generate a complete Model Context Protocol server project in Ruby using the official MCP Ruby SDK gem. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `ruby-mcp-expert` | Ruby Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `ruby-mcp-server` | Ruby Mcp Server |
+| `ruby-mcp-expert` | Expert assistance for building Model Context Protocol servers in Ruby using the official MCP Ruby SDK gem with Rails integration. |
 
 ## Source
 

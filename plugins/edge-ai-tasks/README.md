@@ -6,7 +6,7 @@ Task Researcher and Task Planner for intermediate to expert users and large code
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/edge-ai-tasks
+copilot plugin install edge-ai-tasks@awesome-copilot
 ```
 
 ## What's Included
@@ -15,14 +15,8 @@ copilot plugin install github/awesome-copilot/plugins/edge-ai-tasks
 
 | Agent | Description |
 |-------|-------------|
-| `task-researcher` | Task Researcher |
-| `task-planner` | Task Planner |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `task-implementation` | Task Implementation |
+| `task-researcher` | Task research specialist for comprehensive project analysis - Brought to you by microsoft/edge-ai |
+| `task-planner` | Task planner for creating actionable implementation plans - Brought to you by microsoft/edge-ai |
 
 ## Source
 

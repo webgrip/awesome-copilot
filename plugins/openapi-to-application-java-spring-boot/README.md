@@ -6,7 +6,7 @@ Generate production-ready Spring Boot applications from OpenAPI specifications. 
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/openapi-to-application-java-spring-boot
+copilot plugin install openapi-to-application-java-spring-boot@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/openapi-to-application-jav
 
 | Command | Description |
 |---------|-------------|
-| `/openapi-to-application-java-spring-boot:openapi-to-application-code` | Openapi To Application Code |
+| `/openapi-to-application-java-spring-boot:openapi-to-application-code` | Generate a complete, production-ready application from an OpenAPI specification |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `openapi-to-application` | Openapi To Application |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `springboot` | Springboot |
+| `openapi-to-application` | Expert assistant for generating working applications from OpenAPI specifications |
 
 ## Source
 

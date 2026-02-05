@@ -6,7 +6,7 @@ Tools for creation, management and research of technical spikes to reduce unknow
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/technical-spike
+copilot plugin install technical-spike@awesome-copilot
 ```
 
 ## What's Included
@@ -15,13 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/technical-spike
 
 | Command | Description |
 |---------|-------------|
-| `/technical-spike:create-technical-spike` | Create Technical Spike |
+| `/technical-spike:create-technical-spike` | Create time-boxed technical spike documents for researching and resolving critical development decisions before implementation. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `research-technical-spike` | Research Technical Spike |
+| `research-technical-spike` | Systematically research and validate technical spike documents through exhaustive investigation and controlled experimentation. |
 
 ## Source
 

@@ -6,7 +6,7 @@ Comprehensive collection for building production-ready Python integrations with 
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/dataverse-sdk-for-python
+copilot plugin install dataverse-sdk-for-python@awesome-copilot
 ```
 
 ## What's Included
@@ -15,28 +15,10 @@ copilot plugin install github/awesome-copilot/plugins/dataverse-sdk-for-python
 
 | Command | Description |
 |---------|-------------|
-| `/dataverse-sdk-for-python:dataverse-python-quickstart` | Dataverse Python Quickstart |
-| `/dataverse-sdk-for-python:dataverse-python-advanced-patterns` | Dataverse Python Advanced Patterns |
-| `/dataverse-sdk-for-python:dataverse-python-production-code` | Dataverse Python Production Code |
-| `/dataverse-sdk-for-python:dataverse-python-usecase-builder` | Dataverse Python Usecase Builder |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `dataverse-python-sdk` | Dataverse Python Sdk |
-| `dataverse-python-api-reference` | Dataverse Python Api Reference |
-| `dataverse-python-modules` | Dataverse Python Modules |
-| `dataverse-python-best-practices` | Dataverse Python Best Practices |
-| `dataverse-python-advanced-features` | Dataverse Python Advanced Features |
-| `dataverse-python-agentic-workflows` | Dataverse Python Agentic Workflows |
-| `dataverse-python-authentication-security` | Dataverse Python Authentication Security |
-| `dataverse-python-error-handling` | Dataverse Python Error Handling |
-| `dataverse-python-file-operations` | Dataverse Python File Operations |
-| `dataverse-python-pandas-integration` | Dataverse Python Pandas Integration |
-| `dataverse-python-performance-optimization` | Dataverse Python Performance Optimization |
-| `dataverse-python-real-world-usecases` | Dataverse Python Real World Usecases |
-| `dataverse-python-testing-debugging` | Dataverse Python Testing Debugging |
+| `/dataverse-sdk-for-python:dataverse-python-quickstart` | Generate Python SDK setup + CRUD + bulk + paging snippets using official patterns. |
+| `/dataverse-sdk-for-python:dataverse-python-advanced-patterns` | Generate production code for Dataverse SDK using advanced patterns, error handling, and optimization techniques. |
+| `/dataverse-sdk-for-python:dataverse-python-production-code` | Generate production-ready Python code using Dataverse SDK with error handling, optimization, and best practices |
+| `/dataverse-sdk-for-python:dataverse-python-usecase-builder` | Generate complete solutions for specific Dataverse SDK use cases with architecture recommendations |
 
 ## Source
 

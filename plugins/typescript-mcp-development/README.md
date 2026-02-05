@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in TypeScript
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/typescript-mcp-development
+copilot plugin install typescript-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/typescript-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/typescript-mcp-development:typescript-mcp-server-generator` | Typescript Mcp Server Generator |
+| `/typescript-mcp-development:typescript-mcp-server-generator` | Generate a complete MCP server project in TypeScript with tools, resources, and proper configuration |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `typescript-mcp-expert` | Typescript Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `typescript-mcp-server` | Typescript Mcp Server |
+| `typescript-mcp-expert` | Expert assistant for developing Model Context Protocol (MCP) servers in TypeScript |
 
 ## Source
 

@@ -6,7 +6,7 @@ Complete toolkit for Power Apps Code Apps development including project scaffold
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/power-apps-code-apps
+copilot plugin install power-apps-code-apps@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/power-apps-code-apps
 
 | Command | Description |
 |---------|-------------|
-| `/power-apps-code-apps:power-apps-code-app-scaffold` | Power Apps Code App Scaffold |
+| `/power-apps-code-apps:power-apps-code-app-scaffold` | Scaffold a complete Power Apps Code App project with PAC CLI setup, SDK integration, and connector configuration |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `power-platform-expert` | Power Platform Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `power-apps-code-apps` | Power Apps Code Apps |
+| `power-platform-expert` | Power Platform expert providing guidance on Code Apps, canvas apps, Dataverse, connectors, and Power Platform best practices |
 
 ## Source
 

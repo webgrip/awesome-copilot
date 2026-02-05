@@ -6,7 +6,7 @@ Complete toolkit for building Model Context Protocol (MCP) servers in Go using t
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/go-mcp-development
+copilot plugin install go-mcp-development@awesome-copilot
 ```
 
 ## What's Included
@@ -15,19 +15,13 @@ copilot plugin install github/awesome-copilot/plugins/go-mcp-development
 
 | Command | Description |
 |---------|-------------|
-| `/go-mcp-development:go-mcp-server-generator` | Go Mcp Server Generator |
+| `/go-mcp-development:go-mcp-server-generator` | Generate a complete Go MCP server project with proper structure, dependencies, and implementation using the official github.com/modelcontextprotocol/go-sdk. |
 
 ### Agents
 
 | Agent | Description |
 |-------|-------------|
-| `go-mcp-expert` | Go Mcp Expert |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `go-mcp-server` | Go Mcp Server |
+| `go-mcp-expert` | Expert assistant for building Model Context Protocol (MCP) servers in Go using the official SDK. |
 
 ## Source
 

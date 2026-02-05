@@ -6,7 +6,7 @@ Build applications with the GitHub Copilot SDK across multiple programming langu
 
 ```bash
 # Using Copilot CLI
-copilot plugin install github/awesome-copilot/plugins/copilot-sdk
+copilot plugin install copilot-sdk@awesome-copilot
 ```
 
 ## What's Included
@@ -15,7 +15,7 @@ copilot plugin install github/awesome-copilot/plugins/copilot-sdk
 
 | Skill | Description |
 |-------|-------------|
-| `copilot-sdk` | Build agentic applications with GitHub Copilot SDK |
+| `SKILL.md` | Build agentic applications with GitHub Copilot SDK. Use when embedding AI agents in apps, creating custom tools, implementing streaming responses, managing sessions, connecting to MCP servers, or creating custom agents. Triggers on Copilot SDK, GitHub SDK, agentic app, embed Copilot, programmable agent, MCP server, custom agent. |
 
 ## Source
 
