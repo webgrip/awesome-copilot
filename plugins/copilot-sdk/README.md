@@ -15,16 +15,7 @@ copilot plugin install github/awesome-copilot/plugins/copilot-sdk
 
 | Skill | Description |
 |-------|-------------|
-| `SKILL` | Skill |
-
-### Instructions
-
-| Instruction | Description |
-|-------------|-------------|
-| `copilot-sdk-csharp` | Copilot Sdk Csharp |
-| `copilot-sdk-go` | Copilot Sdk Go |
-| `copilot-sdk-nodejs` | Copilot Sdk Nodejs |
-| `copilot-sdk-python` | Copilot Sdk Python |
+| `copilot-sdk` | Build agentic applications with GitHub Copilot SDK |
 
 ## Source
 
