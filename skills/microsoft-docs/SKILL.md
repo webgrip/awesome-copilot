@@ -72,25 +72,19 @@ The **Learn website** source has polished tutorials and conceptual docs. The **G
 
 **Use both** for comprehensive Agent Framework coverage: query the website source for "how to" guides, then the repo source for API-level specifics.
 
-##### DevUI Workflow
+##### Researching DevUI
 
-DevUI is a sample app for running and debugging agents/workflows interactively. Key topics:
+DevUI docs are split across Learn and the GitHub repo. The best research strategy:
 
-1. **Installation**: `pip install agent-framework-devui --pre`
-2. **Programmatic launch**: `serve(entities=[agent], auto_open=True)` — registers agents in-memory
-3. **Directory discovery**: `devui ./agents --port 8080` — auto-discovers agents/workflows from `__init__.py` files
-4. **Tracing**: `devui ./agents --tracing` or `serve(entities=[agent], tracing_enabled=True)` — enables OpenTelemetry traces visible in the debug panel
-5. **OpenAI-compatible API**: `POST /v1/responses` with `metadata.entity_id` — use with OpenAI Python SDK
-6. **OpenAI proxy**: Set `X-Proxy-Backend: openai` header to proxy requests through DevUI (keeps API key server-side)
-7. **Authentication**: `devui ./agents --auth --auth-token "token"` — Bearer token auth
-8. **UI modes**: `--mode developer` (default, full debug) vs `--mode user` (simplified, restricted)
-9. **.NET integration**: `builder.AddDevUI()` + `app.MapDevUI()` in ASP.NET Core (development only)
-10. **Export to external observability**: Set `OTLP_ENDPOINT` to send traces to Jaeger, Zipkin, Azure Monitor, Datadog
+| What You Need | Where to Search |
+|---------------|----------------|
+| Setup tutorial, directory structure | Context7 `/websites/learn_microsoft_en-us_agent-framework` — query "DevUI directory discovery" or "DevUI tracing" |
+| CLI flags, REST API endpoints, auth config | Context7 `/microsoft/agent-framework` — query "DevUI CLI options" or "DevUI POST /v1/responses" |
+| Working Python code snippets | `microsoft_code_sample_search` with `language: "python"` — query "DevUI agent framework serve" |
+| Working C# integration code | `microsoft_code_sample_search` with `language: "csharp"` — query "DevUI AddDevUI MapDevUI" |
+| Full setup guide in one page | `microsoft_docs_fetch` with URL `https://learn.microsoft.com/en-us/agent-framework/user-guide/devui/` |
 
-**Best query strategy for DevUI:**
-- Use `microsoft_code_sample_search` with `language: "python"` for working DevUI code
-- Use Context7 `/microsoft/agent-framework` for the DevUI REST API reference
-- Use Context7 `/websites/learn_microsoft_en-us_agent-framework` for directory structure and tracing guides
+The GitHub repo source is particularly valuable for DevUI because it contains API-level detail (endpoint schemas, proxy config, auth tokens) that the Learn page summarizes.
 
 #### Semantic Kernel
 
