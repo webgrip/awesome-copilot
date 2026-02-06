@@ -54,7 +54,31 @@ To make it easy to add these customizations to your editor, we have created an [
 
 </details>
 
+## 📄 llms.txt
+
+An [`llms.txt`](https://github.github.io/awesome-copilot/llms.txt) file following the [llmstxt.org](https://llmstxt.org/) specification is available on the GitHub Pages site. This machine-readable file makes it easy for Large Language Models to discover and understand all available agents, prompts, instructions, and skills, providing a structured overview of the repository's resources with names and descriptions.
+
 ## 🔧 How to Use
+
+### 🔌 Plugins
+
+Plugins are installable packages generated from collections. Each plugin contains symlinked agents, commands (prompts), and skills from the source collection, making it easy to install a curated set of resources.
+
+#### Installing Plugins
+
+First, add the Awesome Copilot marketplace to your Copilot CLI:
+
+```bash
+copilot marketplace add github/awesome-copilot
+```
+
+Then install any plugin from the collection:
+
+```bash
+copilot plugin install <plugin-name>@awesome-copilot
+```
+
+Alternatively, you can use the `/plugin` command within a Copilot chat session to browse and install plugins interactively.
 
 ### 🤖 Custom Agents
 
@@ -103,6 +127,7 @@ For AI coding agents working with this project, refer to [AGENTS.md](AGENTS.md) 
 ├── instructions/     # Coding standards and best practices (.instructions.md)
 ├── agents/           # AI personas and specialized modes (.agent.md)
 ├── collections/      # Curated collections of related items (.collection.yml)
+├── plugins/          # Installable plugins generated from collections
 ├── scripts/          # Utility scripts for maintenance
 └── skills/           # AI capabilities for specialized tasks
 ```
