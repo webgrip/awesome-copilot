@@ -176,7 +176,7 @@ context7_query("/websites/learn_microsoft_en-us_semantic-kernel", "ChatCompletio
 context7_query("/websites/learn_microsoft_en-us_semantic-kernel_frameworks_agent", "AgentGroupChat selection strategy termination")
 
 # Agent Framework workflows
-context7_query("/websites/learn_microsoft_en-us_agent-framework", "workflow orchestration magentic handoff conditional edge")
+context7_query("/websites/learn_microsoft_en-us_agent-framework", "workflow orchestration multi-agent handoff conditional edge")
 microsoft_code_sample_search(language="csharp", query="agent framework workflow WorkflowBuilder AddEdge")
 
 # Cross-framework tracing
