@@ -265,10 +265,10 @@ stmt.setString(1, email);
 ```
 
 **Reference:** OWASP SQL Injection Prevention Cheat Sheet
-```
+````
 
 #### Important Issue
-```markdown
+````markdown
 **🟡 IMPORTANT - Testing: Missing test coverage for critical path**
 
 The `processPayment()` function handles financial transactions but has no tests
