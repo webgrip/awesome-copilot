@@ -86,14 +86,6 @@ DevUI docs are split across Learn and the GitHub repo. The best research strateg
 
 The GitHub repo source is particularly valuable for DevUI because it contains API-level detail (endpoint schemas, proxy config, auth tokens) that the Learn page summarizes.
 
-#### Semantic Kernel
-
-| Library ID | Snippets | Score | Coverage |
-|---|---|---|---|
-| `/websites/learn_microsoft_en-us_semantic-kernel` | 4,909 | 69.5 | **Primary** — agents, plugins, orchestration, function calling, migration guides |
-| `/websites/learn_microsoft_en-us_semantic-kernel_frameworks_agent` | 932 | 76.4 | Agent framework subset — ChatCompletionAgent, AgentGroupChat, orchestration patterns |
-| `/microsoft/semantic-kernel` | 2,950 | 74.7 | GitHub repo — samples, ADRs, design documents, process integration |
-
 ### Azure & .NET (learn.microsoft.com)
 
 | Library ID | Snippets | Score | Coverage |
