@@ -94,8 +94,6 @@ The GitHub repo source is particularly valuable for DevUI because it contains AP
 | `/websites/learn_microsoft_en-us_semantic-kernel_frameworks_agent` | 932 | 76.4 | Agent framework subset — ChatCompletionAgent, AgentGroupChat, orchestration patterns |
 | `/microsoft/semantic-kernel` | 2,950 | 74.7 | GitHub repo — samples, ADRs, design documents, process integration |
 
-**Use the Learn website source** for Semantic Kernel tutorials and plugin setup. **Use the agent framework subset** for focused agent orchestration queries. **Use the GitHub repo** for sample code, architectural decisions, and advanced patterns (e.g., `GettingStartedWithProcesses`).
-
 ### Azure & .NET (learn.microsoft.com)
 
 | Library ID | Snippets | Score | Coverage |
