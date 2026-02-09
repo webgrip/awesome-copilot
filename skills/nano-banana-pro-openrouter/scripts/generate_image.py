@@ -90,8 +90,9 @@ def resolve_output_paths(filename: str, image_count: int, mime: str):
         suffix = MIME_TO_EXT.get(mime, ".png")
         output_path = output_path.with_suffix(suffix)
 
-    if output_path.parent and not output_path.parent.exists():
-        raise SystemExit(f"Output directory does not exist: {output_path.parent}")
+    # Create parent directory if it doesn't exist (for absolute paths)
+    if output_path.parent and str(output_path.parent) != '.':
+        output_path.parent.mkdir(parents=True, exist_ok=True)
 
     if image_count == 1:
         return [output_path]
