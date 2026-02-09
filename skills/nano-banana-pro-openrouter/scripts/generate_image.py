@@ -3,7 +3,6 @@
 # requires-python = ">=3.10"
 # dependencies = [
 #     "openai",
-#     "pillow",
 # ]
 # ///
 """
@@ -32,9 +31,11 @@ def parse_args():
     parser.add_argument("--prompt", required=True, help="Prompt describing the desired image.")
     parser.add_argument("--filename", required=True, help="Output filename (relative to CWD).")
     parser.add_argument(
-        "--resolution",
-        default="1K",
-        help="Output resolution: 1K, 2K, or 4K.",
+      "--resolution",
+      type=str.upper,
+      choices=["1K", "2K", "4K"],
+      default="1K",
+      help="Output resolution: 1K, 2K, or 4K.",
     )
     parser.add_argument(
         "--input-image",
@@ -70,14 +71,16 @@ def build_message_content(prompt: str, input_images):
         content.append({"type": "image_url", "image_url": {"url": data_url}})
     return content
 
-
-def parse_data_url(data_url: str):
-    if not data_url.startswith("data:") or ";base64," not in data_url:
+    def parse_data_url(data_url: str):
+      if not data_url.startswith("data:") or ";base64," not in data_url:
         raise ValueError("Image URL is not a base64 data URL.")
-    header, encoded = data_url.split(",", 1)
-    mime = header[5:].split(";", 1)[0]
-    raw = base64.b64decode(encoded)
-    return mime, raw
+      header, encoded = data_url.split(",", 1)
+      mime = header[5:].split(";", 1)[0]
+      try:
+        raw = base64.b64decode(encoded)
+      except Exception as e:
+        raise SystemExit(f"Failed to decode base64 image payload: {e}")
+      return mime, raw
 
 
 def resolve_output_paths(filename: str, image_count: int, mime: str):
@@ -110,7 +113,7 @@ def load_system_prompt():
     """Load system prompt from assets/SYSTEM_TEMPLATE if it exists and is not empty."""
     script_dir = Path(__file__).parent.parent
     template_path = script_dir / "assets" / "SYSTEM_TEMPLATE"
-    
+
     if template_path.exists():
         content = template_path.read_text().strip()
         if content:

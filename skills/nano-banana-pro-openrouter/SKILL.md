@@ -1,6 +1,6 @@
 ---
 name: nano-banana-pro-openrouter
-description: Generate or edit images via OpenRouter using openai-python with the Gemini 3 Pro Image model. Use for prompt-only image generation, image edits, and multi-image compositing; supports 1K/2K/4K output, saves results to the current working directory, and prints MEDIA lines.
+description: 'Generate or edit images via OpenRouter with the Gemini 3 Pro Image model. Use for prompt-only image generation, image edits, and multi-image compositing; supports 1K/2K/4K output, saves results to the current working directory, and prints MEDIA lines.'
 metadata:
   emoji: 🍌
   requires:
@@ -11,11 +11,12 @@ metadata:
   primaryEnv: OPENROUTER_API_KEY
 ---
 
+
 # Nano Banana Pro OpenRouter
 
 ## Overview
 
-Generate or edit images with OpenRouter using the `google/gemini-3-pro-image-preview` model and the openai-python client. Support prompt-only generation, single-image edits, and multi-image composition. Save results to the current working directory and output MEDIA lines for easy attachment.
+Generate or edit images with OpenRouter using the `google/gemini-3-pro-image-preview` model. Support prompt-only generation, single-image edits, and multi-image composition. Save results to the current working directory and output MEDIA lines for easy attachment.
 
 ### Prompt-only generation
 
