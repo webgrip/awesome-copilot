@@ -41,7 +41,6 @@ This skill includes the following reference documentation:
 - `aria-form-role.md` - ARIA roles for accessible forms
 - `html-form-elements.md` - Complete HTML form elements reference
 - `html-form-example.md` - Practical HTML form examples
-- `html-reference.md` - General HTML reference
 
 ### Server-Side Processing
 - `form-data-handling.md` - Network form data handling
@@ -49,7 +48,6 @@ This skill includes the following reference documentation:
 - `php-cookies.md` - Cookie management in PHP
 - `php-json.md` - JSON handling in PHP
 - `php-mysql-database.md` - Database integration with PHP
-- `php-reference.md` - PHP language reference
 - `python-contact-form.md` - Python contact form implementation
 - `python-flask.md` - Flask forms tutorial
 - `python-flask-app.md` - Building Flask web applications
