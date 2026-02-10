@@ -1658,10 +1658,10 @@ them in quotes, which causes a SQL error.
 
 | Operation | SQL Command |
 |-----------|-------------|
-| **C**reate | `INSERT INTO table (col1, col2) VALUES (val1, val2)` |
-| **R**ead | `SELECT col1, col2 FROM table WHERE condition` |
-| **U**pdate | `UPDATE table SET col1=val1 WHERE condition` |
-| **D**elete | `DELETE FROM table WHERE condition` |
+| **Create** | `INSERT INTO table (col1, col2) VALUES (val1, val2)` |
+| **Read** | `SELECT col1, col2 FROM table WHERE condition` |
+| **Update** | `UPDATE table SET col1=val1 WHERE condition` |
+| **Delete** | `DELETE FROM table WHERE condition` |
 
 ### Query Modifiers
 
