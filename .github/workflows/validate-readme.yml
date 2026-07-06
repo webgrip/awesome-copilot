@@ -64,7 +64,7 @@ jobs:
 
       - name: Comment on PR if files need updating
         if: steps.check-diff.outputs.status == 'failure' && github.event.pull_request.head.repo.permissions.push == true
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3.0.5
         with:
           header: readme-validation
           message: |
